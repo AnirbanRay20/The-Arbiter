@@ -1,0 +1,46 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: 'class',
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        'surface-container-lowest': '#0d0e12',
+        'surface-container-low':    '#1a1b20',
+        'surface-container':        '#1f1f24',
+        'surface-container-high':   '#292a2e',
+        'surface-container-highest':'#343439',
+        'surface-bright':           '#38393e',
+        'on-surface':               '#e3e2e8',
+        'on-surface-variant':       '#bac9cc',
+        'outline-variant':          '#3b494c',
+        'outline':                  '#849396',
+        'primary-container':        '#00e5ff',
+        'on-primary-container':     '#00626e',
+        'secondary-container':      '#feaa00',
+        'error-container':          '#93000a',
+        'background':               '#121317',
+        'brand-true':               '#00E5FF',
+        'brand-false':              '#FF3D57',
+        'brand-partial':            '#FFAB00',
+        'brand-muted':              '#556070',
+      },
+      fontFamily: {
+        headline: ['"Space Grotesk"', 'sans-serif'],
+        body:     ['"Manrope"', 'sans-serif'],
+        label:    ['"Space Grotesk"', 'sans-serif'],
+        mono:     ['"IBM Plex Mono"', 'monospace'],
+        sans:     ['"Manrope"', 'sans-serif'],
+      },
+      borderRadius: {
+        DEFAULT: '1rem',
+        lg:      '2rem',
+        xl:      '3rem',
+        full:    '9999px',
+        none:    '0',
+        sm:      '0.5rem',
+      },
+    },
+  },
+  plugins: [],
+}
