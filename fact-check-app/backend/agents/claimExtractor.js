@@ -9,18 +9,27 @@ async function extractClaims(text) {
     const response = await groq.chat.completions.create({
       model: 'llama-3.3-70b-versatile',
       temperature: 0,
+      max_tokens: 2000,
       messages: [
         { role: 'system', content: EXTRACTOR_SYSTEM_PROMPT },
-        { role: 'user', content: `User Input:\n${text}` }
+        {
+          role: 'user',
+          content: `Extract every individual atomic factual claim from this text. Each claim must be ONE sentence about ONE fact. Do NOT merge multiple facts into a single claim.\n\nText:\n${text}`
+        }
       ]
     });
 
     const content = response.choices[0]?.message?.content || '';
+    console.log('[ClaimExtractor] Raw response:', content.slice(0, 300));
+
     const start = content.indexOf('[');
     const end = content.lastIndexOf(']');
     if (start !== -1 && end !== -1) {
-      return JSON.parse(content.slice(start, end + 1));
+      const parsed = JSON.parse(content.slice(start, end + 1));
+      console.log(`[ClaimExtractor] Extracted ${parsed.length} claims`);
+      return parsed;
     }
+    console.warn('[ClaimExtractor] No JSON array found in response');
     return [];
   } catch (err) {
     console.error('Error extracting claims:', err.message);

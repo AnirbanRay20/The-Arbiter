@@ -12,6 +12,7 @@ import HistoryView from './components/HistoryView';
 import SuggestionsView from './components/SuggestionsView';
 import { useFactCheck } from './hooks/useFactCheck';
 import { detectAIText } from './services/api';
+import CorrectAnswerPanel from './components/CorrectAnswerPanel';
 
 export default function App() {
   const [activeView, setActiveView] = useState('dashboard');
@@ -37,7 +38,8 @@ export default function App() {
     setActiveCategory('All');
     setVisibleCount(6);
     setLastQueryContext(content);
-    if (inputType === 'text') {
+    // Only run AI detection on longer texts (100+ chars) — short questions are not meaningful
+    if (inputType === 'text' && content.trim().length > 100) {
       try { setAiDetection(await detectAIText(content)); }
       catch (e) { console.error(e); }
     }
@@ -110,7 +112,7 @@ export default function App() {
               {activeView === 'suggestions' && (
                 <SuggestionsView
                   key="suggestions"
-                  onSelect={(text) => { setInitialContent(text); setActiveView('dashboard'); }}
+                  onSelect={(text) => { setInitialContent(text); setActiveView('dashboard'); handleFactCheck('text', text); }}
                 />
               )}
 
@@ -166,6 +168,43 @@ export default function App() {
                   {(report || processedClaims.length > 0) && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
 
+                      {/* ── FACT ASKED HEADER ── */}
+                      {lastQueryContext && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          style={{
+                            display: 'flex', alignItems: 'flex-start', gap: 12,
+                            padding: '1rem 1.25rem',
+                            backgroundColor: '#161820',
+                            border: '1px solid rgba(255,255,255,0.06)',
+                            borderLeft: '3px solid #00E5FF',
+                            borderRadius: 8,
+                          }}
+                        >
+                          {/* Icon */}
+                          <span className="material-symbols-outlined" style={{ fontSize: 18, color: '#00E5FF', marginTop: 2, flexShrink: 0 }}>fact_check</span>
+
+                          <div style={{ flex: 1, overflow: 'hidden' }}>
+                            <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.2em', color: '#556070', display: 'block', marginBottom: 6 }}>
+                              Fact Asked
+                            </span>
+                            <p style={{
+                              fontFamily: 'Manrope', fontWeight: 500, fontSize: 14,
+                              color: '#e3e2e8', lineHeight: 1.5, margin: 0,
+                              whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+                            }}>
+                              "{lastQueryContext}"
+                            </p>
+                          </div>
+
+                          {/* Timestamp */}
+                          <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#556070', flexShrink: 0, alignSelf: 'center' }}>
+                            {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                          </span>
+                        </motion.div>
+                      )}
+
                       {/* STEP 2 — Session Intelligence Report
                           AccuracyReport has its own Copy/Download/NewCheck toolbar built-in */}
                       {report && (
@@ -191,7 +230,14 @@ export default function App() {
                         </motion.div>
                       )}
 
-                      {/* STEP 4 — Verified Claims Feed */}
+                      {/* STEP 4 — Correct Answers Panel (for False/Partial claims) */}
+                      {report && processedClaims.length > 0 && (
+                        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
+                          <CorrectAnswerPanel processedClaims={processedClaims} />
+                        </motion.div>
+                      )}
+
+                      {/* STEP 5 — Verified Claims Feed */}
                       {processedClaims.length > 0 && (
                         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}>
 
