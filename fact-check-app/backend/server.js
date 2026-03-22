@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const factcheckRouter = require('./routes/factcheck');
 const aidetectRouter = require('./routes/aidetect');
+const chatsRouter = require('./routes/chats');
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -19,6 +20,7 @@ app.get('/api/health', (req, res) => {
 // Routes
 app.use('/api', factcheckRouter);
 app.use('/api', aidetectRouter);
+app.use('/api', chatsRouter);
 
 app.listen(PORT, () => {
   console.log(`✅ The Arbiter backend running on http://localhost:${PORT}`);

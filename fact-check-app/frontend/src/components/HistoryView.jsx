@@ -272,7 +272,7 @@ function HistoryItem({ item, index, onSelect, onDelete, onShare, onStar }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, x: -40 }}
       transition={{ delay: index * 0.04 }}
-      onClick={() => onSelect && onSelect(item.q)}
+      onClick={() => onSelect && onSelect(item)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{

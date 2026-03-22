@@ -13,3 +13,23 @@ export const detectAIText = async (text) => {
 };
 
 export const getFactCheckStreamUrl = () => `${API_BASE_URL}/api/factcheck`;
+
+export const saveChat = async (chatData) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/api/chats`, chatData);
+    return response.data;
+  } catch (error) {
+    console.error("Save Chat Error:", error);
+    throw error;
+  }
+};
+
+export const getChat = async (id) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/api/chats/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Get Chat Error:", error);
+    throw error;
+  }
+};
