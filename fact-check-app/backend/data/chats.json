@@ -457,5 +457,163 @@
       }
     ],
     "aiDetection": null
+  },
+  "1774209005971": {
+    "id": "1774209005971",
+    "text": "CEO of Google?",
+    "result": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "🟢 Low Risk",
+      "results": [
+        {
+          "id": "C_1774209001061",
+          "claim": "CEO of Google?",
+          "context": "CEO of Google?",
+          "searchQuery": "Google CEO 2026",
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.9,
+          "reasoning": "The evidence snippets from multiple sources consistently mention Sundar Pichai as the CEO of Google. Sources [1], [2], [3], [4], and [5] all refer to Sundar Pichai as the Google CEO, with no contradictory information found. The sources are recent, with all of them being from 2026, which adds to the confidence in the verdict. The consistency across different sources and the lack of any conflicting information support the claim that Sundar Pichai is the CEO of Google.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://www.instagram.com/p/DV0uRulDfS2/",
+              "title": "Instagram post",
+              "relevantSnippet": "2026, Google CEO Sundar Pichai has consistently warned users not to “blindly trust” everything AI tools generate."
+            },
+            {
+              "url": "https://www.msn.com/en-in/money/news/google-announces-io-2026-dates-as-ceo-sundar-pichai-lands-in-india-for-ai-impact-summit/ar-AA1WyJEZ",
+              "title": "Google announces IO 2026 dates",
+              "relevantSnippet": "Google has locked in 19–20 May 2026 for Google I/O, where AI is expected to take centre stage alongside Android and cloud updates."
+            },
+            {
+              "url": "https://www.wionews.com/india-news/ai-impact-summit-2026-google-ceo-sundar-pichai-announces-new-india-us-subsea-cable-project-1771420516184",
+              "title": "AI Impact Summit 2026",
+              "relevantSnippet": "AI Impact Summit 2026: Google CEO Sundar Pichai announces new India-US subsea cable project."
+            },
+            {
+              "url": "https://www.youtube.com/watch?v=i5EVA1Az80k",
+              "title": "Google CEO Sundar Pichai's keynote address",
+              "relevantSnippet": "Google and Alphabet CEO Sundar Pichai delivered a keynote address at the India AI Impact Summit 2026 today, where he reflected on his"
+            },
+            {
+              "url": "https://tech.yahoo.com/ai/gemini/articles/4-highlights-google-ceo-sundar-183211777.html",
+              "title": "4 highlights from Google CEO Sundar Pichai's talk",
+              "relevantSnippet": "4 highlights from Google CEO Sundar Pichai's talk at the AI Impact Summit 2026 in India."
+            }
+          ]
+        }
+      ]
+    },
+    "timestamp": "2026-03-22T19:50:05.971Z",
+    "q": "CEO of Google?",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "🟢 Low Risk",
+      "results": [
+        {
+          "id": "C_1774209001061",
+          "claim": "CEO of Google?",
+          "context": "CEO of Google?",
+          "searchQuery": "Google CEO 2026",
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.9,
+          "reasoning": "The evidence snippets from multiple sources consistently mention Sundar Pichai as the CEO of Google. Sources [1], [2], [3], [4], and [5] all refer to Sundar Pichai as the Google CEO, with no contradictory information found. The sources are recent, with all of them being from 2026, which adds to the confidence in the verdict. The consistency across different sources and the lack of any conflicting information support the claim that Sundar Pichai is the CEO of Google.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://www.instagram.com/p/DV0uRulDfS2/",
+              "title": "Instagram post",
+              "relevantSnippet": "2026, Google CEO Sundar Pichai has consistently warned users not to “blindly trust” everything AI tools generate."
+            },
+            {
+              "url": "https://www.msn.com/en-in/money/news/google-announces-io-2026-dates-as-ceo-sundar-pichai-lands-in-india-for-ai-impact-summit/ar-AA1WyJEZ",
+              "title": "Google announces IO 2026 dates",
+              "relevantSnippet": "Google has locked in 19–20 May 2026 for Google I/O, where AI is expected to take centre stage alongside Android and cloud updates."
+            },
+            {
+              "url": "https://www.wionews.com/india-news/ai-impact-summit-2026-google-ceo-sundar-pichai-announces-new-india-us-subsea-cable-project-1771420516184",
+              "title": "AI Impact Summit 2026",
+              "relevantSnippet": "AI Impact Summit 2026: Google CEO Sundar Pichai announces new India-US subsea cable project."
+            },
+            {
+              "url": "https://www.youtube.com/watch?v=i5EVA1Az80k",
+              "title": "Google CEO Sundar Pichai's keynote address",
+              "relevantSnippet": "Google and Alphabet CEO Sundar Pichai delivered a keynote address at the India AI Impact Summit 2026 today, where he reflected on his"
+            },
+            {
+              "url": "https://tech.yahoo.com/ai/gemini/articles/4-highlights-google-ceo-sundar-183211777.html",
+              "title": "4 highlights from Google CEO Sundar Pichai's talk",
+              "relevantSnippet": "4 highlights from Google CEO Sundar Pichai's talk at the AI Impact Summit 2026 in India."
+            }
+          ]
+        }
+      ]
+    },
+    "claims": [
+      {
+        "id": "C_1774209001061",
+        "claim": "CEO of Google?",
+        "context": "CEO of Google?"
+      }
+    ],
+    "processedClaims": [
+      {
+        "id": "C_1774209001061",
+        "claim": "CEO of Google?",
+        "context": "CEO of Google?",
+        "searchQuery": "Google CEO 2026",
+        "claimId": "C1",
+        "verdict": "True",
+        "confidenceScore": 0.9,
+        "reasoning": "The evidence snippets from multiple sources consistently mention Sundar Pichai as the CEO of Google. Sources [1], [2], [3], [4], and [5] all refer to Sundar Pichai as the Google CEO, with no contradictory information found. The sources are recent, with all of them being from 2026, which adds to the confidence in the verdict. The consistency across different sources and the lack of any conflicting information support the claim that Sundar Pichai is the CEO of Google.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "citations": [
+          {
+            "url": "https://www.instagram.com/p/DV0uRulDfS2/",
+            "title": "Instagram post",
+            "relevantSnippet": "2026, Google CEO Sundar Pichai has consistently warned users not to “blindly trust” everything AI tools generate."
+          },
+          {
+            "url": "https://www.msn.com/en-in/money/news/google-announces-io-2026-dates-as-ceo-sundar-pichai-lands-in-india-for-ai-impact-summit/ar-AA1WyJEZ",
+            "title": "Google announces IO 2026 dates",
+            "relevantSnippet": "Google has locked in 19–20 May 2026 for Google I/O, where AI is expected to take centre stage alongside Android and cloud updates."
+          },
+          {
+            "url": "https://www.wionews.com/india-news/ai-impact-summit-2026-google-ceo-sundar-pichai-announces-new-india-us-subsea-cable-project-1771420516184",
+            "title": "AI Impact Summit 2026",
+            "relevantSnippet": "AI Impact Summit 2026: Google CEO Sundar Pichai announces new India-US subsea cable project."
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=i5EVA1Az80k",
+            "title": "Google CEO Sundar Pichai's keynote address",
+            "relevantSnippet": "Google and Alphabet CEO Sundar Pichai delivered a keynote address at the India AI Impact Summit 2026 today, where he reflected on his"
+          },
+          {
+            "url": "https://tech.yahoo.com/ai/gemini/articles/4-highlights-google-ceo-sundar-183211777.html",
+            "title": "4 highlights from Google CEO Sundar Pichai's talk",
+            "relevantSnippet": "4 highlights from Google CEO Sundar Pichai's talk at the AI Impact Summit 2026 in India."
+          }
+        ]
+      }
+    ],
+    "aiDetection": null
   }
 }
