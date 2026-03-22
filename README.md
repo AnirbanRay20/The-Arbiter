@@ -100,3 +100,6 @@ The UI operates on a highly strict, data-dense "Claude/ChatGPT" lateral layout. 
 - **Unknown/Muted**: `#556070` (Slate)
 
 Fonts: *Space Grotesk*, *Manrope*, and *IBM Plex Mono*.
+
+Author: 
+  Anusmita Ray Chaudhuri,Anirban Ray
