@@ -31,15 +31,15 @@ export default function AccuracyReport({ report }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       style={{
-        backgroundColor: '#292a2e', borderRadius: 8, padding: '2rem',
-        display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem',
-        alignItems: 'center', marginBottom: '2rem',
+        backgroundColor: 'transparent', padding: '1.5rem',
+        display: 'grid', gridTemplateColumns: '160px 1fr', gap: '2rem',
+        alignItems: 'center',
         borderTop: `3px solid ${ringColor}`,
       }}
     >
       {/* Gauge */}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
-        <div style={{ position: 'relative', width: 180, height: 180 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
+        <div style={{ position: 'relative', width: 140, height: 140 }}>
           <svg style={{ width: '100%', height: '100%', transform: 'rotate(-90deg)' }} viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="44" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="10" />
             <motion.circle
@@ -53,7 +53,7 @@ export default function AccuracyReport({ report }) {
             />
           </svg>
           <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 40, color: '#e3e2e8', lineHeight: 1 }}>
+            <span style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 32, color: '#e3e2e8', lineHeight: 1 }}>
               {accuracyScore}%
             </span>
             <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#556070', marginTop: 4 }}>
@@ -67,10 +67,10 @@ export default function AccuracyReport({ report }) {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem' }}>
           <div>
-            <h3 style={{ fontFamily: 'Space Grotesk', fontWeight: 500, fontSize: 22, color: '#e3e2e8', marginBottom: 4 }}>
+            <h3 style={{ fontFamily: 'Space Grotesk', fontWeight: 500, fontSize: 18, color: '#e3e2e8', marginBottom: 2 }}>
               Session Intelligence Report
             </h3>
-            <p style={{ fontFamily: 'Manrope', fontSize: 13, color: '#bac9cc' }}>Forensic Analysis Complete</p>
+            <p style={{ fontFamily: 'Manrope', fontSize: 12, color: '#bac9cc' }}>Forensic Analysis Complete</p>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>
             <span style={{
@@ -82,15 +82,6 @@ export default function AccuracyReport({ report }) {
             }}>
               {riskLevel}
             </span>
-            <button onClick={downloadReport} style={{
-              backgroundColor: '#e3e2e8', color: '#121317',
-              padding: '6px 16px', border: 'none', cursor: 'pointer',
-              fontFamily: 'Space Grotesk', fontWeight: 700,
-              fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.05em',
-              borderRadius: 2,
-            }}>
-              Export Report
-            </button>
           </div>
         </div>
 
@@ -105,9 +96,9 @@ export default function AccuracyReport({ report }) {
               <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, textTransform: 'uppercase', color: '#bac9cc', display: 'block', marginBottom: 6 }}>
                 {s.label}
               </span>
-              <p style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 28, color: '#e3e2e8' }}>
+              <p style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 22, color: '#e3e2e8' }}>
                 {String(s.value).padStart(2, '0')}
-                <span style={{ fontSize: 14, color: '#556070', fontWeight: 400, marginLeft: 4 }}>/ {total}</span>
+                <span style={{ fontSize: 12, color: '#556070', fontWeight: 400, marginLeft: 2 }}>/ {total}</span>
               </p>
             </div>
           ))}

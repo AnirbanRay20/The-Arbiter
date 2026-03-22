@@ -37,13 +37,24 @@ router.post('/factcheck', async (req, res) => {
     // STEP 1: EXTRACTING
     send({ step: 'EXTRACTING', status: 'in_progress', progress: 'Decomposing input into claims...', data: {} });
     await new Promise(r => setTimeout(r, 500));
-    const claims = await extractClaims(textContent);
+    
+    // Smart Input Handling
+    const lowerInput = textContent.trim().toLowerCase();
+    if (['hello', 'hi', 'test'].includes(lowerInput) || lowerInput.split(' ').length <= 1) {
+      textContent = "User input is not a factual claim";
+    }
+
+    let claims = await extractClaims(textContent);
 
     if (!claims || claims.length === 0) {
-      send({ step: 'EXTRACTING', status: 'error', progress: 'No factual claims found.', data: {} });
-      res.end();
-      return;
+      claims = [{
+        id: `C_${Date.now()}`,
+        claim: textContent,
+        context: textContent
+      }];
     }
+
+    console.log("Extracted Claims:", claims);
 
     send({ step: 'EXTRACTING', status: 'complete', progress: `Found ${claims.length} claims.`, data: { claims } });
 

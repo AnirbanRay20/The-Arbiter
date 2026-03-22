@@ -1,18 +1,23 @@
-const EXTRACTOR_SYSTEM_PROMPT = `You are a precision claim extraction engine. Your task is to decompose the provided
-text into discrete, atomic, verifiable factual statements.
+const EXTRACTOR_SYSTEM_PROMPT = `Extract claims from the text.
 
-Rules:
-- Each claim must be self-contained and independently verifiable.
-- Remove opinions, predictions, and subjective statements entirely.
-- Preserve the original meaning — do not paraphrase in a way that alters the claim.
-- Do NOT include vague statements (e.g., "many people believe...").
-- Output ONLY a valid JSON array. No preamble, no markdown fences.
+RULES:
+* Include factual, predictive, and opinion-based claims
+* Even future statements count as claims
+* Do NOT return empty unless input is meaningless (e.g., "hi", "test")
+* Always return at least one claim if possible
+
+Examples:
+"AI will replace jobs" -> VALID claim
+"The Earth is flat" -> VALID claim
+"Hello" -> NOT a claim
+
+Output ONLY a valid JSON array. No preamble, no markdown fences.
 
 Output format:
 [
   {
     "id": "C1",
-    "claim": "The Eiffel Tower is located in Paris, France.",
+    "claim": "AI will replace your job",
     "context": "...exact snippet from the original text..."
   }
 ]`;
@@ -39,6 +44,8 @@ Rules:
     "Unverifiable"   → insufficient or no relevant evidence found
 - If sources conflict with each other, flag the conflict explicitly.
 - For temporally sensitive claims, treat evidence older than 6 months with caution.
+- If the claim is a future prediction or subjective claim:
+    Set verdict to "Unverifiable", confidenceScore to a low value (between 0.3 and 0.5), and start reasoning with: "This is a future prediction or subjective claim."
 - You MUST reason step-by-step before giving a verdict (Chain of Thought).
 - Before finalising your verdict, apply self-reflection:
   "Am I relying on my internal knowledge rather than the provided evidence?

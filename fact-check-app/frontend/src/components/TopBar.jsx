@@ -12,27 +12,24 @@ export default function TopBar({ isProcessing }) {
     }}>
       {/* Left */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-        <h2 style={{
-          fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 18,
-          color: '#00E5FF', letterSpacing: '-0.01em',
-        }}>
-          {isProcessing ? 'System Active' : 'System Ready'}
-        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <h2 style={{
+            fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 18,
+            color: '#00E5FF', letterSpacing: '-0.01em', lineHeight: 1.2
+          }}>
+            {isProcessing ? 'System Active' : 'System Ready'}
+          </h2>
+          <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#bac9cc', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+            Powered by Multi-Agent AI Verification Engine
+          </span>
+        </div>
         <div className={isProcessing ? 'animate-pulse' : ''} style={{
           width: 8, height: 8, borderRadius: '50%',
           backgroundColor: isProcessing ? '#00E5FF' : '#556070',
         }} />
       </div>
 
-      {/* Right */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-        <button style={{ background: 'none', border: 'none', color: '#e3e2e8', cursor: 'pointer', padding: 8, opacity: 0.7 }}>
-          <span className="material-symbols-outlined">notifications</span>
-        </button>
-        <button style={{ background: 'none', border: 'none', color: '#e3e2e8', cursor: 'pointer', padding: 8, display: 'flex', alignItems: 'center', gap: 8, opacity: 0.7 }}>
-          <span className="material-symbols-outlined">account_circle</span>
-          <span style={{ fontFamily: 'Space Grotesk', fontSize: 14, fontWeight: 500 }}>Investigator_01</span>
-        </button>
       </div>
     </header>
   );

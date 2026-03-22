@@ -1,13 +1,12 @@
 import React from 'react';
 
 const NAV = [
-  { icon: 'gavel',        label: 'Dashboard',        active: true  },
-  { icon: 'troubleshoot', label: 'Investigations',    active: false },
-  { icon: 'inventory_2',  label: 'Archive',           active: false },
-  { icon: 'analytics',    label: 'Intelligence Feed', active: false },
+  { id: 'dashboard',   icon: 'gavel',       label: 'Dashboard' },
+  { id: 'history',     icon: 'history',     label: 'History' },
+  { id: 'suggestions', icon: 'lightbulb',   label: 'Suggestions' },
 ];
 
-export default function Sidebar({ onNewCheck }) {
+export default function Sidebar({ activeView, onNavigate, onNewCheck }) {
   return (
     <aside style={{
       width: 248, minHeight: '100vh', display: 'flex', flexDirection: 'column',
@@ -31,26 +30,28 @@ export default function Sidebar({ onNewCheck }) {
 
       {/* Nav */}
       <nav style={{ flex: 1, padding: '1rem 1rem 0' }}>
-        {NAV.map((item) => (
-          <a key={item.label} href="#"
-            style={{
-              display: 'flex', alignItems: 'center', gap: 12,
-              padding: '0.75rem 1rem',
-              color: item.active ? '#00E5FF' : 'rgba(227,226,232,0.6)',
-              backgroundColor: item.active ? '#292a2e' : 'transparent',
-              borderLeft: item.active ? '4px solid #00E5FF' : '4px solid transparent',
-              fontFamily: 'Space Grotesk', fontWeight: 700,
-              fontSize: '0.75rem', letterSpacing: '0.05em', textTransform: 'uppercase',
-              textDecoration: 'none', transition: 'all 0.2s',
-              marginBottom: 4,
-            }}
-            onMouseEnter={e => { if (!item.active) { e.currentTarget.style.color = '#e3e2e8'; e.currentTarget.style.backgroundColor = '#292a2e'; }}}
-            onMouseLeave={e => { if (!item.active) { e.currentTarget.style.color = 'rgba(227,226,232,0.6)'; e.currentTarget.style.backgroundColor = 'transparent'; }}}
-          >
-            <span className="material-symbols-outlined" style={{ fontSize: 20 }}>{item.icon}</span>
-            {item.label}
-          </a>
-        ))}
+        {NAV.map((item) => {
+          const isActive = activeView === item.id;
+          return (
+            <button key={item.id} onClick={() => onNavigate(item.id)}
+              style={{
+                width: '100%', display: 'flex', alignItems: 'center', gap: 12,
+                padding: '0.75rem 1rem', cursor: 'pointer', border: 'none',
+                color: isActive ? '#00E5FF' : 'rgba(227,226,232,0.6)',
+                backgroundColor: isActive ? '#292a2e' : 'transparent',
+                borderLeft: isActive ? '4px solid #00E5FF' : '4px solid transparent',
+                fontFamily: 'Space Grotesk', fontWeight: 700,
+                fontSize: '0.75rem', letterSpacing: '0.05em', textTransform: 'uppercase',
+                transition: 'all 0.2s', marginBottom: 4, textAlign: 'left'
+              }}
+              onMouseEnter={e => { if (!isActive) { e.currentTarget.style.color = '#e3e2e8'; e.currentTarget.style.backgroundColor = '#292a2e'; }}}
+              onMouseLeave={e => { if (!isActive) { e.currentTarget.style.color = 'rgba(227,226,232,0.6)'; e.currentTarget.style.backgroundColor = 'transparent'; }}}
+            >
+              <span className="material-symbols-outlined" style={{ fontSize: 20 }}>{item.icon}</span>
+              {item.label}
+            </button>
+          );
+        })}
       </nav>
 
       {/* New Fact Check CTA */}

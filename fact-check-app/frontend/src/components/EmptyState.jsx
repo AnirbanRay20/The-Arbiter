@@ -1,23 +1,117 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const PLACEHOLDERS = [
-  'Paste text or drop a URL to fact-check...',
-  'Try: "The moon landing happened on July 20, 1969..."',
-  'Try: https://example.com/news-article',
-  'Try: "Scientists confirm that X causes Y..."',
+  'Paste any claim, news, or URL to verify...',
+  'Try: "The Earth is flat"',
+  'Try: "Tesla was founded in 2005"',
+  'Try: "AI will replace all jobs"',
 ];
 
-const SUGGESTIONS = [
-  { icon: 'newspaper', title: 'News Article',    desc: 'Cross-reference breaking headlines with verified wire services.' },
-  { icon: 'campaign',  title: 'Political Speech', desc: 'Scan transcripts for historical accuracy and policy consistency.' },
-  { icon: 'science',   title: 'Research Paper',   desc: 'Validate methodology, citations, and conflicting peer studies.' },
+const CHIPS = [
+  "The Earth is flat",
+  "Tesla was founded in 2005",
+  "AI will replace all jobs"
 ];
 
-export default function EmptyState({ onSubmit, disabled }) {
+export default function EmptyState({ onSubmit, disabled, initialContent = '' }) {
   const [tab, setTab]         = useState('text');
   const [content, setContent] = useState('');
   const [phIdx, setPhIdx]     = useState(0);
+  const [isFocused, setIsFocused] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const recognitionRef = useRef(null);
+  const finalTranscriptRef = useRef('');
+
+  // Initialize Speech Recognition
+  useEffect(() => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition && !recognitionRef.current) {
+      console.log('Voice: Initializing SpeechRecognition...');
+      const rec = new SpeechRecognition();
+      rec.continuous = true;
+      rec.interimResults = true;
+      rec.lang = 'en-US';
+
+      rec.onstart = () => {
+        console.log('Voice: Recognition started');
+        setIsListening(true);
+      };
+
+      rec.onresult = (event) => {
+        console.log('Voice: result event received', event.results);
+        let interimTranscript = '';
+        
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          const transcript = event.results[i][0].transcript;
+          if (event.results[i].isFinal) {
+            finalTranscriptRef.current += transcript;
+          } else {
+            interimTranscript += transcript;
+          }
+        }
+        
+        const fullText = finalTranscriptRef.current + interimTranscript;
+        console.log('Voice: Updating UI content:', fullText);
+        setContent(fullText);
+        
+        // Auto-resize
+        const textarea = document.getElementById('fact-check-input');
+        if (textarea) {
+          textarea.style.height = 'auto';
+          textarea.style.height = textarea.scrollHeight + 'px';
+        }
+      };
+
+      rec.onerror = (e) => {
+        console.error('Voice: Recognition Error:', e.error, e.message);
+        if (e.error === 'not-allowed') {
+          alert('Microphone access denied. Please check browser permissions.');
+        }
+        setIsListening(false);
+      };
+
+      rec.onend = () => {
+        console.log('Voice: Recognition ended');
+        setIsListening(false);
+      };
+
+      recognitionRef.current = rec;
+    }
+    
+    return () => {
+      if (recognitionRef.current) {
+        console.log('Voice: Cleaning up recognition');
+        recognitionRef.current.stop();
+      }
+    };
+  }, []);
+
+  const toggleListening = () => {
+    if (!recognitionRef.current) {
+      console.warn('Voice: Recognition not supported or initialized');
+      return;
+    }
+
+    if (isListening) {
+      console.log('Voice: Manual stop requested');
+      recognitionRef.current.stop();
+    } else {
+      console.log('Voice: Manual start requested');
+      setTab('text');
+      // Sync ref with current box content if the user typed manually
+      finalTranscriptRef.current = content; 
+      try {
+        recognitionRef.current.start();
+      } catch (err) {
+        console.error('Voice: Start failed', err);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (initialContent) setContent(initialContent);
+  }, [initialContent]);
 
   useEffect(() => {
     const t = setInterval(() => setPhIdx(i => (i + 1) % PLACEHOLDERS.length), 3500);
@@ -56,10 +150,16 @@ export default function EmptyState({ onSubmit, disabled }) {
         fontSize: 'clamp(2rem, 5vw, 3.5rem)',
         color: '#e3e2e8', textAlign: 'center',
         letterSpacing: '-0.02em', lineHeight: 1.1,
-        marginBottom: '1.5rem',
+        marginBottom: '1rem',
       }}>
         What do you want<br />to verify today?
       </h2>
+      <p style={{
+        fontFamily: 'Space Grotesk', fontWeight: 600, fontSize: 16, color: '#00E5FF',
+        marginBottom: '1.5rem', textAlign: 'center'
+      }}>
+        🚀 Start by entering a claim to verify
+      </p>
 
       {/* Subtext */}
       <p style={{
@@ -76,27 +176,68 @@ export default function EmptyState({ onSubmit, disabled }) {
         width: '100%', maxWidth: 720,
         backgroundColor: '#161820',
         borderRadius: 16,
-        border: '1px solid rgba(59,73,76,0.3)',
-        boxShadow: '0 8px 40px rgba(0,0,0,0.4)',
+        border: isFocused ? '1px solid rgba(0,229,255,0.5)' : '1px solid rgba(59,73,76,0.3)',
+        transition: 'all 0.3s ease',
+        boxShadow: isFocused ? '0 8px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,229,255,0.15)' : '0 8px 40px rgba(0,0,0,0.4)',
         overflow: 'hidden',
       }}>
         <AnimatePresence mode="wait">
           {!isUrl ? (
-            <motion.div key="text" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <motion.div key="text" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ position: 'relative' }}>
               <textarea
+                id="fact-check-input"
                 value={content}
-                onChange={e => setContent(e.target.value)}
+                onChange={e => {
+                  setContent(e.target.value);
+                  e.target.style.height = 'auto';
+                  e.target.style.height = (e.target.scrollHeight) + 'px';
+                }}
                 placeholder={PLACEHOLDERS[phIdx]}
                 disabled={disabled}
-                rows={6}
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => setIsFocused(false)}
+                rows={4}
                 style={{
                   width: '100%', background: 'transparent',
                   border: 'none', outline: 'none',
                   padding: '1.5rem', resize: 'none',
                   fontFamily: 'Manrope', fontSize: '1.1rem',
-                  color: '#e3e2e8', lineHeight: 1.6,
+                  color: '#e3e2e8', lineHeight: 1.6, minHeight: 150, maxHeight: 400, overflowY: 'auto'
                 }}
               />
+              {content.length > 0 && !disabled && (
+                <button onClick={() => { setContent(''); }}
+                  style={{ position: 'absolute', top: 12, right: 12, background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '50%', width: 24, height: 24, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: '#bac9cc' }}>
+                  <span className="material-symbols-outlined" style={{ fontSize: 16 }}>close</span>
+                </button>
+              )}
+              {recognitionRef.current && !disabled && (
+                <button
+                  onClick={toggleListening}
+                  style={{
+                    position: 'absolute',
+                    bottom: 12,
+                    right: 12,
+                    background: isListening ? '#FF3D57' : 'rgba(255,255,255,0.05)',
+                    border: 'none',
+                    borderRadius: '50%',
+                    width: 36,
+                    height: 36,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    color: isListening ? '#fff' : '#00E5FF',
+                    transition: 'all 0.2s',
+                    boxShadow: isListening ? '0 0 15px rgba(255,61,87,0.4)' : 'none',
+                    zIndex: 10
+                  }}
+                >
+                  <span className={`material-symbols-outlined ${isListening ? 'animate-pulse' : ''}`} style={{ fontSize: 20 }}>
+                    {isListening ? 'mic_off' : 'mic'}
+                  </span>
+                </button>
+              )}
             </motion.div>
           ) : (
             <motion.div key="url" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
@@ -106,6 +247,8 @@ export default function EmptyState({ onSubmit, disabled }) {
                 type="url"
                 value={content}
                 onChange={e => setContent(e.target.value)}
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => setIsFocused(false)}
                 placeholder="example.com/article-to-verify"
                 disabled={disabled}
                 style={{
@@ -162,10 +305,11 @@ export default function EmptyState({ onSubmit, disabled }) {
             padding: '0.6rem 1.5rem',
             backgroundColor: canSubmit ? '#00E5FF' : 'rgba(255,255,255,0.05)',
             color: canSubmit ? '#00363d' : '#556070',
-            border: 'none', borderRadius: 999, cursor: canSubmit ? 'not-allowed' : 'not-allowed',
+            border: 'none', borderRadius: 999, cursor: canSubmit ? 'pointer' : 'not-allowed',
             fontFamily: 'Space Grotesk', fontWeight: 700,
             fontSize: 13, textTransform: 'uppercase', letterSpacing: '0.1em',
             transition: 'all 0.2s',
+            boxShadow: canSubmit ? '0 0 20px rgba(0,229,255,0.4)' : 'none',
           }}>
             {disabled ? (
               <>
@@ -182,36 +326,24 @@ export default function EmptyState({ onSubmit, disabled }) {
         </div>
       </div>
 
-      {/* Suggestion cards */}
+      {/* Suggestion chips */}
       <div style={{
-        display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '1rem', width: '100%', maxWidth: 720,
-        marginTop: '3rem',
+        display: 'flex', flexWrap: 'wrap', justifyContent: 'center',
+        gap: '0.75rem', width: '100%', maxWidth: 720,
+        marginTop: '2rem',
       }}>
-        {SUGGESTIONS.map(card => (
-          <div key={card.title} style={{
-            backgroundColor: '#1a1b20', padding: '1.25rem',
-            borderRadius: 12, border: '1px solid rgba(59,73,76,0.2)',
-            cursor: 'pointer', transition: 'all 0.2s',
+        {CHIPS.map(chip => (
+          <button key={chip} onClick={() => { setTab('text'); setContent(chip); }} disabled={disabled} style={{
+            backgroundColor: 'rgba(255,255,255,0.05)', padding: '0.5rem 1rem',
+            borderRadius: 999, border: '1px solid rgba(59,73,76,0.3)',
+            cursor: disabled ? 'not-allowed' : 'pointer', transition: 'all 0.2s',
+            fontFamily: 'Manrope', fontSize: 13, color: '#e3e2e8',
           }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(0,229,255,0.3)'; e.currentTarget.style.boxShadow = '0 0 20px rgba(0,229,255,0.05)'; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(59,73,76,0.2)'; e.currentTarget.style.boxShadow = 'none'; }}
+            onMouseEnter={e => { if (!disabled) { e.currentTarget.style.borderColor = 'rgba(0,229,255,0.5)'; e.currentTarget.style.color = '#00E5FF'; } }}
+            onMouseLeave={e => { if (!disabled) { e.currentTarget.style.borderColor = 'rgba(59,73,76,0.3)'; e.currentTarget.style.color = '#e3e2e8'; } }}
           >
-            <div style={{
-              width: 40, height: 40, borderRadius: 8,
-              backgroundColor: '#343439',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              marginBottom: '1rem',
-            }}>
-              <span className="material-symbols-outlined" style={{ color: '#00E5FF', fontSize: 20 }}>{card.icon}</span>
-            </div>
-            <h4 style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 13, textTransform: 'uppercase', letterSpacing: '-0.01em', color: '#e3e2e8', marginBottom: 6 }}>
-              {card.title}
-            </h4>
-            <p style={{ fontFamily: 'Manrope', fontSize: 12, color: '#bac9cc', lineHeight: 1.5 }}>
-              {card.desc}
-            </p>
-          </div>
+            {chip}
+          </button>
         ))}
       </div>
     </motion.div>
