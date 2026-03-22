@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const factcheckRouter  = require('./routes/factcheck');
 const aidetectRouter   = require('./routes/aidetect');
-const chatsRouter      = require('./routes/chats');
+//const chatsRouter      = require('./routes/chats');
 const imageCheckRouter = require('./routes/imagecheck'); // ← NEW
 
 const app  = express();
@@ -21,7 +21,7 @@ app.get('/api/health', (req, res) => {
 // Routes
 app.use('/api', factcheckRouter);
 app.use('/api', aidetectRouter);
-app.use('/api', chatsRouter);
+//app.use('/api', chatsRouter);
 app.use('/api', imageCheckRouter); // ← NEW
 
 app.listen(PORT, () => {
