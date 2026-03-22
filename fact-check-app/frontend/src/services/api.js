@@ -33,3 +33,29 @@ export const getChat = async (id) => {
     throw error;
   }
 };
+
+// ── Image Analysis (file upload) ── NEW
+export const analyzeImageFile = async (file) => {
+  try {
+    const formData = new FormData();
+    formData.append('image', file);
+    const response = await axios.post(`${API_BASE_URL}/api/analyze-image`, formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Image Analysis Error:", error);
+    throw error;
+  }
+};
+
+// ── Image Analysis (URL) ── NEW
+export const analyzeImageUrl = async (url) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/api/analyze-image-url`, { url });
+    return response.data;
+  } catch (error) {
+    console.error("Image URL Analysis Error:", error);
+    throw error;
+  }
+};
