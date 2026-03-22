@@ -141,5 +141,321 @@
       }
     ],
     "aiDetection": null
+  },
+  "1774208428185": {
+    "id": "1774208428185",
+    "text": "I am a Good Boy",
+    "result": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 1,
+      "accuracyScore": 0,
+      "riskLevel": "⚪ Insufficient Evidence",
+      "results": [
+        {
+          "id": "C_1774208421859",
+          "claim": "I am a Good Boy",
+          "context": "I am a Good Boy",
+          "searchQuery": "definition of good boy",
+          "claimId": "C1",
+          "verdict": "Unverifiable",
+          "confidenceScore": 0.4,
+          "reasoning": "This is a subjective claim. The provided evidence snippets define 'good boy' in various contexts, including as a term for an obedient dog or child, a pet-name in a romantic relationship, or a compliment for a young, submissive male. However, none of the evidence directly confirms or denies the claim 'I am a Good Boy' as it is a personal and subjective statement. The claim requires personal knowledge or context that is not provided in the evidence. Upon self-reflection, I realize that evaluating this claim requires internal knowledge or personal context, which is not allowed according to the rules.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://en.wiktionary.org/wiki/good_boy",
+              "title": "good boy - Wiktionary, the free dictionary",
+              "relevantSnippet": "good boy (plural good boys). An obedient male dog, child, or someone who behaves like one, even when deemed inappropriate. Oh you're such a good boy,"
+            },
+            {
+              "url": "https://dictionary.reverso.net/english-definition/good+boy",
+              "title": "GOOD BOY - Definition & Meaning - Reverso English Dictionary",
+              "relevantSnippet": "good boy definition: well-behaved male pet, especially a dog. Check meanings, examples, usage tips, pronunciation, domains, and related words."
+            },
+            {
+              "url": "https://www.urbandictionary.com/define.php?term=Good+boy",
+              "title": "Good boy - Urban Dictionary",
+              "relevantSnippet": "A pet-name given to a male partner, also known as a male-sub or sub-slut, by a male or female dom. Depending on the relationship or quality of sex, a \"good boy\""
+            },
+            {
+              "url": "https://www.quora.com/Does-anyone-know-who-a-%E2%80%9Cgood-boy%E2%80%9D-is",
+              "title": "Does anyone know who a “good boy” is? - Quora",
+              "relevantSnippet": "A good boy/girl is one that holds good moral and ethical values in their lives. He/she is responsible in doing what is expected of them by both"
+            },
+            {
+              "url": "https://www.reddit.com/r/GenZ/comments/1hlovyp/good_boy/",
+              "title": "“Good Boy” : r/GenZ - Reddit",
+              "relevantSnippet": "It's typically a compliment for a young, submissive male."
+            }
+          ]
+        }
+      ]
+    },
+    "timestamp": "2026-03-22T19:40:28.185Z",
+    "q": "I am a Good Boy",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 1,
+      "accuracyScore": 0,
+      "riskLevel": "⚪ Insufficient Evidence",
+      "results": [
+        {
+          "id": "C_1774208421859",
+          "claim": "I am a Good Boy",
+          "context": "I am a Good Boy",
+          "searchQuery": "definition of good boy",
+          "claimId": "C1",
+          "verdict": "Unverifiable",
+          "confidenceScore": 0.4,
+          "reasoning": "This is a subjective claim. The provided evidence snippets define 'good boy' in various contexts, including as a term for an obedient dog or child, a pet-name in a romantic relationship, or a compliment for a young, submissive male. However, none of the evidence directly confirms or denies the claim 'I am a Good Boy' as it is a personal and subjective statement. The claim requires personal knowledge or context that is not provided in the evidence. Upon self-reflection, I realize that evaluating this claim requires internal knowledge or personal context, which is not allowed according to the rules.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://en.wiktionary.org/wiki/good_boy",
+              "title": "good boy - Wiktionary, the free dictionary",
+              "relevantSnippet": "good boy (plural good boys). An obedient male dog, child, or someone who behaves like one, even when deemed inappropriate. Oh you're such a good boy,"
+            },
+            {
+              "url": "https://dictionary.reverso.net/english-definition/good+boy",
+              "title": "GOOD BOY - Definition & Meaning - Reverso English Dictionary",
+              "relevantSnippet": "good boy definition: well-behaved male pet, especially a dog. Check meanings, examples, usage tips, pronunciation, domains, and related words."
+            },
+            {
+              "url": "https://www.urbandictionary.com/define.php?term=Good+boy",
+              "title": "Good boy - Urban Dictionary",
+              "relevantSnippet": "A pet-name given to a male partner, also known as a male-sub or sub-slut, by a male or female dom. Depending on the relationship or quality of sex, a \"good boy\""
+            },
+            {
+              "url": "https://www.quora.com/Does-anyone-know-who-a-%E2%80%9Cgood-boy%E2%80%9D-is",
+              "title": "Does anyone know who a “good boy” is? - Quora",
+              "relevantSnippet": "A good boy/girl is one that holds good moral and ethical values in their lives. He/she is responsible in doing what is expected of them by both"
+            },
+            {
+              "url": "https://www.reddit.com/r/GenZ/comments/1hlovyp/good_boy/",
+              "title": "“Good Boy” : r/GenZ - Reddit",
+              "relevantSnippet": "It's typically a compliment for a young, submissive male."
+            }
+          ]
+        }
+      ]
+    },
+    "claims": [
+      {
+        "id": "C_1774208421859",
+        "claim": "I am a Good Boy",
+        "context": "I am a Good Boy"
+      }
+    ],
+    "processedClaims": [
+      {
+        "id": "C_1774208421859",
+        "claim": "I am a Good Boy",
+        "context": "I am a Good Boy",
+        "searchQuery": "definition of good boy",
+        "claimId": "C1",
+        "verdict": "Unverifiable",
+        "confidenceScore": 0.4,
+        "reasoning": "This is a subjective claim. The provided evidence snippets define 'good boy' in various contexts, including as a term for an obedient dog or child, a pet-name in a romantic relationship, or a compliment for a young, submissive male. However, none of the evidence directly confirms or denies the claim 'I am a Good Boy' as it is a personal and subjective statement. The claim requires personal knowledge or context that is not provided in the evidence. Upon self-reflection, I realize that evaluating this claim requires internal knowledge or personal context, which is not allowed according to the rules.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "citations": [
+          {
+            "url": "https://en.wiktionary.org/wiki/good_boy",
+            "title": "good boy - Wiktionary, the free dictionary",
+            "relevantSnippet": "good boy (plural good boys). An obedient male dog, child, or someone who behaves like one, even when deemed inappropriate. Oh you're such a good boy,"
+          },
+          {
+            "url": "https://dictionary.reverso.net/english-definition/good+boy",
+            "title": "GOOD BOY - Definition & Meaning - Reverso English Dictionary",
+            "relevantSnippet": "good boy definition: well-behaved male pet, especially a dog. Check meanings, examples, usage tips, pronunciation, domains, and related words."
+          },
+          {
+            "url": "https://www.urbandictionary.com/define.php?term=Good+boy",
+            "title": "Good boy - Urban Dictionary",
+            "relevantSnippet": "A pet-name given to a male partner, also known as a male-sub or sub-slut, by a male or female dom. Depending on the relationship or quality of sex, a \"good boy\""
+          },
+          {
+            "url": "https://www.quora.com/Does-anyone-know-who-a-%E2%80%9Cgood-boy%E2%80%9D-is",
+            "title": "Does anyone know who a “good boy” is? - Quora",
+            "relevantSnippet": "A good boy/girl is one that holds good moral and ethical values in their lives. He/she is responsible in doing what is expected of them by both"
+          },
+          {
+            "url": "https://www.reddit.com/r/GenZ/comments/1hlovyp/good_boy/",
+            "title": "“Good Boy” : r/GenZ - Reddit",
+            "relevantSnippet": "It's typically a compliment for a young, submissive male."
+          }
+        ]
+      }
+    ],
+    "aiDetection": null
+  },
+  "1774208483967": {
+    "id": "1774208483967",
+    "text": "Rolls-Royce manufactures luxury cars",
+    "result": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "🟢 Low Risk",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Rolls-Royce manufactures luxury cars.",
+          "context": "Rolls-Royce manufactures luxury cars",
+          "searchQuery": "Rolls-Royce luxury car manufacturer",
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.99,
+          "reasoning": "All provided sources directly confirm that Rolls-Royce is involved in the manufacture of luxury cars, with Sources 2, 4, and 5 explicitly stating the company's current role in producing luxury automobiles.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Rolls-Royce_Motors",
+              "title": "Rolls-Royce Motors - Wikipedia",
+              "relevantSnippet": "Rolls-Royce Motors was a British luxury car manufacturer, created in 1973 during the de-merger of the Rolls-Royce automotive business"
+            },
+            {
+              "url": "https://www.classicrollsroyce-bentley.com/home/rolls-royce-history",
+              "title": "Rolls-Royce History",
+              "relevantSnippet": "Rolls-Royce Motor Cars Limited is a British luxury automobile maker which has operated as a wholly owned subsidiary of BMW AG since 2003 – as the exclusive manufacturer of Rolls-Royce-branded motor cars."
+            },
+            {
+              "url": "https://www.youtube.com/watch?v=BVvnSzMqI3M",
+              "title": "How LUXURY Rolls-Royce Cars Are Made ? (Mega Factories Video)",
+              "relevantSnippet": "Rolls-Royce Motor Cars Limited is a British luxury automobile maker. A wholly owned subsidiary of German group BMW, it was established in"
+            },
+            {
+              "url": "https://www.rolls-roycemotorcars.com/en_US/home.html",
+              "title": "Rolls-Royce Motor Cars: Inspiring Greatness",
+              "relevantSnippet": "Rolls-Royce Motor Cars manufactures and sells the worlds pinnacle super-luxury automobiles, including the Phantom, Ghost, Wraith, Dawn and Cullinan models."
+            },
+            {
+              "url": "https://www.rolls-roycemotorcars.com/en_US/bespoke/discover.html",
+              "title": "Discover Bespoke - Rolls-Royce Motor Cars",
+              "relevantSnippet": "Rolls-Royce Motor Cars manufactures and sells the worlds pinnacle super-luxury automobiles, including the Phantom, Ghost, Wraith, Dawn and Cullinan models."
+            }
+          ]
+        }
+      ]
+    },
+    "timestamp": "2026-03-22T19:41:23.967Z",
+    "q": "Rolls-Royce manufactures luxury cars",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "🟢 Low Risk",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Rolls-Royce manufactures luxury cars.",
+          "context": "Rolls-Royce manufactures luxury cars",
+          "searchQuery": "Rolls-Royce luxury car manufacturer",
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.99,
+          "reasoning": "All provided sources directly confirm that Rolls-Royce is involved in the manufacture of luxury cars, with Sources 2, 4, and 5 explicitly stating the company's current role in producing luxury automobiles.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Rolls-Royce_Motors",
+              "title": "Rolls-Royce Motors - Wikipedia",
+              "relevantSnippet": "Rolls-Royce Motors was a British luxury car manufacturer, created in 1973 during the de-merger of the Rolls-Royce automotive business"
+            },
+            {
+              "url": "https://www.classicrollsroyce-bentley.com/home/rolls-royce-history",
+              "title": "Rolls-Royce History",
+              "relevantSnippet": "Rolls-Royce Motor Cars Limited is a British luxury automobile maker which has operated as a wholly owned subsidiary of BMW AG since 2003 – as the exclusive manufacturer of Rolls-Royce-branded motor cars."
+            },
+            {
+              "url": "https://www.youtube.com/watch?v=BVvnSzMqI3M",
+              "title": "How LUXURY Rolls-Royce Cars Are Made ? (Mega Factories Video)",
+              "relevantSnippet": "Rolls-Royce Motor Cars Limited is a British luxury automobile maker. A wholly owned subsidiary of German group BMW, it was established in"
+            },
+            {
+              "url": "https://www.rolls-roycemotorcars.com/en_US/home.html",
+              "title": "Rolls-Royce Motor Cars: Inspiring Greatness",
+              "relevantSnippet": "Rolls-Royce Motor Cars manufactures and sells the worlds pinnacle super-luxury automobiles, including the Phantom, Ghost, Wraith, Dawn and Cullinan models."
+            },
+            {
+              "url": "https://www.rolls-roycemotorcars.com/en_US/bespoke/discover.html",
+              "title": "Discover Bespoke - Rolls-Royce Motor Cars",
+              "relevantSnippet": "Rolls-Royce Motor Cars manufactures and sells the worlds pinnacle super-luxury automobiles, including the Phantom, Ghost, Wraith, Dawn and Cullinan models."
+            }
+          ]
+        }
+      ]
+    },
+    "claims": [
+      {
+        "id": "C1",
+        "claim": "Rolls-Royce manufactures luxury cars.",
+        "context": "Rolls-Royce manufactures luxury cars"
+      }
+    ],
+    "processedClaims": [
+      {
+        "id": "C1",
+        "claim": "Rolls-Royce manufactures luxury cars.",
+        "context": "Rolls-Royce manufactures luxury cars",
+        "searchQuery": "Rolls-Royce luxury car manufacturer",
+        "claimId": "C1",
+        "verdict": "True",
+        "confidenceScore": 0.99,
+        "reasoning": "All provided sources directly confirm that Rolls-Royce is involved in the manufacture of luxury cars, with Sources 2, 4, and 5 explicitly stating the company's current role in producing luxury automobiles.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "citations": [
+          {
+            "url": "https://en.wikipedia.org/wiki/Rolls-Royce_Motors",
+            "title": "Rolls-Royce Motors - Wikipedia",
+            "relevantSnippet": "Rolls-Royce Motors was a British luxury car manufacturer, created in 1973 during the de-merger of the Rolls-Royce automotive business"
+          },
+          {
+            "url": "https://www.classicrollsroyce-bentley.com/home/rolls-royce-history",
+            "title": "Rolls-Royce History",
+            "relevantSnippet": "Rolls-Royce Motor Cars Limited is a British luxury automobile maker which has operated as a wholly owned subsidiary of BMW AG since 2003 – as the exclusive manufacturer of Rolls-Royce-branded motor cars."
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=BVvnSzMqI3M",
+            "title": "How LUXURY Rolls-Royce Cars Are Made ? (Mega Factories Video)",
+            "relevantSnippet": "Rolls-Royce Motor Cars Limited is a British luxury automobile maker. A wholly owned subsidiary of German group BMW, it was established in"
+          },
+          {
+            "url": "https://www.rolls-roycemotorcars.com/en_US/home.html",
+            "title": "Rolls-Royce Motor Cars: Inspiring Greatness",
+            "relevantSnippet": "Rolls-Royce Motor Cars manufactures and sells the worlds pinnacle super-luxury automobiles, including the Phantom, Ghost, Wraith, Dawn and Cullinan models."
+          },
+          {
+            "url": "https://www.rolls-roycemotorcars.com/en_US/bespoke/discover.html",
+            "title": "Discover Bespoke - Rolls-Royce Motor Cars",
+            "relevantSnippet": "Rolls-Royce Motor Cars manufactures and sells the worlds pinnacle super-luxury automobiles, including the Phantom, Ghost, Wraith, Dawn and Cullinan models."
+          }
+        ]
+      }
+    ],
+    "aiDetection": null
   }
 }
