@@ -10,14 +10,15 @@ import { AIDetectionPanel } from './components/AIDetectionPanel';
 import { EvidenceDrawer } from './components/EvidenceDrawer';
 import HistoryView from './components/HistoryView';
 import SuggestionsView from './components/SuggestionsView';
+import SupportView from './components/SupportView';
 import { useFactCheck } from './hooks/useFactCheck';
 import { detectAIText } from './services/api';
+import CorrectAnswerPanel from './components/CorrectAnswerPanel';
 
 export default function App() {
   const [activeView, setActiveView] = useState('dashboard');
   const [initialContent, setInitialContent] = useState('');
   const [lastQueryContext, setLastQueryContext] = useState('');
-  
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
   const [visibleCount, setVisibleCount] = useState(6);
@@ -31,7 +32,7 @@ export default function App() {
     startFactCheck, reset
   } = useFactCheck();
 
-  const [aiDetection, setAiDetection]     = useState(null);
+  const [aiDetection, setAiDetection] = useState(null);
   const [activeSources, setActiveSources] = useState([]);
 
   const handleFactCheck = async (inputType, content) => {
@@ -42,14 +43,15 @@ export default function App() {
     setVisibleCount(6);
     setChatId(null);
     setLastQueryContext(content);
-    if (inputType === 'text') {
+    // Only run AI detection on longer texts (100+ chars) — short questions are not meaningful
+    if (inputType === 'text' && content.trim().length > 100) {
       try { setAiDetection(await detectAIText(content)); }
       catch (e) { console.error(e); }
     }
     startFactCheck(inputType, content);
   };
 
-  // Safe tracking: Whenever a report successfully completes, log it.
+  // Save to history on report complete
   React.useEffect(() => {
     if (report && !isProcessing && lastQueryContext && !chatId) {
       const prev = JSON.parse(localStorage.getItem('arbiter_history') || '[]');
@@ -59,9 +61,9 @@ export default function App() {
         q: lastQueryContext,
         risk: report.riskLevel,
         acc: report.accuracyScore,
-        date: new Date().toISOString()
+        date: new Date().toISOString(),
+        starred: false,
       };
-      
       // avoid dupes by time
       const existingEntry = prev.find(p => p.q === newEntry.q && Math.abs(new Date(p.date) - new Date(newEntry.date)) < 10000);
       if (!existingEntry) {
@@ -104,18 +106,15 @@ export default function App() {
   }, [report, isProcessing, lastQueryContext, claims, processedClaims, aiDetection, chatId]);
 
   const showResults = pipelineState || report || processedClaims.length > 0;
-
   const filterCategories = ['All', 'Tech', 'Science', 'Business'];
 
   const filteredClaims = processedClaims.filter(c => {
     const text = (c.claim + ' ' + (c.reasoning || '')).toLowerCase();
-    const queryMatch = text.includes(searchQuery.toLowerCase());
-    if (!queryMatch) return false;
-    
+    if (!text.includes(searchQuery.toLowerCase())) return false;
     if (activeCategory === 'All') return true;
-    if (activeCategory === 'Tech') return text.includes('tech') || text.includes('software') || text.includes('ai') || text.includes('app') || text.includes('digital') || text.includes('data');
+    if (activeCategory === 'Tech') return text.includes('tech') || text.includes('software') || text.includes('ai') || text.includes('digital') || text.includes('data');
     if (activeCategory === 'Science') return text.includes('science') || text.includes('research') || text.includes('study') || text.includes('physics') || text.includes('medical') || text.includes('health');
-    if (activeCategory === 'Business') return text.includes('business') || text.includes('market') || text.includes('company') || text.includes('finance') || text.includes('stock') || text.includes('economy');
+    if (activeCategory === 'Business') return text.includes('business') || text.includes('market') || text.includes('company') || text.includes('finance') || text.includes('stock');
     return true;
   });
 
@@ -124,41 +123,51 @@ export default function App() {
   return (
     <div style={{ display: 'flex', height: '100vh', overflow: 'hidden', backgroundColor: '#121317' }}>
 
-      {/* ── Sidebar ── */}
-      <Sidebar activeView={activeView} onNavigate={setActiveView} onNewCheck={() => { reset(); setActiveView('dashboard'); setInitialContent(''); }} />
+      {/* Sidebar */}
+      <Sidebar
+        activeView={activeView}
+        onNavigate={setActiveView}
+        onNewCheck={() => { reset(); setActiveView('dashboard'); setInitialContent(''); }}
+      />
 
-      {/* ── Main ── */}
+      {/* Main */}
       <main style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', backgroundColor: '#0d0e12' }}>
         <TopBar isProcessing={isProcessing} />
 
         <div className="no-scrollbar" style={{ flex: 1, overflowY: 'auto' }}>
-          <div className="max-w-5xl mx-auto px-6 py-10 pb-32">
+          <div style={{ maxWidth: 1100, margin: '0 auto', padding: '2rem 1.5rem 6rem' }}>
 
-            {/* Active View Router */}
             <AnimatePresence mode="wait">
+
+              {/* ── HISTORY ── */}
               {activeView === 'history' && (
-                <HistoryView 
-                  key="history" 
-                  onSelect={(query) => {
-                    setActiveView('dashboard');
-                    setInitialContent(query);
-                    handleFactCheck('text', query);
-                  }} 
+                <HistoryView
+                  key="history"
+                  onSelect={(query) => { setActiveView('dashboard'); setInitialContent(query); handleFactCheck('text', query); }}
+                  onGoToDashboard={() => { reset(); setInitialContent(''); setActiveView('dashboard'); }}
                 />
               )}
 
-              {activeView === 'suggestions' && (
-                <SuggestionsView key="suggestions" onSelect={(text) => {
-                  setInitialContent(text);
-                  setActiveView('dashboard');
-                }} />
+              {/* ── SUPPORT ── */}
+              {activeView === 'support' && (
+                <SupportView key="support" />
               )}
 
+              {/* ── SUGGESTIONS ── */}
+              {activeView === 'suggestions' && (
+                <SuggestionsView
+                  key="suggestions"
+                  onSelect={(text) => { setInitialContent(text); setActiveView('dashboard'); handleFactCheck('text', text); }}
+                />
+              )}
+
+              {/* ── DASHBOARD ── */}
               {activeView === 'dashboard' && (
                 <motion.div key="dashboard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                  {/* Pipeline progress (shown while processing) */}
+
+                  {/* STEP 1 — Pipeline progress */}
                   {pipelineState && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-10">
+                    <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} style={{ marginBottom: '1.5rem' }}>
                       <PipelineProgress
                         currentStep={pipelineState.step}
                         status={pipelineState.status}
@@ -167,184 +176,212 @@ export default function App() {
                     </motion.div>
                   )}
 
-                  {/* Pending Claims Preview */}
+                  {/* Pending claims preview (while processing) */}
                   {isProcessing && claims.length > 0 && claims.length > processedClaims.length && (
-                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} style={{ marginBottom: '2rem', backgroundColor: '#161820', padding: '1.5rem', borderRadius: 8, border: '1px solid rgba(59,73,76,0.3)' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: '1rem' }}>
-                        <span className="material-symbols-outlined animate-spin" style={{ fontSize: 18, color: '#00E5FF' }}>autorenew</span>
-                        <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 12, color: '#00E5FF', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                          📌 Extracted Claims & Processing ({processedClaims.length}/{claims.length})
+                    <motion.div
+                      initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                      style={{ marginBottom: '1.5rem', backgroundColor: '#161820', padding: '1.25rem 1.5rem', borderRadius: 8, border: '1px solid rgba(59,73,76,0.3)' }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: '0.75rem' }}>
+                        <span className="material-symbols-outlined animate-spin" style={{ fontSize: 16, color: '#00E5FF' }}>autorenew</span>
+                        <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 11, color: '#00E5FF', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                          Extracted Claims ({processedClaims.length}/{claims.length})
                         </span>
                       </div>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                         {claims.filter(c => !processedClaims.find(pc => pc.id === c.id)).map(c => (
-                          <div key={c.id} style={{ display: 'flex', alignItems: 'flex-start', gap: 12, padding: '0.75rem', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: 4 }}>
-                            <span className="material-symbols-outlined animate-pulse" style={{ fontSize: 16, color: '#556070', marginTop: 2 }}>search</span>
-                            <p style={{ fontFamily: 'Manrope', fontSize: 14, color: '#bac9cc', margin: 0 }}>"{c.claim}"</p>
+                          <div key={c.id} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '0.6rem 0.75rem', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: 4 }}>
+                            <span className="material-symbols-outlined animate-pulse" style={{ fontSize: 14, color: '#556070' }}>search</span>
+                            <p style={{ fontFamily: 'Manrope', fontSize: 13, color: '#bac9cc', margin: 0 }}>"{c.claim}"</p>
                           </div>
                         ))}
                       </div>
                     </motion.div>
                   )}
 
+                  {/* Error */}
                   {error && (
-                    <div style={{ padding: '1rem', backgroundColor: 'rgba(255,61,87,0.1)', border: '1px solid rgba(255,61,87,0.3)', color: '#FF3D57', fontFamily: 'IBM Plex Mono', fontSize: 13, textAlign: 'center', marginBottom: '2rem', borderRadius: 4 }}>
-                      {error.includes('No factual claims') || error.includes('not a factual claim') 
-                        ? "No strong factual claims detected — analyzing input anyway..."
-                        : `Process Failed: ${error}`}
-                      <button onClick={reset} style={{ display: 'block', margin: '0.75rem auto 0', padding: '0.5rem 1rem', background: 'rgba(255,61,87,0.2)', color: '#FF3D57', border: 'none', cursor: 'pointer', fontFamily: 'IBM Plex Mono', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                    <div style={{ padding: '1rem', backgroundColor: 'rgba(255,61,87,0.08)', border: '1px solid rgba(255,61,87,0.25)', color: '#FF3D57', fontFamily: 'IBM Plex Mono', fontSize: 12, textAlign: 'center', marginBottom: '1.5rem', borderRadius: 6 }}>
+                      {error.includes('No factual claims') ? 'No strong factual claims detected.' : `Process Failed: ${error}`}
+                      <button onClick={reset} style={{ display: 'block', margin: '0.6rem auto 0', padding: '0.4rem 1rem', background: 'rgba(255,61,87,0.15)', color: '#FF3D57', border: 'none', cursor: 'pointer', fontFamily: 'IBM Plex Mono', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.1em', borderRadius: 4 }}>
                         Start Over
                       </button>
                     </div>
                   )}
 
-                  {/* Claims feed & Results Dashboard */}
-                  {processedClaims.length > 0 && (
-                    <div className="space-y-8" style={{ marginTop: report ? '2.5rem' : 0 }}>
-                      {/* Hero AI Detection Section (if exists) */}
-                      {report && aiDetection && (
-                        <div className="mb-12">
-                          <AIDetectionPanel detectionResult={aiDetection} />
-                        </div>
-                      )}
+                  {/* ── RESULTS ── */}
+                  {(report || processedClaims.length > 0) && (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
 
-                      <div className="flex items-center justify-between pb-4 border-b border-white/5">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gray-500">
-                          Forensic Intelligence Dashboard
-                        </span>
-                        {isProcessing && (
-                          <span className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest animate-pulse">
-                            Real-time Stream
+                      {/* ── FACT ASKED HEADER ── */}
+                      {lastQueryContext && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          style={{
+                            display: 'flex', alignItems: 'flex-start', gap: 12,
+                            padding: '1rem 1.25rem',
+                            backgroundColor: '#161820',
+                            border: '1px solid rgba(255,255,255,0.06)',
+                            borderLeft: '3px solid #00E5FF',
+                            borderRadius: 8,
+                          }}
+                        >
+                          {/* Icon */}
+                          <span className="material-symbols-outlined" style={{ fontSize: 18, color: '#00E5FF', marginTop: 2, flexShrink: 0 }}>fact_check</span>
+
+                          <div style={{ flex: 1, overflow: 'hidden' }}>
+                            <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 9, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.2em', color: '#556070', display: 'block', marginBottom: 6 }}>
+                              Fact Asked
+                            </span>
+                            <p style={{
+                              fontFamily: 'Manrope', fontWeight: 500, fontSize: 14,
+                              color: '#e3e2e8', lineHeight: 1.5, margin: 0,
+                              whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+                            }}>
+                              "{lastQueryContext}"
+                            </p>
+                          </div>
+
+                          {/* Timestamp */}
+                          <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#556070', flexShrink: 0, alignSelf: 'center' }}>
+                            {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                           </span>
-                        )}
-                      </div>
-
-                      {/* Full Width Accuracy Summary Card */}
-                      {report && (
-                        <div className="bg-[#161820] rounded-2xl border border-white/5 overflow-hidden shadow-2xl mb-8">
-                          <AccuracyReport report={report} />
-                        </div>
+                        </motion.div>
                       )}
 
-                      {/* Toolbar: Actions + Context */}
+                      {/* STEP 2 — Session Intelligence Report
+                          AccuracyReport has its own Copy/Download/NewCheck toolbar built-in */}
                       {report && (
-                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10 bg-[#161820] p-4 rounded-xl border border-white/5">
-                          <div className="flex items-center gap-4 text-xs font-mono uppercase tracking-wider text-gray-400">
-                             <span><b className="text-gray-200">{claims.length}</b> Claims Analyzed</span>
-                             <span className="w-1 h-1 rounded-full bg-white/20"></span>
-                             <span className="text-green-400">Verified</span>
-                          </div>
-                          <div className="flex flex-wrap items-center gap-3">
-                             <button 
-                               onClick={() => { navigator.clipboard.writeText(JSON.stringify(report, null, 2)); setToast('JSON Copied!'); setTimeout(() => setToast(null), 3000); }} 
-                               className="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors text-gray-300 flex items-center gap-2"
-                             >
-                               <span className="material-symbols-outlined text-[16px]">content_copy</span> Copy
-                             </button>
-                             {chatId && (
-                               <button 
-                                 onClick={() => { navigator.clipboard.writeText(`${window.location.origin}/chat/${chatId}`); setToast('Link copied successfully'); setTimeout(() => setToast(null), 3000); }} 
-                                 className="px-4 py-2 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/20 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2"
-                               >
-                                 <span className="material-symbols-outlined text-[16px]">share</span> Share
-                               </button>
-                             )}
-                             <button 
-                               onClick={() => {
-                                 const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
-                                 const url  = URL.createObjectURL(blob);
-                                 const a    = document.createElement('a');
-                                 a.href = url; a.download = 'arbiter_report.json'; a.click();
-                                 URL.revokeObjectURL(url);
-                               }} 
-                               className="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors text-gray-300 flex items-center gap-2"
-                             >
-                               <span className="material-symbols-outlined text-[16px]">download</span> Download
-                             </button>
-                             <button 
-                               onClick={() => { reset(); setActiveView('dashboard'); setInitialContent(''); }} 
-                               className="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-[#00363d] rounded-lg text-xs font-bold uppercase tracking-wider transition-colors shadow-[0_0_15px_rgba(0,229,255,0.3)] flex items-center gap-2"
-                             >
-                               <span className="material-symbols-outlined text-[16px]">refresh</span> New Check
-                             </button>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Filters & Search */}
-                      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
-                         <div className="flex bg-[#161820] p-1 rounded-xl border border-white/5 w-full md:w-auto overflow-x-auto no-scrollbar">
-                           {filterCategories.map(cat => (
-                             <button 
-                               key={cat} 
-                               onClick={() => setActiveCategory(cat)}
-                               className={`px-4 sm:px-6 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${activeCategory === cat ? 'bg-white/10 text-white shadow-sm' : 'text-gray-500 hover:text-gray-300'}`}
-                             >
-                               {cat}
-                             </button>
-                           ))}
-                         </div>
-                         <div className="relative w-full md:w-72 shrink-0">
-                           <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-[18px]">search</span>
-                           <input 
-                             type="text" 
-                             placeholder="Search..." 
-                             value={searchQuery}
-                             onChange={(e) => setSearchQuery(e.target.value)}
-                             className="w-full bg-[#161820] border border-white/5 rounded-xl py-2.5 pl-10 pr-4 text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 transition-colors"
-                           />
-                         </div>
-                      </div>
-
-                      {/* Claims Grid Layout */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
-                        <AnimatePresence>
-                          {visibleClaims.map((c) => (
-                            <ClaimCard 
-                              key={c.id} 
-                              claimData={c}
-                              onViewSources={(citations) => setActiveSources(citations)} 
+                        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
+                          <div style={{
+                            backgroundColor: '#161820',
+                            border: '1px solid rgba(255,255,255,0.06)',
+                            borderRadius: 12,
+                            overflow: 'hidden',
+                          }}>
+                            <AccuracyReport
+                              report={report}
+                              onNewCheck={() => { reset(); setActiveView('dashboard'); setInitialContent(''); }}
+                              onShare={chatId ? () => { navigator.clipboard.writeText(`${window.location.origin}/chat/${chatId}`); setToast('Link copied successfully'); setTimeout(() => setToast(null), 3000); } : null}
                             />
-                          ))}
-                        </AnimatePresence>
-                      </div>
-
-                      {isProcessing && claims.length > processedClaims.length && (
-                        <p className="text-center py-6 font-mono text-[10px] text-cyan-400 uppercase tracking-widest animate-pulse">
-                          Processing {claims.length - processedClaims.length} remaining claims...
-                        </p>
+                          </div>
+                        </motion.div>
                       )}
 
-                      {/* Show More Button */}
-                      {!isProcessing && visibleCount < filteredClaims.length && (
-                        <div className="flex justify-center mt-10">
-                          <button 
-                            onClick={() => setVisibleCount(v => v + 6)}
-                            className="px-8 py-3 bg-[#161820] border border-white/5 hover:border-white/10 hover:bg-[#1a1c25] rounded-xl text-xs font-bold uppercase tracking-widest text-gray-400 transition-all flex items-center gap-2 group"
-                          >
-                            Load More Results
-                            <span className="material-symbols-outlined text-sm group-hover:translate-y-0.5 transition-transform">expand_more</span>
-                          </button>
-                        </div>
-                      )}
-                      
-                      {!isProcessing && filteredClaims.length === 0 && processedClaims.length > 0 && (
-                        <div className="text-center py-10">
-                          <p className="text-gray-500 font-mono text-sm uppercase tracking-widest">No claims match your filters.</p>
-                        </div>
+                      {/* STEP 3 — AI Detection Panel */}
+                      {report && aiDetection && (
+                        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
+                          <AIDetectionPanel detectionResult={aiDetection} />
+                        </motion.div>
                       )}
 
+                      {/* STEP 4 — Correct Answers Panel (for False/Partial claims) */}
+                      {report && processedClaims.length > 0 && (
+                        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
+                          <CorrectAnswerPanel processedClaims={processedClaims} />
+                        </motion.div>
+                      )}
+
+                      {/* STEP 5 — Verified Claims Feed */}
+                      {processedClaims.length > 0 && (
+                        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}>
+
+                          {/* Section header */}
+                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '1rem', marginBottom: '1rem', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                            <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.2em', color: 'rgba(186,201,204,0.5)' }}>
+                              Verified Claims Stream
+                            </span>
+                            {isProcessing && (
+                              <span className="animate-pulse" style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#00E5FF', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                                Live Stream
+                              </span>
+                            )}
+                          </div>
+
+                          {/* Filters + Search */}
+                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+                            <div style={{ display: 'flex', backgroundColor: '#161820', padding: 4, borderRadius: 8, border: '1px solid rgba(255,255,255,0.05)', gap: 2 }}>
+                              {filterCategories.map(cat => (
+                                <button key={cat} onClick={() => setActiveCategory(cat)} style={{
+                                  padding: '0.35rem 0.9rem', borderRadius: 6, border: 'none', cursor: 'pointer',
+                                  fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 10,
+                                  textTransform: 'uppercase', letterSpacing: '0.08em',
+                                  backgroundColor: activeCategory === cat ? 'rgba(255,255,255,0.1)' : 'transparent',
+                                  color: activeCategory === cat ? '#e3e2e8' : '#556070',
+                                  transition: 'all 0.15s',
+                                }}>
+                                  {cat}
+                                </button>
+                              ))}
+                            </div>
+                            <div style={{ position: 'relative', width: 220 }}>
+                              <span className="material-symbols-outlined" style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', fontSize: 16, color: '#556070' }}>search</span>
+                              <input
+                                type="text" placeholder="Search claims..."
+                                value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
+                                style={{ width: '100%', backgroundColor: '#161820', border: '1px solid rgba(255,255,255,0.05)', borderRadius: 8, padding: '0.45rem 0.75rem 0.45rem 2rem', fontFamily: 'Manrope', fontSize: 12, color: '#e3e2e8', outline: 'none' }}
+                              />
+                            </div>
+                          </div>
+
+                          {/* Claims grid */}
+                          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(420px, 1fr))', gap: '1rem' }}>
+                            <AnimatePresence>
+                              {visibleClaims.map(c => (
+                                <ClaimCard key={c.id} claimData={c} onViewSources={citations => setActiveSources(citations)} />
+                              ))}
+                            </AnimatePresence>
+                          </div>
+
+                          {/* Processing indicator */}
+                          {isProcessing && claims.length > processedClaims.length && (
+                            <p className="animate-pulse" style={{ textAlign: 'center', fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#00E5FF', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '1.5rem 0' }}>
+                              Processing {claims.length - processedClaims.length} remaining claims...
+                            </p>
+                          )}
+
+                          {/* Load more */}
+                          {!isProcessing && visibleCount < filteredClaims.length && (
+                            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1.5rem' }}>
+                              <button onClick={() => setVisibleCount(v => v + 6)} style={{
+                                display: 'flex', alignItems: 'center', gap: 6,
+                                padding: '0.6rem 1.75rem', backgroundColor: '#161820',
+                                border: '1px solid rgba(255,255,255,0.07)', borderRadius: 8,
+                                color: '#bac9cc', cursor: 'pointer',
+                                fontFamily: 'Space Grotesk', fontWeight: 700,
+                                fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.1em',
+                              }}>
+                                Load More
+                                <span className="material-symbols-outlined" style={{ fontSize: 16 }}>expand_more</span>
+                              </button>
+                            </div>
+                          )}
+
+                          {/* No results */}
+                          {!isProcessing && filteredClaims.length === 0 && processedClaims.length > 0 && (
+                            <p style={{ textAlign: 'center', fontFamily: 'IBM Plex Mono', fontSize: 11, color: '#556070', textTransform: 'uppercase', padding: '2rem 0' }}>
+                              No claims match your filters.
+                            </p>
+                          )}
+
+                        </motion.div>
+                      )}
                     </div>
                   )}
 
                   {/* Empty state */}
                   {!showResults && !error && (
-                    <EmptyState onSubmit={handleFactCheck} disabled={isProcessing} initialContent={initialContent} />
+                    <EmptyState
+                      onSubmit={handleFactCheck}
+                      disabled={isProcessing}
+                      initialContent={initialContent}
+                    />
                   )}
+
                 </motion.div>
               )}
             </AnimatePresence>
-
           </div>
         </div>
       </main>
