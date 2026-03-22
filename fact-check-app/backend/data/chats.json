@@ -780,5 +780,434 @@
       }
     ],
     "aiDetection": null
+  },
+  "1774210327936": {
+    "id": "1774210327936",
+    "text": "JIS College of Engineering is located at Kalyani, West Bengal, India",
+    "result": {
+      "total": 3,
+      "true": 3,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "🟢 Low Risk",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "JIS College of Engineering is located at Kalyani.",
+          "context": "JIS College of Engineering is located at Kalyani, West Bengal, India",
+          "searchQuery": "JIS College of Engineering location",
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 1,
+          "reasoning": "All provided sources directly confirm that JIS College of Engineering is located in Kalyani, West Bengal, India. This includes Wikipedia, Shiksha.com, Searchmycollege.com, LinkedIn, and Justdial, all of which support the claim without any contradictions.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "isQuestion": false,
+          "directAnswer": null,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/JIS_College_of_Engineering",
+              "title": "JIS College of Engineering - Wikipedia",
+              "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://www.shiksha.com/college/jis-college-of-engineering-kalyani-kolkata-38245",
+              "title": "JIS College of Engineering: Placements, Fees, Cutoff, Courses ...",
+              "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://searchmycollege.com/college/jis-college-of-engineering-jisce-kolkata-078476000-1760555894",
+              "title": "JIS College of Engineering",
+              "relevantSnippet": "Established in 2000, JIS College of Engineering (JISCE) is a premier private engineering institution located in Kalyani, Nadia district, West Bengal."
+            },
+            {
+              "url": "https://in.linkedin.com/school/jis-college-of-engineering-123/",
+              "title": "JIS College of Engineering 123 Employees, Location, Alumni",
+              "relevantSnippet": "JIS College of Engineering 123 is a higher education company based out of Block-A, Phase-II, Kalyani, Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://www.justdial.com/Kalyani/Jis-College-Of-Engineering-Kalyani-Station-Road/9999PXX33-XX33-140619185833-Z4F4_BZDET",
+              "title": "Jis College Of Engineering in Kalyani Station Road,Kalyani - Justdial",
+              "relevantSnippet": "Location and Overview: Jis College Of Engineering in Kalyani Station Road, Kalyani, Nadia is a top player in the category Engineering Colleges in the Kalyani,"
+            }
+          ]
+        },
+        {
+          "id": "C2",
+          "claim": "JIS College of Engineering is located in West Bengal.",
+          "context": "JIS College of Engineering is located at Kalyani, West Bengal, India",
+          "searchQuery": "JIS College of Engineering location",
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 1,
+          "reasoning": "All provided sources confirm that JIS College of Engineering is located in Kalyani, West Bengal, India. This consistent information across different sources directly supports the claim.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "isQuestion": false,
+          "directAnswer": null,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/JIS_College_of_Engineering",
+              "title": "JIS College of Engineering - Wikipedia",
+              "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://www.shiksha.com/college/jis-college-of-engineering-kalyani-kolkata-38245",
+              "title": "JIS College of Engineering: Placements, Fees, Cutoff, Courses ...",
+              "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://searchmycollege.com/college/jis-college-of-engineering-jisce-kolkata-078476000-1760555894",
+              "title": "JIS College of Engineering",
+              "relevantSnippet": "Established in 2000, JIS College of Engineering (JISCE) is a premier private engineering institution located in Kalyani, Nadia district, West Bengal."
+            },
+            {
+              "url": "https://in.linkedin.com/school/jis-college-of-engineering-123/",
+              "title": "JIS College of Engineering 123 Employees, Location, Alumni",
+              "relevantSnippet": "JIS College of Engineering 123 is a higher education company based out of Block-A, Phase-II, Kalyani, Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://www.justdial.com/Kalyani/Jis-College-Of-Engineering-Kalyani-Station-Road/9999PXX33-XX33-140619185833-Z4F4_BZDET",
+              "title": "Jis College Of Engineering in Kalyani Station Road,Kalyani - Justdial",
+              "relevantSnippet": "Location and Overview: Jis College Of Engineering in Kalyani Station Road, Kalyani, Nadia is a top player in the category Engineering Colleges in the Kalyani,"
+            }
+          ]
+        },
+        {
+          "id": "C3",
+          "claim": "JIS College of Engineering is located in India.",
+          "context": "JIS College of Engineering is located at Kalyani, West Bengal, India",
+          "searchQuery": "JIS College of Engineering location",
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.99,
+          "reasoning": "The claim that JIS College of Engineering is located in India can be verified by examining the provided evidence snippets. All five sources consistently state that JIS College of Engineering is located in Kalyani, West Bengal, India. Specifically, Source [1] from Wikipedia, Source [2] from Shiksha, Source [3] from Search My College, Source [4] from LinkedIn, and Source [5] from Justdial all confirm the college's location within India. Since all sources agree on this point, the claim is directly confirmed by the evidence.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "isQuestion": false,
+          "directAnswer": null,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/JIS_College_of_Engineering",
+              "title": "JIS College of Engineering - Wikipedia",
+              "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://www.shiksha.com/college/jis-college-of-engineering-kalyani-kolkata-38245",
+              "title": "JIS College of Engineering: Placements, Fees, Cutoff, Courses ...",
+              "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://searchmycollege.com/college/jis-college-of-engineering-jisce-kolkata-078476000-1760555894",
+              "title": "JIS College of Engineering",
+              "relevantSnippet": "Established in 2000, JIS College of Engineering (JISCE) is a premier private engineering institution located in Kalyani, Nadia district, West Bengal."
+            },
+            {
+              "url": "https://in.linkedin.com/school/jis-college-of-engineering-123/",
+              "title": "JIS College of Engineering 123 Employees, Location, Alumni",
+              "relevantSnippet": "JIS College of Engineering 123 is a higher education company based out of Block-A, Phase-II, Kalyani, Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://www.justdial.com/Kalyani/Jis-College-Of-Engineering-Kalyani-Station-Road/9999PXX33-XX33-140619185833-Z4F4_BZDET",
+              "title": "Jis College Of Engineering in Kalyani Station Road,Kalyani - Justdial",
+              "relevantSnippet": "Location and Overview: Jis College Of Engineering in Kalyani Station Road, Kalyani, Nadia is a top player in the category Engineering Colleges in the Kalyani"
+            }
+          ]
+        }
+      ]
+    },
+    "timestamp": "2026-03-22T20:12:07.936Z",
+    "q": "JIS College of Engineering is located at Kalyani, West Bengal, India",
+    "report": {
+      "total": 3,
+      "true": 3,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "🟢 Low Risk",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "JIS College of Engineering is located at Kalyani.",
+          "context": "JIS College of Engineering is located at Kalyani, West Bengal, India",
+          "searchQuery": "JIS College of Engineering location",
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 1,
+          "reasoning": "All provided sources directly confirm that JIS College of Engineering is located in Kalyani, West Bengal, India. This includes Wikipedia, Shiksha.com, Searchmycollege.com, LinkedIn, and Justdial, all of which support the claim without any contradictions.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "isQuestion": false,
+          "directAnswer": null,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/JIS_College_of_Engineering",
+              "title": "JIS College of Engineering - Wikipedia",
+              "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://www.shiksha.com/college/jis-college-of-engineering-kalyani-kolkata-38245",
+              "title": "JIS College of Engineering: Placements, Fees, Cutoff, Courses ...",
+              "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://searchmycollege.com/college/jis-college-of-engineering-jisce-kolkata-078476000-1760555894",
+              "title": "JIS College of Engineering",
+              "relevantSnippet": "Established in 2000, JIS College of Engineering (JISCE) is a premier private engineering institution located in Kalyani, Nadia district, West Bengal."
+            },
+            {
+              "url": "https://in.linkedin.com/school/jis-college-of-engineering-123/",
+              "title": "JIS College of Engineering 123 Employees, Location, Alumni",
+              "relevantSnippet": "JIS College of Engineering 123 is a higher education company based out of Block-A, Phase-II, Kalyani, Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://www.justdial.com/Kalyani/Jis-College-Of-Engineering-Kalyani-Station-Road/9999PXX33-XX33-140619185833-Z4F4_BZDET",
+              "title": "Jis College Of Engineering in Kalyani Station Road,Kalyani - Justdial",
+              "relevantSnippet": "Location and Overview: Jis College Of Engineering in Kalyani Station Road, Kalyani, Nadia is a top player in the category Engineering Colleges in the Kalyani,"
+            }
+          ]
+        },
+        {
+          "id": "C2",
+          "claim": "JIS College of Engineering is located in West Bengal.",
+          "context": "JIS College of Engineering is located at Kalyani, West Bengal, India",
+          "searchQuery": "JIS College of Engineering location",
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 1,
+          "reasoning": "All provided sources confirm that JIS College of Engineering is located in Kalyani, West Bengal, India. This consistent information across different sources directly supports the claim.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "isQuestion": false,
+          "directAnswer": null,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/JIS_College_of_Engineering",
+              "title": "JIS College of Engineering - Wikipedia",
+              "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://www.shiksha.com/college/jis-college-of-engineering-kalyani-kolkata-38245",
+              "title": "JIS College of Engineering: Placements, Fees, Cutoff, Courses ...",
+              "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://searchmycollege.com/college/jis-college-of-engineering-jisce-kolkata-078476000-1760555894",
+              "title": "JIS College of Engineering",
+              "relevantSnippet": "Established in 2000, JIS College of Engineering (JISCE) is a premier private engineering institution located in Kalyani, Nadia district, West Bengal."
+            },
+            {
+              "url": "https://in.linkedin.com/school/jis-college-of-engineering-123/",
+              "title": "JIS College of Engineering 123 Employees, Location, Alumni",
+              "relevantSnippet": "JIS College of Engineering 123 is a higher education company based out of Block-A, Phase-II, Kalyani, Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://www.justdial.com/Kalyani/Jis-College-Of-Engineering-Kalyani-Station-Road/9999PXX33-XX33-140619185833-Z4F4_BZDET",
+              "title": "Jis College Of Engineering in Kalyani Station Road,Kalyani - Justdial",
+              "relevantSnippet": "Location and Overview: Jis College Of Engineering in Kalyani Station Road, Kalyani, Nadia is a top player in the category Engineering Colleges in the Kalyani,"
+            }
+          ]
+        },
+        {
+          "id": "C3",
+          "claim": "JIS College of Engineering is located in India.",
+          "context": "JIS College of Engineering is located at Kalyani, West Bengal, India",
+          "searchQuery": "JIS College of Engineering location",
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.99,
+          "reasoning": "The claim that JIS College of Engineering is located in India can be verified by examining the provided evidence snippets. All five sources consistently state that JIS College of Engineering is located in Kalyani, West Bengal, India. Specifically, Source [1] from Wikipedia, Source [2] from Shiksha, Source [3] from Search My College, Source [4] from LinkedIn, and Source [5] from Justdial all confirm the college's location within India. Since all sources agree on this point, the claim is directly confirmed by the evidence.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "isQuestion": false,
+          "directAnswer": null,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/JIS_College_of_Engineering",
+              "title": "JIS College of Engineering - Wikipedia",
+              "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://www.shiksha.com/college/jis-college-of-engineering-kalyani-kolkata-38245",
+              "title": "JIS College of Engineering: Placements, Fees, Cutoff, Courses ...",
+              "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://searchmycollege.com/college/jis-college-of-engineering-jisce-kolkata-078476000-1760555894",
+              "title": "JIS College of Engineering",
+              "relevantSnippet": "Established in 2000, JIS College of Engineering (JISCE) is a premier private engineering institution located in Kalyani, Nadia district, West Bengal."
+            },
+            {
+              "url": "https://in.linkedin.com/school/jis-college-of-engineering-123/",
+              "title": "JIS College of Engineering 123 Employees, Location, Alumni",
+              "relevantSnippet": "JIS College of Engineering 123 is a higher education company based out of Block-A, Phase-II, Kalyani, Kalyani, West Bengal, India."
+            },
+            {
+              "url": "https://www.justdial.com/Kalyani/Jis-College-Of-Engineering-Kalyani-Station-Road/9999PXX33-XX33-140619185833-Z4F4_BZDET",
+              "title": "Jis College Of Engineering in Kalyani Station Road,Kalyani - Justdial",
+              "relevantSnippet": "Location and Overview: Jis College Of Engineering in Kalyani Station Road, Kalyani, Nadia is a top player in the category Engineering Colleges in the Kalyani"
+            }
+          ]
+        }
+      ]
+    },
+    "claims": [
+      {
+        "id": "C1",
+        "claim": "JIS College of Engineering is located at Kalyani.",
+        "context": "JIS College of Engineering is located at Kalyani, West Bengal, India",
+        "isQuestion": false
+      },
+      {
+        "id": "C2",
+        "claim": "JIS College of Engineering is located in West Bengal.",
+        "context": "JIS College of Engineering is located at Kalyani, West Bengal, India",
+        "isQuestion": false
+      },
+      {
+        "id": "C3",
+        "claim": "JIS College of Engineering is located in India.",
+        "context": "JIS College of Engineering is located at Kalyani, West Bengal, India",
+        "isQuestion": false
+      }
+    ],
+    "processedClaims": [
+      {
+        "id": "C1",
+        "claim": "JIS College of Engineering is located at Kalyani.",
+        "context": "JIS College of Engineering is located at Kalyani, West Bengal, India",
+        "searchQuery": "JIS College of Engineering location",
+        "claimId": "C1",
+        "verdict": "True",
+        "confidenceScore": 1,
+        "reasoning": "All provided sources directly confirm that JIS College of Engineering is located in Kalyani, West Bengal, India. This includes Wikipedia, Shiksha.com, Searchmycollege.com, LinkedIn, and Justdial, all of which support the claim without any contradictions.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "isQuestion": false,
+        "directAnswer": null,
+        "citations": [
+          {
+            "url": "https://en.wikipedia.org/wiki/JIS_College_of_Engineering",
+            "title": "JIS College of Engineering - Wikipedia",
+            "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+          },
+          {
+            "url": "https://www.shiksha.com/college/jis-college-of-engineering-kalyani-kolkata-38245",
+            "title": "JIS College of Engineering: Placements, Fees, Cutoff, Courses ...",
+            "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+          },
+          {
+            "url": "https://searchmycollege.com/college/jis-college-of-engineering-jisce-kolkata-078476000-1760555894",
+            "title": "JIS College of Engineering",
+            "relevantSnippet": "Established in 2000, JIS College of Engineering (JISCE) is a premier private engineering institution located in Kalyani, Nadia district, West Bengal."
+          },
+          {
+            "url": "https://in.linkedin.com/school/jis-college-of-engineering-123/",
+            "title": "JIS College of Engineering 123 Employees, Location, Alumni",
+            "relevantSnippet": "JIS College of Engineering 123 is a higher education company based out of Block-A, Phase-II, Kalyani, Kalyani, West Bengal, India."
+          },
+          {
+            "url": "https://www.justdial.com/Kalyani/Jis-College-Of-Engineering-Kalyani-Station-Road/9999PXX33-XX33-140619185833-Z4F4_BZDET",
+            "title": "Jis College Of Engineering in Kalyani Station Road,Kalyani - Justdial",
+            "relevantSnippet": "Location and Overview: Jis College Of Engineering in Kalyani Station Road, Kalyani, Nadia is a top player in the category Engineering Colleges in the Kalyani,"
+          }
+        ]
+      },
+      {
+        "id": "C2",
+        "claim": "JIS College of Engineering is located in West Bengal.",
+        "context": "JIS College of Engineering is located at Kalyani, West Bengal, India",
+        "searchQuery": "JIS College of Engineering location",
+        "claimId": "C1",
+        "verdict": "True",
+        "confidenceScore": 1,
+        "reasoning": "All provided sources confirm that JIS College of Engineering is located in Kalyani, West Bengal, India. This consistent information across different sources directly supports the claim.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "isQuestion": false,
+        "directAnswer": null,
+        "citations": [
+          {
+            "url": "https://en.wikipedia.org/wiki/JIS_College_of_Engineering",
+            "title": "JIS College of Engineering - Wikipedia",
+            "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+          },
+          {
+            "url": "https://www.shiksha.com/college/jis-college-of-engineering-kalyani-kolkata-38245",
+            "title": "JIS College of Engineering: Placements, Fees, Cutoff, Courses ...",
+            "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+          },
+          {
+            "url": "https://searchmycollege.com/college/jis-college-of-engineering-jisce-kolkata-078476000-1760555894",
+            "title": "JIS College of Engineering",
+            "relevantSnippet": "Established in 2000, JIS College of Engineering (JISCE) is a premier private engineering institution located in Kalyani, Nadia district, West Bengal."
+          },
+          {
+            "url": "https://in.linkedin.com/school/jis-college-of-engineering-123/",
+            "title": "JIS College of Engineering 123 Employees, Location, Alumni",
+            "relevantSnippet": "JIS College of Engineering 123 is a higher education company based out of Block-A, Phase-II, Kalyani, Kalyani, West Bengal, India."
+          },
+          {
+            "url": "https://www.justdial.com/Kalyani/Jis-College-Of-Engineering-Kalyani-Station-Road/9999PXX33-XX33-140619185833-Z4F4_BZDET",
+            "title": "Jis College Of Engineering in Kalyani Station Road,Kalyani - Justdial",
+            "relevantSnippet": "Location and Overview: Jis College Of Engineering in Kalyani Station Road, Kalyani, Nadia is a top player in the category Engineering Colleges in the Kalyani,"
+          }
+        ]
+      },
+      {
+        "id": "C3",
+        "claim": "JIS College of Engineering is located in India.",
+        "context": "JIS College of Engineering is located at Kalyani, West Bengal, India",
+        "searchQuery": "JIS College of Engineering location",
+        "claimId": "C1",
+        "verdict": "True",
+        "confidenceScore": 0.99,
+        "reasoning": "The claim that JIS College of Engineering is located in India can be verified by examining the provided evidence snippets. All five sources consistently state that JIS College of Engineering is located in Kalyani, West Bengal, India. Specifically, Source [1] from Wikipedia, Source [2] from Shiksha, Source [3] from Search My College, Source [4] from LinkedIn, and Source [5] from Justdial all confirm the college's location within India. Since all sources agree on this point, the claim is directly confirmed by the evidence.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "isQuestion": false,
+        "directAnswer": null,
+        "citations": [
+          {
+            "url": "https://en.wikipedia.org/wiki/JIS_College_of_Engineering",
+            "title": "JIS College of Engineering - Wikipedia",
+            "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+          },
+          {
+            "url": "https://www.shiksha.com/college/jis-college-of-engineering-kalyani-kolkata-38245",
+            "title": "JIS College of Engineering: Placements, Fees, Cutoff, Courses ...",
+            "relevantSnippet": "JIS College of Engineering is a college located in Kalyani, West Bengal, India."
+          },
+          {
+            "url": "https://searchmycollege.com/college/jis-college-of-engineering-jisce-kolkata-078476000-1760555894",
+            "title": "JIS College of Engineering",
+            "relevantSnippet": "Established in 2000, JIS College of Engineering (JISCE) is a premier private engineering institution located in Kalyani, Nadia district, West Bengal."
+          },
+          {
+            "url": "https://in.linkedin.com/school/jis-college-of-engineering-123/",
+            "title": "JIS College of Engineering 123 Employees, Location, Alumni",
+            "relevantSnippet": "JIS College of Engineering 123 is a higher education company based out of Block-A, Phase-II, Kalyani, Kalyani, West Bengal, India."
+          },
+          {
+            "url": "https://www.justdial.com/Kalyani/Jis-College-Of-Engineering-Kalyani-Station-Road/9999PXX33-XX33-140619185833-Z4F4_BZDET",
+            "title": "Jis College Of Engineering in Kalyani Station Road,Kalyani - Justdial",
+            "relevantSnippet": "Location and Overview: Jis College Of Engineering in Kalyani Station Road, Kalyani, Nadia is a top player in the category Engineering Colleges in the Kalyani"
+          }
+        ]
+      }
+    ],
+    "aiDetection": null
   }
 }
