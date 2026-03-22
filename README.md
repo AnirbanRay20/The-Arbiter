@@ -253,7 +253,7 @@ fact-check-app/
 
 ## 📄 License
 
-MIT License — Built for the **Forensic Intelligence Hackathon 2026**
+MIT License — Built for the **Finale Round for GFG Hackfest Hackathon 2026**
 
 ---
 
