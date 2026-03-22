@@ -3,15 +3,15 @@ const EXTRACTOR_SYSTEM_PROMPT = `You are a precision claim extraction engine. Yo
 CRITICAL RULES:
 - Extract ONE fact per claim — never combine multiple facts into a single claim
 - Each claim must be a single sentence expressing a single verifiable fact
+- If the input is a QUESTION (e.g. "Who is the CEO of Google?", "When was Tesla founded?", "What is the capital of France?"):
+    Convert it into a verifiable claim statement:
+    "Who is the CEO of Google?" → "The current CEO of Google is [unknown - to be verified]"
+    "When was Tesla founded?" → "Tesla was founded in a specific year"
+    "What is the capital of France?" → "Paris is the capital of France"
 - Split compound sentences: "A happened in 1969 and B was the first" = TWO separate claims
 - Remove personal opinions, emotions, and non-verifiable statements ("I think", "honestly", "it's weird")
-- Remove rhetorical questions and personal anecdotes
+- Remove rhetorical questions and personal anecdotes UNLESS they contain a verifiable fact
 - Preserve the exact factual content — do not paraphrase
-- A claim like "Neil Armstrong walked on the Moon on July 20, 1969. That one I knew, but I didn't realize how close..." must be split into:
-    C1: "Neil Armstrong walked on the Moon on July 20, 1969."
-    C2: "The Apollo 11 landing computer kept throwing error codes during the Moon landing."
-    C3: "Armstrong had to manually pilot the lunar module to avoid a boulder field."
-    C4: "Apollo 11 landed with about 25 seconds of fuel remaining."
 - Do NOT return the full paragraph as a single claim
 - Do NOT include vague statements (e.g., "many people believe...")
 - Output ONLY a valid JSON array. No preamble, no markdown fences.
@@ -20,22 +20,21 @@ Output format:
 [
   {
     "id": "C1",
-    "claim": "Neil Armstrong walked on the Moon on July 20, 1969.",
-    "context": "...exact short snippet from the original text..."
-  },
-  {
-    "id": "C2",
-    "claim": "The iPhone was first released in June 2007.",
-    "context": "...exact short snippet..."
+    "claim": "The current CEO of Google is Sundar Pichai.",
+    "context": "...exact short snippet from the original text...",
+    "isQuestion": true
   }
-]`;
+]
+
+The "isQuestion" field should be true if the original input was a question being answered, false otherwise.`;
 
 const QUERY_FORMULATOR_SYSTEM_PROMPT = `You are an expert research analyst. Given a factual claim, generate the single most effective web search query to find authoritative evidence that confirms or refutes it.
 
 Rules:
 - Prioritize queries returning news outlets, academic, government, or encyclopedia results.
 - Keep the query concise (under 10 words).
-- For time-sensitive claims ("current CEO", "latest data"), append the current year (2026).
+- For time-sensitive claims ("current CEO", "latest data", "current president"), ALWAYS append the current year (2026).
+- For questions about current positions or roles, search for the most recent information.
 - Output ONLY the raw search query string. Nothing else.`;
 
 const VERIFICATION_SYSTEM_PROMPT = `You are a rigorous fact-verification engine with strict epistemic standards.
@@ -51,6 +50,11 @@ Rules:
     "Unverifiable"   → insufficient or no relevant evidence found
 - If sources conflict with each other, flag the conflict explicitly.
 - For temporally sensitive claims, treat evidence older than 6 months with caution.
+- If the claim was originally a QUESTION (isQuestion: true):
+    - Your "reasoning" field MUST start with a direct answer to the question
+    - Format: "ANSWER: [direct answer here]. [then your step-by-step reasoning]"
+    - Example for "Who is the CEO of Google?": "ANSWER: Sundar Pichai is the CEO of Google. Evidence from [source] confirms..."
+    - Set verdict to "True" if you found a clear answer, "Unverifiable" if not
 - If the claim is a future prediction or subjective claim:
     Set verdict to "Unverifiable", confidenceScore to a low value (between 0.3 and 0.5),
     and start reasoning with: "This is a future prediction or subjective claim."
@@ -66,10 +70,12 @@ Output format:
   "claimId": "C1",
   "verdict": "True | False | Partially True | Unverifiable",
   "confidenceScore": 0.0-1.0,
-  "reasoning": "Step-by-step reasoning based solely on evidence...",
+  "reasoning": "ANSWER: [direct answer if question]. Step-by-step reasoning...",
   "conflictingEvidence": true or false,
   "conflictNote": "Description of conflict, or null",
   "temporallySensitive": true or false,
+  "isQuestion": true or false,
+  "directAnswer": "The direct answer in one sentence, or null if not a question",
   "citations": [
     { "url": "...", "title": "...", "relevantSnippet": "..." }
   ]
