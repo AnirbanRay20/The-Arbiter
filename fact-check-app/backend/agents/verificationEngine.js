@@ -42,13 +42,47 @@ async function verifyClaim(claimText, evidenceData) {
     });
 
     const content = response.choices[0]?.message?.content || '';
+
     const start = content.indexOf('{');
     const end = content.lastIndexOf('}');
     if (start !== -1 && end !== -1) {
-      const result = JSON.parse(content.slice(start, end + 1));
+      const parsed = JSON.parse(content.slice(start, end + 1));
+      
+      const v = (parsed.verdict || 'Unverifiable').toLowerCase();
+      let verdict = 'Unverifiable';
+      if (v.includes('partially')) verdict = 'Partially True';
+      else if (v.includes('not verifiable')) verdict = 'Unverifiable';
+      else if (v.includes('true')) verdict = 'True';
+      else if (v.includes('false')) verdict = 'False';
+
+      let rawConf = parsed.confidence;
+      if (typeof rawConf === 'string') rawConf = parseFloat(rawConf.replace('%', ''));
+      const confidenceScore = isNaN(rawConf) ? 0 : rawConf / 100;
+
+      const conflictingEvidence = verdict === 'Partially True';
+      const conflictNote = conflictingEvidence ? parsed.reasoning : null;
+
+      const citations = (parsed.evidence || []).map(e => ({
+        title: e.title || 'Unknown Source',
+        url: e.url || '',
+        relevantSnippet: e.snippet || ''
+      }));
+
+      const result = {
+        claimId,
+        verdict,
+        confidenceScore,
+        reasoning: parsed.reasoning || 'No reasoning provided.',
+        conflictingEvidence,
+        conflictNote,
+        temporallySensitive: false,
+        citations
+      };
+
       await sleep(1000);
       return result;
     }
+
     throw new Error('Invalid JSON output from model');
   } catch (err) {
     console.error(`Error verifying claim ${claimId}:`, err.message);

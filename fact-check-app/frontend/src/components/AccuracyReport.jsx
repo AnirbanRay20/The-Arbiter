@@ -149,6 +149,19 @@ export default function AccuracyReport({ report, onNewCheck, onShare }) {
             />
           ))}
         </div>
+
+        {/* AI Insight Summary */}
+        {report.insightSummary && (
+          <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: 8 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8 }}>
+              <span className="material-symbols-outlined" style={{ fontSize: 14, color: '#00E5FF' }}>auto_awesome</span>
+              <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700, color: '#e3e2e8' }}>AI Insight Summary</span>
+            </div>
+            <p style={{ fontFamily: 'Manrope', fontSize: 13, color: '#bac9cc', lineHeight: 1.6, margin: 0 }}>
+              {report.insightSummary}
+            </p>
+          </div>
+        )}
       </div>
 
       {/* ── Toolbar (outside capture area) ── */}

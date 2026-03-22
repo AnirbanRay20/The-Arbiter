@@ -4,6 +4,7 @@ const { scrapeUrlContent } = require('../services/urlScraper');
 const { extractClaims } = require('../agents/claimExtractor');
 const { retrieveEvidence } = require('../agents/evidenceRetriever');
 const { verifyClaim } = require('../agents/verificationEngine');
+const { generateAccuracyReport, generateInsightSummary } = require('../agents/reportGenerator');
 
 router.post('/factcheck', async (req, res) => {
   const { inputType, content } = req.body;
@@ -89,28 +90,23 @@ router.post('/factcheck', async (req, res) => {
     // STEP 4: REPORTING
     send({ step: 'REPORTING', status: 'in_progress', progress: 'Generating accuracy report...', data: {} });
 
-    const total = processedClaims.length;
-    const trueCount = processedClaims.filter(c => c.verdict === 'True').length;
-    const partialCount = processedClaims.filter(c => c.verdict === 'Partially True').length;
-    const falseCount = processedClaims.filter(c => c.verdict === 'False').length;
-    const unverifiableCount = processedClaims.filter(c => c.verdict === 'Unverifiable').length;
-
-    const accuracyScore = total > 0 ? ((trueCount + partialCount * 0.5) / total * 100) : 0;
-
-    let riskLevel;
-    if ((trueCount + partialCount) / total >= 0.8) riskLevel = '🟢 Low Risk';
-    else if ((trueCount + partialCount) / total >= 0.5) riskLevel = '🟡 Medium Risk';
-    else if (unverifiableCount > total / 2) riskLevel = '⚪ Insufficient Evidence';
-    else riskLevel = '🔴 High Risk';
+    const reportData = await generateAccuracyReport(processedClaims);
+    const insightSummary = await generateInsightSummary(reportData);
 
     const report = {
-      total,
-      true: trueCount,
-      partial: partialCount,
-      false: falseCount,
-      unverifiable: unverifiableCount,
-      accuracyScore: Math.round(accuracyScore * 10) / 10,
-      riskLevel,
+      total: reportData.total_claims,
+      true: reportData.true,
+      partial: reportData.partial,
+      false: reportData.false,
+      unverifiable: reportData.not_verifiable,
+      accuracyScore: reportData.confidence,
+      riskLevel: (() => {
+        // Map the literal "LOW", "MEDIUM", "HIGH" into the emoji-based frontend standards existing before
+        if (reportData.risk_level === 'LOW') return '🟢 Low Risk';
+        if (reportData.risk_level === 'MEDIUM') return '🟡 Medium Risk';
+        return '🔴 High Risk';
+      })(),
+      insightSummary: insightSummary,
       results: processedClaims
     };
 

@@ -1,1 +1,1420 @@
-{}
+{
+  "1774207098395": {
+    "id": "1774207098395",
+    "text": "The Earth is flat",
+    "result": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 0,
+      "riskLevel": "🔴 High Risk",
+      "results": [
+        {
+          "id": "C_1774207092286",
+          "claim": "The Earth is flat",
+          "context": "The Earth is flat",
+          "searchQuery": "Earth shape scientific evidence",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 1,
+          "reasoning": "All provided evidence sources directly contradict the claim that the Earth is flat, describing the Earth as spherical, an oblate spheroid, or an irregularly shaped ellipsoid.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+              "title": "Empirical evidence for the spherical shape of Earth",
+              "relevantSnippet": "The roughly spherical shape of Earth can be empirically evidenced by many different types of observation, ranging from ground level, flight, or orbit."
+            },
+            {
+              "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+              "title": "Earth's Shape | Science | Research Starters",
+              "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+            },
+            {
+              "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+              "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+              "relevantSnippet": "Despite lingering Flat Earth conspiracy theories, humans have gathered evidence of our planet’s spherical nature for millennia."
+            },
+            {
+              "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+              "title": "Unconventional Theories about the Earth's Shape: Both Ancient and Modern",
+              "relevantSnippet": "The fact that the Earth has a spherical shape has been widely acknowledged in modern society, although the concept of a flat and stationary Earth gained acceptance among some individuals in the 19th century."
+            },
+            {
+              "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+              "title": "Is the Earth round? - NOAA's National Ocean Service",
+              "relevantSnippet": "The Earth is an irregularly shaped ellipsoid."
+            }
+          ]
+        }
+      ]
+    },
+    "timestamp": "2026-03-22T19:18:18.396Z",
+    "q": "The Earth is flat",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 0,
+      "riskLevel": "🔴 High Risk",
+      "results": [
+        {
+          "id": "C_1774207092286",
+          "claim": "The Earth is flat",
+          "context": "The Earth is flat",
+          "searchQuery": "Earth shape scientific evidence",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 1,
+          "reasoning": "All provided evidence sources directly contradict the claim that the Earth is flat, describing the Earth as spherical, an oblate spheroid, or an irregularly shaped ellipsoid.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+              "title": "Empirical evidence for the spherical shape of Earth",
+              "relevantSnippet": "The roughly spherical shape of Earth can be empirically evidenced by many different types of observation, ranging from ground level, flight, or orbit."
+            },
+            {
+              "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+              "title": "Earth's Shape | Science | Research Starters",
+              "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+            },
+            {
+              "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+              "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+              "relevantSnippet": "Despite lingering Flat Earth conspiracy theories, humans have gathered evidence of our planet’s spherical nature for millennia."
+            },
+            {
+              "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+              "title": "Unconventional Theories about the Earth's Shape: Both Ancient and Modern",
+              "relevantSnippet": "The fact that the Earth has a spherical shape has been widely acknowledged in modern society, although the concept of a flat and stationary Earth gained acceptance among some individuals in the 19th century."
+            },
+            {
+              "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+              "title": "Is the Earth round? - NOAA's National Ocean Service",
+              "relevantSnippet": "The Earth is an irregularly shaped ellipsoid."
+            }
+          ]
+        }
+      ]
+    },
+    "claims": [
+      {
+        "id": "C_1774207092286",
+        "claim": "The Earth is flat",
+        "context": "The Earth is flat"
+      }
+    ],
+    "processedClaims": [
+      {
+        "id": "C_1774207092286",
+        "claim": "The Earth is flat",
+        "context": "The Earth is flat",
+        "searchQuery": "Earth shape scientific evidence",
+        "claimId": "C1",
+        "verdict": "False",
+        "confidenceScore": 1,
+        "reasoning": "All provided evidence sources directly contradict the claim that the Earth is flat, describing the Earth as spherical, an oblate spheroid, or an irregularly shaped ellipsoid.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "citations": [
+          {
+            "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+            "title": "Empirical evidence for the spherical shape of Earth",
+            "relevantSnippet": "The roughly spherical shape of Earth can be empirically evidenced by many different types of observation, ranging from ground level, flight, or orbit."
+          },
+          {
+            "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+            "title": "Earth's Shape | Science | Research Starters",
+            "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+          },
+          {
+            "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+            "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+            "relevantSnippet": "Despite lingering Flat Earth conspiracy theories, humans have gathered evidence of our planet’s spherical nature for millennia."
+          },
+          {
+            "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+            "title": "Unconventional Theories about the Earth's Shape: Both Ancient and Modern",
+            "relevantSnippet": "The fact that the Earth has a spherical shape has been widely acknowledged in modern society, although the concept of a flat and stationary Earth gained acceptance among some individuals in the 19th century."
+          },
+          {
+            "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+            "title": "Is the Earth round? - NOAA's National Ocean Service",
+            "relevantSnippet": "The Earth is an irregularly shaped ellipsoid."
+          }
+        ]
+      }
+    ],
+    "aiDetection": null
+  },
+  "1774207280644": {
+    "id": "1774207280644",
+    "text": "The Earth is flat",
+    "result": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 0,
+      "riskLevel": "🔴 High Risk",
+      "results": [
+        {
+          "id": "C_1774207275564",
+          "claim": "The Earth is flat",
+          "context": "The Earth is flat",
+          "searchQuery": "Earth shape scientific evidence",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 1,
+          "reasoning": "All provided evidence sources directly contradict the claim that the Earth is flat, describing it instead as spherical, an oblate spheroid, or an irregularly shaped ellipsoid.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+              "title": "Empirical evidence for the spherical shape of Earth",
+              "relevantSnippet": "The roughly spherical shape of Earth can be empirically evidenced by many different types of observation, ranging from ground level, flight, or orbit."
+            },
+            {
+              "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+              "title": "Earth's Shape | Science | Research Starters",
+              "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+            },
+            {
+              "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+              "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+              "relevantSnippet": "Despite lingering Flat Earth conspiracy theories, humans have gathered evidence of our planet’s spherical nature for millennia."
+            },
+            {
+              "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+              "title": "Unconventional Theories about the Earth's Shape: Both Ancient and Modern",
+              "relevantSnippet": "The fact that the Earth has a spherical shape has been widely acknowledged in modern society, although the concept of a flat and stationary Earth gained acceptance among some individuals in the 19th century."
+            },
+            {
+              "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+              "title": "Is the Earth round?",
+              "relevantSnippet": "The Earth is an irregularly shaped ellipsoid."
+            }
+          ]
+        }
+      ]
+    },
+    "timestamp": "2026-03-22T19:21:20.645Z",
+    "q": "The Earth is flat",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 0,
+      "riskLevel": "🔴 High Risk",
+      "results": [
+        {
+          "id": "C_1774207275564",
+          "claim": "The Earth is flat",
+          "context": "The Earth is flat",
+          "searchQuery": "Earth shape scientific evidence",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 1,
+          "reasoning": "All provided evidence sources directly contradict the claim that the Earth is flat, describing it instead as spherical, an oblate spheroid, or an irregularly shaped ellipsoid.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+              "title": "Empirical evidence for the spherical shape of Earth",
+              "relevantSnippet": "The roughly spherical shape of Earth can be empirically evidenced by many different types of observation, ranging from ground level, flight, or orbit."
+            },
+            {
+              "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+              "title": "Earth's Shape | Science | Research Starters",
+              "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+            },
+            {
+              "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+              "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+              "relevantSnippet": "Despite lingering Flat Earth conspiracy theories, humans have gathered evidence of our planet’s spherical nature for millennia."
+            },
+            {
+              "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+              "title": "Unconventional Theories about the Earth's Shape: Both Ancient and Modern",
+              "relevantSnippet": "The fact that the Earth has a spherical shape has been widely acknowledged in modern society, although the concept of a flat and stationary Earth gained acceptance among some individuals in the 19th century."
+            },
+            {
+              "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+              "title": "Is the Earth round?",
+              "relevantSnippet": "The Earth is an irregularly shaped ellipsoid."
+            }
+          ]
+        }
+      ]
+    },
+    "claims": [
+      {
+        "id": "C_1774207275564",
+        "claim": "The Earth is flat",
+        "context": "The Earth is flat"
+      }
+    ],
+    "processedClaims": [
+      {
+        "id": "C_1774207275564",
+        "claim": "The Earth is flat",
+        "context": "The Earth is flat",
+        "searchQuery": "Earth shape scientific evidence",
+        "claimId": "C1",
+        "verdict": "False",
+        "confidenceScore": 1,
+        "reasoning": "All provided evidence sources directly contradict the claim that the Earth is flat, describing it instead as spherical, an oblate spheroid, or an irregularly shaped ellipsoid.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "citations": [
+          {
+            "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+            "title": "Empirical evidence for the spherical shape of Earth",
+            "relevantSnippet": "The roughly spherical shape of Earth can be empirically evidenced by many different types of observation, ranging from ground level, flight, or orbit."
+          },
+          {
+            "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+            "title": "Earth's Shape | Science | Research Starters",
+            "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+          },
+          {
+            "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+            "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+            "relevantSnippet": "Despite lingering Flat Earth conspiracy theories, humans have gathered evidence of our planet’s spherical nature for millennia."
+          },
+          {
+            "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+            "title": "Unconventional Theories about the Earth's Shape: Both Ancient and Modern",
+            "relevantSnippet": "The fact that the Earth has a spherical shape has been widely acknowledged in modern society, although the concept of a flat and stationary Earth gained acceptance among some individuals in the 19th century."
+          },
+          {
+            "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+            "title": "Is the Earth round?",
+            "relevantSnippet": "The Earth is an irregularly shaped ellipsoid."
+          }
+        ]
+      }
+    ],
+    "aiDetection": null
+  },
+  "1774207550156": {
+    "id": "1774207550156",
+    "text": "The Earth is flat",
+    "result": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 0,
+      "riskLevel": "🔴 High Risk",
+      "results": [
+        {
+          "id": "C_1774207544824",
+          "claim": "The Earth is flat",
+          "context": "The Earth is flat",
+          "searchQuery": "Earth shape scientific evidence",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 1,
+          "reasoning": "All provided evidence snippets directly contradict the claim that the Earth is flat, describing the Earth as spherical, an oblate spheroid, or an irregularly shaped ellipsoid, with various observations and scientific consensus supporting a non-flat shape.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+              "title": "Empirical evidence for the spherical shape of Earth",
+              "relevantSnippet": "The roughly spherical shape of Earth can be empirically evidenced by many different types of observation, ranging from ground level, flight, or orbit."
+            },
+            {
+              "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+              "title": "Earth's Shape | Science | Research Starters",
+              "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+            },
+            {
+              "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+              "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+              "relevantSnippet": "Despite lingering Flat Earth conspiracy theories, humans have gathered evidence of our planet’s spherical nature for millennia."
+            },
+            {
+              "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+              "title": "Unconventional Theories about the Earth's Shape: Both Ancient and Modern",
+              "relevantSnippet": "The fact that the Earth has a spherical shape has been widely acknowledged in modern society, although the concept of a flat and stationary Earth gained acceptance among some individuals in the 19th century."
+            },
+            {
+              "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+              "title": "Is the Earth round? - NOAA's National Ocean Service",
+              "relevantSnippet": "The Earth is an irregularly shaped ellipsoid."
+            }
+          ]
+        }
+      ]
+    },
+    "timestamp": "2026-03-22T19:25:50.157Z",
+    "q": "The Earth is flat",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 0,
+      "riskLevel": "🔴 High Risk",
+      "results": [
+        {
+          "id": "C_1774207544824",
+          "claim": "The Earth is flat",
+          "context": "The Earth is flat",
+          "searchQuery": "Earth shape scientific evidence",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 1,
+          "reasoning": "All provided evidence snippets directly contradict the claim that the Earth is flat, describing the Earth as spherical, an oblate spheroid, or an irregularly shaped ellipsoid, with various observations and scientific consensus supporting a non-flat shape.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+              "title": "Empirical evidence for the spherical shape of Earth",
+              "relevantSnippet": "The roughly spherical shape of Earth can be empirically evidenced by many different types of observation, ranging from ground level, flight, or orbit."
+            },
+            {
+              "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+              "title": "Earth's Shape | Science | Research Starters",
+              "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+            },
+            {
+              "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+              "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+              "relevantSnippet": "Despite lingering Flat Earth conspiracy theories, humans have gathered evidence of our planet’s spherical nature for millennia."
+            },
+            {
+              "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+              "title": "Unconventional Theories about the Earth's Shape: Both Ancient and Modern",
+              "relevantSnippet": "The fact that the Earth has a spherical shape has been widely acknowledged in modern society, although the concept of a flat and stationary Earth gained acceptance among some individuals in the 19th century."
+            },
+            {
+              "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+              "title": "Is the Earth round? - NOAA's National Ocean Service",
+              "relevantSnippet": "The Earth is an irregularly shaped ellipsoid."
+            }
+          ]
+        }
+      ]
+    },
+    "claims": [
+      {
+        "id": "C_1774207544824",
+        "claim": "The Earth is flat",
+        "context": "The Earth is flat"
+      }
+    ],
+    "processedClaims": [
+      {
+        "id": "C_1774207544824",
+        "claim": "The Earth is flat",
+        "context": "The Earth is flat",
+        "searchQuery": "Earth shape scientific evidence",
+        "claimId": "C1",
+        "verdict": "False",
+        "confidenceScore": 1,
+        "reasoning": "All provided evidence snippets directly contradict the claim that the Earth is flat, describing the Earth as spherical, an oblate spheroid, or an irregularly shaped ellipsoid, with various observations and scientific consensus supporting a non-flat shape.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "citations": [
+          {
+            "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+            "title": "Empirical evidence for the spherical shape of Earth",
+            "relevantSnippet": "The roughly spherical shape of Earth can be empirically evidenced by many different types of observation, ranging from ground level, flight, or orbit."
+          },
+          {
+            "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+            "title": "Earth's Shape | Science | Research Starters",
+            "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+          },
+          {
+            "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+            "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+            "relevantSnippet": "Despite lingering Flat Earth conspiracy theories, humans have gathered evidence of our planet’s spherical nature for millennia."
+          },
+          {
+            "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+            "title": "Unconventional Theories about the Earth's Shape: Both Ancient and Modern",
+            "relevantSnippet": "The fact that the Earth has a spherical shape has been widely acknowledged in modern society, although the concept of a flat and stationary Earth gained acceptance among some individuals in the 19th century."
+          },
+          {
+            "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+            "title": "Is the Earth round? - NOAA's National Ocean Service",
+            "relevantSnippet": "The Earth is an irregularly shaped ellipsoid."
+          }
+        ]
+      }
+    ],
+    "aiDetection": null
+  },
+  "1774208407244": {
+    "id": "1774208407244",
+    "text": "Tesla was founded by Elon Musk in 2003",
+    "result": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 0,
+      "riskLevel": "🔴 High Risk",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Tesla was founded by Elon Musk in 2003.",
+          "context": "Tesla was founded by Elon Musk in 2003",
+          "searchQuery": "Tesla founders 2003",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 1,
+          "reasoning": "All evidence snippets consistently state that Tesla was founded by Martin Eberhard and Marc Tarpenning in 2003, not Elon Musk.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://www.facebook.com/groups/193273688390939/posts/1307065990345031/",
+              "title": "Facebook Post",
+              "relevantSnippet": "While Elon Musk is sometimes referred to as the founder of Tesla, Martin Eberhard cofounded Tesla in 2003 with his friend Marc Tarpenning."
+            },
+            {
+              "url": "https://www.youtube.com/watch?v=eblPwXFb7TE",
+              "title": "YouTube Video",
+              "relevantSnippet": "... 2003 and were the original executives."
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Martin_Eberhard",
+              "title": "Martin Eberhard - Wikipedia",
+              "relevantSnippet": "Martin Forest Eberhard ... co-founded Tesla, Inc. (then Tesla Motors) with Marc Tarpenning in July 2003"
+            },
+            {
+              "url": "https://www.reddit.com/r/RealTesla/comments/123ae39/martin_eberhard_and_marc_tarpenning_the_actual/",
+              "title": "Reddit Comment",
+              "relevantSnippet": "Tesla was incorporated in July 2003 by Martin Eberhard and Marc Tarpenning as Tesla Motors."
+            },
+            {
+              "url": "https://www.facebook.com/TheRelationshipGuide101/posts/1022956333207750/",
+              "title": "Facebook Post",
+              "relevantSnippet": "Ten Unknown Facts About #Tesla Founding: Tesla was founded in 2003 by engineers Martin Eberhard and Marc Tarpenning, not Elon Musk."
+            }
+          ]
+        }
+      ]
+    },
+    "timestamp": "2026-03-22T19:40:07.244Z",
+    "q": "Tesla was founded by Elon Musk in 2003",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 0,
+      "riskLevel": "🔴 High Risk",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Tesla was founded by Elon Musk in 2003.",
+          "context": "Tesla was founded by Elon Musk in 2003",
+          "searchQuery": "Tesla founders 2003",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 1,
+          "reasoning": "All evidence snippets consistently state that Tesla was founded by Martin Eberhard and Marc Tarpenning in 2003, not Elon Musk.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://www.facebook.com/groups/193273688390939/posts/1307065990345031/",
+              "title": "Facebook Post",
+              "relevantSnippet": "While Elon Musk is sometimes referred to as the founder of Tesla, Martin Eberhard cofounded Tesla in 2003 with his friend Marc Tarpenning."
+            },
+            {
+              "url": "https://www.youtube.com/watch?v=eblPwXFb7TE",
+              "title": "YouTube Video",
+              "relevantSnippet": "... 2003 and were the original executives."
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Martin_Eberhard",
+              "title": "Martin Eberhard - Wikipedia",
+              "relevantSnippet": "Martin Forest Eberhard ... co-founded Tesla, Inc. (then Tesla Motors) with Marc Tarpenning in July 2003"
+            },
+            {
+              "url": "https://www.reddit.com/r/RealTesla/comments/123ae39/martin_eberhard_and_marc_tarpenning_the_actual/",
+              "title": "Reddit Comment",
+              "relevantSnippet": "Tesla was incorporated in July 2003 by Martin Eberhard and Marc Tarpenning as Tesla Motors."
+            },
+            {
+              "url": "https://www.facebook.com/TheRelationshipGuide101/posts/1022956333207750/",
+              "title": "Facebook Post",
+              "relevantSnippet": "Ten Unknown Facts About #Tesla Founding: Tesla was founded in 2003 by engineers Martin Eberhard and Marc Tarpenning, not Elon Musk."
+            }
+          ]
+        }
+      ]
+    },
+    "claims": [
+      {
+        "id": "C1",
+        "claim": "Tesla was founded by Elon Musk in 2003.",
+        "context": "Tesla was founded by Elon Musk in 2003"
+      }
+    ],
+    "processedClaims": [
+      {
+        "id": "C1",
+        "claim": "Tesla was founded by Elon Musk in 2003.",
+        "context": "Tesla was founded by Elon Musk in 2003",
+        "searchQuery": "Tesla founders 2003",
+        "claimId": "C1",
+        "verdict": "False",
+        "confidenceScore": 1,
+        "reasoning": "All evidence snippets consistently state that Tesla was founded by Martin Eberhard and Marc Tarpenning in 2003, not Elon Musk.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "citations": [
+          {
+            "url": "https://www.facebook.com/groups/193273688390939/posts/1307065990345031/",
+            "title": "Facebook Post",
+            "relevantSnippet": "While Elon Musk is sometimes referred to as the founder of Tesla, Martin Eberhard cofounded Tesla in 2003 with his friend Marc Tarpenning."
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=eblPwXFb7TE",
+            "title": "YouTube Video",
+            "relevantSnippet": "... 2003 and were the original executives."
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Martin_Eberhard",
+            "title": "Martin Eberhard - Wikipedia",
+            "relevantSnippet": "Martin Forest Eberhard ... co-founded Tesla, Inc. (then Tesla Motors) with Marc Tarpenning in July 2003"
+          },
+          {
+            "url": "https://www.reddit.com/r/RealTesla/comments/123ae39/martin_eberhard_and_marc_tarpenning_the_actual/",
+            "title": "Reddit Comment",
+            "relevantSnippet": "Tesla was incorporated in July 2003 by Martin Eberhard and Marc Tarpenning as Tesla Motors."
+          },
+          {
+            "url": "https://www.facebook.com/TheRelationshipGuide101/posts/1022956333207750/",
+            "title": "Facebook Post",
+            "relevantSnippet": "Ten Unknown Facts About #Tesla Founding: Tesla was founded in 2003 by engineers Martin Eberhard and Marc Tarpenning, not Elon Musk."
+          }
+        ]
+      }
+    ],
+    "aiDetection": null
+  },
+  "1774208481983": {
+    "id": "1774208481983",
+    "text": "Earth is flat.\nWater boils at 100°C.\nAI will replace all jobs.\n",
+    "result": {
+      "total": 3,
+      "true": 0,
+      "partial": 1,
+      "false": 2,
+      "unverifiable": 0,
+      "accuracyScore": 16.7,
+      "riskLevel": "🔴 High Risk",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Earth is flat.",
+          "context": "Earth is flat.",
+          "searchQuery": "Earth shape scientific evidence",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 1,
+          "reasoning": "All provided evidence directly contradicts the claim 'Earth is flat,' describing Earth's shape as spherical, oblate spheroid, or an irregularly shaped ellipsoid.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+              "title": "Empirical evidence for the spherical shape of Earth",
+              "relevantSnippet": "The roughly spherical shape of Earth can be empirically evidenced by many different types of observation, ranging from ground level, flight, or orbit."
+            },
+            {
+              "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+              "title": "Earth's Shape | Science | Research Starters",
+              "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+            },
+            {
+              "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+              "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+              "relevantSnippet": "Despite lingering Flat Earth conspiracy theories, humans have gathered evidence of our planet’s spherical nature for millennia."
+            },
+            {
+              "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+              "title": "Unconventional Theories about the Earth's Shape: Both Ancient and Modern",
+              "relevantSnippet": "The fact that the Earth has a spherical shape has been widely acknowledged in modern society, although the concept of a flat and stationary Earth gained acceptance among some individuals in the 19th century."
+            },
+            {
+              "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+              "title": "Is the Earth round?",
+              "relevantSnippet": "The Earth is an irregularly shaped ellipsoid."
+            }
+          ]
+        },
+        {
+          "id": "C2",
+          "claim": "Water boils at 100°C.",
+          "context": "Water boils at 100°C.",
+          "searchQuery": "water boiling point",
+          "claimId": "C1",
+          "verdict": "Partially True",
+          "confidenceScore": 0.8,
+          "reasoning": "The claim that water boils at 100°C is partially supported by the evidence. Sources [1], [2], and [3] all state that water boils at 100°C at sea level, but also note that the boiling point can change with altitude and atmospheric pressure. Source [1] specifically mentions that the boiling point of water decreases with increasing altitude, and Source [2] notes that adding a solute to water can increase the boiling point. Source [4] also mentions that changes in atmospheric pressure can alter the temperature at which water boils. However, none of the sources suggest that 100°C is the only temperature at which water can boil. Therefore, the claim is partially true, but it does not capture the full complexity of the relationship between water's boiling point and external conditions.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://www.ebsco.com/research-starters/science/boiling-points",
+              "title": "Boiling points | Science | Research Starters",
+              "relevantSnippet": "The boiling point is the specific temperature at which a liquid transitions to gas, occurring when its vapor pressure matches the external atmospheric pressure. For instance, water, a common reference point, boils at 212°F (100°C) at sea level, but this temperature decreases with increasing altitude due to lower atmospheric pressure."
+            },
+            {
+              "url": "https://www.compoundchem.com/2016/03/22/boiling-point/",
+              "title": "What Temperature Does Water Boil At? Boiling Point & ...",
+              "relevantSnippet": "At sea level, vapour pressure is equal to the atmospheric pressure at 100 ˚C, and so this is the temperature at which water boils."
+            },
+            {
+              "url": "https://www.thoughtco.com/what-is-the-boiling-point-of-water-607865",
+              "title": "What Is the Boiling Point of Water?",
+              "relevantSnippet": "The boiling point of water is 100 °C or 212 °F at 1 atmosphere of pressure (sea level). However, the value is not a constant."
+            },
+            {
+              "url": "https://www.thermoworks.com/bpcalc/",
+              "title": "Find Your Boiling Point",
+              "relevantSnippet": "Water boils at 212°F at sea level, but only at sea level. Changes in atmospheric pressure will alter the temperature at which water boils."
+            }
+          ]
+        },
+        {
+          "id": "C3",
+          "claim": "AI will replace all jobs.",
+          "context": "AI will replace all jobs.",
+          "searchQuery": "AI job replacement facts",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 0.9,
+          "reasoning": "The provided evidence suggests that while AI may replace some jobs, it will also create new ones and change the nature of work, emphasizing human-AI collaboration and the need for upskilling.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": true,
+          "citations": [
+            {
+              "url": "https://www.snhu.edu/about-us/newsroom/career/what-jobs-will-ai-replace",
+              "title": "What Jobs Will AI Replace?",
+              "relevantSnippet": "It's difficult to say which jobs will be replaced by artificial intelligence (AI) in the long term, but customer service and administrative work are particularly at risk today."
+            },
+            {
+              "url": "https://www.weforum.org/stories/2025/08/ai-jobs-replacement-data-careers/",
+              "title": "Why AI is replacing some jobs faster than others",
+              "relevantSnippet": "Old jobs vanish almost overnight while new ones emerge, but these new positions often require completely different skills and tend to cluster in"
+            },
+            {
+              "url": "https://www.reddit.com/r/Futurology/comments/1orpqes/i_analyzed_180m_jobs_to_see_what_jobs_ai_is/",
+              "title": "I analyzed 180M jobs to see what jobs AI is actually replacing today",
+              "relevantSnippet": "Individual contributor positions fell 9%, but senior leadership only declined 1.7%. ML engineer postings surged 40% as companies build out AI"
+            },
+            {
+              "url": "https://www.forbes.com/sites/wesmoss/2026/03/18/ai-isnt-killing-jobs-it-may-be-intensifying-work-instead/",
+              "title": "AI Isn't Killing Jobs—It May Be Intensifying Work Instead",
+              "relevantSnippet": "A separate study by researchers at UC Berkeley’s Haas School of Business, discussed in Harvard Business Review, observed a similar pattern: when generative AI tools enter the workflow, employees often expand the scope and pace of their work rather than reducing hours."
+            },
+            {
+              "url": "https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs",
+              "title": "Enhance or Eliminate? How AI Will Likely Change These Jobs",
+              "relevantSnippet": "“Rather than solely eliminating jobs, generative AI creates new demand in augmentation-prone roles, suggesting that human-AI collaboration is a key driver of labor market transformation,” says Srinivasan."
+            }
+          ]
+        }
+      ]
+    },
+    "timestamp": "2026-03-22T19:41:21.983Z",
+    "q": "Earth is flat.\nWater boils at 100°C.\nAI will replace all jobs.\n",
+    "report": {
+      "total": 3,
+      "true": 0,
+      "partial": 1,
+      "false": 2,
+      "unverifiable": 0,
+      "accuracyScore": 16.7,
+      "riskLevel": "🔴 High Risk",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Earth is flat.",
+          "context": "Earth is flat.",
+          "searchQuery": "Earth shape scientific evidence",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 1,
+          "reasoning": "All provided evidence directly contradicts the claim 'Earth is flat,' describing Earth's shape as spherical, oblate spheroid, or an irregularly shaped ellipsoid.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+              "title": "Empirical evidence for the spherical shape of Earth",
+              "relevantSnippet": "The roughly spherical shape of Earth can be empirically evidenced by many different types of observation, ranging from ground level, flight, or orbit."
+            },
+            {
+              "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+              "title": "Earth's Shape | Science | Research Starters",
+              "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+            },
+            {
+              "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+              "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+              "relevantSnippet": "Despite lingering Flat Earth conspiracy theories, humans have gathered evidence of our planet’s spherical nature for millennia."
+            },
+            {
+              "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+              "title": "Unconventional Theories about the Earth's Shape: Both Ancient and Modern",
+              "relevantSnippet": "The fact that the Earth has a spherical shape has been widely acknowledged in modern society, although the concept of a flat and stationary Earth gained acceptance among some individuals in the 19th century."
+            },
+            {
+              "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+              "title": "Is the Earth round?",
+              "relevantSnippet": "The Earth is an irregularly shaped ellipsoid."
+            }
+          ]
+        },
+        {
+          "id": "C2",
+          "claim": "Water boils at 100°C.",
+          "context": "Water boils at 100°C.",
+          "searchQuery": "water boiling point",
+          "claimId": "C1",
+          "verdict": "Partially True",
+          "confidenceScore": 0.8,
+          "reasoning": "The claim that water boils at 100°C is partially supported by the evidence. Sources [1], [2], and [3] all state that water boils at 100°C at sea level, but also note that the boiling point can change with altitude and atmospheric pressure. Source [1] specifically mentions that the boiling point of water decreases with increasing altitude, and Source [2] notes that adding a solute to water can increase the boiling point. Source [4] also mentions that changes in atmospheric pressure can alter the temperature at which water boils. However, none of the sources suggest that 100°C is the only temperature at which water can boil. Therefore, the claim is partially true, but it does not capture the full complexity of the relationship between water's boiling point and external conditions.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://www.ebsco.com/research-starters/science/boiling-points",
+              "title": "Boiling points | Science | Research Starters",
+              "relevantSnippet": "The boiling point is the specific temperature at which a liquid transitions to gas, occurring when its vapor pressure matches the external atmospheric pressure. For instance, water, a common reference point, boils at 212°F (100°C) at sea level, but this temperature decreases with increasing altitude due to lower atmospheric pressure."
+            },
+            {
+              "url": "https://www.compoundchem.com/2016/03/22/boiling-point/",
+              "title": "What Temperature Does Water Boil At? Boiling Point & ...",
+              "relevantSnippet": "At sea level, vapour pressure is equal to the atmospheric pressure at 100 ˚C, and so this is the temperature at which water boils."
+            },
+            {
+              "url": "https://www.thoughtco.com/what-is-the-boiling-point-of-water-607865",
+              "title": "What Is the Boiling Point of Water?",
+              "relevantSnippet": "The boiling point of water is 100 °C or 212 °F at 1 atmosphere of pressure (sea level). However, the value is not a constant."
+            },
+            {
+              "url": "https://www.thermoworks.com/bpcalc/",
+              "title": "Find Your Boiling Point",
+              "relevantSnippet": "Water boils at 212°F at sea level, but only at sea level. Changes in atmospheric pressure will alter the temperature at which water boils."
+            }
+          ]
+        },
+        {
+          "id": "C3",
+          "claim": "AI will replace all jobs.",
+          "context": "AI will replace all jobs.",
+          "searchQuery": "AI job replacement facts",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 0.9,
+          "reasoning": "The provided evidence suggests that while AI may replace some jobs, it will also create new ones and change the nature of work, emphasizing human-AI collaboration and the need for upskilling.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": true,
+          "citations": [
+            {
+              "url": "https://www.snhu.edu/about-us/newsroom/career/what-jobs-will-ai-replace",
+              "title": "What Jobs Will AI Replace?",
+              "relevantSnippet": "It's difficult to say which jobs will be replaced by artificial intelligence (AI) in the long term, but customer service and administrative work are particularly at risk today."
+            },
+            {
+              "url": "https://www.weforum.org/stories/2025/08/ai-jobs-replacement-data-careers/",
+              "title": "Why AI is replacing some jobs faster than others",
+              "relevantSnippet": "Old jobs vanish almost overnight while new ones emerge, but these new positions often require completely different skills and tend to cluster in"
+            },
+            {
+              "url": "https://www.reddit.com/r/Futurology/comments/1orpqes/i_analyzed_180m_jobs_to_see_what_jobs_ai_is/",
+              "title": "I analyzed 180M jobs to see what jobs AI is actually replacing today",
+              "relevantSnippet": "Individual contributor positions fell 9%, but senior leadership only declined 1.7%. ML engineer postings surged 40% as companies build out AI"
+            },
+            {
+              "url": "https://www.forbes.com/sites/wesmoss/2026/03/18/ai-isnt-killing-jobs-it-may-be-intensifying-work-instead/",
+              "title": "AI Isn't Killing Jobs—It May Be Intensifying Work Instead",
+              "relevantSnippet": "A separate study by researchers at UC Berkeley’s Haas School of Business, discussed in Harvard Business Review, observed a similar pattern: when generative AI tools enter the workflow, employees often expand the scope and pace of their work rather than reducing hours."
+            },
+            {
+              "url": "https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs",
+              "title": "Enhance or Eliminate? How AI Will Likely Change These Jobs",
+              "relevantSnippet": "“Rather than solely eliminating jobs, generative AI creates new demand in augmentation-prone roles, suggesting that human-AI collaboration is a key driver of labor market transformation,” says Srinivasan."
+            }
+          ]
+        }
+      ]
+    },
+    "claims": [
+      {
+        "id": "C1",
+        "claim": "Earth is flat.",
+        "context": "Earth is flat."
+      },
+      {
+        "id": "C2",
+        "claim": "Water boils at 100°C.",
+        "context": "Water boils at 100°C."
+      },
+      {
+        "id": "C3",
+        "claim": "AI will replace all jobs.",
+        "context": "AI will replace all jobs."
+      }
+    ],
+    "processedClaims": [
+      {
+        "id": "C1",
+        "claim": "Earth is flat.",
+        "context": "Earth is flat.",
+        "searchQuery": "Earth shape scientific evidence",
+        "claimId": "C1",
+        "verdict": "False",
+        "confidenceScore": 1,
+        "reasoning": "All provided evidence directly contradicts the claim 'Earth is flat,' describing Earth's shape as spherical, oblate spheroid, or an irregularly shaped ellipsoid.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "citations": [
+          {
+            "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+            "title": "Empirical evidence for the spherical shape of Earth",
+            "relevantSnippet": "The roughly spherical shape of Earth can be empirically evidenced by many different types of observation, ranging from ground level, flight, or orbit."
+          },
+          {
+            "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+            "title": "Earth's Shape | Science | Research Starters",
+            "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+          },
+          {
+            "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+            "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+            "relevantSnippet": "Despite lingering Flat Earth conspiracy theories, humans have gathered evidence of our planet’s spherical nature for millennia."
+          },
+          {
+            "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+            "title": "Unconventional Theories about the Earth's Shape: Both Ancient and Modern",
+            "relevantSnippet": "The fact that the Earth has a spherical shape has been widely acknowledged in modern society, although the concept of a flat and stationary Earth gained acceptance among some individuals in the 19th century."
+          },
+          {
+            "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+            "title": "Is the Earth round?",
+            "relevantSnippet": "The Earth is an irregularly shaped ellipsoid."
+          }
+        ]
+      },
+      {
+        "id": "C2",
+        "claim": "Water boils at 100°C.",
+        "context": "Water boils at 100°C.",
+        "searchQuery": "water boiling point",
+        "claimId": "C1",
+        "verdict": "Partially True",
+        "confidenceScore": 0.8,
+        "reasoning": "The claim that water boils at 100°C is partially supported by the evidence. Sources [1], [2], and [3] all state that water boils at 100°C at sea level, but also note that the boiling point can change with altitude and atmospheric pressure. Source [1] specifically mentions that the boiling point of water decreases with increasing altitude, and Source [2] notes that adding a solute to water can increase the boiling point. Source [4] also mentions that changes in atmospheric pressure can alter the temperature at which water boils. However, none of the sources suggest that 100°C is the only temperature at which water can boil. Therefore, the claim is partially true, but it does not capture the full complexity of the relationship between water's boiling point and external conditions.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "citations": [
+          {
+            "url": "https://www.ebsco.com/research-starters/science/boiling-points",
+            "title": "Boiling points | Science | Research Starters",
+            "relevantSnippet": "The boiling point is the specific temperature at which a liquid transitions to gas, occurring when its vapor pressure matches the external atmospheric pressure. For instance, water, a common reference point, boils at 212°F (100°C) at sea level, but this temperature decreases with increasing altitude due to lower atmospheric pressure."
+          },
+          {
+            "url": "https://www.compoundchem.com/2016/03/22/boiling-point/",
+            "title": "What Temperature Does Water Boil At? Boiling Point & ...",
+            "relevantSnippet": "At sea level, vapour pressure is equal to the atmospheric pressure at 100 ˚C, and so this is the temperature at which water boils."
+          },
+          {
+            "url": "https://www.thoughtco.com/what-is-the-boiling-point-of-water-607865",
+            "title": "What Is the Boiling Point of Water?",
+            "relevantSnippet": "The boiling point of water is 100 °C or 212 °F at 1 atmosphere of pressure (sea level). However, the value is not a constant."
+          },
+          {
+            "url": "https://www.thermoworks.com/bpcalc/",
+            "title": "Find Your Boiling Point",
+            "relevantSnippet": "Water boils at 212°F at sea level, but only at sea level. Changes in atmospheric pressure will alter the temperature at which water boils."
+          }
+        ]
+      },
+      {
+        "id": "C3",
+        "claim": "AI will replace all jobs.",
+        "context": "AI will replace all jobs.",
+        "searchQuery": "AI job replacement facts",
+        "claimId": "C1",
+        "verdict": "False",
+        "confidenceScore": 0.9,
+        "reasoning": "The provided evidence suggests that while AI may replace some jobs, it will also create new ones and change the nature of work, emphasizing human-AI collaboration and the need for upskilling.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": true,
+        "citations": [
+          {
+            "url": "https://www.snhu.edu/about-us/newsroom/career/what-jobs-will-ai-replace",
+            "title": "What Jobs Will AI Replace?",
+            "relevantSnippet": "It's difficult to say which jobs will be replaced by artificial intelligence (AI) in the long term, but customer service and administrative work are particularly at risk today."
+          },
+          {
+            "url": "https://www.weforum.org/stories/2025/08/ai-jobs-replacement-data-careers/",
+            "title": "Why AI is replacing some jobs faster than others",
+            "relevantSnippet": "Old jobs vanish almost overnight while new ones emerge, but these new positions often require completely different skills and tend to cluster in"
+          },
+          {
+            "url": "https://www.reddit.com/r/Futurology/comments/1orpqes/i_analyzed_180m_jobs_to_see_what_jobs_ai_is/",
+            "title": "I analyzed 180M jobs to see what jobs AI is actually replacing today",
+            "relevantSnippet": "Individual contributor positions fell 9%, but senior leadership only declined 1.7%. ML engineer postings surged 40% as companies build out AI"
+          },
+          {
+            "url": "https://www.forbes.com/sites/wesmoss/2026/03/18/ai-isnt-killing-jobs-it-may-be-intensifying-work-instead/",
+            "title": "AI Isn't Killing Jobs—It May Be Intensifying Work Instead",
+            "relevantSnippet": "A separate study by researchers at UC Berkeley’s Haas School of Business, discussed in Harvard Business Review, observed a similar pattern: when generative AI tools enter the workflow, employees often expand the scope and pace of their work rather than reducing hours."
+          },
+          {
+            "url": "https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs",
+            "title": "Enhance or Eliminate? How AI Will Likely Change These Jobs",
+            "relevantSnippet": "“Rather than solely eliminating jobs, generative AI creates new demand in augmentation-prone roles, suggesting that human-AI collaboration is a key driver of labor market transformation,” says Srinivasan."
+          }
+        ]
+      }
+    ],
+    "aiDetection": null
+  },
+  "1774208720848": {
+    "id": "1774208720848",
+    "text": "Earth is flat.\nWater boils at 100°C.\nAI will replace all jobs.",
+    "result": {
+      "total": 3,
+      "true": 0,
+      "partial": 1,
+      "false": 2,
+      "unverifiable": 0,
+      "accuracyScore": 16.7,
+      "riskLevel": "🔴 High Risk",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Earth is flat.",
+          "context": "Earth is flat.",
+          "searchQuery": "Earth shape scientific evidence",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 1,
+          "reasoning": "All provided evidence directly contradicts the claim 'Earth is flat,' describing Earth as spherical, oblate spheroid, or an irregularly shaped ellipsoid. No evidence supports the flat Earth claim.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+              "title": "Empirical evidence for the spherical shape of Earth",
+              "relevantSnippet": "The roughly spherical shape of Earth can be empirically evidenced by many different types of observation, ranging from ground level, flight, or orbit."
+            },
+            {
+              "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+              "title": "Earth's Shape | Science | Research Starters",
+              "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+            },
+            {
+              "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+              "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+              "relevantSnippet": "Despite lingering Flat Earth conspiracy theories, humans have gathered evidence of our planet’s spherical nature for millennia."
+            },
+            {
+              "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+              "title": "Unconventional Theories about the Earth's Shape: Both Ancient and Modern",
+              "relevantSnippet": "The fact that the Earth has a spherical shape has been widely acknowledged in modern society, although the concept of a flat and stationary Earth gained acceptance among some individuals in the 19th century."
+            },
+            {
+              "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+              "title": "Is the Earth round?",
+              "relevantSnippet": "The Earth is an irregularly shaped ellipsoid."
+            }
+          ]
+        },
+        {
+          "id": "C2",
+          "claim": "Water boils at 100°C.",
+          "context": "Water boils at 100°C.",
+          "searchQuery": "water boiling point",
+          "claimId": "C1",
+          "verdict": "Partially True",
+          "confidenceScore": 0.8,
+          "reasoning": "The claim that water boils at 100°C is partially supported by the evidence. Sources [1], [2], and [3] all state that water boils at 100°C at sea level, which is the standard atmospheric pressure. However, sources [1] and [2] also mention that the boiling point of water can change with altitude and atmospheric pressure, and source [2] notes that adding a solute to water can also increase the boiling point. Source [4] also mentions that changes in atmospheric pressure will alter the temperature at which water boils. This suggests that the boiling point of water is not always 100°C, but rather it is the boiling point at sea level. Therefore, the claim is partially true, but it does not account for variations in boiling point due to changes in pressure or other factors.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://www.ebsco.com/research-starters/science/boiling-points",
+              "title": "Boiling points | Science | Research Starters",
+              "relevantSnippet": "The boiling point is the specific temperature at which a liquid transitions to gas, occurring when its vapor pressure matches the external atmospheric pressure. For instance, water, a common reference point, boils at 212°F (100°C) at sea level, but this temperature decreases with increasing altitude due to lower atmospheric pressure."
+            },
+            {
+              "url": "https://www.compoundchem.com/2016/03/22/boiling-point/",
+              "title": "What Temperature Does Water Boil At? Boiling Point & ...",
+              "relevantSnippet": "At sea level, vapour pressure is equal to the atmospheric pressure at 100 ˚C, and so this is the temperature at which water boils."
+            },
+            {
+              "url": "https://www.thoughtco.com/what-is-the-boiling-point-of-water-607865",
+              "title": "What Is the Boiling Point of Water?",
+              "relevantSnippet": "The boiling point of water is 100 °C or 212 °F at 1 atmosphere of pressure (sea level). However, the value is not a constant."
+            },
+            {
+              "url": "https://www.thermoworks.com/bpcalc/",
+              "title": "Find Your Boiling Point",
+              "relevantSnippet": "Water boils at 212°F at sea level, but only at sea level. Changes in atmospheric pressure will alter the temperature at which water boils."
+            }
+          ]
+        },
+        {
+          "id": "C3",
+          "claim": "AI will replace all jobs.",
+          "context": "AI will replace all jobs.",
+          "searchQuery": "AI job replacement facts",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 0.9,
+          "reasoning": "The provided evidence suggests that while AI may replace certain tasks or jobs, it also creates new job opportunities and transforms the nature of work to require more human-AI collaboration, rather than replacing all jobs.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": true,
+          "citations": [
+            {
+              "url": "https://www.snhu.edu/about-us/newsroom/career/what-jobs-will-ai-replace",
+              "title": "What Jobs Will AI Replace?",
+              "relevantSnippet": "It's difficult to say which jobs will be replaced by artificial intelligence (AI) in the long term, but customer service and administrative work are particularly at risk today."
+            },
+            {
+              "url": "https://www.weforum.org/stories/2025/08/ai-jobs-replacement-data-careers/",
+              "title": "Why AI is replacing some jobs faster than others",
+              "relevantSnippet": "Old jobs vanish almost overnight while new ones emerge, but these new positions often require completely different skills and tend to cluster in"
+            },
+            {
+              "url": "https://www.reddit.com/r/Futurology/comments/1orpqes/i_analyzed_180m_jobs_to_see_what_jobs_ai_is/",
+              "title": "I analyzed 180M jobs to see what jobs AI is actually replacing today",
+              "relevantSnippet": "Individual contributor positions fell 9%, but senior leadership only declined 1.7%. ML engineer postings surged 40% as companies build out AI"
+            },
+            {
+              "url": "https://www.forbes.com/sites/wesmoss/2026/03/18/ai-isnt-killing-jobs-it-may-be-intensifying-work-instead/",
+              "title": "AI Isn't Killing Jobs—It May Be Intensifying Work Instead",
+              "relevantSnippet": "A separate study by researchers at UC Berkeley’s Haas School of Business, discussed in Harvard Business Review, observed a similar pattern: when generative AI tools enter the workflow, employees often expand the scope and pace of their work rather than reducing hours."
+            },
+            {
+              "url": "https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs",
+              "title": "Enhance or Eliminate? How AI Will Likely Change These Jobs",
+              "relevantSnippet": "“Rather than solely eliminating jobs, generative AI creates new demand in augmentation-prone roles, suggesting that human-AI collaboration is a key driver of labor market transformation,” says Srinivasan."
+            }
+          ]
+        }
+      ]
+    },
+    "timestamp": "2026-03-22T19:45:20.849Z",
+    "q": "Earth is flat.\nWater boils at 100°C.\nAI will replace all jobs.",
+    "report": {
+      "total": 3,
+      "true": 0,
+      "partial": 1,
+      "false": 2,
+      "unverifiable": 0,
+      "accuracyScore": 16.7,
+      "riskLevel": "🔴 High Risk",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Earth is flat.",
+          "context": "Earth is flat.",
+          "searchQuery": "Earth shape scientific evidence",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 1,
+          "reasoning": "All provided evidence directly contradicts the claim 'Earth is flat,' describing Earth as spherical, oblate spheroid, or an irregularly shaped ellipsoid. No evidence supports the flat Earth claim.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+              "title": "Empirical evidence for the spherical shape of Earth",
+              "relevantSnippet": "The roughly spherical shape of Earth can be empirically evidenced by many different types of observation, ranging from ground level, flight, or orbit."
+            },
+            {
+              "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+              "title": "Earth's Shape | Science | Research Starters",
+              "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+            },
+            {
+              "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+              "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+              "relevantSnippet": "Despite lingering Flat Earth conspiracy theories, humans have gathered evidence of our planet’s spherical nature for millennia."
+            },
+            {
+              "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+              "title": "Unconventional Theories about the Earth's Shape: Both Ancient and Modern",
+              "relevantSnippet": "The fact that the Earth has a spherical shape has been widely acknowledged in modern society, although the concept of a flat and stationary Earth gained acceptance among some individuals in the 19th century."
+            },
+            {
+              "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+              "title": "Is the Earth round?",
+              "relevantSnippet": "The Earth is an irregularly shaped ellipsoid."
+            }
+          ]
+        },
+        {
+          "id": "C2",
+          "claim": "Water boils at 100°C.",
+          "context": "Water boils at 100°C.",
+          "searchQuery": "water boiling point",
+          "claimId": "C1",
+          "verdict": "Partially True",
+          "confidenceScore": 0.8,
+          "reasoning": "The claim that water boils at 100°C is partially supported by the evidence. Sources [1], [2], and [3] all state that water boils at 100°C at sea level, which is the standard atmospheric pressure. However, sources [1] and [2] also mention that the boiling point of water can change with altitude and atmospheric pressure, and source [2] notes that adding a solute to water can also increase the boiling point. Source [4] also mentions that changes in atmospheric pressure will alter the temperature at which water boils. This suggests that the boiling point of water is not always 100°C, but rather it is the boiling point at sea level. Therefore, the claim is partially true, but it does not account for variations in boiling point due to changes in pressure or other factors.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://www.ebsco.com/research-starters/science/boiling-points",
+              "title": "Boiling points | Science | Research Starters",
+              "relevantSnippet": "The boiling point is the specific temperature at which a liquid transitions to gas, occurring when its vapor pressure matches the external atmospheric pressure. For instance, water, a common reference point, boils at 212°F (100°C) at sea level, but this temperature decreases with increasing altitude due to lower atmospheric pressure."
+            },
+            {
+              "url": "https://www.compoundchem.com/2016/03/22/boiling-point/",
+              "title": "What Temperature Does Water Boil At? Boiling Point & ...",
+              "relevantSnippet": "At sea level, vapour pressure is equal to the atmospheric pressure at 100 ˚C, and so this is the temperature at which water boils."
+            },
+            {
+              "url": "https://www.thoughtco.com/what-is-the-boiling-point-of-water-607865",
+              "title": "What Is the Boiling Point of Water?",
+              "relevantSnippet": "The boiling point of water is 100 °C or 212 °F at 1 atmosphere of pressure (sea level). However, the value is not a constant."
+            },
+            {
+              "url": "https://www.thermoworks.com/bpcalc/",
+              "title": "Find Your Boiling Point",
+              "relevantSnippet": "Water boils at 212°F at sea level, but only at sea level. Changes in atmospheric pressure will alter the temperature at which water boils."
+            }
+          ]
+        },
+        {
+          "id": "C3",
+          "claim": "AI will replace all jobs.",
+          "context": "AI will replace all jobs.",
+          "searchQuery": "AI job replacement facts",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 0.9,
+          "reasoning": "The provided evidence suggests that while AI may replace certain tasks or jobs, it also creates new job opportunities and transforms the nature of work to require more human-AI collaboration, rather than replacing all jobs.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": true,
+          "citations": [
+            {
+              "url": "https://www.snhu.edu/about-us/newsroom/career/what-jobs-will-ai-replace",
+              "title": "What Jobs Will AI Replace?",
+              "relevantSnippet": "It's difficult to say which jobs will be replaced by artificial intelligence (AI) in the long term, but customer service and administrative work are particularly at risk today."
+            },
+            {
+              "url": "https://www.weforum.org/stories/2025/08/ai-jobs-replacement-data-careers/",
+              "title": "Why AI is replacing some jobs faster than others",
+              "relevantSnippet": "Old jobs vanish almost overnight while new ones emerge, but these new positions often require completely different skills and tend to cluster in"
+            },
+            {
+              "url": "https://www.reddit.com/r/Futurology/comments/1orpqes/i_analyzed_180m_jobs_to_see_what_jobs_ai_is/",
+              "title": "I analyzed 180M jobs to see what jobs AI is actually replacing today",
+              "relevantSnippet": "Individual contributor positions fell 9%, but senior leadership only declined 1.7%. ML engineer postings surged 40% as companies build out AI"
+            },
+            {
+              "url": "https://www.forbes.com/sites/wesmoss/2026/03/18/ai-isnt-killing-jobs-it-may-be-intensifying-work-instead/",
+              "title": "AI Isn't Killing Jobs—It May Be Intensifying Work Instead",
+              "relevantSnippet": "A separate study by researchers at UC Berkeley’s Haas School of Business, discussed in Harvard Business Review, observed a similar pattern: when generative AI tools enter the workflow, employees often expand the scope and pace of their work rather than reducing hours."
+            },
+            {
+              "url": "https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs",
+              "title": "Enhance or Eliminate? How AI Will Likely Change These Jobs",
+              "relevantSnippet": "“Rather than solely eliminating jobs, generative AI creates new demand in augmentation-prone roles, suggesting that human-AI collaboration is a key driver of labor market transformation,” says Srinivasan."
+            }
+          ]
+        }
+      ]
+    },
+    "claims": [
+      {
+        "id": "C1",
+        "claim": "Earth is flat.",
+        "context": "Earth is flat."
+      },
+      {
+        "id": "C2",
+        "claim": "Water boils at 100°C.",
+        "context": "Water boils at 100°C."
+      },
+      {
+        "id": "C3",
+        "claim": "AI will replace all jobs.",
+        "context": "AI will replace all jobs."
+      }
+    ],
+    "processedClaims": [
+      {
+        "id": "C1",
+        "claim": "Earth is flat.",
+        "context": "Earth is flat.",
+        "searchQuery": "Earth shape scientific evidence",
+        "claimId": "C1",
+        "verdict": "False",
+        "confidenceScore": 1,
+        "reasoning": "All provided evidence directly contradicts the claim 'Earth is flat,' describing Earth as spherical, oblate spheroid, or an irregularly shaped ellipsoid. No evidence supports the flat Earth claim.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "citations": [
+          {
+            "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+            "title": "Empirical evidence for the spherical shape of Earth",
+            "relevantSnippet": "The roughly spherical shape of Earth can be empirically evidenced by many different types of observation, ranging from ground level, flight, or orbit."
+          },
+          {
+            "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+            "title": "Earth's Shape | Science | Research Starters",
+            "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+          },
+          {
+            "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+            "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+            "relevantSnippet": "Despite lingering Flat Earth conspiracy theories, humans have gathered evidence of our planet’s spherical nature for millennia."
+          },
+          {
+            "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+            "title": "Unconventional Theories about the Earth's Shape: Both Ancient and Modern",
+            "relevantSnippet": "The fact that the Earth has a spherical shape has been widely acknowledged in modern society, although the concept of a flat and stationary Earth gained acceptance among some individuals in the 19th century."
+          },
+          {
+            "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+            "title": "Is the Earth round?",
+            "relevantSnippet": "The Earth is an irregularly shaped ellipsoid."
+          }
+        ]
+      },
+      {
+        "id": "C2",
+        "claim": "Water boils at 100°C.",
+        "context": "Water boils at 100°C.",
+        "searchQuery": "water boiling point",
+        "claimId": "C1",
+        "verdict": "Partially True",
+        "confidenceScore": 0.8,
+        "reasoning": "The claim that water boils at 100°C is partially supported by the evidence. Sources [1], [2], and [3] all state that water boils at 100°C at sea level, which is the standard atmospheric pressure. However, sources [1] and [2] also mention that the boiling point of water can change with altitude and atmospheric pressure, and source [2] notes that adding a solute to water can also increase the boiling point. Source [4] also mentions that changes in atmospheric pressure will alter the temperature at which water boils. This suggests that the boiling point of water is not always 100°C, but rather it is the boiling point at sea level. Therefore, the claim is partially true, but it does not account for variations in boiling point due to changes in pressure or other factors.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "citations": [
+          {
+            "url": "https://www.ebsco.com/research-starters/science/boiling-points",
+            "title": "Boiling points | Science | Research Starters",
+            "relevantSnippet": "The boiling point is the specific temperature at which a liquid transitions to gas, occurring when its vapor pressure matches the external atmospheric pressure. For instance, water, a common reference point, boils at 212°F (100°C) at sea level, but this temperature decreases with increasing altitude due to lower atmospheric pressure."
+          },
+          {
+            "url": "https://www.compoundchem.com/2016/03/22/boiling-point/",
+            "title": "What Temperature Does Water Boil At? Boiling Point & ...",
+            "relevantSnippet": "At sea level, vapour pressure is equal to the atmospheric pressure at 100 ˚C, and so this is the temperature at which water boils."
+          },
+          {
+            "url": "https://www.thoughtco.com/what-is-the-boiling-point-of-water-607865",
+            "title": "What Is the Boiling Point of Water?",
+            "relevantSnippet": "The boiling point of water is 100 °C or 212 °F at 1 atmosphere of pressure (sea level). However, the value is not a constant."
+          },
+          {
+            "url": "https://www.thermoworks.com/bpcalc/",
+            "title": "Find Your Boiling Point",
+            "relevantSnippet": "Water boils at 212°F at sea level, but only at sea level. Changes in atmospheric pressure will alter the temperature at which water boils."
+          }
+        ]
+      },
+      {
+        "id": "C3",
+        "claim": "AI will replace all jobs.",
+        "context": "AI will replace all jobs.",
+        "searchQuery": "AI job replacement facts",
+        "claimId": "C1",
+        "verdict": "False",
+        "confidenceScore": 0.9,
+        "reasoning": "The provided evidence suggests that while AI may replace certain tasks or jobs, it also creates new job opportunities and transforms the nature of work to require more human-AI collaboration, rather than replacing all jobs.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": true,
+        "citations": [
+          {
+            "url": "https://www.snhu.edu/about-us/newsroom/career/what-jobs-will-ai-replace",
+            "title": "What Jobs Will AI Replace?",
+            "relevantSnippet": "It's difficult to say which jobs will be replaced by artificial intelligence (AI) in the long term, but customer service and administrative work are particularly at risk today."
+          },
+          {
+            "url": "https://www.weforum.org/stories/2025/08/ai-jobs-replacement-data-careers/",
+            "title": "Why AI is replacing some jobs faster than others",
+            "relevantSnippet": "Old jobs vanish almost overnight while new ones emerge, but these new positions often require completely different skills and tend to cluster in"
+          },
+          {
+            "url": "https://www.reddit.com/r/Futurology/comments/1orpqes/i_analyzed_180m_jobs_to_see_what_jobs_ai_is/",
+            "title": "I analyzed 180M jobs to see what jobs AI is actually replacing today",
+            "relevantSnippet": "Individual contributor positions fell 9%, but senior leadership only declined 1.7%. ML engineer postings surged 40% as companies build out AI"
+          },
+          {
+            "url": "https://www.forbes.com/sites/wesmoss/2026/03/18/ai-isnt-killing-jobs-it-may-be-intensifying-work-instead/",
+            "title": "AI Isn't Killing Jobs—It May Be Intensifying Work Instead",
+            "relevantSnippet": "A separate study by researchers at UC Berkeley’s Haas School of Business, discussed in Harvard Business Review, observed a similar pattern: when generative AI tools enter the workflow, employees often expand the scope and pace of their work rather than reducing hours."
+          },
+          {
+            "url": "https://www.library.hbs.edu/working-knowledge/enhance-or-eliminate-how-ai-will-likely-change-these-jobs",
+            "title": "Enhance or Eliminate? How AI Will Likely Change These Jobs",
+            "relevantSnippet": "“Rather than solely eliminating jobs, generative AI creates new demand in augmentation-prone roles, suggesting that human-AI collaboration is a key driver of labor market transformation,” says Srinivasan."
+          }
+        ]
+      }
+    ],
+    "aiDetection": null
+  }
+}
