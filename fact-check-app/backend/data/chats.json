@@ -1,1 +1,145 @@
-{}
+{
+  "1774207832462": {
+    "id": "1774207832462",
+    "text": "Earth is round in shape in 2d\n",
+    "result": {
+      "total": 1,
+      "true": 0,
+      "partial": 1,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 50,
+      "riskLevel": "🟢 Low Risk",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Earth is round in shape.",
+          "context": "Earth is round in shape in 2d",
+          "searchQuery": "Earth shape facts",
+          "claimId": "C1",
+          "verdict": "Partially True",
+          "confidenceScore": 0.8,
+          "reasoning": "The claim that Earth is round in shape is partially supported by the evidence. Sources [1], [2], and [4] describe Earth's shape as an oblate spheroid, which means it is slightly flattened at the poles and bulging at the equator. This implies that Earth is not a perfect sphere, but rather an approximation of a sphere. Source [5] also mentions that the difference between a sphere and a reference ellipsoid for Earth is small, only about one part in 300. However, the claim does not account for the nuances of Earth's shape, such as its oblateness. Therefore, the claim is partially true, but not entirely accurate.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+              "title": "Earth's Shape | Science | Research Starters - EBSCO",
+              "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+            },
+            {
+              "url": "https://study.com/academy/lesson/shape-of-the-earth-density-stress-gravity.html",
+              "title": "Earth's Shape, Size & Density - Lesson | Study.com",
+              "relevantSnippet": "The shape of Earth is an oblate spheroid. It is flatter at the North and South poles and rounder in the middle along the equator."
+            },
+            {
+              "url": "https://flexbooks.ck12.org/cbook/ck-12-middle-school-earth-science-flexbook-2.0/section/3.2/primary/lesson/earths-shape-ms-es/",
+              "title": "Earth's Shape | CK-12 Foundation",
+              "relevantSnippet": "Earth is a sphere (technically, an oblate spheroid, a bit squashed at the poles)."
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Figure_of_the_Earth",
+              "title": "Figure of the Earth - Wikipedia",
+              "relevantSnippet": "The difference between a sphere and a reference ellipsoid for Earth is small, only about one part in 300."
+            }
+          ]
+        }
+      ]
+    },
+    "timestamp": "2026-03-22T19:30:32.462Z",
+    "q": "Earth is round in shape in 2d\n",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 1,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 50,
+      "riskLevel": "🟢 Low Risk",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Earth is round in shape.",
+          "context": "Earth is round in shape in 2d",
+          "searchQuery": "Earth shape facts",
+          "claimId": "C1",
+          "verdict": "Partially True",
+          "confidenceScore": 0.8,
+          "reasoning": "The claim that Earth is round in shape is partially supported by the evidence. Sources [1], [2], and [4] describe Earth's shape as an oblate spheroid, which means it is slightly flattened at the poles and bulging at the equator. This implies that Earth is not a perfect sphere, but rather an approximation of a sphere. Source [5] also mentions that the difference between a sphere and a reference ellipsoid for Earth is small, only about one part in 300. However, the claim does not account for the nuances of Earth's shape, such as its oblateness. Therefore, the claim is partially true, but not entirely accurate.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+              "title": "Earth's Shape | Science | Research Starters - EBSCO",
+              "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+            },
+            {
+              "url": "https://study.com/academy/lesson/shape-of-the-earth-density-stress-gravity.html",
+              "title": "Earth's Shape, Size & Density - Lesson | Study.com",
+              "relevantSnippet": "The shape of Earth is an oblate spheroid. It is flatter at the North and South poles and rounder in the middle along the equator."
+            },
+            {
+              "url": "https://flexbooks.ck12.org/cbook/ck-12-middle-school-earth-science-flexbook-2.0/section/3.2/primary/lesson/earths-shape-ms-es/",
+              "title": "Earth's Shape | CK-12 Foundation",
+              "relevantSnippet": "Earth is a sphere (technically, an oblate spheroid, a bit squashed at the poles)."
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Figure_of_the_Earth",
+              "title": "Figure of the Earth - Wikipedia",
+              "relevantSnippet": "The difference between a sphere and a reference ellipsoid for Earth is small, only about one part in 300."
+            }
+          ]
+        }
+      ]
+    },
+    "claims": [
+      {
+        "id": "C1",
+        "claim": "Earth is round in shape.",
+        "context": "Earth is round in shape in 2d"
+      }
+    ],
+    "processedClaims": [
+      {
+        "id": "C1",
+        "claim": "Earth is round in shape.",
+        "context": "Earth is round in shape in 2d",
+        "searchQuery": "Earth shape facts",
+        "claimId": "C1",
+        "verdict": "Partially True",
+        "confidenceScore": 0.8,
+        "reasoning": "The claim that Earth is round in shape is partially supported by the evidence. Sources [1], [2], and [4] describe Earth's shape as an oblate spheroid, which means it is slightly flattened at the poles and bulging at the equator. This implies that Earth is not a perfect sphere, but rather an approximation of a sphere. Source [5] also mentions that the difference between a sphere and a reference ellipsoid for Earth is small, only about one part in 300. However, the claim does not account for the nuances of Earth's shape, such as its oblateness. Therefore, the claim is partially true, but not entirely accurate.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "citations": [
+          {
+            "url": "https://www.ebsco.com/research-starters/science/earths-shape",
+            "title": "Earth's Shape | Science | Research Starters - EBSCO",
+            "relevantSnippet": "Earth's shape is not a perfect sphere; it is classified as an oblate spheroid, meaning it is slightly flattened at the poles and bulging at the equator."
+          },
+          {
+            "url": "https://study.com/academy/lesson/shape-of-the-earth-density-stress-gravity.html",
+            "title": "Earth's Shape, Size & Density - Lesson | Study.com",
+            "relevantSnippet": "The shape of Earth is an oblate spheroid. It is flatter at the North and South poles and rounder in the middle along the equator."
+          },
+          {
+            "url": "https://flexbooks.ck12.org/cbook/ck-12-middle-school-earth-science-flexbook-2.0/section/3.2/primary/lesson/earths-shape-ms-es/",
+            "title": "Earth's Shape | CK-12 Foundation",
+            "relevantSnippet": "Earth is a sphere (technically, an oblate spheroid, a bit squashed at the poles)."
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Figure_of_the_Earth",
+            "title": "Figure of the Earth - Wikipedia",
+            "relevantSnippet": "The difference between a sphere and a reference ellipsoid for Earth is small, only about one part in 300."
+          }
+        ]
+      }
+    ],
+    "aiDetection": null
+  }
+}
