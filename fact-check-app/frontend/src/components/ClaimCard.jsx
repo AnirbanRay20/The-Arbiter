@@ -192,6 +192,14 @@ export default function ClaimCard({ claimData, onViewSources }) {
           </div>
         )}
 
+        {/* Verified timestamp */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginTop: 4 }}>
+          <span className="material-symbols-outlined" style={{ fontSize: 12, color: '#556070' }}>verified</span>
+          <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 9, color: '#556070', letterSpacing: '0.08em' }}>
+            Verified as of {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+          </span>
+        </div>
+
         {/* Footer */}
         <div style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',

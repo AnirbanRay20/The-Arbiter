@@ -4,6 +4,7 @@ import Sidebar from './components/Sidebar';
 import TopBar from './components/TopBar';
 import EmptyState from './components/EmptyState';
 import PipelineProgress from './components/PipelineProgress';
+import ExplainabilityFlow from './components/ExplainabilityFlow';
 import AccuracyReport from './components/AccuracyReport';
 import ClaimCard from './components/ClaimCard';
 import { AIDetectionPanel } from './components/AIDetectionPanel';
@@ -118,13 +119,21 @@ export default function App() {
               {activeView === 'suggestions' && (
                 <SuggestionsView
                   key="suggestions"
-                  onSelect={(text) => { setInitialContent(text); setActiveView('dashboard'); handleFactCheck('text', text); }}
+                  onSelect={(text, type) => { setInitialContent(text); setActiveView('dashboard'); handleFactCheck(type || 'text', text); }}
                 />
               )}
 
               {/* ── DASHBOARD ── */}
               {activeView === 'dashboard' && (
                 <motion.div key="dashboard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+
+                  {/* Explainability flow — shown when processing or results exist */}
+                  {(pipelineState || report || processedClaims.length > 0) && (
+                    <ExplainabilityFlow
+                      currentStep={pipelineState?.step || 'REPORTING'}
+                      isProcessing={isProcessing}
+                    />
+                  )}
 
                   {/* STEP 1 — Pipeline progress */}
                   {pipelineState && (
