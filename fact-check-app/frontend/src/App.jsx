@@ -27,7 +27,7 @@ export default function App() {
     startFactCheck, reset
   } = useFactCheck();
 
-  const [aiDetection, setAiDetection]     = useState(null);
+  const [aiDetection, setAiDetection] = useState(null);
   const [activeSources, setActiveSources] = useState([]);
 
   const handleFactCheck = async (inputType, content) => {
@@ -44,6 +44,7 @@ export default function App() {
     startFactCheck(inputType, content);
   };
 
+  // Save to history on report complete
   React.useEffect(() => {
     if (report && !isProcessing && lastQueryContext) {
       const prev = JSON.parse(localStorage.getItem('arbiter_history') || '[]');
@@ -79,8 +80,15 @@ export default function App() {
 
   return (
     <div style={{ display: 'flex', height: '100vh', overflow: 'hidden', backgroundColor: '#121317' }}>
-      <Sidebar activeView={activeView} onNavigate={setActiveView} onNewCheck={() => { reset(); setActiveView('dashboard'); setInitialContent(''); }} />
 
+      {/* Sidebar */}
+      <Sidebar
+        activeView={activeView}
+        onNavigate={setActiveView}
+        onNewCheck={() => { reset(); setActiveView('dashboard'); setInitialContent(''); }}
+      />
+
+      {/* Main */}
       <main style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', backgroundColor: '#0d0e12' }}>
         <TopBar isProcessing={isProcessing} />
 
@@ -89,7 +97,7 @@ export default function App() {
 
             <AnimatePresence mode="wait">
 
-              {/* HISTORY */}
+              {/* ── HISTORY ── */}
               {activeView === 'history' && (
                 <HistoryView
                   key="history"
@@ -98,16 +106,19 @@ export default function App() {
                 />
               )}
 
-              {/* SUGGESTIONS */}
+              {/* ── SUGGESTIONS ── */}
               {activeView === 'suggestions' && (
-                <SuggestionsView key="suggestions" onSelect={(text) => { setInitialContent(text); setActiveView('dashboard'); }} />
+                <SuggestionsView
+                  key="suggestions"
+                  onSelect={(text) => { setInitialContent(text); setActiveView('dashboard'); }}
+                />
               )}
 
-              {/* DASHBOARD */}
+              {/* ── DASHBOARD ── */}
               {activeView === 'dashboard' && (
                 <motion.div key="dashboard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 
-                  {/* ── STEP 1: PIPELINE PROGRESS (always top) ── */}
+                  {/* STEP 1 — Pipeline progress */}
                   {pipelineState && (
                     <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} style={{ marginBottom: '1.5rem' }}>
                       <PipelineProgress
@@ -118,10 +129,12 @@ export default function App() {
                     </motion.div>
                   )}
 
-                  {/* Pending claims preview */}
+                  {/* Pending claims preview (while processing) */}
                   {isProcessing && claims.length > 0 && claims.length > processedClaims.length && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                      style={{ marginBottom: '1.5rem', backgroundColor: '#161820', padding: '1.25rem 1.5rem', borderRadius: 8, border: '1px solid rgba(59,73,76,0.3)' }}>
+                    <motion.div
+                      initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                      style={{ marginBottom: '1.5rem', backgroundColor: '#161820', padding: '1.25rem 1.5rem', borderRadius: 8, border: '1px solid rgba(59,73,76,0.3)' }}
+                    >
                       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: '0.75rem' }}>
                         <span className="material-symbols-outlined animate-spin" style={{ fontSize: 16, color: '#00E5FF' }}>autorenew</span>
                         <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 11, color: '#00E5FF', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
@@ -149,11 +162,12 @@ export default function App() {
                     </div>
                   )}
 
-                  {/* ── RESULTS SECTION ── */}
+                  {/* ── RESULTS ── */}
                   {(report || processedClaims.length > 0) && (
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
 
-                      {/* ── STEP 2: SESSION INTELLIGENCE REPORT ── */}
+                      {/* STEP 2 — Session Intelligence Report
+                          AccuracyReport has its own Copy/Download/NewCheck toolbar built-in */}
                       {report && (
                         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
                           <div style={{
@@ -162,45 +176,22 @@ export default function App() {
                             borderRadius: 12,
                             overflow: 'hidden',
                           }}>
-                            <AccuracyReport report={report} />
-
-                            {/* Toolbar inside report card */}
-                            <div style={{
-                              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                              padding: '0.75rem 1.5rem',
-                              borderTop: '1px solid rgba(255,255,255,0.05)',
-                              backgroundColor: 'rgba(0,0,0,0.2)',
-                            }}>
-                              <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#556070', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                                {claims.length} claims analyzed
-                              </span>
-                              <div style={{ display: 'flex', gap: 8 }}>
-                                <button onClick={() => { navigator.clipboard.writeText(JSON.stringify(report, null, 2)); alert('Copied!'); }}
-                                  style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '0.4rem 0.9rem', backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', color: '#bac9cc', borderRadius: 6, cursor: 'pointer', fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                                  <span className="material-symbols-outlined" style={{ fontSize: 14 }}>content_copy</span> Copy
-                                </button>
-                                <button onClick={() => { const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'arbiter_report.json'; a.click(); URL.revokeObjectURL(url); }}
-                                  style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '0.4rem 0.9rem', backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', color: '#bac9cc', borderRadius: 6, cursor: 'pointer', fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                                  <span className="material-symbols-outlined" style={{ fontSize: 14 }}>download</span> Download
-                                </button>
-                                <button onClick={() => { reset(); setActiveView('dashboard'); setInitialContent(''); }}
-                                  style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '0.4rem 0.9rem', backgroundColor: '#00E5FF', border: 'none', color: '#00363d', borderRadius: 6, cursor: 'pointer', fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.08em', boxShadow: '0 0 12px rgba(0,229,255,0.3)' }}>
-                                  <span className="material-symbols-outlined" style={{ fontSize: 14 }}>refresh</span> New Check
-                                </button>
-                              </div>
-                            </div>
+                            <AccuracyReport
+                              report={report}
+                              onNewCheck={() => { reset(); setActiveView('dashboard'); setInitialContent(''); }}
+                            />
                           </div>
                         </motion.div>
                       )}
 
-                      {/* ── STEP 3: AI DETECTION PANEL ── */}
+                      {/* STEP 3 — AI Detection Panel */}
                       {report && aiDetection && (
                         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
                           <AIDetectionPanel detectionResult={aiDetection} />
                         </motion.div>
                       )}
 
-                      {/* ── STEP 4: CLAIMS FEED ── */}
+                      {/* STEP 4 — Verified Claims Feed */}
                       {processedClaims.length > 0 && (
                         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}>
 
@@ -210,7 +201,7 @@ export default function App() {
                               Verified Claims Stream
                             </span>
                             {isProcessing && (
-                              <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#00E5FF', textTransform: 'uppercase', letterSpacing: '0.1em' }} className="animate-pulse">
+                              <span className="animate-pulse" style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#00E5FF', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                                 Live Stream
                               </span>
                             )}
@@ -222,7 +213,8 @@ export default function App() {
                               {filterCategories.map(cat => (
                                 <button key={cat} onClick={() => setActiveCategory(cat)} style={{
                                   padding: '0.35rem 0.9rem', borderRadius: 6, border: 'none', cursor: 'pointer',
-                                  fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.08em',
+                                  fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 10,
+                                  textTransform: 'uppercase', letterSpacing: '0.08em',
                                   backgroundColor: activeCategory === cat ? 'rgba(255,255,255,0.1)' : 'transparent',
                                   color: activeCategory === cat ? '#e3e2e8' : '#556070',
                                   transition: 'all 0.15s',
@@ -233,8 +225,11 @@ export default function App() {
                             </div>
                             <div style={{ position: 'relative', width: 220 }}>
                               <span className="material-symbols-outlined" style={{ position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)', fontSize: 16, color: '#556070' }}>search</span>
-                              <input type="text" placeholder="Search claims..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
-                                style={{ width: '100%', backgroundColor: '#161820', border: '1px solid rgba(255,255,255,0.05)', borderRadius: 8, padding: '0.45rem 0.75rem 0.45rem 2rem', fontFamily: 'Manrope', fontSize: 12, color: '#e3e2e8', outline: 'none' }} />
+                              <input
+                                type="text" placeholder="Search claims..."
+                                value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
+                                style={{ width: '100%', backgroundColor: '#161820', border: '1px solid rgba(255,255,255,0.05)', borderRadius: 8, padding: '0.45rem 0.75rem 0.45rem 2rem', fontFamily: 'Manrope', fontSize: 12, color: '#e3e2e8', outline: 'none' }}
+                              />
                             </div>
                           </div>
 
@@ -247,12 +242,14 @@ export default function App() {
                             </AnimatePresence>
                           </div>
 
+                          {/* Processing indicator */}
                           {isProcessing && claims.length > processedClaims.length && (
-                            <p style={{ textAlign: 'center', fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#00E5FF', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '1.5rem 0' }} className="animate-pulse">
+                            <p className="animate-pulse" style={{ textAlign: 'center', fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#00E5FF', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '1.5rem 0' }}>
                               Processing {claims.length - processedClaims.length} remaining claims...
                             </p>
                           )}
 
+                          {/* Load more */}
                           {!isProcessing && visibleCount < filteredClaims.length && (
                             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '1.5rem' }}>
                               <button onClick={() => setVisibleCount(v => v + 6)} style={{
@@ -269,11 +266,13 @@ export default function App() {
                             </div>
                           )}
 
+                          {/* No results */}
                           {!isProcessing && filteredClaims.length === 0 && processedClaims.length > 0 && (
                             <p style={{ textAlign: 'center', fontFamily: 'IBM Plex Mono', fontSize: 11, color: '#556070', textTransform: 'uppercase', padding: '2rem 0' }}>
                               No claims match your filters.
                             </p>
                           )}
+
                         </motion.div>
                       )}
                     </div>
@@ -281,7 +280,11 @@ export default function App() {
 
                   {/* Empty state */}
                   {!showResults && !error && (
-                    <EmptyState onSubmit={handleFactCheck} disabled={isProcessing} initialContent={initialContent} />
+                    <EmptyState
+                      onSubmit={handleFactCheck}
+                      disabled={isProcessing}
+                      initialContent={initialContent}
+                    />
                   )}
 
                 </motion.div>
@@ -291,6 +294,7 @@ export default function App() {
         </div>
       </main>
 
+      {/* Evidence Drawer */}
       <EvidenceDrawer citations={activeSources} onClose={() => setActiveSources([])} />
     </div>
   );
