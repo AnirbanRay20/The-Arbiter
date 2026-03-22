@@ -2,12 +2,11 @@ import React from 'react';
 
 const NAV = [
   { icon: 'gavel',        label: 'Dashboard',        id: 'dashboard'   },
-  { icon: 'history',      label: 'Investigations',   id: 'history'     },
+  { icon: 'history',      label: 'History',   id: 'history'     },
   { icon: 'lightbulb',    label: 'Suggestions',      id: 'suggestions' },
 ];
 
 const BOTTOM_NAV = [
-  
   { icon: 'help_outline', label: 'Support',           id: 'support'     },
 ];
 
