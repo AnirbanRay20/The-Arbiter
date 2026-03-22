@@ -8,6 +8,7 @@ import ExplainabilityFlow from './components/ExplainabilityFlow';
 import AccuracyReport from './components/AccuracyReport';
 import ClaimCard from './components/ClaimCard';
 import { AIDetectionPanel } from './components/AIDetectionPanel';
+import URLImageAnalysisPanel from './components/URLImageAnalysisPanel';
 import { EvidenceDrawer } from './components/EvidenceDrawer';
 import HistoryView from './components/HistoryView';
 import SuggestionsView from './components/SuggestionsView';
@@ -27,6 +28,7 @@ export default function App() {
   const {
     isProcessing, pipelineState, claims,
     processedClaims, report, error,
+    imageAnalysis, scrapedMeta,
     startFactCheck, reset
   } = useFactCheck();
 
@@ -242,6 +244,16 @@ export default function App() {
                       {report && aiDetection && (
                         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
                           <AIDetectionPanel detectionResult={aiDetection} />
+                        </motion.div>
+                      )}
+
+                      {/* STEP 3b — URL Image Analysis (bonus: AI media detection) */}
+                      {report && imageAnalysis && imageAnalysis.length > 0 && (
+                        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
+                          <URLImageAnalysisPanel
+                            images={imageAnalysis}
+                            domain={scrapedMeta?.domain}
+                          />
                         </motion.div>
                       )}
 

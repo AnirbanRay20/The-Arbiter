@@ -14,6 +14,9 @@ CRITICAL RULES:
 - Preserve the exact factual content — do not paraphrase
 - Do NOT return the full paragraph as a single claim
 - Do NOT include vague statements (e.g., "many people believe...")
+- Do NOT extract tautological or definitional statements that are universally obvious (e.g. "Water is wet", "Mother and Father are parents of a child", "The sun rises in the east"). These cannot be verified by web evidence.
+- Do NOT extract purely subjective opinions with no factual basis (e.g. "Pizza tastes good")
+- ONLY extract claims that could realistically be confirmed or denied by a news article, encyclopedia, or research paper
 - Output ONLY a valid JSON array. No preamble, no markdown fences.
 
 Output format:

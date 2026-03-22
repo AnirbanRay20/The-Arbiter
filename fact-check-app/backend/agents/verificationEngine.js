@@ -6,13 +6,11 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
-async function verifyClaim(claimText, evidenceData) {
-  const claimId = evidenceData.claimId;
-  const sources = evidenceData.sources || [];
+async function verifyClaim(claim, sources) {
+  sources = sources || [];
 
   if (!sources.length) {
     return {
-      claimId,
       verdict: 'Unverifiable',
       confidenceScore: 0.0,
       reasoning: 'No evidence found for this claim.',
@@ -29,7 +27,13 @@ async function verifyClaim(claimText, evidenceData) {
     evidenceStr += `[${idx + 1}] Source: ${s.title} (${s.url})\nSnippet: ${s.snippet}\n\n`;
   });
 
-  const userPrompt = `CLAIM: ${claimText}\n\nEVIDENCE:\n${evidenceStr}\nNow reason step-by-step and evaluate the claim against this evidence only.\nBefore finalising, ask yourself: am I using internal knowledge? If yes, mark Unverifiable.`;
+  const claimMetadata = {
+    claimId: claim.id,
+    claim: claim.claim,
+    isQuestion: claim.isQuestion || false
+  };
+
+  const userPrompt = `CLAIM DATA:\n${JSON.stringify(claimMetadata, null, 2)}\n\nEVIDENCE:\n${evidenceStr}\nNow reason step-by-step and evaluate the claim against this evidence only.\nBefore finalising, ask yourself: am I using internal knowledge? If yes, mark Unverifiable.`;
 
   try {
     const response = await groq.chat.completions.create({
@@ -51,10 +55,9 @@ async function verifyClaim(claimText, evidenceData) {
     }
     throw new Error('Invalid JSON output from model');
   } catch (err) {
-    console.error(`Error verifying claim ${claimId}:`, err.message);
+    console.error(`Error verifying claim ${claim.id}:`, err.message);
     await sleep(1000);
     return {
-      claimId,
       verdict: 'Unverifiable',
       confidenceScore: 0.0,
       reasoning: 'Error during verification process.',
