@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function HistoryView({ onSelect, onGoToDashboard }) {
   const [history, setHistory] = useState([]);
   const [filter, setFilter]   = useState('all'); // 'all' | 'starred'
+  const [toast, setToast]     = useState(null);
 
   useEffect(() => {
     setHistory(JSON.parse(localStorage.getItem('arbiter_history') || '[]'));
@@ -28,10 +29,12 @@ export default function HistoryView({ onSelect, onGoToDashboard }) {
     }
   };
 
-  const shareItem = (e, q) => {
+  const shareItem = (e, id) => {
     e.stopPropagation();
-    navigator.clipboard.writeText(q);
-    alert('Query copied to clipboard!');
+    const url = `${window.location.origin}/chat/${id}`;
+    navigator.clipboard.writeText(url);
+    setToast('Link copied successfully');
+    setTimeout(() => setToast(null), 3000);
   };
 
   const toggleStar = (e, id) => {
@@ -217,6 +220,38 @@ export default function HistoryView({ onSelect, onGoToDashboard }) {
           </AnimatePresence>
         </div>
       )}
+
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.9 }}
+            style={{
+              position: 'fixed',
+              bottom: '2rem',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              backgroundColor: '#00E5FF',
+              color: '#00363d',
+              padding: '12px 24px',
+              borderRadius: 999,
+              fontFamily: 'Space Grotesk',
+              fontWeight: 700,
+              fontSize: 14,
+              boxShadow: '0 8px 32px rgba(0, 229, 255, 0.3)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 10,
+              zIndex: 1000,
+            }}
+          >
+            <span className="material-symbols-outlined" style={{ fontSize: 20 }}>check_circle</span>
+            {toast}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
@@ -322,7 +357,7 @@ function HistoryItem({ item, index, onSelect, onDelete, onShare, onStar }) {
         {/* Share + Delete — fade in on hover */}
         <div style={{ display: 'flex', gap: 5, opacity: hovered ? 1 : 0, transition: 'opacity 0.2s' }}>
           <button
-            onClick={(e) => onShare(e, item.q)}
+            onClick={(e) => onShare(e, item.id)}
             title="Copy query"
             style={{
               width: 30, height: 30, display: 'flex', alignItems: 'center', justifyContent: 'center',

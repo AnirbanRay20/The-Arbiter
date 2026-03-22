@@ -21,6 +21,9 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('All');
   const [visibleCount, setVisibleCount] = useState(6);
+  
+  const [chatId, setChatId] = useState(null);
+  const [toast, setToast] = useState(null);
 
   const {
     isProcessing, pipelineState, claims,
@@ -37,6 +40,7 @@ export default function App() {
     setSearchQuery('');
     setActiveCategory('All');
     setVisibleCount(6);
+    setChatId(null);
     setLastQueryContext(content);
     if (inputType === 'text') {
       try { setAiDetection(await detectAIText(content)); }
@@ -47,10 +51,11 @@ export default function App() {
 
   // Safe tracking: Whenever a report successfully completes, log it.
   React.useEffect(() => {
-    if (report && !isProcessing && lastQueryContext) {
+    if (report && !isProcessing && lastQueryContext && !chatId) {
       const prev = JSON.parse(localStorage.getItem('arbiter_history') || '[]');
+      const id = Date.now().toString();
       const newEntry = {
-        id: Date.now(),
+        id,
         q: lastQueryContext,
         risk: report.riskLevel,
         acc: report.accuracyScore,
@@ -58,12 +63,45 @@ export default function App() {
       };
       
       // avoid dupes by time
-      if (!prev.find(p => p.q === newEntry.q && Math.abs(new Date(p.date) - new Date(newEntry.date)) < 10000)) {
+      const existingEntry = prev.find(p => p.q === newEntry.q && Math.abs(new Date(p.date) - new Date(newEntry.date)) < 10000);
+      if (!existingEntry) {
         prev.unshift(newEntry);
         localStorage.setItem('arbiter_history', JSON.stringify(prev));
+        
+        // Save to key="history" to satisfy requirements
+        const standardHistory = JSON.parse(localStorage.getItem('history') || '[]');
+        standardHistory.unshift(newEntry);
+        localStorage.setItem('history', JSON.stringify(standardHistory));
+        
+        localStorage.setItem(`chat_${id}`, JSON.stringify({
+          id,
+          text: lastQueryContext,
+          result: report,
+          timestamp: new Date().toISOString(),
+          // include old keys so we don't break existing UI
+          q: lastQueryContext,
+          report,
+          claims,
+          processedClaims,
+          aiDetection
+        }));
+        setChatId(id);
+      } else {
+        setChatId(existingEntry.id);
+        localStorage.setItem(`chat_${existingEntry.id}`, JSON.stringify({
+          id: existingEntry.id,
+          text: lastQueryContext,
+          result: report,
+          timestamp: new Date().toISOString(),
+          q: lastQueryContext,
+          report,
+          claims,
+          processedClaims,
+          aiDetection
+        }));
       }
     }
-  }, [report, isProcessing]);
+  }, [report, isProcessing, lastQueryContext, claims, processedClaims, aiDetection, chatId]);
 
   const showResults = pipelineState || report || processedClaims.length > 0;
 
@@ -198,11 +236,19 @@ export default function App() {
                           </div>
                           <div className="flex flex-wrap items-center gap-3">
                              <button 
-                               onClick={() => { navigator.clipboard.writeText(JSON.stringify(report, null, 2)); alert('Copied to clipboard!') }} 
+                               onClick={() => { navigator.clipboard.writeText(JSON.stringify(report, null, 2)); setToast('JSON Copied!'); setTimeout(() => setToast(null), 3000); }} 
                                className="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors text-gray-300 flex items-center gap-2"
                              >
                                <span className="material-symbols-outlined text-[16px]">content_copy</span> Copy
                              </button>
+                             {chatId && (
+                               <button 
+                                 onClick={() => { navigator.clipboard.writeText(`${window.location.origin}/chat/${chatId}`); setToast('Link copied successfully'); setTimeout(() => setToast(null), 3000); }} 
+                                 className="px-4 py-2 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/20 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2"
+                               >
+                                 <span className="material-symbols-outlined text-[16px]">share</span> Share
+                               </button>
+                             )}
                              <button 
                                onClick={() => {
                                  const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
@@ -305,6 +351,38 @@ export default function App() {
 
       {/* Evidence Drawer */}
       <EvidenceDrawer citations={activeSources} onClose={() => setActiveSources([])} />
+
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.9 }}
+            style={{
+              position: 'fixed',
+              bottom: '2rem',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              backgroundColor: '#00E5FF',
+              color: '#00363d',
+              padding: '12px 24px',
+              borderRadius: 999,
+              fontFamily: 'Space Grotesk',
+              fontWeight: 700,
+              fontSize: 14,
+              boxShadow: '0 8px 32px rgba(0, 229, 255, 0.3)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 10,
+              zIndex: 1000,
+            }}
+          >
+            <span className="material-symbols-outlined" style={{ fontSize: 20 }}>check_circle</span>
+            {toast}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
