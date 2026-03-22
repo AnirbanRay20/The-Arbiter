@@ -10,6 +10,7 @@ import { AIDetectionPanel } from './components/AIDetectionPanel';
 import { EvidenceDrawer } from './components/EvidenceDrawer';
 import HistoryView from './components/HistoryView';
 import SuggestionsView from './components/SuggestionsView';
+import SupportView from './components/SupportView';
 import { useFactCheck } from './hooks/useFactCheck';
 import { detectAIText } from './services/api';
 import CorrectAnswerPanel from './components/CorrectAnswerPanel';
@@ -106,6 +107,11 @@ export default function App() {
                   onSelect={(query) => { setActiveView('dashboard'); setInitialContent(query); handleFactCheck('text', query); }}
                   onGoToDashboard={() => { reset(); setInitialContent(''); setActiveView('dashboard'); }}
                 />
+              )}
+
+              {/* ── SUPPORT ── */}
+              {activeView === 'support' && (
+                <SupportView key="support" />
               )}
 
               {/* ── SUGGESTIONS ── */}
