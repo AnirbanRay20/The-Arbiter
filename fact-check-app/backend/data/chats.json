@@ -1416,5 +1416,165 @@
       }
     ],
     "aiDetection": null
+  },
+  "1774240676967": {
+    "id": "1774240676967",
+    "text": "Tesla was founded in 2005",
+    "result": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "🔴 High Risk",
+      "insightSummary": "There is 1 claim in total, with 100% of it being false. The risk of misinformation is HIGH due to the completely false claim. This poses a significant risk of spreading incorrect information. Overall, the data indicates a high risk of deception.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Tesla was founded in 2005.",
+          "context": "Tesla was founded in 2005",
+          "searchQuery": "Tesla founding year",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 1,
+          "reasoning": "All relevant sources indicate Tesla was founded in 2003, contradicting the claim of 2005.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "title": "Tesla, Inc.",
+              "url": "https://en.wikipedia.org/wiki/Tesla,_Inc.",
+              "relevantSnippet": "Tesla was incorporated in July 2003 by Martin Eberhard and Marc Tarpenning as Tesla Motors."
+            },
+            {
+              "title": "Tesla and SpaceX, both run by Elon Musk, share more than just a ...",
+              "url": "https://www.facebook.com/worthywordz/posts/1200324674809428/",
+              "relevantSnippet": "Ten Unknown Facts About #Tesla Founding: Tesla was founded in 2003 by engineers Martin Eberhard and Marc Tarpenning, not Elon Musk."
+            },
+            {
+              "title": "Tesla: The True Untold Story",
+              "url": "https://www.investopedia.com/articles/personal-finance/061915/story-behind-teslas-success.asp",
+              "relevantSnippet": "Tesla Motors was established in 2003 as an electric car maker by a pair of American engineers: Marc Tarpenning and Martin Eberhard."
+            },
+            {
+              "title": "Co-Founder Marc Tarpenning '85 Shows Off Tesla's “Baby Pictures”",
+              "url": "https://founderspledge.berkeley.edu/innovators/spotlights/co-founder-marc-tarpenning-85-shows-off-teslas-baby-pictures/",
+              "relevantSnippet": "He and his team... before Tarpenning met Eberhard, and the two began searching for a better way to transport content."
+            },
+            {
+              "title": "History of Tesla & its stock: Timeline, facts & milestones",
+              "url": "https://www.thestreet.com/technology/history-of-tesla-15088992",
+              "relevantSnippet": "Although Musk has long been the face of Tesla, he did not join the company until 2004."
+            }
+          ]
+        }
+      ]
+    },
+    "timestamp": "2026-03-23T04:37:56.967Z",
+    "q": "Tesla was founded in 2005",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "🔴 High Risk",
+      "insightSummary": "There is 1 claim in total, with 100% of it being false. The risk of misinformation is HIGH due to the completely false claim. This poses a significant risk of spreading incorrect information. Overall, the data indicates a high risk of deception.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Tesla was founded in 2005.",
+          "context": "Tesla was founded in 2005",
+          "searchQuery": "Tesla founding year",
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 1,
+          "reasoning": "All relevant sources indicate Tesla was founded in 2003, contradicting the claim of 2005.",
+          "conflictingEvidence": false,
+          "conflictNote": null,
+          "temporallySensitive": false,
+          "citations": [
+            {
+              "title": "Tesla, Inc.",
+              "url": "https://en.wikipedia.org/wiki/Tesla,_Inc.",
+              "relevantSnippet": "Tesla was incorporated in July 2003 by Martin Eberhard and Marc Tarpenning as Tesla Motors."
+            },
+            {
+              "title": "Tesla and SpaceX, both run by Elon Musk, share more than just a ...",
+              "url": "https://www.facebook.com/worthywordz/posts/1200324674809428/",
+              "relevantSnippet": "Ten Unknown Facts About #Tesla Founding: Tesla was founded in 2003 by engineers Martin Eberhard and Marc Tarpenning, not Elon Musk."
+            },
+            {
+              "title": "Tesla: The True Untold Story",
+              "url": "https://www.investopedia.com/articles/personal-finance/061915/story-behind-teslas-success.asp",
+              "relevantSnippet": "Tesla Motors was established in 2003 as an electric car maker by a pair of American engineers: Marc Tarpenning and Martin Eberhard."
+            },
+            {
+              "title": "Co-Founder Marc Tarpenning '85 Shows Off Tesla's “Baby Pictures”",
+              "url": "https://founderspledge.berkeley.edu/innovators/spotlights/co-founder-marc-tarpenning-85-shows-off-teslas-baby-pictures/",
+              "relevantSnippet": "He and his team... before Tarpenning met Eberhard, and the two began searching for a better way to transport content."
+            },
+            {
+              "title": "History of Tesla & its stock: Timeline, facts & milestones",
+              "url": "https://www.thestreet.com/technology/history-of-tesla-15088992",
+              "relevantSnippet": "Although Musk has long been the face of Tesla, he did not join the company until 2004."
+            }
+          ]
+        }
+      ]
+    },
+    "claims": [
+      {
+        "id": "C1",
+        "claim": "Tesla was founded in 2005.",
+        "context": "Tesla was founded in 2005"
+      }
+    ],
+    "processedClaims": [
+      {
+        "id": "C1",
+        "claim": "Tesla was founded in 2005.",
+        "context": "Tesla was founded in 2005",
+        "searchQuery": "Tesla founding year",
+        "claimId": "C1",
+        "verdict": "False",
+        "confidenceScore": 1,
+        "reasoning": "All relevant sources indicate Tesla was founded in 2003, contradicting the claim of 2005.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "citations": [
+          {
+            "title": "Tesla, Inc.",
+            "url": "https://en.wikipedia.org/wiki/Tesla,_Inc.",
+            "relevantSnippet": "Tesla was incorporated in July 2003 by Martin Eberhard and Marc Tarpenning as Tesla Motors."
+          },
+          {
+            "title": "Tesla and SpaceX, both run by Elon Musk, share more than just a ...",
+            "url": "https://www.facebook.com/worthywordz/posts/1200324674809428/",
+            "relevantSnippet": "Ten Unknown Facts About #Tesla Founding: Tesla was founded in 2003 by engineers Martin Eberhard and Marc Tarpenning, not Elon Musk."
+          },
+          {
+            "title": "Tesla: The True Untold Story",
+            "url": "https://www.investopedia.com/articles/personal-finance/061915/story-behind-teslas-success.asp",
+            "relevantSnippet": "Tesla Motors was established in 2003 as an electric car maker by a pair of American engineers: Marc Tarpenning and Martin Eberhard."
+          },
+          {
+            "title": "Co-Founder Marc Tarpenning '85 Shows Off Tesla's “Baby Pictures”",
+            "url": "https://founderspledge.berkeley.edu/innovators/spotlights/co-founder-marc-tarpenning-85-shows-off-teslas-baby-pictures/",
+            "relevantSnippet": "He and his team... before Tarpenning met Eberhard, and the two began searching for a better way to transport content."
+          },
+          {
+            "title": "History of Tesla & its stock: Timeline, facts & milestones",
+            "url": "https://www.thestreet.com/technology/history-of-tesla-15088992",
+            "relevantSnippet": "Although Musk has long been the face of Tesla, he did not join the company until 2004."
+          }
+        ]
+      }
+    ],
+    "aiDetection": null
   }
 }
