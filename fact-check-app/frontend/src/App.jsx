@@ -16,9 +16,12 @@ import SupportView from './components/SupportView';
 import { useFactCheck } from './hooks/useFactCheck';
 import { detectAIText } from './services/api';
 import CorrectAnswerPanel from './components/CorrectAnswerPanel';
+import ShareResultView from './components/ShareResultView';
+import { buildShareUrl, copyShareLink, isShareLink } from './utils/shareUtils';
 
 export default function App() {
   const [activeView, setActiveView] = useState('dashboard');
+  const [isShareView, setIsShareView] = React.useState(() => isShareLink());
   const [initialContent, setInitialContent] = useState('');
   const [lastQueryContext, setLastQueryContext] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
@@ -50,17 +53,36 @@ export default function App() {
     startFactCheck(inputType, content);
   };
 
+  // Build and copy share link
+  const handleShare = React.useCallback((query, report, claims) => {
+    const url = buildShareUrl(query, report, claims);
+    if (url) {
+      copyShareLink(url);
+      return url;
+    }
+    return null;
+  }, []);
+
   // Save to history on report complete
   React.useEffect(() => {
     if (report && !isProcessing && lastQueryContext) {
       const prev = JSON.parse(localStorage.getItem('arbiter_history') || '[]');
       const newEntry = {
-        id: Date.now(),
-        q: lastQueryContext,
-        risk: report.riskLevel,
-        acc: report.accuracyScore,
-        date: new Date().toISOString(),
+        id:      Date.now(),
+        q:       lastQueryContext,
+        risk:    report.riskLevel,
+        acc:     report.accuracyScore,
+        date:    new Date().toISOString(),
         starred: false,
+        // Store full data for share links
+        report,
+        claims:  processedClaims.map(c => ({
+          id: c.id, claim: c.claim, verdict: c.verdict,
+          confidenceScore: c.confidenceScore, reasoning: c.reasoning,
+          conflictingEvidence: c.conflictingEvidence, conflictNote: c.conflictNote,
+          temporallySensitive: c.temporallySensitive, isQuestion: c.isQuestion,
+          directAnswer: c.directAnswer, citations: (c.citations || []).slice(0, 3),
+        })),
       };
       if (!prev.find(p => p.q === newEntry.q && Math.abs(new Date(p.date) - new Date(newEntry.date)) < 10000)) {
         prev.unshift(newEntry);
@@ -103,12 +125,25 @@ export default function App() {
 
             <AnimatePresence mode="wait">
 
+              {/* ── SHARE VIEW ── */}
+              {isShareView && (
+                <ShareResultView
+                  key="share"
+                  onGoToDashboard={() => {
+                    window.location.hash = '';
+                    setIsShareView(false);
+                    setActiveView('dashboard');
+                  }}
+                />
+              )}
+
               {/* ── HISTORY ── */}
               {activeView === 'history' && (
                 <HistoryView
                   key="history"
                   onSelect={(query) => { setActiveView('dashboard'); setInitialContent(query); handleFactCheck('text', query); }}
                   onGoToDashboard={() => { reset(); setInitialContent(''); setActiveView('dashboard'); }}
+                  onShare={handleShare}
                 />
               )}
 
@@ -235,6 +270,7 @@ export default function App() {
                             <AccuracyReport
                               report={report}
                               onNewCheck={() => { reset(); setActiveView('dashboard'); setInitialContent(''); }}
+                              onShare={() => handleShare(lastQueryContext, report, processedClaims)}
                             />
                           </div>
                         </motion.div>
