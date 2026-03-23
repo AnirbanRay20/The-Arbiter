@@ -1629,5 +1629,49 @@
         }
       ]
     }
+  },
+  "1774294984042": {
+    "id": "1774294984042",
+    "timestamp": "2026-03-23T19:43:04.042Z",
+    "q": "tesla cars are mostly electric",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 77,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "Our analysis of the provided data reveals a single claim, which has been verified as true. The confidence level in this claim is high, standing at 77%. Overall, the risk associated with this claim is classified as LOW, indicating a strong foundation of evidence to support its accuracy.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Tesla cars are mostly electric",
+          "context": "Tesla cars are mostly electric",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.77,
+          "reasoning": "According to [2], Tesla's worldwide electric car production and global sales were lower for the second consecutive year, but the Tesla Model Y remained the best-selling Tesla car model worldwide. Additionally, [3] states that the Tesla Model Y has become the best-selling car globally, dominating both the EV market and overall auto sales charts. This suggests that Tesla cars are indeed mostly electric.",
+          "citations": [
+            {
+              "url": "https://www.best-selling-cars.com/brands/2025-full-year-global-tesla-worldwide-car-sales-by-model-and-outlook-2026-to-2029/",
+              "title": "Tesla Worldwide Car Sales by Model and Outlook 2026 to 2029",
+              "relevantSnippet": "[Skip to content](#content \"Skip to content\")\n\n## →→ [Latest Worldwide Car Sales by Brand in 2025, 2024-2020](https://www.best-selling-cars.com/global-car-sales-worldwide-by-brand/)\n\n# 2025 (Full Year) Global: Tesla Worldwide Car Sales by Model and Outlook 2026 to 2029\n\nby [Henk Bekker](https://www."
+            },
+            {
+              "url": "https://www.autoinsurance.com/research/electric-vehicle-statistics/",
+              "title": "2026 Electric Vehicle Statistics | AutoInsurance.com",
+              "relevantSnippet": "AutoInsurance.com is supported by commissions from providers listed on our site. Read our [Editorial Guidelines.](https://www.autoinsurance.com/editorial-guidelines/)\n\nFind Your Perfect Policy:[877-817-3636](tel:877-817-3636)\n\n[Get Quotes](https://tracking.autoinsurance.com/?a=101797&c=113470&s20=11"
+            }
+          ],
+          "timeSensitive": true,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "normalizedClaim": null,
+          "searchQuery": "Tesla electric vehicle percentage 2026"
+        }
+      ]
+    }
   }
 }
