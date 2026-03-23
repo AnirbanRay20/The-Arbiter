@@ -11,9 +11,9 @@ const PLACEHOLDERS = [
 ];
 
 const CHIPS = [
-  { label: '🌍 The Earth is flat',       value: 'The Earth is flat' },
-  { label: '⚡ Tesla founded in 2005',    value: 'Tesla was founded in 2005' },
-  { label: '🤖 AI will replace all jobs', value: 'AI will replace all jobs' },
+  // { label: '🌍 The Earth is flat',       value: 'The Earth is flat' },
+  // { label: '⚡ Tesla founded in 2005',    value: 'Tesla was founded in 2005' },
+  // { label: '🤖 AI will replace all jobs', value: 'AI will replace all jobs' },
 ];
 
 const TABS = [
