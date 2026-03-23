@@ -1181,16 +1181,24 @@
       ]
     }
   },
+<<<<<<< Updated upstream
   "1774288461592": {
     "id": "1774288461592",
     "timestamp": "2026-03-23T17:54:21.592Z",
     "q": "Apple is better.",
+=======
+  "1774288629361": {
+    "id": "1774288629361",
+    "timestamp": "2026-03-23T17:57:09.361Z",
+    "q": "moon is white",
+>>>>>>> Stashed changes
     "report": {
       "total": 1,
       "true": 0,
       "partial": 0,
       "false": 1,
       "unverifiable": 0,
+<<<<<<< Updated upstream
       "accuracyScore": 0,
       "riskLevel": "🔴 High Risk",
       "insightSummary": "The investigation found a single claim with no confirmed truths, suggesting a potential misinformation issue. A high-risk assessment indicates that this claim is likely to be unverifiable or misleading. With no confidence in the claim's validity, further verification is required to determine its accuracy.",
@@ -1223,6 +1231,38 @@
           ],
           "groundingEnforced": false,
           "searchQuery": "Apple official website \nApple Wikipedia page \nApple company history"
+=======
+      "accuracyScore": 86,
+      "riskLevel": "🔴 High Risk",
+      "insightSummary": "Our analysis reveals a concerning trend, with a single claim being entirely false, posing a significant risk to accuracy. This single false claim represents 100% of the total claims investigated, highlighting a critical issue that requires immediate attention. With a confidence level of 86%, there is still a notable margin for error, underscoring the need for further verification and fact-checking.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "The moon is white",
+          "context": "The moon is white",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 0.86,
+          "reasoning": "The moon's color is not white, as stated in [Source 4] Moon Composition - NASA Science, which provides information on the moon's composition, including its surface features and geological processes. The article does not mention the moon being white. Additionally, [Source 5] March 2026 Total Lunar Eclipse: Your Questions Answered, provides information on the moon's appearance during a total lunar eclipse, but it does not describe the moon as white. Therefore, the claim that the moon is white is false.",
+          "citations": [
+            {
+              "url": "https://science.nasa.gov/moon/composition/",
+              "title": "Moon Composition - NASA Science",
+              "relevantSnippet": "## Suggested Searches\n\n* [Climate Change](https://science.nasa.gov/?search=Climate%20Change)\n* [Artemis](https://science.nasa.gov/?search=Artemis)\n* [Expedition 64](https://science.nasa.gov/?search=Expedition%2064)\n* [Mars perseverance](https://science.nasa.gov/?search=Mars%20perseverance)\n* [SpaceX"
+            },
+            {
+              "url": "https://science.nasa.gov/solar-system/moon/march-2026-total-lunar-eclipse-your-questions-answered/",
+              "title": "March 2026 Total Lunar Eclipse: Your Questions Answered",
+              "relevantSnippet": "## Suggested Searches\n\n* [Climate Change](https://science.nasa.gov/?search=Climate%20Change)\n* [Artemis](https://science.nasa.gov/?search=Artemis)\n* [Expedition 64](https://science.nasa.gov/?search=Expedition%2064)\n* [Mars perseverance](https://science.nasa.gov/?search=Mars%20perseverance)\n* [SpaceX"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "normalizedClaim": null,
+          "searchQuery": "moon color 2026 \nmoon surface composition \nNASA moon color information \nmoon color NASA data \nmoon color scientific evidence"
+>>>>>>> Stashed changes
         }
       ]
     }
