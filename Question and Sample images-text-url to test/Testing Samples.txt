@@ -1,0 +1,50 @@
+AI FACT-CHECKING TEST DATASET
+
+1. TRUE FACTS
+- The Earth revolves around the Sun.
+- Water boils at 100°C at sea level.
+- India gained independence in 1947.
+- Python is a programming language.
+
+2. FALSE FACTS
+- The Sun revolves around the Earth.
+- Humans can breathe in space without equipment.
+- India gained independence in 1955.
+- Java is an operating system.
+
+3. PARTIALLY TRUE
+- Vitamin C cures all diseases.
+- Eating sugar directly causes diabetes.
+- AI will completely replace all jobs.
+
+4. OPINIONS
+- Python is the best programming language.
+- AI is dangerous for humanity.
+- Online education is better than offline.
+
+5. TIME-SENSITIVE
+- The current Prime Minister of India is Narendra Modi.
+- The current CEO of Google is Sundar Pichai.
+- The latest iPhone model is iPhone 15.
+
+6. NUMERICAL / STATISTICAL
+- The population of India is over 1.4 billion.
+- The speed of light is 3 × 10^8 m/s.
+- 70% of Earth is covered with water.
+
+7. UNVERIFIED / CONSPIRACY
+- Aliens are secretly living on Earth.
+- There is a hidden city under the ocean.
+
+8. CYBERSECURITY
+- HTTPS websites are always secure.
+- Strong passwords prevent all hacking.
+- Antivirus guarantees full protection.
+
+9. MISLEADING
+- Scientists say coffee is deadly.
+- AI will destroy all jobs by 2030.
+
+10. EDGE CASES
+- Apple is better.
+- Modi
