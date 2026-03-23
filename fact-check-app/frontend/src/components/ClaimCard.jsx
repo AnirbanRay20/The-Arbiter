@@ -6,7 +6,9 @@ const VERDICT_CFG = {
   'False':          { color: '#FF3D57', bg: 'rgba(255,61,87,0.08)',  border: 'rgba(255,61,87,0.2)',  bar: '#FF3D57', icon: 'cancel'         },
   'Partially True': { color: '#FFAB00', bg: 'rgba(255,171,0,0.08)',  border: 'rgba(255,171,0,0.2)',  bar: '#FFAB00', icon: 'balance'        },
   'Unverifiable':   { color: '#556070', bg: 'rgba(85,96,112,0.06)', border: 'rgba(85,96,112,0.15)', bar: '#556070', icon: 'help'           },
+  'ERROR':          { color: '#FF3D57', bg: 'rgba(255,61,87,0.08)', border: 'rgba(255,61,87,0.2)', bar: '#FF3D57', icon: 'error'          },
 };
+
 
 // Extract direct answer from reasoning if it starts with "ANSWER:"
 const extractAnswer = (reasoning, directAnswer) => {

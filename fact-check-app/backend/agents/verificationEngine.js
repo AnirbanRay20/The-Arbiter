@@ -115,13 +115,13 @@ async function verifyClaim(claim, sources = []) {
   const claimText = claim.claim || '';
   const isQuestion = claim.isQuestion || false;
 
-  // ── Guard: No sources at all → immediate Unverifiable ────────
+  // ── Guard: No sources at all → immediate ERROR ────────
   if (!sources || sources.length === 0) {
     return {
       claimId,
-      verdict: 'Unverifiable',
-      confidenceScore: 0.15,
-      reasoning: 'No evidence was retrieved for this claim. Cannot verify without sources.',
+      verdict: 'ERROR',
+      confidenceScore: 0.0,
+      reasoning: 'Error: No web sources or evidence retrieved for this claim.',
       citations: [],
       isQuestion,
       groundingEnforced: false
@@ -179,10 +179,12 @@ OUTPUT (strict JSON only):
 
   // ── LLM Call with retry ───────────────────────────────────────
   let retries = 0;
+  let lastErrorMsg = null;
   while (retries < 3) {
     try {
+      const activeModel = retries === 0 ? 'llama-3.3-70b-versatile' : 'llama-3.1-8b-instant';
       const completion = await groq.chat.completions.create({
-        model: 'llama-3.3-70b-versatile',
+        model: activeModel,
         temperature: 0.1,          // near-deterministic for fact tasks
         max_tokens: 1024,
         top_p: 0.9,
@@ -258,6 +260,7 @@ OUTPUT (strict JSON only):
       return result;
 
     } catch (err) {
+      lastErrorMsg = err.message;
       console.error(`[VerificationEngine] Attempt ${retries + 1} failed:`, err.message);
       retries++;
       if (retries < 3) await sleep(1000 * retries);
@@ -267,9 +270,9 @@ OUTPUT (strict JSON only):
   // ── Hard fallback after 3 failed retries ──────────────────────
   return {
     claimId,
-    verdict: 'Unverifiable',
-    confidenceScore: 0.1,
-    reasoning: 'Verification engine encountered a persistent error. Please retry.',
+    verdict: 'ERROR',
+    confidenceScore: 0.0,
+    reasoning: `Error: Verification engine API failed or timed out. Details: ${lastErrorMsg || 'Unknown API Exception'}`,
     citations: [],
     isQuestion,
     groundingEnforced: false

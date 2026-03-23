@@ -65,13 +65,17 @@ export default function HistoryView({ onSelect, onGoToDashboard }) {
     const item = history.find(h => h.id === id);
     if (!item) return;
 
+    const query = item.q || item.text;
+    const reportData = item.report || item.result;
+    const claimsData = item.claims || item.result?.results || [];
+
     // If full report data is stored, build a real share link
-    if (item.report && item.claims && onShare) {
-      onShare(item.q, item.report, item.claims, item.id)
+    if (reportData && claimsData && onShare) {
+      onShare(query, reportData, claimsData, item.id)
         .then(url => {
           if (url) showToast('Share link copied! Anyone with this link can view the report.');
           else {
-            navigator.clipboard.writeText(item.q);
+            if (query) navigator.clipboard.writeText(query);
             showToast('Query copied to clipboard');
           }
         });
@@ -79,7 +83,7 @@ export default function HistoryView({ onSelect, onGoToDashboard }) {
     }
 
     // Fallback: copy just the query text
-    navigator.clipboard.writeText(item.q);
+    if (query) navigator.clipboard.writeText(query);
     showToast('Query copied to clipboard');
   };
 
@@ -97,7 +101,7 @@ export default function HistoryView({ onSelect, onGoToDashboard }) {
     if (search.trim()) {
       const q = search.toLowerCase();
       result = result.filter(h =>
-        h.q?.toLowerCase().includes(q) || h.risk?.toLowerCase().includes(q)
+        (h.q || h.text || '').toLowerCase().includes(q) || (h.risk || '').toLowerCase().includes(q)
       );
     }
     if (sortBy === 'accuracy') result = [...result].sort((a, b) => (b.acc || 0) - (a.acc || 0));
@@ -403,7 +407,7 @@ function HistoryItem({ item, index, searchQuery, onSelect, onDelete, onShare, on
     <motion.div
       initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, x: -40 }} transition={{ delay: index * 0.04 }}
-      onClick={() => onSelect && onSelect(item)}
+      onClick={() => onSelect && onSelect(item.q || item.text)}
       onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
       style={{
         position: 'relative', display: 'flex', justifyContent: 'space-between',
@@ -423,7 +427,7 @@ function HistoryItem({ item, index, searchQuery, onSelect, onDelete, onShare, on
         <span className="material-symbols-outlined" style={{ color: '#00E5FF', fontSize: 18, marginTop: 2, flexShrink: 0 }}>search</span>
         <div style={{ overflow: 'hidden', flex: 1 }}>
           <p style={{ fontFamily: 'Manrope', fontWeight: 500, fontSize: 14, color: '#e3e2e8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', marginBottom: 4 }}>
-            "{highlightText(item.q, searchQuery)}"
+            "{highlightText(item.q || item.text, searchQuery)}"
           </p>
           <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#556070' }}>
             {new Date(item.date).toLocaleString(undefined, { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}

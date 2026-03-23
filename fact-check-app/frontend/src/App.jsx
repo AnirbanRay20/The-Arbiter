@@ -17,7 +17,7 @@ import { useFactCheck } from './hooks/useFactCheck';
 import { detectAIText } from './services/api';
 import CorrectAnswerPanel from './components/CorrectAnswerPanel';
 import ShareResultView from './components/ShareResultView';
-import { buildShareUrl, copyShareLink, isShareLink } from './utils/shareUtils';
+import { buildShareUrl, copyShareLink, isShareLink, buildIdShareUrl, registerShare } from './utils/shareUtils';
 
 export default function App() {
   const [activeView, setActiveView] = useState('dashboard');
