@@ -1,96 +1,159 @@
-const express = require('express');
-const router = express.Router();
-const { scrapeUrlContent } = require('../services/urlScraper');
-const { extractClaims } = require('../agents/claimExtractor');
+require('dotenv').config();
+const express              = require('express');
+const router               = express.Router();
+const { scrapeUrl }        = require('../services/urlScraper');
+const { extractClaims }    = require('../agents/claimExtractor');
 const { retrieveEvidence } = require('../agents/evidenceRetriever');
 const { verifyClaim } = require('../agents/verificationEngine');
 const { generateAccuracyReport, generateInsightSummary } = require('../agents/reportGenerator');
+const { detectAiText } = require('../services/aiTextDetector');
+
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+function send(res, data) {
+  res.write(`data: ${JSON.stringify(data)}\n\n`);
+}
 
 router.post('/factcheck', async (req, res) => {
-  const { inputType, content } = req.body;
-
-  // Set SSE headers
-  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Content-Type',  'text/event-stream');
   res.setHeader('Cache-Control', 'no-cache');
-  res.setHeader('Connection', 'keep-alive');
+  res.setHeader('Connection',    'keep-alive');
   res.flushHeaders();
 
-  const send = (data) => {
-    res.write(`data: ${JSON.stringify(data)}\n\n`);
-  };
+  const { inputType, content } = req.body;
 
   try {
-    send({ step: 'INIT', status: 'in_progress', progress: 'Starting pipeline...', data: {} });
+    // ── INIT ──
+    send(res, { type: 'PIPELINE', step: 'INIT', status: 'Initializing pipeline...', progress: 0 });
 
-    // URL scraping
-    let textContent = content;
+    let textToProcess = content;
+    let scrapedImages = [];
+    let scrapedMeta   = null;
+
+    // ── SCRAPING (URL only) ──
     if (inputType === 'url') {
-      send({ step: 'SCRAPING', status: 'in_progress', progress: 'Extracting content from URL...', data: {} });
-      const scraped = await scrapeUrlContent(content);
-      if (!scraped) {
-        send({ step: 'SCRAPING', status: 'error', progress: 'Unable to extract content from URL. Please paste the text directly.', data: {} });
-        res.end();
-        return;
+      send(res, { type: 'PIPELINE', step: 'SCRAPING', status: `Scraping article from URL...`, progress: 10 });
+      try {
+        const scraped = await scrapeUrl(content);
+        if (scraped.error || !scraped.text || scraped.text.length < 50) {
+          send(res, { type: 'ERROR', message: 'Failed to scrape URL. Please check the link and try again.' });
+          return res.end();
+        }
+        textToProcess = scraped.text;
+        scrapedImages = scraped.images || [];
+        scrapedMeta   = { title: scraped.title, domain: scraped.domain, imageCount: scrapedImages.length };
+        send(res, { type: 'SCRAPED', title: scraped.title, domain: scraped.domain, length: scraped.text.length, imageCount: scrapedImages.length });
+      } catch (scrapeErr) {
+        console.error('[Factcheck] Scrape error:', scrapeErr.message);
+        send(res, { type: 'ERROR', message: 'Failed to scrape URL: ' + scrapeErr.message });
+        return res.end();
       }
-      textContent = scraped;
     }
 
-    // STEP 1: EXTRACTING
-    send({ step: 'EXTRACTING', status: 'in_progress', progress: 'Decomposing input into claims...', data: {} });
-    await new Promise(r => setTimeout(r, 500));
-    
-    // Smart Input Handling
-    const lowerInput = textContent.trim().toLowerCase();
-    if (['hello', 'hi', 'test'].includes(lowerInput) || lowerInput.split(' ').length <= 1) {
-      textContent = "User input is not a factual claim";
+    // ── EXTRACTING ──
+    send(res, { type: 'PIPELINE', step: 'EXTRACTING', status: 'Extracting atomic claims...', progress: 20 });
+    let claims = [];
+    try {
+      claims = await extractClaims(textToProcess);
+    } catch (extractErr) {
+      console.error('[Factcheck] Extract error:', extractErr.message);
+      send(res, { type: 'ERROR', message: 'Failed to extract claims: ' + extractErr.message });
+      return res.end();
     }
-
-    let claims = await extractClaims(textContent);
 
     if (!claims || claims.length === 0) {
-      claims = [{
-        id: `C_${Date.now()}`,
-        claim: textContent,
-        context: textContent
-      }];
+      send(res, { type: 'ERROR', message: 'No factual claims could be extracted from this content.' });
+      return res.end();
     }
 
-    console.log("Extracted Claims:", claims);
+    send(res, { type: 'CLAIMS', claims });
+    console.log(`[Factcheck] Extracted ${claims.length} claims`);
 
-    send({ step: 'EXTRACTING', status: 'complete', progress: `Found ${claims.length} claims.`, data: { claims } });
+    // ── KICK OFF IMAGE ANALYSIS IN BACKGROUND ──
+    let imageAnalysisPromise = null;
+    if (scrapedImages.length > 0) {
+      try {
+        const { analyzeImageFromUrl } = require('../services/imageAnalyzer');
+        imageAnalysisPromise = Promise.allSettled(
+          scrapedImages.slice(0, 3).map(img =>
+            analyzeImageFromUrl(img.url).then(result => ({ ...result, imageUrl: img.url, alt: img.alt }))
+          )
+        );
+      } catch (imgErr) {
+        console.warn('[Factcheck] Image analyzer not available:', imgErr.message);
+      }
+    }
 
-    // STEPS 2 & 3: SEARCHING & VERIFYING
-    const processedClaims = [];
+    // ── SEARCHING + VERIFYING ──
+    const verifiedClaims = [];
 
     for (let i = 0; i < claims.length; i++) {
       const claim = claims[i];
-      const claimId = claim.id;
+      const progressSearch = Math.min(25 + Math.round(((i + 1) / claims.length) * 25), 50);
+      const progressVerify = Math.min(50 + Math.round(((i + 1) / claims.length) * 35), 85);
 
-      // Searching
-      send({ step: 'SEARCHING', status: 'in_progress', progress: `Searching evidence (${i + 1}/${claims.length})`, data: { currentClaimId: claimId } });
-      const evidence = await retrieveEvidence(claim);
+      // Search
+      send(res, { type: 'PIPELINE', step: 'SEARCHING', status: `Searching evidence for claim ${i + 1} of ${claims.length}...`, progress: progressSearch });
+      let evidence = { sources: [], searchQuery: claim.claim };
+      try {
+        evidence = await retrieveEvidence(claim);
+      } catch (searchErr) {
+        console.warn(`[Factcheck] Search error for ${claim.id}:`, searchErr.message);
+      }
+      await sleep(300);
 
-      // Verifying
-      send({ step: 'VERIFYING', status: 'in_progress', progress: `Evaluating claim (${i + 1}/${claims.length})`, data: { currentClaimId: claimId } });
-      const verificationResult = await verifyClaim(claim.claim, evidence);
-
-      // Merge results
-      const resultBundle = {
-        id: claimId,
-        claim: claim.claim,
-        context: claim.context,
-        searchQuery: evidence.searchQuery,
-        ...verificationResult
+      // Verify
+      send(res, { type: 'PIPELINE', step: 'VERIFYING', status: `Verifying claim ${i + 1} of ${claims.length}...`, progress: progressVerify });
+      let result = {
+        verdict: 'Unverifiable', confidenceScore: 0,
+        reasoning: 'Error during verification process.',
+        conflictingEvidence: false, conflictNote: null,
+        temporallySensitive: false, citations: [],
       };
-      processedClaims.push(resultBundle);
+      try {
+        result = await verifyClaim(claim, evidence.sources || []);
+      } catch (verifyErr) {
+        console.warn(`[Factcheck] Verify error for ${claim.id}:`, verifyErr.message);
+      }
+      await sleep(200);
 
-      send({ step: 'VERIFYING', status: 'claim_complete', progress: `Verified ${i + 1}/${claims.length}`, data: { claimResult: resultBundle } });
+      const verified = {
+        ...claim,
+        ...result,
+        searchQuery: evidence.searchQuery,
+        citations: result.citations?.length
+          ? result.citations
+          : (evidence.sources || []).slice(0, 3).map(s => ({
+              url: s.url, title: s.title, relevantSnippet: s.snippet
+            })),
+      };
+
+      verifiedClaims.push(verified);
+      send(res, { type: 'VERIFIED_CLAIM', claim: verified });
+      console.log(`[Factcheck] ${claim.id} → ${result.verdict} (${Math.round((result.confidenceScore || 0) * 100)}%)`);
     }
 
-    // STEP 4: REPORTING
-    send({ step: 'REPORTING', status: 'in_progress', progress: 'Generating accuracy report...', data: {} });
+    // ── WAIT FOR IMAGE ANALYSIS ──
+    let imageResults = [];
+    if (imageAnalysisPromise) {
+      try {
+        send(res, { type: 'PIPELINE', step: 'VERIFYING', status: 'Finalizing image analysis...', progress: 88 });
+        const settled = await imageAnalysisPromise;
+        imageResults = settled
+          .filter(r => r.status === 'fulfilled' && r.value && !r.value.error)
+          .map(r => r.value);
+        if (imageResults.length > 0) {
+          send(res, { type: 'IMAGE_ANALYSIS', images: imageResults });
+        }
+      } catch (imgErr) {
+        console.warn('[Factcheck] Image analysis error:', imgErr.message);
+      }
+    }
 
-    const reportData = await generateAccuracyReport(processedClaims);
+    // ── REPORT ──
+    send(res, { type: 'PIPELINE', step: 'REPORTING', status: 'Generating accuracy report...', progress: 92 });
+
+    const reportData = await generateAccuracyReport(verifiedClaims);
     const insightSummary = await generateInsightSummary(reportData);
 
     const report = {
@@ -107,14 +170,16 @@ router.post('/factcheck', async (req, res) => {
         return '🔴 High Risk';
       })(),
       insightSummary: insightSummary,
-      results: processedClaims
+      results: verifiedClaims
     };
 
-    send({ step: 'REPORTING', status: 'complete', progress: 'Pipeline finished successfully.', data: { report } });
+    console.log(`[Factcheck] Report: ${report.accuracyScore}% accuracy, ${report.riskLevel}`);
+    send(res, { type: 'REPORT', report });
+    send(res, { type: 'PIPELINE', step: 'REPORTING', status: 'Pipeline finished successfully.', progress: 100 });
 
   } catch (err) {
-    console.error('Pipeline error:', err);
-    send({ step: 'ERROR', status: 'error', progress: `Unexpected error: ${err.message}`, data: {} });
+    console.error('[Factcheck] Fatal error:', err.message, err.stack);
+    send(res, { type: 'ERROR', message: err.message || 'An unexpected error occurred.' });
   } finally {
     res.end();
   }

@@ -134,3 +134,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# ── The Arbiter — Local data files (never commit) ──
+backend/data/
+backend/data/chats.json
+*.db
+*.sqlite

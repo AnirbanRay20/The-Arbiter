@@ -8,14 +8,41 @@ const VERDICT_CFG = {
   'Unverifiable':   { color: '#556070', bg: 'rgba(85,96,112,0.06)', border: 'rgba(85,96,112,0.15)', bar: '#556070', icon: 'help'           },
 };
 
+// Extract direct answer from reasoning if it starts with "ANSWER:"
+const extractAnswer = (reasoning, directAnswer) => {
+  if (directAnswer) return directAnswer;
+  if (!reasoning) return null;
+  if (reasoning.startsWith('ANSWER:')) {
+    const firstSentence = reasoning.slice(7).split(/[.!?]/)[0].trim();
+    return firstSentence;
+  }
+  return null;
+};
+
+// Strip "ANSWER: ..." prefix from reasoning for display
+const cleanReasoning = (reasoning) => {
+  if (!reasoning) return '';
+  if (reasoning.startsWith('ANSWER:')) {
+    const dotIdx = reasoning.indexOf('.');
+    return dotIdx !== -1 ? reasoning.slice(dotIdx + 1).trim() : reasoning;
+  }
+  return reasoning;
+};
+
 export default function ClaimCard({ claimData, onViewSources }) {
   const [expanded, setExpanded] = useState(false);
-  const { claim, verdict, confidenceScore, reasoning, citations, conflictingEvidence, conflictNote, temporallySensitive, id } = claimData;
+  const {
+    claim, verdict, confidenceScore, reasoning, citations,
+    conflictingEvidence, conflictNote, temporallySensitive,
+    id, isQuestion, directAnswer
+  } = claimData;
+
   const cfg = VERDICT_CFG[verdict] || VERDICT_CFG['Unverifiable'];
   const pct = Math.round((confidenceScore || 0) * 100);
-
   const isError = reasoning === 'Error during verification process.' || !reasoning;
-  const reasoningPreview = reasoning ? reasoning.split('.')[0] + '.' : '';
+  const answer  = extractAnswer(reasoning, directAnswer);
+  const cleanedReasoning = cleanReasoning(reasoning);
+  const reasoningPreview = cleanedReasoning ? cleanedReasoning.split('.')[0] + '.' : '';
 
   return (
     <motion.div
@@ -23,13 +50,9 @@ export default function ClaimCard({ claimData, onViewSources }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
       style={{
-        position: 'relative',
-        backgroundColor: '#161820',
-        border: `1px solid ${cfg.border}`,
-        borderRadius: 10,
-        overflow: 'hidden',
-        display: 'flex',
-        flexDirection: 'column',
+        position: 'relative', backgroundColor: '#161820',
+        border: `1px solid ${cfg.border}`, borderRadius: 10,
+        overflow: 'hidden', display: 'flex', flexDirection: 'column',
         transition: 'border-color 0.2s, box-shadow 0.2s',
       }}
       whileHover={{ boxShadow: `0 4px 24px ${cfg.bg}` }}
@@ -42,10 +65,20 @@ export default function ClaimCard({ claimData, onViewSources }) {
         {/* Row 1: Verdict badge + Confidence */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span className="material-symbols-outlined" style={{
-              fontSize: 16, color: cfg.color,
-              fontVariationSettings: "'FILL' 1",
-            }}>
+            {/* Question badge */}
+            {isQuestion && (
+              <span style={{
+                display: 'flex', alignItems: 'center', gap: 4,
+                fontFamily: 'IBM Plex Mono', fontSize: 9, fontWeight: 700,
+                padding: '2px 8px', borderRadius: 999, textTransform: 'uppercase',
+                color: '#FFAB00', backgroundColor: 'rgba(255,171,0,0.08)',
+                border: '1px solid rgba(255,171,0,0.2)', letterSpacing: '0.08em',
+              }}>
+                <span className="material-symbols-outlined" style={{ fontSize: 11 }}>quiz</span>
+                Question
+              </span>
+            )}
+            <span className="material-symbols-outlined" style={{ fontSize: 16, color: cfg.color, fontVariationSettings: "'FILL' 1" }}>
               {cfg.icon}
             </span>
             <span style={{
@@ -60,15 +93,9 @@ export default function ClaimCard({ claimData, onViewSources }) {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            {/* Confidence pill */}
-            <span style={{
-              fontFamily: 'IBM Plex Mono', fontSize: 10,
-              color: pct > 0 ? cfg.color : '#556070',
-              opacity: 0.8,
-            }}>
+            <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: pct > 0 ? cfg.color : '#556070', opacity: 0.8 }}>
               {pct}% Confidence
             </span>
-            {/* ID tag */}
             {id && (
               <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 9, color: 'rgba(85,96,112,0.5)', border: '1px solid rgba(85,96,112,0.2)', padding: '1px 6px', borderRadius: 3 }}>
                 {id}
@@ -87,29 +114,56 @@ export default function ClaimCard({ claimData, onViewSources }) {
           />
         </div>
 
-        {/* Claim text */}
+        {/* Original question/claim */}
         <h3 style={{
           fontFamily: 'Manrope', fontWeight: 600, fontSize: 15,
-          color: '#e3e2e8', lineHeight: 1.5, margin: 0,
+          color: isQuestion ? '#bac9cc' : '#e3e2e8',
+          lineHeight: 1.5, margin: 0,
+          fontStyle: isQuestion ? 'italic' : 'normal',
         }}>
-          "{claim}"
+          {isQuestion ? '❓ ' : '"'}{claim}{isQuestion ? '' : '"'}
         </h3>
+
+        {/* ── DIRECT ANSWER BOX (only for questions) ── */}
+        {isQuestion && answer && !isError && (
+          <motion.div
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            style={{
+              display: 'flex', alignItems: 'flex-start', gap: 10,
+              backgroundColor: 'rgba(0,229,255,0.06)',
+              border: '1px solid rgba(0,229,255,0.2)',
+              borderLeft: '3px solid #00E5FF',
+              borderRadius: 8, padding: '0.75rem 1rem',
+            }}
+          >
+            <span className="material-symbols-outlined" style={{ fontSize: 18, color: '#00E5FF', flexShrink: 0, marginTop: 1, fontVariationSettings: "'FILL' 1" }}>
+              lightbulb
+            </span>
+            <div>
+              <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 9, color: '#00E5FF', textTransform: 'uppercase', letterSpacing: '0.15em', display: 'block', marginBottom: 4 }}>
+                Answer
+              </span>
+              <p style={{ fontFamily: 'Manrope', fontWeight: 600, fontSize: 14, color: '#e3e2e8', margin: 0, lineHeight: 1.5 }}>
+                {answer}
+              </p>
+            </div>
+          </motion.div>
+        )}
 
         {/* Reasoning preview OR error state */}
         {isError ? (
           <div style={{
             display: 'flex', alignItems: 'center', gap: 6,
-            padding: '0.5rem 0.75rem',
-            backgroundColor: 'rgba(85,96,112,0.08)',
-            border: '1px solid rgba(85,96,112,0.15)',
-            borderRadius: 6,
+            padding: '0.5rem 0.75rem', backgroundColor: 'rgba(85,96,112,0.08)',
+            border: '1px solid rgba(85,96,112,0.15)', borderRadius: 6,
           }}>
             <span className="material-symbols-outlined" style={{ fontSize: 14, color: '#556070' }}>warning</span>
             <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#556070', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
               Search timed out — could not verify
             </span>
           </div>
-        ) : (
+        ) : !isQuestion && (
           <p style={{
             fontFamily: 'Manrope', fontSize: 12, color: '#bac9cc',
             margin: 0, lineHeight: 1.5,
@@ -138,12 +192,18 @@ export default function ClaimCard({ claimData, onViewSources }) {
           </div>
         )}
 
-        {/* Footer actions */}
+        {/* Verified timestamp */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginTop: 4 }}>
+          <span className="material-symbols-outlined" style={{ fontSize: 12, color: '#556070' }}>verified</span>
+          <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 9, color: '#556070', letterSpacing: '0.08em' }}>
+            Verified as of {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+          </span>
+        </div>
+
+        {/* Footer */}
         <div style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          paddingTop: '0.6rem',
-          borderTop: '1px solid rgba(255,255,255,0.04)',
-          marginTop: 'auto',
+          paddingTop: '0.6rem', borderTop: '1px solid rgba(255,255,255,0.04)', marginTop: 'auto',
         }}>
           <button
             onClick={() => setExpanded(!expanded)}
@@ -195,10 +255,10 @@ export default function ClaimCard({ claimData, onViewSources }) {
           >
             <div style={{ padding: '1rem 1.25rem', backgroundColor: 'rgba(0,0,0,0.25)', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 9, color: '#556070', textTransform: 'uppercase', letterSpacing: '0.15em' }}>
-                Full AI Reasoning
+                {isQuestion ? 'Full Analysis' : 'Full AI Reasoning'}
               </span>
               <p style={{ fontFamily: 'Manrope', fontSize: 13, color: '#bac9cc', lineHeight: 1.65, margin: 0, whiteSpace: 'pre-wrap' }}>
-                {reasoning || 'No reasoning available.'}
+                {cleanedReasoning || 'No reasoning available.'}
               </p>
             </div>
           </motion.div>

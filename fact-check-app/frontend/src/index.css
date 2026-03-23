@@ -27,15 +27,38 @@ body {
   word-wrap: normal;
 }
 
-/* Scrollbar */
+/* Default scrollbar — cyan subtle */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #121317; }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(0,229,255,0.3); }
 
-/* No scrollbar utility */
+/* No scrollbar utility — hides scrollbar on main content area */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Orange glowing scrollbar for History page ── */
+.history-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.history-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+}
+.history-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FFAB00, #FF6B00);
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(255, 171, 0, 0.8), 0 0 16px rgba(255, 171, 0, 0.4);
+}
+.history-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FFD700, #FFAB00);
+  box-shadow: 0 0 14px rgba(255, 171, 0, 1), 0 0 28px rgba(255, 171, 0, 0.6);
+}
+.history-scroll {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #FFAB00 rgba(255, 255, 255, 0.02);
+}
 
 /* Animations */
 @keyframes pulse-dot {
@@ -53,3 +76,26 @@ body {
 .animate-pulse { animation: pulse-dot 2s ease-in-out infinite; }
 .animate-spin  { animation: spin 1s linear infinite; }
 .animate-fade-up { animation: fadeSlideUp 0.4s ease forwards; }
+
+/* ── Cyan glowing scrollbar for Support, Suggestions, Dashboard ── */
+.page-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.page-scroll::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.02);
+  border-radius: 10px;
+}
+.page-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00E5FF, #0088FF);
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,229,255,0.7), 0 0 16px rgba(0,229,255,0.3);
+}
+.page-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00FFFF, #00E5FF);
+  box-shadow: 0 0 14px rgba(0,229,255,1), 0 0 28px rgba(0,229,255,0.5);
+}
+.page-scroll {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #00E5FF rgba(255,255,255,0.02);
+}
