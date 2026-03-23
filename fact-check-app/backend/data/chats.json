@@ -1180,5 +1180,51 @@
         }
       ]
     }
+  },
+  "1774288461592": {
+    "id": "1774288461592",
+    "timestamp": "2026-03-23T17:54:21.592Z",
+    "q": "Apple is better.",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 0,
+      "riskLevel": "🔴 High Risk",
+      "insightSummary": "The investigation found a single claim with no confirmed truths, suggesting a potential misinformation issue. A high-risk assessment indicates that this claim is likely to be unverifiable or misleading. With no confidence in the claim's validity, further verification is required to determine its accuracy.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Apple exists",
+          "context": "Apple exists",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "ERROR",
+          "confidenceScore": 0,
+          "reasoning": "Error: Verification engine API failed or timed out. Details: 429 {\"error\":{\"message\":\"Rate limit reached for model `llama-3.1-8b-instant` in organization `org_01kmbfdr42ewx83vwcmdtrmtkw` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5739, Requested 3188. Please try again in 29.27s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}",
+          "citations": [
+            {
+              "url": "https://guides.loc.gov/this-month-in-business-history/april/apple-computer-founded",
+              "title": "The Founding of Apple Computer, Inc. - This Month in Business History",
+              "relevantSnippet": "## Internet Resources\n\nThese freely available online resources provide more information on Apple's history and the current state of the company.\n\n Apple: The first 30 years, MacWorld. March 30, 2006 External\n Apple at 40: Remembering when Steve Jobs went electric, MacWorld. External  \n\n  By Michael Simon, staff writer, Macworld, April 4, 2016\n Apple I Microcomputer (National Museum of American His"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Apple_Inc.",
+              "title": "Apple Inc. - Wikipedia",
+              "relevantSnippet": "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, in Silicon Valley, best known for its consumer electronics, software and online services. Founded in 1976 as Apple Computer Company by Steve Jobs, Steve Wozniak and Ronald Wayne, the company was incorporated by Jobs and Wozniak as Apple Computer, Inc. the following year. It was renamed to its current"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/History_of_Apple_Inc.",
+              "title": "History of Apple Inc. - Wikipedia",
+              "relevantSnippet": "On December 12, 1980, Apple went public on the NASDAQ stock exchange with the ticker symbol \"AAPL\", selling 4.6 million shares at $22 per share ($.10 per share when adjusting for stock splits as of November 30, 2020( generating over $100 million, which was more capital than any IPO since Ford Motor Company in 1956. Several venture capitalists cashed out, reaping billions in long-term capital gains"
+            }
+          ],
+          "groundingEnforced": false,
+          "searchQuery": "Apple official website \nApple Wikipedia page \nApple company history"
+        }
+      ]
+    }
   }
 }
