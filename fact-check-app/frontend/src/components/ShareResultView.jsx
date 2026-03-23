@@ -82,14 +82,18 @@ export default function ShareResultView({ onGoToDashboard }) {
   if (!data) return <div style={{ minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#556070', fontFamily: 'IBM Plex Mono' }}>Loading Analysis Report...</div>;
 
   return (
-    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-      style={{ maxWidth: 1100, margin: '0 auto', padding: '2rem 1.5rem 6rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+    <div className="page-scroll" style={{ height: '100vh', width: '100%', overflowY: 'auto', backgroundColor: '#0d0e12', scrollBehavior: 'smooth' }}>
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+        style={{ maxWidth: 1100, margin: '0 auto', padding: '2rem 1.5rem 6rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', position: 'relative' }}>
 
       {/* Shared report banner */}
       <div style={{
+        position: 'sticky', top: 0, zIndex: 100,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0.75rem 1.25rem', backgroundColor: 'rgba(0,229,255,0.06)',
-        border: '1px solid rgba(0,229,255,0.2)', borderRadius: 8, flexWrap: 'wrap', gap: 8,
+        padding: '0.75rem 1.25rem', backgroundColor: 'rgba(13, 14, 18, 0.85)',
+        backdropFilter: 'blur(12px)',
+        borderBottom: '1px solid rgba(0,229,255,0.2)', flexWrap: 'wrap', gap: 8,
+        margin: '-2rem -1.5rem 1.5rem', /* negate outer padding for edge-to-edge sticky */
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#00E5FF' }}>share</span>
@@ -169,6 +173,7 @@ export default function ShareResultView({ onGoToDashboard }) {
           Verified by The Arbiter · Forensic Intelligence System
         </span>
       </div>
-    </motion.div>
+      </motion.div>
+    </div>
   );
 }
