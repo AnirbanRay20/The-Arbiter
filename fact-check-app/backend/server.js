@@ -3,8 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const factcheckRouter  = require('./routes/factcheck');
 const aidetectRouter   = require('./routes/aidetect');
-//const chatsRouter      = require('./routes/chats');
-const imageCheckRouter = require('./routes/imagecheck'); // ← NEW
+// const chatsRouter   = require('./routes/chats');  // disabled — data stored in localStorage
+const imageCheckRouter = require('./routes/imagecheck');
 
 const app  = express();
 const PORT = process.env.PORT || 8000;
@@ -21,8 +21,8 @@ app.get('/api/health', (req, res) => {
 // Routes
 app.use('/api', factcheckRouter);
 app.use('/api', aidetectRouter);
-//app.use('/api', chatsRouter);
-app.use('/api', imageCheckRouter); // ← NEW
+// app.use('/api', chatsRouter);  // disabled
+app.use('/api', imageCheckRouter);
 
 app.listen(PORT, () => {
   console.log(`✅ The Arbiter backend running on http://localhost:${PORT}`);

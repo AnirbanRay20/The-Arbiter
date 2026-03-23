@@ -1673,5 +1673,49 @@
         }
       ]
     }
+  },
+  "1774295302190": {
+    "id": "1774295302190",
+    "timestamp": "2026-03-23T19:48:22.190Z",
+    "q": "India is a big country",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 1,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 55,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "There is a single claim in this report, with one partial truth identified. The confidence level is moderate at 55%, indicating a degree of uncertainty. Despite this, the overall risk level remains LOW, suggesting that the claim's accuracy is still relatively clear.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "India is a big country",
+          "context": "India is a big country",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "Partially True",
+          "confidenceScore": 0.55,
+          "reasoning": "The claim 'India is a big country' can be evaluated based on the land area of India. According to Source 1, the land area of India is approximately 2,973,190 square kilometers. Source 4 provides a ranking of the largest countries in the world by land area, where India is ranked 7th with a land area of 3.3 million square kilometers. While India has a significant land area, the term 'big' is subjective and relative. Compared to the top 5 countries in the ranking, India's land area is smaller. Therefore, the claim is partially true.",
+          "citations": [
+            {
+              "url": "https://tradingeconomics.com/india/land-area-sq-km-wb-data.html",
+              "title": "India - Land Area (sq. Km) - 2026 Data 2027 Forecast 1961-2023 ...",
+              "relevantSnippet": "##### **Members**\n\n##### \n\n# India - Land Area (sq. Km)2026 Data 2027 Forecast 1961-2023 Historical\n\n## Land area (sq. km) in India was reported at 2973190 sq. Km in 2023, according to the World Bank collection of development indicators, compiled from officially recognized sources. India - Land area"
+            },
+            {
+              "url": "https://worldpopulationreview.com/country-rankings/largest-countries-in-the-world",
+              "title": "Largest Countries in the World 2026 - World Population Review",
+              "relevantSnippet": "Largest/Smallest\n\n# Largest Countries in the World 2026\n\n![map placeholder](/images/svg_placeholder.png)\n\n% of Earth's Area\n\n0\n\n2M\n\n4M\n\n6M\n\n8M\n\n10M\n\n12M\n\n14M\n\n16M\n\n18M\n\n## 5Largest Countries in the World\n\n[![Russia Flag](/images/country-flags/svg/ru.svg)](/countries/russia)\n\n## [Russia](/countries/r"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "normalizedClaim": null,
+          "searchQuery": "India land area ranking 2026 \nIndia population size 2026 \nIndia geographical size comparison"
+        }
+      ]
+    }
   }
 }
