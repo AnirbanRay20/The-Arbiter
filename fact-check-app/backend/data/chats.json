@@ -1181,24 +1181,16 @@
       ]
     }
   },
-<<<<<<< Updated upstream
   "1774288461592": {
     "id": "1774288461592",
     "timestamp": "2026-03-23T17:54:21.592Z",
     "q": "Apple is better.",
-=======
-  "1774288629361": {
-    "id": "1774288629361",
-    "timestamp": "2026-03-23T17:57:09.361Z",
-    "q": "moon is white",
->>>>>>> Stashed changes
     "report": {
       "total": 1,
       "true": 0,
       "partial": 0,
       "false": 1,
       "unverifiable": 0,
-<<<<<<< Updated upstream
       "accuracyScore": 0,
       "riskLevel": "🔴 High Risk",
       "insightSummary": "The investigation found a single claim with no confirmed truths, suggesting a potential misinformation issue. A high-risk assessment indicates that this claim is likely to be unverifiable or misleading. With no confidence in the claim's validity, further verification is required to determine its accuracy.",
@@ -1231,7 +1223,20 @@
           ],
           "groundingEnforced": false,
           "searchQuery": "Apple official website \nApple Wikipedia page \nApple company history"
-=======
+        }
+      ]
+    }
+  },
+  "1774288629361": {
+    "id": "1774288629361",
+    "timestamp": "2026-03-23T17:57:09.361Z",
+    "q": "moon is white",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
       "accuracyScore": 86,
       "riskLevel": "🔴 High Risk",
       "insightSummary": "Our analysis reveals a concerning trend, with a single claim being entirely false, posing a significant risk to accuracy. This single false claim represents 100% of the total claims investigated, highlighting a critical issue that requires immediate attention. With a confidence level of 86%, there is still a notable margin for error, underscoring the need for further verification and fact-checking.",
@@ -1262,7 +1267,6 @@
           "groundingEnforced": false,
           "normalizedClaim": null,
           "searchQuery": "moon color 2026 \nmoon surface composition \nNASA moon color information \nmoon color NASA data \nmoon color scientific evidence"
->>>>>>> Stashed changes
         }
       ]
     }

@@ -39,16 +39,6 @@ function sanitizeClaims(raw) {
 }
 
 // ─────────────────────────────────────────────────────────────
-// 🔗 Pre-Process Symbolic Inputs
-// ─────────────────────────────────────────────────────────────
-function preprocess(input) {
-  if (/[0-9+\-*/=]/.test(input) && input.length < 50) {
-    return `The statement "${input}" is claimed to be true.`;
-  }
-  return input;
-}
-
-// ─────────────────────────────────────────────────────────────
 // 📦 MAIN FUNCTION: Extract Claims from Text
 // ─────────────────────────────────────────────────────────────
 async function extractClaims(text) {
@@ -57,7 +47,19 @@ async function extractClaims(text) {
     return [];
   }
 
-  const processedText = preprocess(text.trim());
+  const t = text.trim();
+
+  // ── Immediate Math/Short Statement Bypass ──
+  // If it's pure short math, bypass the LLM entirely to save tokens and prevent duplicate nested claims
+  if (t.length < 50 && /[0-9+\-*/=]/.test(t) && !/[a-zA-Z]{15,}/.test(t)) {
+    console.log('[ClaimExtractor] Bypassing LLM for direct math/symbolic extraction');
+    return [{
+      id: "C1",
+      claim: t,
+      context: t,
+      isQuestion: isQuestion(t)
+    }];
+  }
 
   try {
     const response = await groq.chat.completions.create({
@@ -75,7 +77,7 @@ async function extractClaims(text) {
             `Also treat mathematical expressions and symbolic statements as valid factual claims.\n` +
             `Each claim must be ONE sentence about ONE fact. Do NOT merge multiple facts.\n` +
             `Convert any questions into declarative factual statements without changing their core meaning.\n\n` +
-            `Text:\n${processedText.slice(0, 4000)}`  // cap at 4000 chars to avoid token overflow
+            `Text:\n${t.slice(0, 4000)}`  // cap at 4000 chars to avoid token overflow
         }
       ],
       response_format: { type: 'json_object' }   // enforce structured output
