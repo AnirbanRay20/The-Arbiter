@@ -1270,5 +1270,315 @@
         }
       ]
     }
+  },
+  "1774292592660": {
+    "id": "1774292592660",
+    "timestamp": "2026-03-23T19:03:12.660Z",
+    "q": "Apple is better.",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 82,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation found a total of 1 claim, with 100% accuracy, as all statements were verified to be true. The high confidence level of 82% further supports the reliability of the findings. With a low risk level, the results indicate a trustworthy and accurate conclusion.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Apple exists",
+          "context": "Apple exists",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.82,
+          "reasoning": "The existence of Apple is confirmed by multiple sources, including the Library of Congress [1], Wikipedia articles about Apple Inc. [2, 3], and other online encyclopedias [4, 5]. These sources provide detailed information about the company's history, products, and services, which would not be possible if the company did not exist.",
+          "citations": [
+            {
+              "url": "https://guides.loc.gov/this-month-in-business-history/april/apple-computer-founded",
+              "title": "The Founding of Apple Computer, Inc. - This Month in Business History",
+              "relevantSnippet": "[Skip to Main Content](#s-lg-guide-main)\n\n[Library of Congress](https://www.loc.gov/)   [Research Guides](/)\n\n1. [Library of Congress](https://www.loc.gov/)\n2. [Research Guides](https://guides.loc.gov/)\n3. [Business](https://guides.loc.gov/business)\n4. [This Month in Business History](https://guides"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Apple_Inc.",
+              "title": "Apple Inc. - Wikipedia",
+              "relevantSnippet": "[Jump to content](#bodyContent)\n\n[Search](/wiki/Special:Search \"Search Wikipedia [f]\")\n\n## Contents\n\n* [1 History](#History)\n  + [1.1 1976–1980: Founding and incorporation](#1976–1980:_Founding_and_incorporation)\n  + [1.2 1980–1990: Success with Macintosh](#1980–1990:_Success_with_Macintosh)\n  + [1."
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/History_of_Apple_Inc.",
+              "title": "History of Apple Inc. - Wikipedia",
+              "relevantSnippet": "[Jump to content](#bodyContent)\n\n[Search](/wiki/Special:Search \"Search Wikipedia [f]\")\n\n## Contents\n\n* [1 1971–1985: Jobs and Wozniak](#1971–1985:_Jobs_and_Wozniak)\n  + [1.1 Pre-foundation](#Pre-foundation)\n  + [1.2 Apple I and company formation](#Apple_I_and_company_formation)\n  + [1.3 Apple II](#A"
+            },
+            {
+              "url": "https://simple.wikipedia.org/wiki/Apple_Inc.",
+              "title": "Apple Inc. - Simple English Wikipedia, the free encyclopedia",
+              "relevantSnippet": "[Jump to content](#bodyContent)\n\n[Search](/wiki/Special:Search \"Search Wikipedia [f]\")\n\n## Contents\n\n* [1 History](#History)\n* [2 iPod](#iPod)\n  + [2.1 iPod shuffle (4th generation)](#iPod_shuffle_(4th_generation))\n  + [2.2 iPod nano](#iPod_nano)\n  + [2.3 iPod classic](#iPod_classic)\n  + [2.4 iPod t"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Outline_of_Apple_Inc.",
+              "title": "Outline of Apple Inc. - Wikipedia",
+              "relevantSnippet": "[Jump to content](#bodyContent)\n\n[Search](/wiki/Special:Search \"Search Wikipedia [f]\")\n\n## Contents\n\n* [1 Hardware](#Hardware)\n  + [1.1 Mac](#Mac)\n  + [1.2 iPhone](#iPhone)\n  + [1.3 iPad](#iPad)\n  + [1.4 Apple Watch](#Apple_Watch)\n  + [1.5 Accessories](#Accessories)\n* [2 Software](#Software)\n  + [2."
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "normalizedClaim": null,
+          "searchQuery": "Apple official website \nApple Wikipedia page \nApple company history"
+        }
+      ]
+    }
+  },
+  "1774292844590": {
+    "id": "1774292844590",
+    "timestamp": "2026-03-23T19:07:24.590Z",
+    "q": "Claim: \"The current CEO of Google is Sundar Pichai.\"\n\nExpected Output:\n- Status: Verified\n- Type: Time-sensitive\n- Checked as of: March 2026\n- Confidence: High",
+    "report": {
+      "total": 5,
+      "true": 2,
+      "partial": 1,
+      "false": 0,
+      "unverifiable": 2,
+      "accuracyScore": 78,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation yielded a total of 5 claims, with 2 confirmed to be true and 1 classified as partial. Notably, there were no false claims detected. Despite a relatively high confidence level of 78%, the presence of a single partial claim warrants a cautious approach, but overall, the risk assessment remains LOW.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "The current CEO of Google is Sundar Pichai.",
+          "context": "The current CEO of Google is Sundar Pichai.",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.8,
+          "reasoning": "Source 2 ([2]) and Source 3 ([3, 4]) confirm Sundar Pichai as the current CEO of Google. Source 1 ([1]) also mentions Sundar Pichai as the Chief Executive Officer of Google.",
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Sundar_Pichai",
+              "title": "Sundar Pichai - Wikipedia",
+              "relevantSnippet": "# Sundar Pichai - Wikipedia\n[Jump to content](https://en.wikipedia.org/wiki/Sundar_Pichai#bodyContent)\n\n- [x] Main menu \n\nMain menu\n\nmove to sidebar hide\n\n Navigation \n\n*   [Main page](https://en.wikipedia.org/wiki/Main_Page \"Visit the main page [z]\")\n*   [Contents](https://en.wikipedia.org/wiki/Wik"
+            },
+            {
+              "url": "https://nrf.com/media-center/press-releases/nrf-2026-to-feature-google-ceo-sundar-pichai",
+              "title": "NRF 2026 to Feature Google CEO Sundar Pichai",
+              "relevantSnippet": "# NRF | NRF 2026 to Feature Google CEO Sundar Pichai\n\n[**NRF.**com](https://nrf.com/)[**NRF**Foundation](https://nrffoundation.org/)[**NRF**Events](https://nrf.com/events/retail-events)[**NRF**Sponsorship](https://sponsorship.nrf.com/)\n\n[About NRF](https://nrf.com/about-us)[Membership](https://nrf.c"
+            },
+            {
+              "url": "https://nrfbigshow.nrf.com/speaker/sundar-pichai",
+              "title": "Sundar Pichai | NRF 2026: Retail's Big Show Speaker",
+              "relevantSnippet": "# Sundar Pichai | NRF 2026: Retail's Big Show Speaker\n\n[**NRF**.com](https://nrf.com/)[**NRF**Foundation](https://nrffoundation.org/)[**NRF**Events](https://nrf.com/events/retail-events)[**NRF**Sponsorship](https://sponsorship.nrf.com/)[](https://nrfbigshow.nrf.com/search)\n\n[About NRF](https://nrf.c"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "normalizedClaim": null,
+          "searchQuery": "Sundar Pichai current CEO Google 2026"
+        },
+        {
+          "id": "C2",
+          "claim": "March 2026 is the current date.",
+          "context": "March 2026 is the current date.",
+          "isQuestion": false,
+          "claimId": "C2",
+          "verdict": "True",
+          "confidenceScore": 0.77,
+          "reasoning": "Multiple sources ([1, 2, 3, 4, 5]) confirm that March 2026 is the current month, making the claim true.",
+          "citations": [
+            {
+              "url": "https://www.wiki-calendar.com/march-calendars.html",
+              "title": "March 2026 Calendar - Printable Templates & More",
+              "relevantSnippet": "# March 2026 Calendar - Printable Templates & More\n[Skip to content](https://www.wiki-calendar.com/march-calendars.html#content)\n\n[Wiki Calendar](https://www.wiki-calendar.com/)\n\n*   [2026 Calendar](https://www.wiki-calendar.com/2026-calendar.html)\n*   [Monthly Calendar 2026](https://www.wiki-calend"
+            },
+            {
+              "url": "https://www.calendar-365.com/calendar/2026/March.html",
+              "title": "March 2026 Calendar",
+              "relevantSnippet": "# March 2026 Calendar\n\n365 days a calendar at hand!\n\n[![Image 1](https://www.calendar-365.com/images/calendar-365-com-logo-high.png)](https://www.calendar-365.com/2026-calendar.html \"2026 Calendar\")\n\nDiscover more\n\nAstronomy telescopes\n\nWeek Number Stickers\n\n2026 Event Planner\n\nWall calendars\n\nPerso"
+            },
+            {
+              "url": "https://time.is/calendar",
+              "title": "2026 calendar - Time.is",
+              "relevantSnippet": "# 2026 calendar - Time.is\n\n×\n\n## [Time.is](https://time.is/ \"Time.is\")\n\n[](https://time.is/calendar#nav \"menu\")\n\n[](https://time.is/log_in \"sign up or log in\")\n\n# 2026 calendar with public holidays for [United States](https://time.is/United_States)\n\nJanuary 2026\n\n|  | S | M | T | W | T | F | S |\n| -"
+            },
+            {
+              "url": "https://www.calendardate.com/March/2026_3.php",
+              "title": "March 2026 Calendar - CalendarDate.com",
+              "relevantSnippet": "# March 2026 Calendar\n- [x] \n*   [Home](https://www.calendardate.com/)\n*   [Calendars](https://www.calendardate.com/March/2026_3.php# \"Calendars\")\n    *   [2026 Calendar](https://www.calendardate.com/2026.php \"Year 2026 Calendar\")\n    *   [2027 Calendar](https://www.calendardate.com/2027.php \"Year 2"
+            },
+            {
+              "url": "https://www.timeanddate.com/calendar/monthly.html?year=2026&month=3&country=1",
+              "title": "March 2026 Calendar – United States - Time and Date",
+              "relevantSnippet": "# March 2026 Calendar – United States\n\n[](https://www.timeanddate.com/ \"Home page timeanddate.com\")\n\n[![Image 1: timeanddate.com](https://c.tadst.com/gfx/n/logo/logo-2021--horizontal-inverted-darkbg.svg)](https://www.timeanddate.com/ \"Home page timeanddate.com\")\n\nSign in\n\n*   [News](https://www.time"
+            }
+          ],
+          "timeSensitive": true,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "normalizedClaim": null,
+          "searchQuery": "current date March 2026"
+        },
+        {
+          "id": "C3",
+          "claim": "The status is Verified.",
+          "context": "The status is Verified.",
+          "isQuestion": false,
+          "claimId": "C3",
+          "verdict": "Unverifiable",
+          "confidenceScore": 0.35,
+          "reasoning": "The provided evidence discusses the verification process on Twitter, including eligibility and application procedures [1, 2, 3, 4, 5]. However, it does not directly address the claim 'The status is Verified.' without additional context about what 'status' refers to. Therefore, the claim cannot be verified based on the given evidence.",
+          "citations": [
+            {
+              "url": "https://twitter.com/uscis/status/1088142997403910150",
+              "title": "Verify Your Case Status",
+              "relevantSnippet": "# USCIS on X: \"#DYK the #SAVEprogram helps agencies verify your immigration status? SAVE also lets you check the status of your case with CaseCheck.\" / X\n\nDon’t miss what’s happening\n\nPeople on X are the first to know.\n\n[Log in](https://twitter.com/login)\n\n[Sign up](https://twitter.com/i/flow/signup"
+            },
+            {
+              "url": "https://twitter.com/verified/status/1641596848921276417?s=20",
+              "title": "Verified Organizations is a new way ...",
+              "relevantSnippet": "# Premium Business on X: \"Verified Organizations is a new way for organizations and their affiliates to distinguish themselves on Twitter. Rather than relying on Twitter to be the sole arbiter of truth for which accounts should be verified, vetted organizations that sign up for https://t.co/1v6wSVKf"
+            },
+            {
+              "url": "https://twitter.com/verified/status/1395400246432256001",
+              "title": "Once you've opened the application link under “Verified ...",
+              "relevantSnippet": "# Premium Business on X: \"Once you've opened the application link under “Verified” in your account settings: 1. Tell us which eligible category matches your account 2. Choose how you’d like us to confirm your identity 3. Submit the request and we'll let you know when you can expect a decision https:"
+            },
+            {
+              "url": "https://twitter.com/verified/status/1471911834605211658",
+              "title": "“Am I eligible for Verification?” you ask. We've updated our ...",
+              "relevantSnippet": "# Premium Business on X: \"“Am I eligible for Verification?” you ask. We’ve updated our policy to make it easier to understand who is eligible and what info you need to provide in your application. No matter which category you fall under, we’ll give you all the deets here: https://t.co/MTdbV1Lkq3\" / "
+            },
+            {
+              "url": "https://twitter.com/verified/status/1398359044054790153?lang=da",
+              "title": "We're rolling in verification requests. So we gotta hit pause ...",
+              "relevantSnippet": "# Premium Business på X: \"We’re rolling in verification requests. So we gotta hit pause on accepting any more for now while we review the ones that have been submitted. We’ll reopen requests soon! (we pinky swear)\" / X\n\nGå ikke glip af det, der sker\n\nFolk på X er de første, der ved det.\n\n[Log ind](h"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "normalizedClaim": null,
+          "searchQuery": "site:twitter.com status verified"
+        },
+        {
+          "id": "C4",
+          "claim": "The type is Time-sensitive.",
+          "context": "The type is Time-sensitive.",
+          "isQuestion": false,
+          "claimId": "C4",
+          "verdict": "Unverifiable",
+          "confidenceScore": 0.2,
+          "reasoning": "LLM indicated verdict was not grounded in retrieved evidence. Marked Unverifiable to prevent hallucination.",
+          "citations": [
+            {
+              "url": "https://www.cs.cornell.edu/courses/cs4120/2026sp/notes.html?id=types",
+              "title": "CS 4120 Spring 2026 Introduction to Compilers - Cornell University",
+              "relevantSnippet": "Types are a compile-time abstraction of run-time program behavior. In a sound type system, this abstraction is conservative, so good types rule out bad program behavior. For example, the type `int` usually indicates that a term with that type computes some integer (or possibly fails to terminate).\n\nType systems have two components: a set of possible type expressions, and a set of rules for associa"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Data_type",
+              "title": "Data type - Wikipedia",
+              "relevantSnippet": "In computer science and computer programming, a data type (or simply type) is a collection or grouping of data values \"Value (computer science)\"), usually specified by a set of possible values, a set of allowed operations on these values, and/or a representation of these values as machine types.( A data type specification in a program constrains the possible values that an expression \"Expression ("
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Type_system",
+              "title": "Type system - Wikipedia",
+              "relevantSnippet": "Assigning a data type, termed _typing_, gives meaning to a sequence of bits such as a value in memory or some object \"Object (computer science)\") such as a variable \"Variable (computer science)\"). The hardware of a general purpose computer is unable to discriminate between for example a memory address and an instruction code \"Instruction code (programming)\"), or between a character \"Character (com"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": true,
+          "normalizedClaim": "The type is Time minus sensitive.",
+          "searchQuery": "current definition of type in computer science 2026"
+        },
+        {
+          "id": "C5",
+          "claim": "The confidence is High.",
+          "context": "The confidence is High.",
+          "isQuestion": false,
+          "claimId": "C5",
+          "verdict": "Partially True",
+          "confidenceScore": 0.55,
+          "reasoning": "The Global Consumer Confidence Index has shown stability and some increases in recent months, indicating a mixed confidence level. According to Ipsos' Global Consumer Confidence Index, the index rose by 0.5 point in January 2026 [5] and is stable in February 2026 [3]. However, the index has not reached a high level, and some countries show significant declines in consumer sentiment [3].",
+          "citations": [
+            {
+              "url": "https://www.ipsos.com/en/ipsos-consumer-confidence-february-2026",
+              "title": "February 2026: Global consumer confidence stable for first ...",
+              "relevantSnippet": "![Ipsos](/sites/ipsos/themes/custom/ipsos/html2025/build/images/misc/logo.svg)\n\n#### Search\n\n![Ipsos Global Consumer Confidence Index](/sites/default/files/styles/main_image_612x500/public/ct/news_and_polls/2026-03/ipsos-global-consumer-confidence-index-gcci-carousel.webp?itok=Q3wiQdrA)\n![Ipsos Glob"
+            },
+            {
+              "url": "https://www.ipsos.com/en/ipsos-consumer-confidence-january-2026",
+              "title": "January 2026: Global consumer confidence rises to begin ...",
+              "relevantSnippet": "![Ipsos](/sites/ipsos/themes/custom/ipsos/html2025/build/images/misc/logo.svg)\n\n#### Search\n\n![January 2026: Global consumer confidence rises to begin 2026](/sites/default/files/styles/main_image_612x500/public/ct/news_and_polls/2026-01/ipsos-global-consumer-confidence-index-gcci-carousel.webp?itok="
+            }
+          ],
+          "timeSensitive": true,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "normalizedClaim": null,
+          "searchQuery": "confidence levels in 2026 economic indicators"
+        }
+      ]
+    }
+  },
+  "1774292911507": {
+    "id": "1774292911507",
+    "timestamp": "2026-03-23T19:08:31.507Z",
+    "q": "Jeffry Epsiten is good",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 1,
+      "accuracyScore": 35,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation revealed a single claim with a low risk level. Interestingly, none of the claims were verified as true or false, suggesting a lack of conclusive evidence. The confidence level in the claim's accuracy is relatively low at 35%. This ambiguity warrants further review to clarify the validity of the claim.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Jeffry Epsiten is good",
+          "context": "Jeffry Epsiten is good",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "Unverifiable",
+          "confidenceScore": 0.35,
+          "reasoning": "The provided evidence does not mention Jeffry Epsiten, and the main topic is about Jeffrey Epstein. The sources do not provide any information about a person named Jeffry Epsiten.",
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Epstein_files",
+              "title": "Epstein files - Wikipedia",
+              "relevantSnippet": "[Jump to content](#bodyContent)\n\n[![](/static/images/icons/enwiki-25.svg)  ![Wikipedia](/static/images/mobile/copyright/wikipedia-wordmark-en-25.svg) ![The Free Encyclopedia](/static/images/mobile/copyright/wikipedia-tagline-en-25.svg)](/wiki/Main_Page)\n\n[Search](/wiki/Special:Search \"Search Wikiped"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Jeffrey_Epstein",
+              "title": "Jeffrey Epstein - Wikipedia",
+              "relevantSnippet": "[Jump to content](#bodyContent)\n\n[Search](/wiki/Special:Search \"Search Wikipedia [f]\")\n\n## Contents\n\n* [1 Early life](#Early_life)\n* [2 Career](#Career)\n  + [2.1 Dalton School (1974–1976)](#Dalton_School_(1974–1976))\n  + [2.2 Bear Stearns (1976–1981)](#Bear_Stearns_(1976–1981))\n  + [2.3 Advisor and "
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Litigation_involving_Jeffrey_Epstein",
+              "title": "Litigation involving Jeffrey Epstein - Wikipedia",
+              "relevantSnippet": "[Jump to content](#bodyContent)\n\n[Search](/wiki/Special:Search \"Search Wikipedia [f]\")\n\n## Contents\n\n* [1 *Cordero v. Epstein* (2007)](#Cordero_v._Epstein_(2007))\n* [2 *Jane Doe v. Epstein* lawsuits (2008)](#Jane_Doe_v._Epstein_lawsuits_(2008))\n* [3 Victims' rights: *Jane Does v. United States* (201"
+            },
+            {
+              "url": "https://www.britannica.com/biography/Jeffrey-Epstein",
+              "title": "Jeffrey Epstein | Death, Island, Sex Crimes, Files, & Facts | Britannica",
+              "relevantSnippet": "[🤑 Explore Britannica's Newest Newsletter: **Money Matters**   Learn More](https://signup.britannica.com/moneymatters?utm_source=premium&utm_medium=toupee&utm_campaign=mm-desktop)\n\n[SUBSCRIBE](https://premium.britannica.com/premium-membership/?utm_source=premium&utm_medium=global-nav-mobile&utm_cam"
+            },
+            {
+              "url": "https://www.britannica.com/topic/The-Epstein-Files-A-Timeline/2026-Contempt-delays-and-more-documents",
+              "title": "What Are the Epstein Files? A Timeline - 2026 - Britannica",
+              "relevantSnippet": "[![Encyclopedia Britannica](https://cdn.britannica.com/mendel/eb-logo/MendelNewThistleLogo.png)](/)\n\n [![Encyclopedia Britannica](https://cdn.britannica.com/mendel/eb-logo/MendelNewThistleLogo.png)](/) \n\n[SUBSCRIBE](https://premium.britannica.com/premium-membership/?utm_source=premium&utm_medium=glo"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "normalizedClaim": null,
+          "searchQuery": "Jeffrey Epstein reputation research 2026 \nJeffrey Epstein controversies \nJeffrey Epstein news 2026 \nJeffrey Epstein Wikipedia \nJeffrey Epstein criticism \nJeffrey Epstein scandals \nJeffrey Epstein investigations \nJeffrey Epstein lawsuits \nJeffrey Epstein biography"
+        }
+      ]
+    }
   }
 }
