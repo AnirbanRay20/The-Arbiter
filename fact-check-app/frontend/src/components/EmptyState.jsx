@@ -98,9 +98,25 @@ export default function EmptyState({ onSubmit, disabled, initialContent = '' }) 
 
   const isUrl     = tab === 'url';
   const isImage   = tab === 'image';
-  const validUrl  = isUrl && /^https?:\/\/.+/.test(content);
-  const validText = !isUrl && !isImage && content.trim().length > 10;
-  const canSubmit = (isUrl ? validUrl : validText) && !disabled;
+  
+  const isValid = (() => {
+    if (!content || content.trim().length === 0) return false;
+    if (tab === 'url') {
+      return /^https?:\/\/.+/.test(content);
+    }
+    return true; // allow all non-empty text input
+  })();
+
+  const canSubmit = isValid && !disabled;
+
+  // Debug Logging as safely requested
+  useEffect(() => {
+    if (content.length > 0) {
+      console.log("Input:", content);
+      console.log("Mode:", tab);
+      console.log("Valid:", isValid);
+    }
+  }, [content, tab, isValid]);
 
   return (
     <div style={{
@@ -286,6 +302,9 @@ export default function EmptyState({ onSubmit, disabled, initialContent = '' }) 
               <button
                 onClick={() => canSubmit && onSubmit(tab, content)}
                 disabled={!canSubmit}
+                title={!isValid ? "Enter a claim to analyze" : "Click to Verify"}
+                onMouseEnter={e => { if (canSubmit) { e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.boxShadow = '0 0 24px rgba(0,229,255,0.5)'; } }}
+                onMouseLeave={e => { if (canSubmit) { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = '0 0 18px rgba(0,229,255,0.35)'; } }}
                 style={{
                   display: 'flex', alignItems: 'center', gap: 7,
                   padding: '0.55rem 1.4rem',

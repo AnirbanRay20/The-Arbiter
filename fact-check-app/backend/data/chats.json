@@ -6413,6 +6413,7 @@
       ]
     }
   },
+<<<<<<< Updated upstream
   "india is the seventh largest country": {
     "id": "1774284795562",
     "timestamp": "2026-03-23T16:53:15.562Z",
@@ -6513,12 +6514,19 @@
     "id": "1774285429655",
     "timestamp": "2026-03-23T17:03:49.655Z",
     "q": "India is the seventh largest country in the world",
+=======
+  "the first hand-held mobile phone call was made on april 3, 1973.": {
+    "id": "1774284851842",
+    "timestamp": "2026-03-23T16:54:11.842Z",
+    "q": "The first hand-held mobile phone call was made on April 3, 1973.",
+>>>>>>> Stashed changes
     "report": {
       "total": 1,
       "true": 1,
       "partial": 0,
       "false": 0,
       "unverifiable": 0,
+<<<<<<< Updated upstream
       "accuracyScore": 77,
       "riskLevel": "🟢 Low Risk",
       "insightSummary": "The investigation found a total of 1 claim, with a high level of confidence in its accuracy at 77%. The claim was verified to be true, indicating a low risk of misinformation or unverifiable information, and the overall risk assessment remains LOW.",
@@ -6664,20 +6672,132 @@
           "checkedAt": "March 2026",
           "groundingEnforced": false,
           "searchQuery": "Earth flatness scientific evidence 2026 \nFlat Earth theory debunked by NASA \nFlat Earth evidence against scientific consensus \nEarth shape supported by satellite imagery 2026 \nFlat Earth theory refuted by geology"
+=======
+      "accuracyScore": 79,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation yielded a total of 1 claim, with all claims found to be true. The confidence level in this assessment is high at 79%, indicating a strong likelihood of accuracy. Given the low risk level, the overall outcome suggests a high degree of reliability in the information verified.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "The first hand-held mobile phone call was made on April 3, 1973.",
+          "context": "The first hand-held mobile phone call was made on April 3, 1973.",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.79,
+          "reasoning": "Multiple sources confirm that the first hand-held mobile phone call was made by Martin Cooper on April 3, 1973. [1, 2, 3, 4, 5]",
+          "citations": [
+            {
+              "url": "https://www.bbc.com/news/technology-65112048",
+              "title": "Mobile phone inventor made first call 50 years ago - BBC",
+              "relevantSnippet": "# Mobile phone inventor made first call 50 years ago\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260226-102003-cac85f7ad7-web-2.40.2-1/grey-placeholder.png)\n![BBC Marty Cooper with the phone he used to make the first mobile call](https://ichef.bbci.co.uk/news/480/cpsprodpb/05BC/production/_"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Martin_Cooper_(inventor)",
+              "title": "Martin Cooper (inventor) - Wikipedia",
+              "relevantSnippet": "![](https://en.wikipedia.org/static/images/donate/donate.gif)\n![Wikipedia](/static/images/mobile/copyright/wikipedia-wordmark-en-25.svg)\n\n# Martin Cooper (inventor)\n\n**Martin Cooper** (born December 26, 1928) is an American engineer. He is a pioneer in the [wireless communications](/wiki/Wireless \"W"
+            },
+            {
+              "url": "https://www.ebsco.com/research-starters/history/first-cellular-phone-call",
+              "title": "First Cellular Phone Call | History | Research Starters - EBSCO",
+              "relevantSnippet": "[Browse Subject Areas](/research-starters)\n\n# First Cellular Phone Call\n\nThe first cellular phone call marks a pivotal moment in communication technology, occurring on April 3, 1973, when Dr. Martin Cooper of Motorola made a call in New York City using a handheld mobile phone prototype. This event w"
+            },
+            {
+              "url": "https://abc7.com/post/martin-cooper-first-cell-phone-call-motorola-april-3/13077296/",
+              "title": "1st cell phone call successfully made 50 years ago by Motorola ...",
+              "relevantSnippet": "![](https://cdn.abcotvs.net/abcotv/assets/news/global/images/feature-header/kabc-lg.svg)\n![](https://cdn.abcotvs.net/abcotv/assets/news/global/images/feature-header/kabc-sm.svg)\n\n# 1st cell phone call successfully made 50 years ago by Motorola engineer\n\n![CNNWire logo](https://cdn.abcotvs.net/abcotv"
+            },
+            {
+              "url": "https://www.npr.org/2023/04/03/1167815751/50-years-ago-martin-cooper-made-the-first-cell-phone-call",
+              "title": "50 years ago, Martin Cooper made the first cellphone call - NPR",
+              "relevantSnippet": "![NPR logo](https://media.npr.org/chrome/npr-logo-2026-animated.gif)\n![](https://media.npr.org/chrome/programs/logos/morning-edition.jpg)\n![](https://media.npr.org/assets/img/2019/02/26/we_otherentitiestemplatesat_sq-cbde87a2fa31b01047441e6f34d2769b0287bcd4-s100-c85.png)\n![](https://media.npr.org/as"
+            }
+          ],
+          "timeSensitive": true,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "first hand held mobile phone call April 3 1973"
+>>>>>>> Stashed changes
         }
       ]
     }
   },
+<<<<<<< Updated upstream
   "1774285565897": {
     "id": "1774285565897",
     "timestamp": "2026-03-23T17:06:05.897Z",
     "q": "India has the lowest population in the world\n",
+=======
+  "1774284851842": {
+    "id": "1774284851842",
+    "timestamp": "2026-03-23T16:54:11.842Z",
+    "q": "The first hand-held mobile phone call was made on April 3, 1973.",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 79,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation yielded a total of 1 claim, with all claims found to be true. The confidence level in this assessment is high at 79%, indicating a strong likelihood of accuracy. Given the low risk level, the overall outcome suggests a high degree of reliability in the information verified.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "The first hand-held mobile phone call was made on April 3, 1973.",
+          "context": "The first hand-held mobile phone call was made on April 3, 1973.",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.79,
+          "reasoning": "Multiple sources confirm that the first hand-held mobile phone call was made by Martin Cooper on April 3, 1973. [1, 2, 3, 4, 5]",
+          "citations": [
+            {
+              "url": "https://www.bbc.com/news/technology-65112048",
+              "title": "Mobile phone inventor made first call 50 years ago - BBC",
+              "relevantSnippet": "# Mobile phone inventor made first call 50 years ago\n\n![](https://static.files.bbci.co.uk/bbcdotcom/web/20260226-102003-cac85f7ad7-web-2.40.2-1/grey-placeholder.png)\n![BBC Marty Cooper with the phone he used to make the first mobile call](https://ichef.bbci.co.uk/news/480/cpsprodpb/05BC/production/_"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Martin_Cooper_(inventor)",
+              "title": "Martin Cooper (inventor) - Wikipedia",
+              "relevantSnippet": "![](https://en.wikipedia.org/static/images/donate/donate.gif)\n![Wikipedia](/static/images/mobile/copyright/wikipedia-wordmark-en-25.svg)\n\n# Martin Cooper (inventor)\n\n**Martin Cooper** (born December 26, 1928) is an American engineer. He is a pioneer in the [wireless communications](/wiki/Wireless \"W"
+            },
+            {
+              "url": "https://www.ebsco.com/research-starters/history/first-cellular-phone-call",
+              "title": "First Cellular Phone Call | History | Research Starters - EBSCO",
+              "relevantSnippet": "[Browse Subject Areas](/research-starters)\n\n# First Cellular Phone Call\n\nThe first cellular phone call marks a pivotal moment in communication technology, occurring on April 3, 1973, when Dr. Martin Cooper of Motorola made a call in New York City using a handheld mobile phone prototype. This event w"
+            },
+            {
+              "url": "https://abc7.com/post/martin-cooper-first-cell-phone-call-motorola-april-3/13077296/",
+              "title": "1st cell phone call successfully made 50 years ago by Motorola ...",
+              "relevantSnippet": "![](https://cdn.abcotvs.net/abcotv/assets/news/global/images/feature-header/kabc-lg.svg)\n![](https://cdn.abcotvs.net/abcotv/assets/news/global/images/feature-header/kabc-sm.svg)\n\n# 1st cell phone call successfully made 50 years ago by Motorola engineer\n\n![CNNWire logo](https://cdn.abcotvs.net/abcotv"
+            },
+            {
+              "url": "https://www.npr.org/2023/04/03/1167815751/50-years-ago-martin-cooper-made-the-first-cell-phone-call",
+              "title": "50 years ago, Martin Cooper made the first cellphone call - NPR",
+              "relevantSnippet": "![NPR logo](https://media.npr.org/chrome/npr-logo-2026-animated.gif)\n![](https://media.npr.org/chrome/programs/logos/morning-edition.jpg)\n![](https://media.npr.org/assets/img/2019/02/26/we_otherentitiestemplatesat_sq-cbde87a2fa31b01047441e6f34d2769b0287bcd4-s100-c85.png)\n![](https://media.npr.org/as"
+            }
+          ],
+          "timeSensitive": true,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "first hand held mobile phone call April 3 1973"
+        }
+      ]
+    }
+  },
+  "the longest english word is 189,819 letters long.": {
+    "id": "1774284907627",
+    "timestamp": "2026-03-23T16:55:07.627Z",
+    "q": " The longest English word is 189,819 letters long.",
+>>>>>>> Stashed changes
     "report": {
       "total": 1,
       "true": 0,
       "partial": 0,
       "false": 1,
       "unverifiable": 0,
+<<<<<<< Updated upstream
       "accuracyScore": 77,
       "riskLevel": "🔴 High Risk",
       "insightSummary": "Our analysis reveals a single claim, which was found to be entirely false. The high risk level, coupled with a confidence level of 77%, suggests a potential issue with the claim's validity. Further investigation is needed to determine the source and implications of this misinformation. The high risk level indicates that this claim may be a significant concern.",
@@ -6759,11 +6879,42 @@
               "url": "https://www.reddit.com/r/explainlikeimfive/comments/2n10bj/eli5_why_do_people_say_2_2_can_be_5/",
               "title": "ELI5: Why do people say 2 + 2 can be 5? : r/explainlikeimfive - Reddit",
               "relevantSnippet": "The joke \"2+2=5\" is at the engineer's expense should remember that the engineer is kind of right. There are no \"exact values\" you can measure in the real world."
+=======
+      "accuracyScore": 78,
+      "riskLevel": "🔴 High Risk",
+      "insightSummary": "The investigation revealed a single claim, but unfortunately, it was found to be entirely false. The high level of confidence in this assessment (78%) suggests a strong basis for the conclusion. However, the high risk level (HIGH) indicates that the claim may have been made with malicious intent or under false pretenses, warranting further scrutiny.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "The longest English word is 189,819 letters long.",
+          "context": "The longest English word is 189,819 letters long.",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 0.78,
+          "reasoning": "The longest English word is stated to be 'pneumonoultramicroscopicsilicovolcanoconiosis' with 45 letters, not 189,819 letters. This is supported by [2, 4, 5].",
+          "citations": [
+            {
+              "url": "https://www.languagetesting.com/blog/what-is-the-longest-english-word/",
+              "title": "What Is the Longest English Word? - Language Testing International",
+              "relevantSnippet": "# What Is the Longest English Word?\n\n1. [Home](https://www.languagetesting.com/blog)\n2. [Bilingual Professionals](https://www.languagetesting.com/blog/category/bilingual-professionals/)\n3. What Is the Longest English Word?\n\n* Posted on\n* By [gwhite](https://www.languagetesting.com/blog/author/gwhite"
+            },
+            {
+              "url": "https://www.grammarly.com/blog/vocabulary/14-of-the-longest-words-in-english/",
+              "title": "14 of the Longest Words in English | Grammarly Blog",
+              "relevantSnippet": "# 14 of the Longest Words in English\n\n[Shundalyn Allen](/blog/author/dayskywriter/)\n\nUpdated on June 21, 2023[Vocabulary](/blog/vocabulary/)\n\nYes, this article is about some of the longest English words on record. No, you will not find the very longest word in English in this article. That one word "
+            },
+            {
+              "url": "https://www.merriam-webster.com/wordplay/longest-words-ever",
+              "title": "The Longest Long Words List | Merriam-Webster",
+              "relevantSnippet": "Est. 1828\n\nPopular in\n\nObscure & Fun\n\n[Great Big List of Beautiful and Useless Words, Vol. 3](/wordplay/beautiful-useless-obscure-words-volume-3)\n\n[Top 12 Sophisticated Compliments](/wordplay/top-10-sophisticated-compliments)\n\n[17 of the Finest Words for Drinking](/wordplay/the-finest-words-for-drin"
+>>>>>>> Stashed changes
             }
           ],
           "timeSensitive": false,
           "checkedAt": "March 2026",
           "groundingEnforced": false,
+<<<<<<< Updated upstream
           "searchQuery": "Basic arithmetic fact check 2 plus 2 equals 5"
         },
         {
@@ -6780,20 +6931,508 @@
               "url": "https://math.stackexchange.com/questions/2449459/whats-wrong-with-this-fake-proof-that-22-5",
               "title": "What's wrong with this fake proof that 2+2=5? [duplicate]",
               "relevantSnippet": "#### Stack Exchange Network\n\nStack Exchange network consists of 183 Q&A communities including [Stack Overflow](https://stackoverflow.com), the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.\n\n### [current community](https://math.stackex"
+=======
+          "searchQuery": "longest English word length in 2026"
+        }
+      ]
+    }
+  },
+  "1774284907627": {
+    "id": "1774284907627",
+    "timestamp": "2026-03-23T16:55:07.627Z",
+    "q": " The longest English word is 189,819 letters long.",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 78,
+      "riskLevel": "🔴 High Risk",
+      "insightSummary": "The investigation revealed a single claim, but unfortunately, it was found to be entirely false. The high level of confidence in this assessment (78%) suggests a strong basis for the conclusion. However, the high risk level (HIGH) indicates that the claim may have been made with malicious intent or under false pretenses, warranting further scrutiny.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "The longest English word is 189,819 letters long.",
+          "context": "The longest English word is 189,819 letters long.",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 0.78,
+          "reasoning": "The longest English word is stated to be 'pneumonoultramicroscopicsilicovolcanoconiosis' with 45 letters, not 189,819 letters. This is supported by [2, 4, 5].",
+          "citations": [
+            {
+              "url": "https://www.languagetesting.com/blog/what-is-the-longest-english-word/",
+              "title": "What Is the Longest English Word? - Language Testing International",
+              "relevantSnippet": "# What Is the Longest English Word?\n\n1. [Home](https://www.languagetesting.com/blog)\n2. [Bilingual Professionals](https://www.languagetesting.com/blog/category/bilingual-professionals/)\n3. What Is the Longest English Word?\n\n* Posted on\n* By [gwhite](https://www.languagetesting.com/blog/author/gwhite"
+            },
+            {
+              "url": "https://www.grammarly.com/blog/vocabulary/14-of-the-longest-words-in-english/",
+              "title": "14 of the Longest Words in English | Grammarly Blog",
+              "relevantSnippet": "# 14 of the Longest Words in English\n\n[Shundalyn Allen](/blog/author/dayskywriter/)\n\nUpdated on June 21, 2023[Vocabulary](/blog/vocabulary/)\n\nYes, this article is about some of the longest English words on record. No, you will not find the very longest word in English in this article. That one word "
+            },
+            {
+              "url": "https://www.merriam-webster.com/wordplay/longest-words-ever",
+              "title": "The Longest Long Words List | Merriam-Webster",
+              "relevantSnippet": "Est. 1828\n\nPopular in\n\nObscure & Fun\n\n[Great Big List of Beautiful and Useless Words, Vol. 3](/wordplay/beautiful-useless-obscure-words-volume-3)\n\n[Top 12 Sophisticated Compliments](/wordplay/top-10-sophisticated-compliments)\n\n[17 of the Finest Words for Drinking](/wordplay/the-finest-words-for-drin"
             }
           ],
           "timeSensitive": false,
           "checkedAt": "March 2026",
           "groundingEnforced": false,
-          "searchQuery": "mathematical proof of 2 plus 2 equals 5"
+          "searchQuery": "longest English word length in 2026"
         }
       ]
     }
   },
+  "india is the seventh largest country": {
+    "id": "1774284950120",
+    "timestamp": "2026-03-23T16:55:50.120Z",
+    "q": "India is the seventh largest country",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 77,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation found a total of 1 claim, with all claims being verified as true. This suggests a high level of accuracy, with a confidence rating of 77%. The low risk level indicates a minimal likelihood of misinformation or unverifiable claims in this case.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "India is the seventh largest country",
+          "context": "India is the seventh largest country",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.77,
+          "reasoning": "According to multiple sources, including [1], [4], and [5], India is the most populous country in 2026, with a population of over 1.4 billion people. This information is also confirmed by [2], which states that India has overtaken China and has the largest population in the world.",
+          "citations": [
+            {
+              "url": "https://database.earth/population/by-country/2026",
+              "title": "World Population by Country in 2026 - database.earth",
+              "relevantSnippet": "# World Population by Country in 2026\n\nIn 2026, the world\nis projected to reach\na total population of 8,300,678,396 and 🇮🇳[India](/population/india)\nwill be\nthe most populous country that year,\nwith a total of 1,476,625,576 people.\nFollowed by 🇨🇳[China](/population/china),\nwith the second larges"
+            },
+            {
+              "url": "https://spmiasacademy.com/currentaffairs/largest-population-in-the-world/",
+              "title": "Largest Population in the World 2026 Ranking - SPM IAS Academy",
+              "relevantSnippet": "*[+91-690-125-9799](tel:+916901259799)*\n\n[*spmiasacademy@gmail.com*](mailto:spmiasacademy@gmail.com)\n\n![](https://spmiasacademy.com/currentaffairs/wp-content/uploads/2025/01/SPM-Logo.webp)\n![](https://spmiasacademy.com/currentaffairs/wp-content/uploads/2025/01/SPM-Logo.webp)\n\n# Largest Population in"
+            },
+            {
+              "url": "https://worldpopulationreview.com/countries",
+              "title": "Total Population by Country 2026 - World Population Review",
+              "relevantSnippet": "# Total Population by Country 2026\n\n## Top 5 Most Populous Countries\n\n[India](/countries/india)\n\n1,476,630,000\n\n[China](/countries/china)\n\n1,412,910,000\n\n[United States](/countries/united-states)\n\n349,035,000\n\n[Indonesia](/countries/indonesia)\n\n287,887,000\n\n[Pakistan](/countries/pakistan)\n\n259,300,0"
+            },
+            {
+              "url": "https://www.worldometers.info/population/most-populous-countries/",
+              "title": "Most Populous Countries in the World (2026) - Worldometer",
+              "relevantSnippet": "[Population](/population/)   [CO2 emissions](/co2-emissions/)   [Coronavirus](/coronavirus/)   [Countries](/geography/countries-of-the-world/)   [Energy](/energy/)   [Flags](/geography/flags-of-the-world/)   [Food & Agriculture](/food-agriculture/)   [GDP by country](/gdp/gdp-by-country/)   [Time](/"
+            }
+          ],
+          "timeSensitive": true,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "India population rank in the world 2026"
+        }
+      ]
+    }
+  },
+  "1774284950120": {
+    "id": "1774284950120",
+    "timestamp": "2026-03-23T16:55:50.120Z",
+    "q": "India is the seventh largest country",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 77,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation found a total of 1 claim, with all claims being verified as true. This suggests a high level of accuracy, with a confidence rating of 77%. The low risk level indicates a minimal likelihood of misinformation or unverifiable claims in this case.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "India is the seventh largest country",
+          "context": "India is the seventh largest country",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.77,
+          "reasoning": "According to multiple sources, including [1], [4], and [5], India is the most populous country in 2026, with a population of over 1.4 billion people. This information is also confirmed by [2], which states that India has overtaken China and has the largest population in the world.",
+          "citations": [
+            {
+              "url": "https://database.earth/population/by-country/2026",
+              "title": "World Population by Country in 2026 - database.earth",
+              "relevantSnippet": "# World Population by Country in 2026\n\nIn 2026, the world\nis projected to reach\na total population of 8,300,678,396 and 🇮🇳[India](/population/india)\nwill be\nthe most populous country that year,\nwith a total of 1,476,625,576 people.\nFollowed by 🇨🇳[China](/population/china),\nwith the second larges"
+            },
+            {
+              "url": "https://spmiasacademy.com/currentaffairs/largest-population-in-the-world/",
+              "title": "Largest Population in the World 2026 Ranking - SPM IAS Academy",
+              "relevantSnippet": "*[+91-690-125-9799](tel:+916901259799)*\n\n[*spmiasacademy@gmail.com*](mailto:spmiasacademy@gmail.com)\n\n![](https://spmiasacademy.com/currentaffairs/wp-content/uploads/2025/01/SPM-Logo.webp)\n![](https://spmiasacademy.com/currentaffairs/wp-content/uploads/2025/01/SPM-Logo.webp)\n\n# Largest Population in"
+            },
+            {
+              "url": "https://worldpopulationreview.com/countries",
+              "title": "Total Population by Country 2026 - World Population Review",
+              "relevantSnippet": "# Total Population by Country 2026\n\n## Top 5 Most Populous Countries\n\n[India](/countries/india)\n\n1,476,630,000\n\n[China](/countries/china)\n\n1,412,910,000\n\n[United States](/countries/united-states)\n\n349,035,000\n\n[Indonesia](/countries/indonesia)\n\n287,887,000\n\n[Pakistan](/countries/pakistan)\n\n259,300,0"
+            },
+            {
+              "url": "https://www.worldometers.info/population/most-populous-countries/",
+              "title": "Most Populous Countries in the World (2026) - Worldometer",
+              "relevantSnippet": "[Population](/population/)   [CO2 emissions](/co2-emissions/)   [Coronavirus](/coronavirus/)   [Countries](/geography/countries-of-the-world/)   [Energy](/energy/)   [Flags](/geography/flags-of-the-world/)   [Food & Agriculture](/food-agriculture/)   [GDP by country](/gdp/gdp-by-country/)   [Time](/"
+            }
+          ],
+          "timeSensitive": true,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "India population rank in the world 2026"
+        }
+      ]
+    }
+  },
+  "africa is the only continent situated in all four hemispheres.": {
+    "id": "1774285011674",
+    "timestamp": "2026-03-23T16:56:51.674Z",
+    "q": "Africa is the only continent situated in all four hemispheres.",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 79,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation found a total of 1 claim, with all claims verified as true. This suggests a high level of accuracy, with a confidence level of 79%. The low risk level further reinforces the reliability of the findings, indicating a minimal likelihood of misinformation or partial truths.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Africa is situated in all four hemispheres.",
+          "context": "Africa is situated in all four hemispheres.",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.79,
+          "reasoning": "Africa is situated in both the Northern and Southern Hemispheres, as stated in [Source 1] and [Source 2]. This is further supported by [Source 3] which lists several African countries as being entirely in the Southern Hemisphere. Although [Source 5] explicitly states that Africa lies in all four hemispheres, this is consistent with the information provided in the other sources.",
+          "citations": [
+            {
+              "url": "https://www.bbc.co.uk/bitesize/articles/z2k6p4j",
+              "title": "The geography of Africa - BBC Bitesize",
+              "relevantSnippet": "* [KS2](/bitesize/levels/zbr9wmn)\n\n# The geography of Africa\n\nPart of [Geography](/bitesize/subjects/zbkw2hv)[The 7 continents](/bitesize/topics/zsw4kty)\n\nSave to My Bitesize\n\n## Sign in to save\n\nAdd subjects, save guides and continue where you left off with your BBC account.\n\n[Sign in](https://sess"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Geography_of_Africa",
+              "title": "Geography of Africa",
+              "relevantSnippet": "![](/static/images/icons/enwiki-25.svg)\n![Wikipedia](/static/images/mobile/copyright/wikipedia-wordmark-en-25.svg)\n![The Free Encyclopedia](/static/images/mobile/copyright/wikipedia-tagline-en-25.svg)\n\n## Contents\n\n# Geography of Africa\n\n![](//upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Africa"
+            },
+            {
+              "url": "https://worldpopulationreview.com/country-rankings/southern-hemisphere-countries",
+              "title": "Southern Hemisphere Countries 2026",
+              "relevantSnippet": "# Southern Hemisphere Countries 2026\n\n![map placeholder](/images/svg_placeholder.png)\n\nIn Southern Hemisphere\n\nEntirely\n\nMostly\n\nPartially\n\n### In Southern Hemisphere\n\n7 countries\n\n43 countries\n\n6 countries\n\n \n\n| Country | In Southern Hemisphere↑ | Continent |\n| --- | --- | --- |\n| [Tanzania](/count"
+            },
+            {
+              "url": "https://www.jagranjosh.com/general-knowledge/only-continent-that-lies-in-all-four-hemispheres-1820003250-1",
+              "title": "Which is the Only Continent That Lies in All Four ...",
+              "relevantSnippet": "## Comments\n\n#### All Comments (0)\n\n![comment](/images/comment-icon.svg)\n\n## Join the conversation\n\n![user](/images/user.svg)\n![comment send](/images/commentSend.svg)\n![emoji](/images/happySmile.svg)\n\n# Which is the Only Continent That Lies in All Four Hemispheres?\n\n## Africa is the only continent t"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "Africa hemispheres geographical location 2026"
+        }
+      ]
+    }
+  },
+  "1774285011674": {
+    "id": "1774285011674",
+    "timestamp": "2026-03-23T16:56:51.674Z",
+    "q": "Africa is the only continent situated in all four hemispheres.",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 79,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation found a total of 1 claim, with all claims verified as true. This suggests a high level of accuracy, with a confidence level of 79%. The low risk level further reinforces the reliability of the findings, indicating a minimal likelihood of misinformation or partial truths.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Africa is situated in all four hemispheres.",
+          "context": "Africa is situated in all four hemispheres.",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.79,
+          "reasoning": "Africa is situated in both the Northern and Southern Hemispheres, as stated in [Source 1] and [Source 2]. This is further supported by [Source 3] which lists several African countries as being entirely in the Southern Hemisphere. Although [Source 5] explicitly states that Africa lies in all four hemispheres, this is consistent with the information provided in the other sources.",
+          "citations": [
+            {
+              "url": "https://www.bbc.co.uk/bitesize/articles/z2k6p4j",
+              "title": "The geography of Africa - BBC Bitesize",
+              "relevantSnippet": "* [KS2](/bitesize/levels/zbr9wmn)\n\n# The geography of Africa\n\nPart of [Geography](/bitesize/subjects/zbkw2hv)[The 7 continents](/bitesize/topics/zsw4kty)\n\nSave to My Bitesize\n\n## Sign in to save\n\nAdd subjects, save guides and continue where you left off with your BBC account.\n\n[Sign in](https://sess"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Geography_of_Africa",
+              "title": "Geography of Africa",
+              "relevantSnippet": "![](/static/images/icons/enwiki-25.svg)\n![Wikipedia](/static/images/mobile/copyright/wikipedia-wordmark-en-25.svg)\n![The Free Encyclopedia](/static/images/mobile/copyright/wikipedia-tagline-en-25.svg)\n\n## Contents\n\n# Geography of Africa\n\n![](//upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Africa"
+            },
+            {
+              "url": "https://worldpopulationreview.com/country-rankings/southern-hemisphere-countries",
+              "title": "Southern Hemisphere Countries 2026",
+              "relevantSnippet": "# Southern Hemisphere Countries 2026\n\n![map placeholder](/images/svg_placeholder.png)\n\nIn Southern Hemisphere\n\nEntirely\n\nMostly\n\nPartially\n\n### In Southern Hemisphere\n\n7 countries\n\n43 countries\n\n6 countries\n\n \n\n| Country | In Southern Hemisphere↑ | Continent |\n| --- | --- | --- |\n| [Tanzania](/count"
+            },
+            {
+              "url": "https://www.jagranjosh.com/general-knowledge/only-continent-that-lies-in-all-four-hemispheres-1820003250-1",
+              "title": "Which is the Only Continent That Lies in All Four ...",
+              "relevantSnippet": "## Comments\n\n#### All Comments (0)\n\n![comment](/images/comment-icon.svg)\n\n## Join the conversation\n\n![user](/images/user.svg)\n![comment send](/images/commentSend.svg)\n![emoji](/images/happySmile.svg)\n\n# Which is the Only Continent That Lies in All Four Hemispheres?\n\n## Africa is the only continent t"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "Africa hemispheres geographical location 2026"
+        }
+      ]
+    }
+  },
+  "reindeer eyes change color: they turn blue in winter to help them see in lower light, says treehugger.": {
+    "id": "1774285148474",
+    "timestamp": "2026-03-23T16:59:08.474Z",
+    "q": "Reindeer eyes change color: They turn blue in winter to help them see in lower light, says Treehugger.",
+    "report": {
+      "total": 3,
+      "true": 3,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 78,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation found a total of 3 claims, with all of them being verified as true. This high level of accuracy suggests a strong foundation of reliable information. With a confidence level of 78%, the analysis indicates a LOW risk of misinformation or unverifiable claims, providing a solid basis for decision-making.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Reindeer eyes change color",
+          "context": "Reindeer eyes change color",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.77,
+          "reasoning": "Multiple sources confirm that reindeer eyes change color with the seasons, specifically in response to the Arctic environment. [1, 2, 3, 4, 5]",
+          "citations": [
+            {
+              "url": "https://www.eurekalert.org/news-releases/662858",
+              "title": "Bright eyes: Study finds reindeers' eyes change colour with ...",
+              "relevantSnippet": "# Bright eyes: Study finds reindeers' eyes change colour with Arctic seasons | EurekAlert!\n\n[Advanced Search](https://www.eurekalert.org/advancedSearch)\n\n[![Image 1: EurekAlert! Science News](https://www.eurekalert.org/images/logo-2x.png)](https://www.eurekalert.org/)[![Image 2: AAAS - American Asso"
+            },
+            {
+              "url": "https://www.ucl.ac.uk/news/2022/dec/analysis-reindeer-eyes-change-color-putting-rudolphs-red-nose-shade-new-research-podcast",
+              "title": "Analysis: Reindeer eyes change color, putting Rudolph's ...",
+              "relevantSnippet": "# Analysis: Reindeer eyes change color, putting Rudolph’s red nose in the shade – new research podcast | UCL News - UCL – University College London\n[![Image 1: X](https://cdn.ucl.ac.uk/indigo/images/close.png)Close](https://www.ucl.ac.uk/news/2022/dec/analysis-reindeer-eyes-change-color-putting-rudo"
+            },
+            {
+              "url": "https://www.nhm.ac.uk/discover/colour-in-collection-reindeer-eye.html",
+              "title": "Colour in the collections: reindeer eye",
+              "relevantSnippet": "# Colour in the collections: reindeer eye | Natural History Museum\n\n[Skip to content](https://www.nhm.ac.uk/[...path])\n\n[](https://www.nhm.ac.uk/)\n\nSearch[Membership](https://www.nhm.ac.uk/support-us/membership.html)[Donate](https://www.nhm.ac.uk/support-us/make-a-donation.html)\n\n*   [Visit](https:/"
+            },
+            {
+              "url": "https://www.arcticfocus.org/stories/how-reindeer-eyes-transform-winter-give-them-twilight-vision/",
+              "title": "How reindeer eyes transform in winter to give them twilight ...",
+              "relevantSnippet": "Science\n\n## How reindeer eyes transform in winter to give them twilight vision\n\n---\n\nAuthors\n\nRobert A E Fosbury Honorary professor, UCL Institute of Ophthalmology, UCL\n\n---\n\nR\n\nReindeer are loved the world over for their dark, expressive eyes, majestic antlers and magical association with Santa Cla"
+            },
+            {
+              "url": "https://www.audubon.org/news/arctic-reindeers-eyes-change-colors-seasons",
+              "title": "Arctic Reindeers' Eyes Change Colors with the Seasons",
+              "relevantSnippet": "# Arctic Reindeers’ Eyes Change Colors with the Seasons | Audubon\n[Skip to main content](https://www.audubon.org/news/arctic-reindeers-eyes-change-colors-seasons#main)\n*   Menu\n*   [Audubon](https://www.audubon.org/)\n*   [Magazine](https://www.audubon.org/audubonmagazine)\n*   [Español](https://www.a"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "reindeer eye color change phenomenon research"
+        },
+        {
+          "id": "C2",
+          "claim": "They turn blue in winter",
+          "context": "They turn blue in winter",
+          "isQuestion": false,
+          "claimId": "C2",
+          "verdict": "True",
+          "confidenceScore": 0.79,
+          "reasoning": "Reindeer eyes change color with the seasons, turning blue in winter as seen in [4, 5]. This is a natural adaptation that allows them to see clearly in the long winter twilight.",
+          "citations": [
+            {
+              "url": "https://www.arcticfocus.org/stories/how-reindeer-eyes-transform-winter-give-them-twilight-vision/",
+              "title": "How reindeer eyes transform in winter to give them twilight ...",
+              "relevantSnippet": "Science\n\n## How reindeer eyes transform in winter to give them twilight vision\n\n---\n\nAuthors\n\nRobert A E Fosbury Honorary professor, UCL Institute of Ophthalmology, UCL\n\n---\n\nR\n\nReindeer are loved the world over for their dark, expressive eyes, majestic antlers and magical association with Santa Cla"
+            },
+            {
+              "url": "https://www.sciencealert.com/reindeer-eyes-do-something-incredible-when-winter-comes",
+              "title": "Reindeer Eyes Do Something Incredible When Winter ...",
+              "relevantSnippet": "# Reindeer Eyes Do Something Incredible When Winter Comes\n\n[Nature](https://www.sciencealert.com/nature)25 December 2025\n\nBy [Carly Cassella](https://www.sciencealert.com/carly-cassella)\n\n(Hans-Jurgen Mager/Unsplash)\n\nReindeer may not have [noses that glow red in the night](https://www.sciencealert."
+>>>>>>> Stashed changes
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+<<<<<<< Updated upstream
+          "searchQuery": "mathematical proof of 2 plus 2 equals 5"
+=======
+          "searchQuery": "What turns blue in winter 2026"
+        },
+        {
+          "id": "C3",
+          "claim": "They help them see in lower light",
+          "context": "They help them see in lower light",
+          "isQuestion": false,
+          "claimId": "C3",
+          "verdict": "True",
+          "confidenceScore": 0.78,
+          "reasoning": "Night vision devices amplify available light, allowing users to see in lower light conditions. This is explicitly stated in [Source 3] and [Source 1].",
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Night-vision_device",
+              "title": "Night-vision device",
+              "relevantSnippet": "[Jump to content](#bodyContent)\n\n[![](/static/images/icons/enwiki-25.svg)  ![Wikipedia](/static/images/mobile/copyright/wikipedia-wordmark-en-25.svg) ![The Free Encyclopedia](/static/images/mobile/copyright/wikipedia-tagline-en-25.svg)](/wiki/Main_Page)\n\n[Search](/wiki/Special:Search \"Search Wikiped"
+            },
+            {
+              "url": "https://www.peaknano.com/blog/how-modern-night-vision-goggles-work",
+              "title": "From Darkness to Light: How Modern Night Vision Goggles Work",
+              "relevantSnippet": "[Skip to content](#main-content)\n\n[![Peak Nano Primary Logo](https://www.peaknano.com/hubfs/Logos/peak-nano-logo.svg \"Peak Nano Primary Logo\")](https://www.peaknano.com/)\n\n[Menu](#menu)\n\n![](https://www.peaknano.com/hubfs/Site%20Images/pvs-14-header.jpeg)\n\n# From Darkness to Light: How Modern Night "
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "What features do night vision goggles have"
+>>>>>>> Stashed changes
+        }
+      ]
+    }
+  },
+<<<<<<< Updated upstream
   "1774285694415": {
     "id": "1774285694415",
     "timestamp": "2026-03-23T17:08:14.415Z",
     "q": "2 plus 2 is 5",
+=======
+  "1774285148474": {
+    "id": "1774285148474",
+    "timestamp": "2026-03-23T16:59:08.474Z",
+    "q": "Reindeer eyes change color: They turn blue in winter to help them see in lower light, says Treehugger.",
+    "report": {
+      "total": 3,
+      "true": 3,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 78,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation found a total of 3 claims, with all of them being verified as true. This high level of accuracy suggests a strong foundation of reliable information. With a confidence level of 78%, the analysis indicates a LOW risk of misinformation or unverifiable claims, providing a solid basis for decision-making.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Reindeer eyes change color",
+          "context": "Reindeer eyes change color",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.77,
+          "reasoning": "Multiple sources confirm that reindeer eyes change color with the seasons, specifically in response to the Arctic environment. [1, 2, 3, 4, 5]",
+          "citations": [
+            {
+              "url": "https://www.eurekalert.org/news-releases/662858",
+              "title": "Bright eyes: Study finds reindeers' eyes change colour with ...",
+              "relevantSnippet": "# Bright eyes: Study finds reindeers' eyes change colour with Arctic seasons | EurekAlert!\n\n[Advanced Search](https://www.eurekalert.org/advancedSearch)\n\n[![Image 1: EurekAlert! Science News](https://www.eurekalert.org/images/logo-2x.png)](https://www.eurekalert.org/)[![Image 2: AAAS - American Asso"
+            },
+            {
+              "url": "https://www.ucl.ac.uk/news/2022/dec/analysis-reindeer-eyes-change-color-putting-rudolphs-red-nose-shade-new-research-podcast",
+              "title": "Analysis: Reindeer eyes change color, putting Rudolph's ...",
+              "relevantSnippet": "# Analysis: Reindeer eyes change color, putting Rudolph’s red nose in the shade – new research podcast | UCL News - UCL – University College London\n[![Image 1: X](https://cdn.ucl.ac.uk/indigo/images/close.png)Close](https://www.ucl.ac.uk/news/2022/dec/analysis-reindeer-eyes-change-color-putting-rudo"
+            },
+            {
+              "url": "https://www.nhm.ac.uk/discover/colour-in-collection-reindeer-eye.html",
+              "title": "Colour in the collections: reindeer eye",
+              "relevantSnippet": "# Colour in the collections: reindeer eye | Natural History Museum\n\n[Skip to content](https://www.nhm.ac.uk/[...path])\n\n[](https://www.nhm.ac.uk/)\n\nSearch[Membership](https://www.nhm.ac.uk/support-us/membership.html)[Donate](https://www.nhm.ac.uk/support-us/make-a-donation.html)\n\n*   [Visit](https:/"
+            },
+            {
+              "url": "https://www.arcticfocus.org/stories/how-reindeer-eyes-transform-winter-give-them-twilight-vision/",
+              "title": "How reindeer eyes transform in winter to give them twilight ...",
+              "relevantSnippet": "Science\n\n## How reindeer eyes transform in winter to give them twilight vision\n\n---\n\nAuthors\n\nRobert A E Fosbury Honorary professor, UCL Institute of Ophthalmology, UCL\n\n---\n\nR\n\nReindeer are loved the world over for their dark, expressive eyes, majestic antlers and magical association with Santa Cla"
+            },
+            {
+              "url": "https://www.audubon.org/news/arctic-reindeers-eyes-change-colors-seasons",
+              "title": "Arctic Reindeers' Eyes Change Colors with the Seasons",
+              "relevantSnippet": "# Arctic Reindeers’ Eyes Change Colors with the Seasons | Audubon\n[Skip to main content](https://www.audubon.org/news/arctic-reindeers-eyes-change-colors-seasons#main)\n*   Menu\n*   [Audubon](https://www.audubon.org/)\n*   [Magazine](https://www.audubon.org/audubonmagazine)\n*   [Español](https://www.a"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "reindeer eye color change phenomenon research"
+        },
+        {
+          "id": "C2",
+          "claim": "They turn blue in winter",
+          "context": "They turn blue in winter",
+          "isQuestion": false,
+          "claimId": "C2",
+          "verdict": "True",
+          "confidenceScore": 0.79,
+          "reasoning": "Reindeer eyes change color with the seasons, turning blue in winter as seen in [4, 5]. This is a natural adaptation that allows them to see clearly in the long winter twilight.",
+          "citations": [
+            {
+              "url": "https://www.arcticfocus.org/stories/how-reindeer-eyes-transform-winter-give-them-twilight-vision/",
+              "title": "How reindeer eyes transform in winter to give them twilight ...",
+              "relevantSnippet": "Science\n\n## How reindeer eyes transform in winter to give them twilight vision\n\n---\n\nAuthors\n\nRobert A E Fosbury Honorary professor, UCL Institute of Ophthalmology, UCL\n\n---\n\nR\n\nReindeer are loved the world over for their dark, expressive eyes, majestic antlers and magical association with Santa Cla"
+            },
+            {
+              "url": "https://www.sciencealert.com/reindeer-eyes-do-something-incredible-when-winter-comes",
+              "title": "Reindeer Eyes Do Something Incredible When Winter ...",
+              "relevantSnippet": "# Reindeer Eyes Do Something Incredible When Winter Comes\n\n[Nature](https://www.sciencealert.com/nature)25 December 2025\n\nBy [Carly Cassella](https://www.sciencealert.com/carly-cassella)\n\n(Hans-Jurgen Mager/Unsplash)\n\nReindeer may not have [noses that glow red in the night](https://www.sciencealert."
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "What turns blue in winter 2026"
+        },
+        {
+          "id": "C3",
+          "claim": "They help them see in lower light",
+          "context": "They help them see in lower light",
+          "isQuestion": false,
+          "claimId": "C3",
+          "verdict": "True",
+          "confidenceScore": 0.78,
+          "reasoning": "Night vision devices amplify available light, allowing users to see in lower light conditions. This is explicitly stated in [Source 3] and [Source 1].",
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Night-vision_device",
+              "title": "Night-vision device",
+              "relevantSnippet": "[Jump to content](#bodyContent)\n\n[![](/static/images/icons/enwiki-25.svg)  ![Wikipedia](/static/images/mobile/copyright/wikipedia-wordmark-en-25.svg) ![The Free Encyclopedia](/static/images/mobile/copyright/wikipedia-tagline-en-25.svg)](/wiki/Main_Page)\n\n[Search](/wiki/Special:Search \"Search Wikiped"
+            },
+            {
+              "url": "https://www.peaknano.com/blog/how-modern-night-vision-goggles-work",
+              "title": "From Darkness to Light: How Modern Night Vision Goggles Work",
+              "relevantSnippet": "[Skip to content](#main-content)\n\n[![Peak Nano Primary Logo](https://www.peaknano.com/hubfs/Logos/peak-nano-logo.svg \"Peak Nano Primary Logo\")](https://www.peaknano.com/)\n\n[Menu](#menu)\n\n![](https://www.peaknano.com/hubfs/Site%20Images/pvs-14-header.jpeg)\n\n# From Darkness to Light: How Modern Night "
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "What features do night vision goggles have"
+        }
+      ]
+    }
+  },
+  "2+2=5": {
+    "id": "1774285640306",
+    "timestamp": "2026-03-23T17:07:20.306Z",
+    "q": "2+2=5",
+>>>>>>> Stashed changes
     "report": {
       "total": 1,
       "true": 1,
@@ -6802,17 +7441,30 @@
       "unverifiable": 0,
       "accuracyScore": 74,
       "riskLevel": "🟢 Low Risk",
+<<<<<<< Updated upstream
       "insightSummary": "Our investigation summary shows that there is a single claim, which has been verified as true. This suggests a high level of accuracy, with a confidence rating of 74%. The overall risk assessment is LOW, indicating that the claim is reliable and trustworthy.",
       "results": [
         {
           "id": "C1",
           "claim": "2 plus 2 is 5",
           "context": "2 plus 2 is 5",
+=======
+      "insightSummary": "Our investigation summary reveals a relatively low-risk situation with a total of 1 claim. All claims were found to be true, indicating a high level of accuracy. The confidence in these findings is strong, standing at 74%. With no false or partially true claims detected, this suggests a reliable source of information.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "2 plus 2 equals 5",
+          "context": "2 plus 2 equals 5",
+>>>>>>> Stashed changes
           "isQuestion": false,
           "claimId": "C1",
           "verdict": "True",
           "confidenceScore": 0.74,
+<<<<<<< Updated upstream
           "reasoning": "The evidence clearly and explicitly supports the claim that 2 plus 2 is 4. [Source 4] provides a step-by-step solution to the problem, stating that the sum of two and two equals four. [Source 5] also supports this claim by providing a presentation on understanding basic arithmetic, which includes the example of 2+2.",
+=======
+          "reasoning": "The evidence clearly and explicitly supports the claim that 2 plus 2 equals 4. [Source 4] explicitly states that 2+2=4, and [Source 5] provides a detailed explanation of basic arithmetic, including the calculation of 2+2. Additionally, [Source 1] and [Source 3] do not provide any evidence to contradict this claim.",
+>>>>>>> Stashed changes
           "citations": [
             {
               "url": "https://www.atlas.org/solution/a2871af2-7b36-4c76-a608-dd01ffb99c36/2-plus-2",
@@ -6833,19 +7485,75 @@
       ]
     }
   },
+<<<<<<< Updated upstream
   "1774285787802": {
     "id": "1774285787802",
     "timestamp": "2026-03-23T17:09:47.802Z",
     "q": "two plus two is five",
+=======
+  "1774285640306": {
+    "id": "1774285640306",
+    "timestamp": "2026-03-23T17:07:20.306Z",
+    "q": "2+2=5",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 74,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "Our investigation summary reveals a relatively low-risk situation with a total of 1 claim. All claims were found to be true, indicating a high level of accuracy. The confidence in these findings is strong, standing at 74%. With no false or partially true claims detected, this suggests a reliable source of information.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "2 plus 2 equals 5",
+          "context": "2 plus 2 equals 5",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.74,
+          "reasoning": "The evidence clearly and explicitly supports the claim that 2 plus 2 equals 4. [Source 4] explicitly states that 2+2=4, and [Source 5] provides a detailed explanation of basic arithmetic, including the calculation of 2+2. Additionally, [Source 1] and [Source 3] do not provide any evidence to contradict this claim.",
+          "citations": [
+            {
+              "url": "https://www.atlas.org/solution/a2871af2-7b36-4c76-a608-dd01ffb99c36/2-plus-2",
+              "title": "Solved: 2 plus 2 - Atlas",
+              "relevantSnippet": "Solved: 2 plus 2\n\n### Question\n\n2 plus 2\n\n### Answer\n\n􀊀100% (1 rated)\n\n4\n\n### Steps\n\n**1.** The question is simply asking for the sum of 2 plus 2. This is a basic arithmetic problem.\n\n**2.** I recall that addition is the process of finding the total or sum of a set of numbers. In this case, it invo"
+            },
+            {
+              "url": "https://prezi.com/p/r38gnfrtumvg/understanding-basic-arithmetic-the-case-of-22/",
+              "title": "Understanding Basic Arithmetic: The Case of 2+2 - Prezi",
+              "relevantSnippet": "[Sign up](/signup/?next=%2Fp%2Fr38gnfrtumvg%2Funderstanding-basic-arithmetic-the-case-of-22)\n\n[Log in](/login/?click_source=logged_element&page_location=hamburger_menu&element_text=log_in)\n\n[Afrikaans](#)[বাংলা](#)[Català](#)[Česky](#)[Dansk](#)[Deutsch](#)[Ελληνικά](#)[English](#)[Español](#)[Suomi"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "basic arithmetic 2 plus 2 equals what"
+        }
+      ]
+    }
+  },
+  "two plus two equals five": {
+    "id": "1774285789339",
+    "timestamp": "2026-03-23T17:09:49.339Z",
+    "q": "two plus two equals five",
+>>>>>>> Stashed changes
     "report": {
       "total": 1,
       "true": 0,
       "partial": 0,
       "false": 1,
       "unverifiable": 0,
+<<<<<<< Updated upstream
       "accuracyScore": 77,
       "riskLevel": "🔴 High Risk",
       "insightSummary": "Our investigation reveals a single claim with a relatively low confidence level of 77%. Unfortunately, this claim has been found to be entirely false, contributing to a HIGH risk level. The lack of true or partially accurate claims suggests a high potential for misinformation.",
+=======
+      "accuracyScore": 78,
+      "riskLevel": "🔴 High Risk",
+      "insightSummary": "Our investigation reveals a concerning trend with a single claim being entirely false, indicating potential misinformation. Despite a relatively high confidence level of 78%, the presence of a false claim raises significant alarm. The absence of true or partially true claims further exacerbates the risk, highlighting a need for caution. With a HIGH risk level, it is essential to verify information before accepting it as accurate.",
+>>>>>>> Stashed changes
       "results": [
         {
           "id": "C1",
@@ -6854,6 +7562,7 @@
           "isQuestion": false,
           "claimId": "C1",
           "verdict": "False",
+<<<<<<< Updated upstream
           "confidenceScore": 0.77,
           "reasoning": "The evidence clearly and explicitly contradicts the claim. Source 2 provides a false proof of 2+2=5, which is then debunked in Source 5. Source 3 explains why some people think 2+2=5, but it does not support the claim. Source 4 discusses how 2+2=4 is being used as an example of white supremacy, but it does not support the claim. Source 1 provides a general statement that 2+2 never equals 5, but it does not provide a mathematical proof.",
           "citations": [
@@ -6866,6 +7575,35 @@
               "url": "https://math.stackexchange.com/questions/2449459/whats-wrong-with-this-fake-proof-that-22-5",
               "title": "What's wrong with this fake proof that 2+2=5? [duplicate]",
               "relevantSnippet": "#### Stack Exchange Network\n\nStack Exchange network consists of 183 Q&A communities including [Stack Overflow](https://stackoverflow.com), the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.\n\n### [current community](https://math.stackex"
+=======
+          "confidenceScore": 0.78,
+          "reasoning": "All sources ([1, 2, 3, 4, 5]) explicitly state that 2+2 does not equal 5. Source [1] provides a Wikipedia article on the topic, while sources [2, 3, 4, 5] offer various perspectives and explanations. None of the sources support the claim that 2+2 equals 5.",
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/2_%2B_2_%3D_5",
+              "title": "2 + 2 = 5 - Wikipedia",
+              "relevantSnippet": "[Jump to content](#bodyContent)\n\n[Search](/wiki/Special:Search \"Search Wikipedia [f]\")\n\n## Contents\n\n* [(Top)](#)\n* [1 Self-evident truth and self-evident falsehood](#Self-evident_truth_and_self-evident_falsehood)\n* [2 Politics, literature, propaganda](#Politics,_literature,_propaganda)\n  + [2.1 Fra"
+            },
+            {
+              "url": "https://newdiscourses.com/2020/08/2-plus-2-never-equals-5/",
+              "title": "2+2 Never Equals 5 - New Discourses",
+              "relevantSnippet": "* [Home](https://newdiscourses.com/)\n* [ND Podcast](https://newdiscourses.com/tag/nd-podcast/)\n* [ND Bullets](https://newdiscourses.com/tag/nd-bullets/)\n* [OnlySubs Podcast](https://newdiscourses.com/tag/onlysubs/)\n* [SJ Encyclopedia](https://newdiscourses.com/translations-from-the-wokish/)\n* [Griev"
+            },
+            {
+              "url": "https://www.tuttletwins.com/blogs/podcast/372-how-do-we-know-that-22-doesnt-equal-5?srsltid=AfmBOop5-Tv1DslpyGnXMAi1FPCiIG31M7YX3olWZCnXVSwi6inQOQ4K",
+              "title": "372. How Do We Know That 2+2 Doesn't Equal 5? - The Tuttle Twins",
+              "relevantSnippet": "Give 20%, Get 20%\n\nFree Shipping on Domestic Orders $175+\n\nFree Tuttle Rebuttals eBook on Orders $150+\n\n## Country/region\n\n![The Tuttle Twins](//www.tuttletwins.com/cdn/shop/files/TT_LOGO_Yellow.webp?v=1729345122&width=800)\n\n## Item added to your cart\n\n# 372. How Do We Know That 2+2 Doesn't Equal 5?"
+            },
+            {
+              "url": "https://www.chess.com/blog/TheChessnerd300/i-asked-chatgpt-to-support-the-theory-that-2-2-5-its-crazy",
+              "title": "I asked ChatGPT to support the theory that 2+2=5. Its crazy",
+              "relevantSnippet": "![play-white](/bundles/web/images/color-icons/play-white.svg)\n![Coach]()\n![play-white](/bundles/web/images/color-icons/play-white.svg)\n![]()\n![puzzle-piece](/bundles/web/images/color-icons/puzzle-piece.svg)\n![Coach]()\n![puzzle-piece](/bundles/web/images/color-icons/puzzle-piece.svg)\n![]()\n![lessons]"
+            },
+            {
+              "url": "https://myassignmenthelp.com/blog/two-plus-two-equals-five/",
+              "title": "2+2=5 – Meaning, Logic & Cultural Significance - Assignment Help",
+              "relevantSnippet": "![question](https://cdnx.myassignmenthelp.com/assets/header/Info.svg)\n\n**Writing** Get your essay and assignment written from scratch by PhD expert\n\n**Rewriting:** Paraphrase or rewrite your friend's essay with similar meaning at reduced cost\n\n**Editing:**Proofread your work by experts and improve g"
+>>>>>>> Stashed changes
             }
           ],
           "timeSensitive": false,
@@ -6875,5 +7613,324 @@
         }
       ]
     }
+<<<<<<< Updated upstream
+=======
+  },
+  "1774285789339": {
+    "id": "1774285789339",
+    "timestamp": "2026-03-23T17:09:49.339Z",
+    "q": "two plus two equals five",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 78,
+      "riskLevel": "🔴 High Risk",
+      "insightSummary": "Our investigation reveals a concerning trend with a single claim being entirely false, indicating potential misinformation. Despite a relatively high confidence level of 78%, the presence of a false claim raises significant alarm. The absence of true or partially true claims further exacerbates the risk, highlighting a need for caution. With a HIGH risk level, it is essential to verify information before accepting it as accurate.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Two plus two equals five",
+          "context": "Two plus two equals five",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 0.78,
+          "reasoning": "All sources ([1, 2, 3, 4, 5]) explicitly state that 2+2 does not equal 5. Source [1] provides a Wikipedia article on the topic, while sources [2, 3, 4, 5] offer various perspectives and explanations. None of the sources support the claim that 2+2 equals 5.",
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/2_%2B_2_%3D_5",
+              "title": "2 + 2 = 5 - Wikipedia",
+              "relevantSnippet": "[Jump to content](#bodyContent)\n\n[Search](/wiki/Special:Search \"Search Wikipedia [f]\")\n\n## Contents\n\n* [(Top)](#)\n* [1 Self-evident truth and self-evident falsehood](#Self-evident_truth_and_self-evident_falsehood)\n* [2 Politics, literature, propaganda](#Politics,_literature,_propaganda)\n  + [2.1 Fra"
+            },
+            {
+              "url": "https://newdiscourses.com/2020/08/2-plus-2-never-equals-5/",
+              "title": "2+2 Never Equals 5 - New Discourses",
+              "relevantSnippet": "* [Home](https://newdiscourses.com/)\n* [ND Podcast](https://newdiscourses.com/tag/nd-podcast/)\n* [ND Bullets](https://newdiscourses.com/tag/nd-bullets/)\n* [OnlySubs Podcast](https://newdiscourses.com/tag/onlysubs/)\n* [SJ Encyclopedia](https://newdiscourses.com/translations-from-the-wokish/)\n* [Griev"
+            },
+            {
+              "url": "https://www.tuttletwins.com/blogs/podcast/372-how-do-we-know-that-22-doesnt-equal-5?srsltid=AfmBOop5-Tv1DslpyGnXMAi1FPCiIG31M7YX3olWZCnXVSwi6inQOQ4K",
+              "title": "372. How Do We Know That 2+2 Doesn't Equal 5? - The Tuttle Twins",
+              "relevantSnippet": "Give 20%, Get 20%\n\nFree Shipping on Domestic Orders $175+\n\nFree Tuttle Rebuttals eBook on Orders $150+\n\n## Country/region\n\n![The Tuttle Twins](//www.tuttletwins.com/cdn/shop/files/TT_LOGO_Yellow.webp?v=1729345122&width=800)\n\n## Item added to your cart\n\n# 372. How Do We Know That 2+2 Doesn't Equal 5?"
+            },
+            {
+              "url": "https://www.chess.com/blog/TheChessnerd300/i-asked-chatgpt-to-support-the-theory-that-2-2-5-its-crazy",
+              "title": "I asked ChatGPT to support the theory that 2+2=5. Its crazy",
+              "relevantSnippet": "![play-white](/bundles/web/images/color-icons/play-white.svg)\n![Coach]()\n![play-white](/bundles/web/images/color-icons/play-white.svg)\n![]()\n![puzzle-piece](/bundles/web/images/color-icons/puzzle-piece.svg)\n![Coach]()\n![puzzle-piece](/bundles/web/images/color-icons/puzzle-piece.svg)\n![]()\n![lessons]"
+            },
+            {
+              "url": "https://myassignmenthelp.com/blog/two-plus-two-equals-five/",
+              "title": "2+2=5 – Meaning, Logic & Cultural Significance - Assignment Help",
+              "relevantSnippet": "![question](https://cdnx.myassignmenthelp.com/assets/header/Info.svg)\n\n**Writing** Get your essay and assignment written from scratch by PhD expert\n\n**Rewriting:** Paraphrase or rewrite your friend's essay with similar meaning at reduced cost\n\n**Editing:**Proofread your work by experts and improve g"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "Basic arithmetic fact check two plus two equals five"
+        }
+      ]
+    }
+  },
+  "2+2=4": {
+    "id": "1774285862877",
+    "timestamp": "2026-03-23T17:11:02.877Z",
+    "q": "2+2=4",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 77,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation found a single claim, which was verified as true. This suggests a high level of accuracy, with a confidence rating of 77%. The low risk level indicates that the claim is reliable and trustworthy, with no signs of misinformation or partial truths. Overall, the results show a strong foundation for credibility.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "2 plus 2 equals 4",
+          "context": "2 plus 2 equals 4",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.77,
+          "reasoning": "The evidence clearly and explicitly supports the claim that 2 plus 2 equals 4. [Source 3] and [Source 4] explicitly state that the four basic arithmetic operations are addition, subtraction, multiplication, and division, and provide examples of how these operations work. [Source 5] provides a formal proof that 2+2=4. [Source 2] also supports this claim by explaining the concept of arithmetic and the four basic math operations.",
+          "citations": [
+            {
+              "url": "https://byjus.com/maths/arithmetic-operations/",
+              "title": "Basic Arithmetic Operations - BYJU'S",
+              "relevantSnippet": "Arithmetic operations is a branch of mathematics, that involves the study of numbers, operation of numbers that are useful in all the other [branches of mathematics](https://byjus.com/maths/branches-of-mathematics/). It basically comprises operations such as Addition, Subtraction, Multiplication and"
+            },
+            {
+              "url": "https://photomath.com/articles/basic-arithmetic-operations-the-four-fundamental-operators/",
+              "title": "Basic Arithmetic Operations: The Four Fundamental Operators",
+              "relevantSnippet": "[Get app](/install/)\n\n\n\nBuild your math mind\n\n# Basic Arithmetic Operations: The Four Fundamental Operators\n\n    ![Basic Arithmetic Operations: The Four Fundamental Operators](https://lh3.googleusercontent.com/GsTy1Rr1L1ZyRC_yN42yFNtto7REpDnneP3PbvbPmg4PSfWlkvi5YUTFLQ0CbwdC0SJTl7N-eueKpHw06jZnSYjylu"
+            },
+            {
+              "url": "https://math.stackexchange.com/questions/842314/prove-that-22-4",
+              "title": "proof writing - Prove that $2+2=4",
+              "relevantSnippet": "#### Stack Exchange Network\n\nStack Exchange network consists of 183 Q&A communities including [Stack Overflow](https://stackoverflow.com), the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.\n\n### [current community](https://math.stackex"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "basic arithmetic fact 2 plus 2 equals 4"
+        }
+      ]
+    }
+  },
+  "1774285862877": {
+    "id": "1774285862877",
+    "timestamp": "2026-03-23T17:11:02.877Z",
+    "q": "2+2=4",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 77,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation found a single claim, which was verified as true. This suggests a high level of accuracy, with a confidence rating of 77%. The low risk level indicates that the claim is reliable and trustworthy, with no signs of misinformation or partial truths. Overall, the results show a strong foundation for credibility.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "2 plus 2 equals 4",
+          "context": "2 plus 2 equals 4",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.77,
+          "reasoning": "The evidence clearly and explicitly supports the claim that 2 plus 2 equals 4. [Source 3] and [Source 4] explicitly state that the four basic arithmetic operations are addition, subtraction, multiplication, and division, and provide examples of how these operations work. [Source 5] provides a formal proof that 2+2=4. [Source 2] also supports this claim by explaining the concept of arithmetic and the four basic math operations.",
+          "citations": [
+            {
+              "url": "https://byjus.com/maths/arithmetic-operations/",
+              "title": "Basic Arithmetic Operations - BYJU'S",
+              "relevantSnippet": "Arithmetic operations is a branch of mathematics, that involves the study of numbers, operation of numbers that are useful in all the other [branches of mathematics](https://byjus.com/maths/branches-of-mathematics/). It basically comprises operations such as Addition, Subtraction, Multiplication and"
+            },
+            {
+              "url": "https://photomath.com/articles/basic-arithmetic-operations-the-four-fundamental-operators/",
+              "title": "Basic Arithmetic Operations: The Four Fundamental Operators",
+              "relevantSnippet": "[Get app](/install/)\n\n\n\nBuild your math mind\n\n# Basic Arithmetic Operations: The Four Fundamental Operators\n\n    ![Basic Arithmetic Operations: The Four Fundamental Operators](https://lh3.googleusercontent.com/GsTy1Rr1L1ZyRC_yN42yFNtto7REpDnneP3PbvbPmg4PSfWlkvi5YUTFLQ0CbwdC0SJTl7N-eueKpHw06jZnSYjylu"
+            },
+            {
+              "url": "https://math.stackexchange.com/questions/842314/prove-that-22-4",
+              "title": "proof writing - Prove that $2+2=4",
+              "relevantSnippet": "#### Stack Exchange Network\n\nStack Exchange network consists of 183 Q&A communities including [Stack Overflow](https://stackoverflow.com), the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.\n\n### [current community](https://math.stackex"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "basic arithmetic fact 2 plus 2 equals 4"
+        }
+      ]
+    }
+  },
+  "2+2=9": {
+    "id": "1774285892988",
+    "timestamp": "2026-03-23T17:11:32.988Z",
+    "q": "2+2=9",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 73,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation found a total of 1 claim, with a high confidence level of 73%. All claims were verified as true, indicating a low risk of misinformation. The outcome suggests a clear and accurate assessment of the situation, with no evidence of false or partially true claims detected.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "2+2 does not equal 9",
+          "context": "2+2 does not equal 9",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.73,
+          "reasoning": "The claim '2+2 does not equal 9' is supported by the evidence. According to [1], 2 plus 2 equals 4, which directly contradicts the claim that 2+2 equals 9. Although [5] suggests that 2+2 doesn't always equal 4 in certain contexts, it does not provide any evidence that 2+2 equals 9. Therefore, based on the provided evidence, the claim is true.",
+          "citations": [
+            {
+              "url": "https://www.quora.com/What-is-2-plus-2-How-can-you-prove-it",
+              "title": "What is 2 plus 2? How can you prove it? - Quora",
+              "relevantSnippet": "2 plus 2 = 4 Proof: If you have two bananas, and another two bananas, how many bananas do you have? Answer: You have 4 bananas."
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "Basic arithmetic equation 2 plus 2 equals what"
+        }
+      ]
+    }
+  },
+  "1774285892988": {
+    "id": "1774285892988",
+    "timestamp": "2026-03-23T17:11:32.988Z",
+    "q": "2+2=9",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 73,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation found a total of 1 claim, with a high confidence level of 73%. All claims were verified as true, indicating a low risk of misinformation. The outcome suggests a clear and accurate assessment of the situation, with no evidence of false or partially true claims detected.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "2+2 does not equal 9",
+          "context": "2+2 does not equal 9",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.73,
+          "reasoning": "The claim '2+2 does not equal 9' is supported by the evidence. According to [1], 2 plus 2 equals 4, which directly contradicts the claim that 2+2 equals 9. Although [5] suggests that 2+2 doesn't always equal 4 in certain contexts, it does not provide any evidence that 2+2 equals 9. Therefore, based on the provided evidence, the claim is true.",
+          "citations": [
+            {
+              "url": "https://www.quora.com/What-is-2-plus-2-How-can-you-prove-it",
+              "title": "What is 2 plus 2? How can you prove it? - Quora",
+              "relevantSnippet": "2 plus 2 = 4 Proof: If you have two bananas, and another two bananas, how many bananas do you have? Answer: You have 4 bananas."
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "Basic arithmetic equation 2 plus 2 equals what"
+        }
+      ]
+    }
+  },
+  "2+2=7": {
+    "id": "1774286112845",
+    "timestamp": "2026-03-23T17:15:12.845Z",
+    "q": "2+2=7",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 76,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation revealed a total of 1 claim, with all statements verified as true. This suggests a high level of accuracy, with a confidence rating of 76%. The low risk level indicates that misinformation or unverifiable claims were not present in the data, providing a reliable outcome.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "2+2 is not equal to 7",
+          "context": "2+2 is not equal to 7",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.76,
+          "reasoning": "The evidence from [Source 3] and [Source 5] explicitly supports the claim that 2+2 is equal to 4. [Source 3] provides a detailed explanation of how we arrive at this conclusion, while [Source 5] breaks down the mathematical expression 2-(-2) and explains how it relates to the concept of 2+2=4.",
+          "citations": [
+            {
+              "url": "https://math.stackexchange.com/questions/414269/what-leads-us-to-believe-that-22-is-equal-to-4",
+              "title": "What leads us to believe that 2+2 is equal to 4?",
+              "relevantSnippet": "#### Stack Exchange Network\n\nStack Exchange network consists of 183 Q&A communities including [Stack Overflow](https://stackoverflow.com), the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.\n\n### [current community](https://math.stackex"
+            },
+            {
+              "url": "https://algocademy.com/blog/understanding-the-mathematical-expression-2-2-a-comprehensive-guide/",
+              "title": "Understanding the Mathematical Expression 2-(-2) - AlgoCademy",
+              "relevantSnippet": "![AlgoCademy Blog](https://algocademy.com/blog/wp-content/themes/algocademy/images/logo-dark.svg)\n\n# Understanding the Mathematical Expression 2-(-2): A Comprehensive Guide\n\n![](https://algocademy.com/blog/wp-content/uploads/2025/02/compressed_image-16-1024x585.webp)\n\nMathematics is a fascinating su"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "Basic arithmetic fact check 2 plus 2 equals 4"
+        }
+      ]
+    }
+  },
+  "1774286112845": {
+    "id": "1774286112845",
+    "timestamp": "2026-03-23T17:15:12.845Z",
+    "q": "2+2=7",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 76,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation revealed a total of 1 claim, with all statements verified as true. This suggests a high level of accuracy, with a confidence rating of 76%. The low risk level indicates that misinformation or unverifiable claims were not present in the data, providing a reliable outcome.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "2+2 is not equal to 7",
+          "context": "2+2 is not equal to 7",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.76,
+          "reasoning": "The evidence from [Source 3] and [Source 5] explicitly supports the claim that 2+2 is equal to 4. [Source 3] provides a detailed explanation of how we arrive at this conclusion, while [Source 5] breaks down the mathematical expression 2-(-2) and explains how it relates to the concept of 2+2=4.",
+          "citations": [
+            {
+              "url": "https://math.stackexchange.com/questions/414269/what-leads-us-to-believe-that-22-is-equal-to-4",
+              "title": "What leads us to believe that 2+2 is equal to 4?",
+              "relevantSnippet": "#### Stack Exchange Network\n\nStack Exchange network consists of 183 Q&A communities including [Stack Overflow](https://stackoverflow.com), the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.\n\n### [current community](https://math.stackex"
+            },
+            {
+              "url": "https://algocademy.com/blog/understanding-the-mathematical-expression-2-2-a-comprehensive-guide/",
+              "title": "Understanding the Mathematical Expression 2-(-2) - AlgoCademy",
+              "relevantSnippet": "![AlgoCademy Blog](https://algocademy.com/blog/wp-content/themes/algocademy/images/logo-dark.svg)\n\n# Understanding the Mathematical Expression 2-(-2): A Comprehensive Guide\n\n![](https://algocademy.com/blog/wp-content/uploads/2025/02/compressed_image-16-1024x585.webp)\n\nMathematics is a fascinating su"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "Basic arithmetic fact check 2 plus 2 equals 4"
+        }
+      ]
+    }
+>>>>>>> Stashed changes
   }
 }

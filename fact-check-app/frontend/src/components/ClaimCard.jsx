@@ -36,7 +36,7 @@ export default function ClaimCard({ claimData, onViewSources }) {
   const {
     claim, verdict, confidenceScore, reasoning, citations,
     conflictingEvidence, conflictNote, temporallySensitive,
-    id, isQuestion, directAnswer
+    id, isQuestion, directAnswer, normalizedClaim
   } = claimData;
 
   const cfg = VERDICT_CFG[verdict] || VERDICT_CFG['Unverifiable'];
@@ -125,6 +125,20 @@ export default function ClaimCard({ claimData, onViewSources }) {
         }}>
           {isQuestion ? '❓ ' : '"'}{claim}{isQuestion ? '' : '"'}
         </h3>
+
+        {/* Normalized Math Claim */}
+        {normalizedClaim && (
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 6,
+            padding: '0.4rem 0.6rem', backgroundColor: 'rgba(0,229,255,0.06)',
+            border: '1px solid rgba(0,229,255,0.2)', borderRadius: 6, marginTop: -4
+          }}>
+            <span className="material-symbols-outlined" style={{ fontSize: 14, color: '#00E5FF' }}>calculate</span>
+            <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#00E5FF' }}>
+              Normalized: "{normalizedClaim}"
+            </span>
+          </div>
+        )}
 
         {/* ── DIRECT ANSWER BOX (only for questions) ── */}
         {isQuestion && answer && !isError && (

@@ -112,8 +112,19 @@ function calibrateConfidence(verdict, rawConfidence, qualityScore, wasForced) {
 // ─────────────────────────────────────────────────────────────
 async function verifyClaim(claim, sources = []) {
   const claimId   = claim.id   || 'C1';
-  const claimText = claim.claim || '';
+  let claimText = claim.claim || '';
   const isQuestion = claim.isQuestion || false;
+
+  // ── Input Type Detection & Normalization ──────────────────────
+  let inputType = "text";
+  if (/[0-9+\-*/=]/.test(claimText)) {
+    inputType = "math";
+    claimText = claimText
+      .replace(/\+/g, " plus ")
+      .replace(/=/g, " equals ")
+      .replace(/-/g, " minus ")
+      .replace(/\*/g, " multiplied by ");
+  }
 
   // ── Guard: No sources at all → immediate ERROR ────────
   if (!sources || sources.length === 0) {
@@ -142,12 +153,12 @@ Content : ${body}`;
   }).join('\n\n---\n\n');
 
   // ── Prompts ───────────────────────────────────────────────────
-  const systemPrompt = `You are a forensic fact-checking AI. Your ONLY source of truth is the EVIDENCE block below.
+  const systemPrompt = `You are a forensic fact-checking AI. Your PRIMARY source of truth is the EVIDENCE block below.
 
-ABSOLUTE RULE: Do NOT use your training knowledge or internal memory.
-If the evidence does not support a verdict → return "Unverifiable".
-Every True/False verdict MUST cite at least one source by its [Source N] index.
-Set "grounded_in_evidence": false if you could not find relevant info in the evidence.`;
+ABSOLUTE RULE: Do NOT use your training knowledge or internal memory for general claims.
+HOWEVER, if the claim is a mathematical expression or universal fundamental fact, you MUST evaluate it using internal logic.
+If the evidence does not support a verdict AND it's not a fundamental fact → return "Unverifiable".
+Set "grounded_in_evidence": false if you evaluated it using internal math/logic.`;
 
   const userPrompt = `
 CLAIM: "${claimText}"
@@ -156,11 +167,12 @@ EVIDENCE:
 ${evidenceBlock}
 
 INSTRUCTIONS:
-- Evaluate the claim using ONLY the evidence above.
-- "True"           → evidence clearly and explicitly supports it
-- "False"          → evidence clearly and explicitly contradicts it
-- "Partially True" → evidence partially supports it or is mixed
-- "Unverifiable"   → evidence is absent, irrelevant, vague, or contradictory
+- Evaluate the claim EXACTLY as written.
+- Do NOT correct or reinterpret the claim.
+- If evidence contradicts the stated claim → return "False"
+- If evidence clearly supports it → return "True"
+- If evidence is mixed → return "Partially True"
+- If evidence is absent, irrelevant, or vague → return "Unverifiable"
 
 Provide citations as 1-based source indices (e.g., [1, 3]).
 Set "grounded_in_evidence": true if you used at least one source above.
@@ -212,6 +224,22 @@ OUTPUT (strict JSON only):
       // ── Normalize verdict ───────────────────────────────────
       parsed.verdict = normalizeVerdict(parsed.verdict);
 
+      // ── Consistency Check Layer ─────────────────────────────
+      // Compare claim vs reasoning. If reasoning contradicts the claim
+      // but verdict hallucinated "True", force verdict = FALSE
+      const lowerReasoning = (parsed.reasoning || "").toLowerCase();
+      if (
+        parsed.verdict === 'True' &&
+        (lowerReasoning.includes("contradict") || 
+         lowerReasoning.includes("incorrect") ||
+         lowerReasoning.includes("false") ||
+         lowerReasoning.includes("not true") ||
+         lowerReasoning.includes("does not equal"))
+      ) {
+        parsed.verdict = 'False';
+        parsed.reasoning = "(Consistency Override) " + parsed.reasoning;
+      }
+
       // ── Grounding enforcement (anti-hallucination guard) ────
       const override = enforceGrounding(parsed, topSources);
       const wasForced = !!override;
@@ -248,7 +276,8 @@ OUTPUT (strict JSON only):
         isQuestion,
         timeSensitive:    !!parsed.time_sensitive,
         checkedAt:        parsed.checked_at || 'March 2026',
-        groundingEnforced: wasForced        // flag for UI transparency
+        groundingEnforced: wasForced,        // flag for UI transparency
+        normalizedClaim:  inputType === 'math' ? claimText : null
       };
 
       console.log(
