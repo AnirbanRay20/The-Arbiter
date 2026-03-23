@@ -1580,5 +1580,54 @@
         }
       ]
     }
+  },
+  "1774293484239": {
+    "id": "1774293484239",
+    "timestamp": "2026-03-23T19:18:04.239Z",
+    "q": "okay okay",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 1,
+      "accuracyScore": 20,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation found a single claim with low risk, indicating a relatively stable situation. However, the extremely low confidence level of 20% suggests that the accuracy of this claim is uncertain and may require further verification. No clear misinformation or partial truths were detected, but further analysis is recommended to confirm the validity of this claim.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "okay okay",
+          "context": "okay okay",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "Unverifiable",
+          "confidenceScore": 0.2,
+          "reasoning": "LLM indicated verdict was not grounded in retrieved evidence. Marked Unverifiable to prevent hallucination.",
+          "citations": [
+            {
+              "url": "https://slantbooks.org/close-reading/essays/okay-okay-okay/",
+              "title": "Okay, Okay, Okay! - Slant Books",
+              "relevantSnippet": "It’s an intriguing story, but I’m not convinced. How could this political association have morphed into the perkily affirming O.K./Okay that has long been the term’s general meaning?\n\nCurious about how current dictionaries handle the term, I looked it up in my Mac computer’s internal dictionary. They buy the Old Kinderhook origin story. But what caught my attention more was the extraordinary range"
+            },
+            {
+              "url": "https://www.history.com/articles/the-birth-of-ok-175-years-ago",
+              "title": "The Birth of OK - History.com",
+              "relevantSnippet": "So when “o.k.” appeared in print, it was intended to be the shortening of “oll korrect,” the humorous misspelling of “all correct.” According to Allan Metcalf, author of OK: The Improbable Story of America’s Greatest Word, Boston Morning Post editor Charles Gordon Greene, who often wrote witticisms and took shots at other broadsheets in print, was likely the author of the attack on the Providence "
+            },
+            {
+              "url": "https://www.npr.org/2025/07/23/nx-s1-5463788/ok-origin-martin-van-buren",
+              "title": "Origin of OK: From Martin Van Buren to most recognized word - NPR",
+              "relevantSnippet": "Most scholars now fall in line behind the conclusions of Allen Walker Read, a Columbia University English professor who set out in the 1960s to settle the mystery of OK's origin. He followed its trail back to a playful misspelling of \"all correct\" as \"oll korrect.\" The term first appeared in the Boston Morning Post on March 23, 1839, although \"it had probably been used colloquially before that,\" a"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": true,
+          "normalizedClaim": null,
+          "searchQuery": "meaning of okay okay phrase \norigin of okay okay phrase \nokay okay phrase usage statistics \nokay okay phrase idiomatic expression"
+        }
+      ]
+    }
   }
 }

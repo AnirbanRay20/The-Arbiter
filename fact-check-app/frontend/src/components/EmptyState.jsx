@@ -10,11 +10,7 @@ const PLACEHOLDERS = [
   'Try: "AI will replace all jobs"',
 ];
 
-const CHIPS = [
-  // { label: '🌍 The Earth is flat',       value: 'The Earth is flat' },
-  // { label: '⚡ Tesla founded in 2005',    value: 'Tesla was founded in 2005' },
-  // { label: '🤖 AI will replace all jobs', value: 'AI will replace all jobs' },
-];
+const CHIPS = [];
 
 const TABS = [
   { id: 'text',  icon: 'description',  label: 'Text'  },
@@ -23,17 +19,16 @@ const TABS = [
 ];
 
 export default function EmptyState({ onSubmit, disabled, initialContent = '' }) {
-  const [tab, setTab]                       = useState('text');
-  const [content, setContent]               = useState('');
-  const [phIdx, setPhIdx]                   = useState(0);
-  const [isFocused, setIsFocused]           = useState(false);
-  const [isListening, setIsListening]       = useState(false);
-  const [imageResult, setImageResult]       = useState(null);
+  const [tab, setTab]                           = useState('text');
+  const [content, setContent]                   = useState('');
+  const [phIdx, setPhIdx]                       = useState(0);
+  const [isFocused, setIsFocused]               = useState(false);
+  const [isListening, setIsListening]           = useState(false);
+  const [imageResult, setImageResult]           = useState(null);
   const [isAnalyzingImage, setIsAnalyzingImage] = useState(false);
   const recognitionRef  = useRef(null);
   const finalTranscript = useRef('');
 
-  // Speech recognition
   useEffect(() => {
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (SR && !recognitionRef.current) {
@@ -74,55 +69,33 @@ export default function EmptyState({ onSubmit, disabled, initialContent = '' }) 
     return () => clearInterval(t);
   }, []);
 
-  // Image analysis handler
   const handleImageAnalyze = async ({ type, file, url }) => {
     setIsAnalyzingImage(true);
     setImageResult(null);
     try {
-      const result = type === 'file'
-        ? await analyzeImageFile(file)
-        : await analyzeImageUrl(url);
+      const result = type === 'file' ? await analyzeImageFile(file) : await analyzeImageUrl(url);
       setImageResult(result);
     } catch (err) {
-      console.error('Image analysis failed:', err);
-      setImageResult({
-        aiProbability: 0.5, verdict: 'Uncertain', confidence: 0.3,
-        signals: ['Analysis failed'],
-        explanation: 'Could not analyze image. Please try again.',
-        metadata: {},
-      });
+      setImageResult({ aiProbability: 0.5, verdict: 'Uncertain', confidence: 0.3, signals: ['Analysis failed'], explanation: 'Could not analyze image.', metadata: {} });
     } finally {
       setIsAnalyzingImage(false);
     }
   };
 
-  const isUrl     = tab === 'url';
-  const isImage   = tab === 'image';
-  
-  const isValid = (() => {
-    if (!content || content.trim().length === 0) return false;
-    if (tab === 'url') {
-      return /^https?:\/\/.+/.test(content);
-    }
-    return true; // allow all non-empty text input
-  })();
-
+  const validUrl = tab === 'url' && /^https?:\/\/.+/.test(content);
+  const isValid  = content.trim().length > 0 && (tab !== 'url' || validUrl);
   const canSubmit = isValid && !disabled;
-
-  // Debug Logging as safely requested
-  useEffect(() => {
-    if (content.length > 0) {
-      console.log("Input:", content);
-      console.log("Mode:", tab);
-      console.log("Valid:", isValid);
-    }
-  }, [content, tab, isValid]);
 
   return (
     <div style={{
-      display: 'flex', flexDirection: 'column', alignItems: 'center',
-      justifyContent: 'center', minHeight: 'calc(100vh - 56px)',
-      padding: '1rem 1.5rem', boxSizing: 'border-box',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      // ✅ FIXED: was calc(100vh - 56px) causing too much top space
+      minHeight: 'calc(100vh - 120px)',
+      padding: '0.5rem 1.5rem 1rem',
+      boxSizing: 'border-box',
     }}>
       <motion.div
         initial={{ opacity: 0, y: 16 }}
@@ -130,12 +103,21 @@ export default function EmptyState({ onSubmit, disabled, initialContent = '' }) 
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: 700 }}
       >
+        <h1 style={{
+          fontFamily: 'IBM Plex Mono', fontWeight: 700,
+          fontSize: 'clamp(1.6rem, 4vw, 2.6rem)',
+          color: '#4be3c5ff', textAlign: 'center',
+          letterSpacing: '-0.02em', lineHeight: 1.1,
+          marginBottom: '0.5rem',
+        }}>
+        The Arbiter
+        </h1>
         {/* Badge */}
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: 7,
           padding: '5px 14px', backgroundColor: '#1f1f24',
           borderRadius: 999, border: '1px solid rgba(0,229,255,0.2)',
-          marginBottom: '1.25rem',
+          marginBottom: '1rem',
         }}>
           <span style={{ width: 5, height: 5, borderRadius: '50%', backgroundColor: '#00E5FF', display: 'inline-block' }} />
           <span style={{ fontFamily: 'IBM Plex Mono', fontWeight: 700, fontSize: '0.65rem', letterSpacing: '0.18em', color: '#00E5FF', textTransform: 'uppercase' }}>
@@ -146,9 +128,10 @@ export default function EmptyState({ onSubmit, disabled, initialContent = '' }) 
         {/* Heading */}
         <h2 style={{
           fontFamily: 'IBM Plex Mono', fontWeight: 700,
-          fontSize: 'clamp(1.75rem, 4.5vw, 3rem)',
+          fontSize: 'clamp(1.6rem, 4vw, 2.6rem)',
           color: '#e3e2e8', textAlign: 'center',
-          letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: '0.6rem',
+          letterSpacing: '-0.02em', lineHeight: 1.1,
+          marginBottom: '0.5rem',
         }}>
           What do you want<br />to verify today?
         </h2>
@@ -156,7 +139,8 @@ export default function EmptyState({ onSubmit, disabled, initialContent = '' }) 
         {/* Subtext */}
         <p style={{
           fontFamily: 'Manrope', fontSize: 14, color: '#bac9cc',
-          textAlign: 'center', maxWidth: 520, lineHeight: 1.55, marginBottom: '1.75rem',
+          textAlign: 'center', maxWidth: 520, lineHeight: 1.55,
+          marginBottom: '1.5rem',
         }}>
           Paste any article, speech, claim — or upload an image to check if it's AI generated.
         </p>
@@ -168,14 +152,11 @@ export default function EmptyState({ onSubmit, disabled, initialContent = '' }) 
           boxShadow: isFocused ? '0 4px 32px rgba(0,0,0,0.4), 0 0 24px rgba(0,229,255,0.12)' : '0 4px 24px rgba(0,0,0,0.3)',
           overflow: 'hidden', transition: 'border 0.25s, box-shadow 0.25s',
         }}>
-
-          {/* Input area */}
           <AnimatePresence mode="wait">
 
-            {/* TEXT tab */}
+            {/* TEXT */}
             {tab === 'text' && (
-              <motion.div key="text" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                style={{ position: 'relative' }}>
+              <motion.div key="text" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ position: 'relative' }}>
                 <textarea
                   id="fact-check-input"
                   value={content}
@@ -216,15 +197,13 @@ export default function EmptyState({ onSubmit, disabled, initialContent = '' }) 
                     boxShadow: isListening ? '0 0 12px rgba(255,61,87,0.5)' : 'none',
                     transition: 'all 0.2s',
                   }}>
-                    <span className="material-symbols-outlined" style={{ fontSize: 18 }}>
-                      {isListening ? 'mic_off' : 'mic'}
-                    </span>
+                    <span className="material-symbols-outlined" style={{ fontSize: 18 }}>{isListening ? 'mic_off' : 'mic'}</span>
                   </button>
                 )}
               </motion.div>
             )}
 
-            {/* URL tab */}
+            {/* URL */}
             {tab === 'url' && (
               <motion.div key="url" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                 style={{ display: 'flex', alignItems: 'center', padding: '1rem 1.25rem', gap: 8 }}
@@ -237,10 +216,7 @@ export default function EmptyState({ onSubmit, disabled, initialContent = '' }) 
                   onBlur={() => setIsFocused(false)}
                   placeholder="example.com/article-to-verify"
                   disabled={disabled}
-                  style={{
-                    flex: 1, background: 'transparent', border: 'none', outline: 'none',
-                    fontFamily: 'IBM Plex Mono', fontSize: 13, color: '#e3e2e8',
-                  }}
+                  style={{ flex: 1, background: 'transparent', border: 'none', outline: 'none', fontFamily: 'IBM Plex Mono', fontSize: 13, color: '#e3e2e8' }}
                 />
                 {content.length > 0 && (
                   <span className="material-symbols-outlined" style={{ color: validUrl ? '#00E5FF' : '#FF3D57', fontSize: 16 }}>
@@ -250,61 +226,43 @@ export default function EmptyState({ onSubmit, disabled, initialContent = '' }) 
               </motion.div>
             )}
 
-            {/* IMAGE tab */}
+            {/* IMAGE */}
             {tab === 'image' && (
-              <motion.div key="image" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                style={{ padding: '1.25rem' }}>
-                <ImageAnalysisPanel
-                  onAnalyze={handleImageAnalyze}
-                  isAnalyzing={isAnalyzingImage}
-                  result={imageResult}
-                />
+              <motion.div key="image" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ padding: '1.25rem' }}>
+                <ImageAnalysisPanel onAnalyze={handleImageAnalyze} isAnalyzing={isAnalyzingImage} result={imageResult} />
               </motion.div>
             )}
 
           </AnimatePresence>
 
-          {/* Bottom bar — hide Analyze button on image tab */}
+          {/* Bottom bar */}
           <div style={{
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             padding: '0.6rem 0.75rem',
             backgroundColor: 'rgba(41,42,46,0.6)',
             borderTop: '1px solid rgba(59,73,76,0.2)',
           }}>
-            {/* Tabs */}
-            <div style={{
-              display: 'flex', gap: 3, padding: 3,
-              backgroundColor: '#0d0e12', borderRadius: 7,
-              border: '1px solid rgba(59,73,76,0.2)',
-            }}>
+            <div style={{ display: 'flex', gap: 3, padding: 3, backgroundColor: '#0d0e12', borderRadius: 7, border: '1px solid rgba(59,73,76,0.2)' }}>
               {TABS.map(t => (
-                <button
-                  key={t.id}
-                  onClick={() => { setTab(t.id); setImageResult(null); }}
-                  style={{
-                    display: 'flex', alignItems: 'center', gap: 5, padding: '5px 12px',
-                    backgroundColor: tab === t.id ? 'rgba(0,229,255,0.1)' : 'transparent',
-                    color: tab === t.id ? '#00E5FF' : '#bac9cc',
-                    border: 'none', cursor: 'pointer', borderRadius: 5,
-                    fontFamily: 'Space Grotesk', fontWeight: 700,
-                    fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.05em',
-                    transition: 'all 0.15s',
-                  }}
-                >
+                <button key={t.id} onClick={() => { setTab(t.id); setImageResult(null); }} style={{
+                  display: 'flex', alignItems: 'center', gap: 5, padding: '5px 12px',
+                  backgroundColor: tab === t.id ? 'rgba(0,229,255,0.1)' : 'transparent',
+                  color: tab === t.id ? '#00E5FF' : '#bac9cc',
+                  border: 'none', cursor: 'pointer', borderRadius: 5,
+                  fontFamily: 'Space Grotesk', fontWeight: 700,
+                  fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.05em',
+                  transition: 'all 0.15s',
+                }}>
                   <span className="material-symbols-outlined" style={{ fontSize: 14 }}>{t.icon}</span>
                   {t.label}
                 </button>
               ))}
             </div>
 
-            {/* Analyze button — hidden on image tab (ImageAnalysisPanel has its own) */}
             {tab !== 'image' && (
               <button
                 onClick={() => canSubmit && onSubmit(tab, content)}
                 disabled={!canSubmit}
-                title={!isValid ? "Enter a claim to analyze" : "Click to Verify"}
-                onMouseEnter={e => { if (canSubmit) { e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.boxShadow = '0 0 24px rgba(0,229,255,0.5)'; } }}
-                onMouseLeave={e => { if (canSubmit) { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = '0 0 18px rgba(0,229,255,0.35)'; } }}
                 style={{
                   display: 'flex', alignItems: 'center', gap: 7,
                   padding: '0.55rem 1.4rem',
@@ -320,19 +278,15 @@ export default function EmptyState({ onSubmit, disabled, initialContent = '' }) 
               >
                 {disabled ? (
                   <>
-                    <span style={{ width: 12, height: 12, borderBottom: '2px solid #00363d', borderLeft: '2px solid #00363d', borderRight: '2px solid #00363d', borderTop: '2px solid transparent', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
+                    <span style={{ width: 12, height: 12, border: '2px solid #00363d', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
                     Analyzing
                   </>
                 ) : (
-                  <>
-                    Analyze
-                    <span className="material-symbols-outlined" style={{ fontSize: 15 }}>arrow_forward</span>
-                  </>
+                  <>Analyze <span className="material-symbols-outlined" style={{ fontSize: 15 }}>arrow_forward</span></>
                 )}
               </button>
             )}
 
-            {/* Image tab indicator */}
             {tab === 'image' && (
               <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                 <span className="material-symbols-outlined" style={{ fontSize: 13, color: '#556070' }}>info</span>
@@ -344,41 +298,13 @@ export default function EmptyState({ onSubmit, disabled, initialContent = '' }) 
           </div>
         </div>
 
-        {/* Quick-pick chips — hide on image tab */}
-        {tab !== 'image' && (
-          <div style={{
-            display: 'flex', flexWrap: 'wrap', justifyContent: 'center',
-            gap: '0.5rem', width: '100%', marginTop: '1rem',
-          }}>
-            {CHIPS.map(chip => (
-              <button
-                key={chip.value}
-                onClick={() => { if (!disabled) { setTab('text'); setContent(chip.value); }}}
-                disabled={disabled}
-                style={{
-                  backgroundColor: 'rgba(255,255,255,0.04)', padding: '0.4rem 1rem',
-                  borderRadius: 999, border: '1px solid rgba(59,73,76,0.3)',
-                  cursor: disabled ? 'not-allowed' : 'pointer', transition: 'all 0.2s',
-                  fontFamily: 'Manrope', fontSize: 12, color: '#bac9cc',
-                }}
-                onMouseEnter={e => { if (!disabled) { e.currentTarget.style.borderColor = 'rgba(0,229,255,0.4)'; e.currentTarget.style.color = '#00E5FF'; e.currentTarget.style.backgroundColor = 'rgba(0,229,255,0.06)'; }}}
-                onMouseLeave={e => { if (!disabled) { e.currentTarget.style.borderColor = 'rgba(59,73,76,0.3)'; e.currentTarget.style.color = '#bac9cc'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.04)'; }}}
-              >
-                {chip.label}
-              </button>
-            ))}
-          </div>
-        )}
-
         {/* Pipeline hint */}
         <p style={{
-          marginTop: '1.25rem', fontFamily: 'IBM Plex Mono', fontSize: 10,
+          marginTop: '1rem', fontFamily: 'IBM Plex Mono', fontSize: 10,
           color: 'rgba(85,96,112,0.7)', textTransform: 'uppercase',
           letterSpacing: '0.12em', textAlign: 'center',
         }}>
-          {tab === 'image'
-            ? '// Upload → Analyze → AI Detection Report'
-            : '// Extract → Search → Verify → Report'}
+          {tab === 'image' ? '// Upload → Analyze → AI Detection Report' : '// Extract → Search → Verify → Report'}
         </p>
 
       </motion.div>

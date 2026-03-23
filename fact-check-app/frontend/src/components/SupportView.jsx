@@ -38,14 +38,14 @@ const API_GUIDES = [
     limitInfo: 'Free tier: 30 requests/min · 14,400 requests/day',
     errorSign: 'Error 429 "rate_limit_exceeded" in backend console',
     steps: [
-      'Go to https://console.groq.com',
-      'Sign in → click "API Keys" in left sidebar',
-      'Click "Create API Key" → copy the key (starts with gsk_)',
-      'Open backend/.env file',
-      'Replace: GROQ_API_KEY=gsk_your_new_key_here',
-      'Restart backend: node server.js',
+      { text: 'Go to ', link: { label: 'console.groq.com', url: 'https://console.groq.com' } },
+      { text: 'Sign in → click "API Keys" in left sidebar' },
+      { text: 'Click "Create API Key" → copy the key (starts with gsk_)' },
+      { text: 'Open ', code: 'backend/.env', text2: ' file' },
+      { text: 'Replace: ', code: 'GROQ_API_KEY=gsk_your_new_key_here' },
+      { text: 'Restart backend: ', code: 'node server.js' },
     ],
-    tip: 'If hitting limits during demo, add time.sleep(1.5) between claims in verificationEngine.js'
+    tip: 'If hitting limits during demo, increase the sleep delay between claims in verificationEngine.js'
   },
   {
     id: 'tavily',
@@ -56,12 +56,12 @@ const API_GUIDES = [
     limitInfo: 'Free tier: 1,000 searches/month',
     errorSign: 'Error 429 or "sources: []" with no evidence in claim cards',
     steps: [
-      'Go to https://app.tavily.com',
-      'Sign in → click "API Keys" in dashboard',
-      'Copy your API key (starts with tvly-)',
-      'Open backend/.env file',
-      'Replace: TAVILY_API_KEY=tvly_your_new_key_here',
-      'Restart backend: node server.js',
+      { text: 'Go to ', link: { label: 'app.tavily.com', url: 'https://app.tavily.com' } },
+      { text: 'Sign in → click "API Keys" in dashboard' },
+      { text: 'Copy your API key (starts with tvly-)' },
+      { text: 'Open ', code: 'backend/.env', text2: ' file' },
+      { text: 'Replace: ', code: 'TAVILY_API_KEY=tvly_your_new_key_here' },
+      { text: 'Restart backend: ', code: 'node server.js' },
     ],
     tip: 'Switch search_depth from "advanced" to "basic" in evidenceRetriever.js to use fewer credits'
   },
@@ -154,7 +154,7 @@ export default function SupportView() {
         <AnimatePresence mode="wait">
           {API_GUIDES.filter(g => g.id === activeGuide).map(guide => (
             <motion.div key={guide.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-              style={{ backgroundColor: '#161820', borderTop: `1px solid ${guide.color}20`, borderRight: `1px solid ${guide.color}20`, borderBottom: `1px solid ${guide.color}20`, borderLeft: `3px solid ${guide.color}`, borderRadius: 10, padding: '1.5rem' }}>
+              style={{ backgroundColor: '#161820', border: `1px solid ${guide.color}20`, borderLeft: `3px solid ${guide.color}`, borderRadius: 10, padding: '1.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '1.25rem', flexWrap: 'wrap', gap: 8 }}>
                 <div>
                   <p style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 16, color: '#e3e2e8', margin: '0 0 4px' }}>{guide.title}</p>
@@ -176,7 +176,27 @@ export default function SupportView() {
                   {guide.steps.map((step, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
                       <span style={{ width: 22, height: 22, borderRadius: '50%', flexShrink: 0, backgroundColor: `${guide.color}15`, border: `1px solid ${guide.color}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'IBM Plex Mono', fontSize: 10, fontWeight: 700, color: guide.color }}>{i + 1}</span>
-                      <p style={{ fontFamily: 'Manrope', fontSize: 13, color: '#bac9cc', margin: 0, lineHeight: 1.5, paddingTop: 2 }}>{step}</p>
+                      <p style={{ fontFamily: 'Manrope', fontSize: 13, color: '#bac9cc', margin: 0, lineHeight: 1.5, paddingTop: 2 }}>
+                        {step.text}
+                        {step.link && (
+                          <a href={step.link.url} target="_blank" rel="noreferrer" style={{
+                            color: guide.color, textDecoration: 'none', fontWeight: 600,
+                            borderBottom: `1px solid ${guide.color}50`, paddingBottom: 1,
+                            transition: 'border-color 0.15s',
+                          }}
+                            onMouseEnter={e => e.currentTarget.style.borderColor = guide.color}
+                            onMouseLeave={e => e.currentTarget.style.borderColor = `${guide.color}50`}
+                          >
+                            {step.link.label} ↗
+                          </a>
+                        )}
+                        {step.code && (
+                          <code style={{ fontFamily: 'IBM Plex Mono', fontSize: 11, color: guide.color, backgroundColor: `${guide.color}10`, padding: '1px 6px', borderRadius: 3 }}>
+                            {step.code}
+                          </code>
+                        )}
+                        {step.text2}
+                      </p>
                     </div>
                   ))}
                 </div>
