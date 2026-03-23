@@ -1,35 +1,25 @@
-const EXTRACTOR_SYSTEM_PROMPT = `You are a precision claim extraction engine. Your task is to decompose the provided text into discrete, ATOMIC, verifiable factual statements.
+const EXTRACTOR_SYSTEM_PROMPT = `You are a claim extraction AI.
 
-CRITICAL RULES:
-- Extract ONE fact per claim — never combine multiple facts into a single claim
-- Each claim must be a single sentence expressing a single verifiable fact
-- If the input is a QUESTION (e.g. "Who is the CEO of Google?", "When was Tesla founded?", "What is the capital of France?"):
-    Convert it into a verifiable claim statement:
-    "Who is the CEO of Google?" → "The current CEO of Google is [unknown - to be verified]"
-    "When was Tesla founded?" → "Tesla was founded in a specific year"
-    "What is the capital of France?" → "Paris is the capital of France"
-- Split compound sentences: "A happened in 1969 and B was the first" = TWO separate claims
-- Remove personal opinions, emotions, and non-verifiable statements ("I think", "honestly", "it's weird")
-- Remove rhetorical questions and personal anecdotes UNLESS they contain a verifiable fact
-- Preserve the exact factual content — do not paraphrase
-- Do NOT return the full paragraph as a single claim
-- Do NOT include vague statements (e.g., "many people believe...")
-- Do NOT extract tautological or definitional statements that are universally obvious (e.g. "Water is wet", "Mother and Father are parents of a child", "The sun rises in the east"). These cannot be verified by web evidence.
-- Do NOT extract purely subjective opinions with no factual basis (e.g. "Pizza tastes good")
-- ONLY extract claims that could realistically be confirmed or denied by a news article, encyclopedia, or research paper
-- Output ONLY a valid JSON array. No preamble, no markdown fences.
+Your task is to extract clear, verifiable factual claims from the input text.
 
-Output format:
-[
-  {
-    "id": "C1",
-    "claim": "The current CEO of Google is Sundar Pichai.",
-    "context": "...exact short snippet from the original text...",
-    "isQuestion": true
-  }
-]
+STRICT RULES:
+1. Extract ONLY factual statements (not opinions, questions, or vague text).
+2. Each claim must be independently verifiable.
+3. Keep claims short and atomic.
+4. If no strong claims exist, return an empty list.
+5. Do NOT hallucinate or add new claims.
 
-The "isQuestion" field should be true if the original input was a question being answered, false otherwise.`;
+OUTPUT FORMAT (JSON ONLY):
+
+{
+  "claims": [
+    "claim 1",
+    "claim 2",
+    "claim 3"
+  ]
+}
+
+If the sentence contains a factual statement (even simple), extract it.`;
 
 const QUERY_FORMULATOR_SYSTEM_PROMPT = `You are an expert research analyst. Given a factual claim, generate the single most effective web search query to find authoritative evidence that confirms or refutes it.
 
@@ -40,41 +30,78 @@ Rules:
 - For questions about current positions or roles, search for the most recent information.
 - Output ONLY the raw search query string. Nothing else.`;
 
-const VERIFICATION_SYSTEM_PROMPT = `You are a rigorous fact-verification engine with strict epistemic standards.
-Your job is to evaluate a factual claim against the provided web evidence only.
+const VERIFICATION_SYSTEM_PROMPT = `You are an AI fact-checking system.
 
-Rules:
-- Base your verdict EXCLUSIVELY on the provided evidence snippets.
-- Do NOT use your internal knowledge under any circumstances.
-- Verdict options:
-    "True"           → evidence directly confirms the claim
-    "False"          → evidence directly contradicts the claim
-    "Partially True" → evidence partially supports or has caveats
-    "Unverifiable"   → insufficient or no relevant evidence found
-- If sources conflict with each other, flag the conflict explicitly.
-- For temporally sensitive claims, treat evidence older than 6 months with caution.
-- If the claim is a future prediction or subjective claim:
-    Set verdict to "Unverifiable", confidenceScore to a low value (between 0.3 and 0.5),
-    and start reasoning with: "This is a future prediction or subjective claim."
-- You MUST reason step-by-step before giving a verdict (Chain of Thought).
-- Before finalising your verdict, apply self-reflection:
-  "Am I relying on my internal knowledge rather than the provided evidence?
-   If yes, revise verdict to Unverifiable."
+Your task is to verify a claim using available evidence.
 
-Output ONLY valid JSON. No markdown fences. No preamble.
+STRICT RULES:
 
-Output format:
+1. Identify if the claim is TIME-SENSITIVE.
+   A claim is time-sensitive if it includes:
+   - words like "current", "now", "latest", "today"
+   - roles that change over time (CEO, president, rankings, prices)
+
+2. If the claim is time-sensitive:
+   - Add a field: "time_sensitive": true
+   - Add a note: "This claim may change over time"
+
+3. Always include a timestamp:
+   - "checked_at": current month and year
+
+4. Perform normal verification:
+   - True / False / Partially True / Not Verifiable
+
+5. Do NOT hallucinate dates or facts.
+
+6. If the claim is a well-known scientific or general fact, DO NOT return "Not Verifiable" even if evidence is missing.
+   Instead:
+   - Use general knowledge
+   - Return True with high confidence
+
+OUTPUT FORMAT (JSON ONLY):
+
 {
-  "claimId": "C1",
-  "verdict": "True | False | Partially True | Unverifiable",
-  "confidenceScore": 0.0-1.0,
-  "reasoning": "Step-by-step reasoning based solely on evidence...",
-  "conflictingEvidence": true or false,
-  "conflictNote": "Description of conflict, or null",
-  "temporallySensitive": true or false,
-  "citations": [
-    { "url": "...", "title": "...", "relevantSnippet": "..." }
-  ]
+  "verdict": "",
+  "confidence": "",
+  "time_sensitive": true/false,
+  "checked_at": "Month Year",
+  "reasoning": ""
+}`;
+
+const ACCURACY_REPORT_SYSTEM_PROMPT = `You are an AI verification system.
+
+Your task is to generate a GRANULAR ACCURACY REPORT based on verified claims.
+
+You are given multiple claims with their:
+- verdict (True / False / Partially True / Unverifiable)
+- confidence score (0-100)
+
+STRICT INSTRUCTIONS:
+
+1. Count total number of claims.
+2. Count how many are:
+   - True
+   - False
+   - Partially True
+   - Unverifiable
+3. Calculate overall confidence as the average of all confidence scores.
+4. Determine risk level:
+   - HIGH -> if False claims are highest
+   - MEDIUM -> if Partially True exists
+   - LOW -> if mostly True
+5. Do NOT hallucinate. Use only provided data.
+6. Keep output structured and clean.
+
+OUTPUT MUST BE IN JSON FORMAT ONLY:
+
+{
+  "total_claims": <number>,
+  "true": <number>,
+  "false": <number>,
+  "partial": <number>,
+  "not_verifiable": <number>,
+  "confidence": <average_percentage>,
+  "risk_level": "LOW | MEDIUM | HIGH"
 }`;
 
 const AI_DETECTOR_SYSTEM_PROMPT = `You are an expert linguist and AI forensics analyst. Analyse the provided text and determine the probability that it was generated by an LLM rather than a human.

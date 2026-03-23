@@ -29,7 +29,7 @@ async function generateAccuracyReport(processedClaims) {
 
   try {
     const response = await groq.chat.completions.create({
-      model: 'llama-3.3-70b-versatile',
+      model: 'llama-3.1-8b-instant',
       temperature: 0,
       messages: [
         { role: 'system', content: ACCURACY_REPORT_SYSTEM_PROMPT },
@@ -85,7 +85,7 @@ Risk: ${reportData.risk_level}`;
 
   try {
     const response = await groq.chat.completions.create({
-      model: 'llama-3.3-70b-versatile',
+      model: 'llama-3.1-8b-instant',
       temperature: 0.5,
       messages: [
         { role: 'system', content: INSIGHT_SUMMARY_SYSTEM_PROMPT },

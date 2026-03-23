@@ -7,7 +7,7 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 async function extractClaims(text) {
   try {
     const response = await groq.chat.completions.create({
-      model: 'llama-3.3-70b-versatile',
+      model: 'llama-3.1-8b-instant',
       temperature: 0,
       max_tokens: 2000,
       messages: [
@@ -22,14 +22,20 @@ async function extractClaims(text) {
     const content = response.choices[0]?.message?.content || '';
     console.log('[ClaimExtractor] Raw response:', content.slice(0, 300));
 
-    const start = content.indexOf('[');
-    const end = content.lastIndexOf(']');
+    const start = content.indexOf('{');
+    const end = content.lastIndexOf('}');
     if (start !== -1 && end !== -1) {
       const parsed = JSON.parse(content.slice(start, end + 1));
-      console.log(`[ClaimExtractor] Extracted ${parsed.length} claims`);
-      return parsed;
+      const extractedClaims = parsed.claims || [];
+      console.log(`[ClaimExtractor] Extracted ${extractedClaims.length} claims`);
+      return extractedClaims.map((c, i) => ({
+        id: `C${i + 1}`,
+        claim: c,
+        context: c,
+        isQuestion: c.endsWith('?')
+      }));
     }
-    console.warn('[ClaimExtractor] No JSON array found in response');
+    console.warn('[ClaimExtractor] No JSON object found in response');
     return [];
   } catch (err) {
     console.error('Error extracting claims:', err.message);
