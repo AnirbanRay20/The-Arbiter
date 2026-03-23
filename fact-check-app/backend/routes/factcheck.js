@@ -2,7 +2,7 @@ require('dotenv').config();
 const express              = require('express');
 const router               = express.Router();
 const { scrapeUrl }        = require('../services/urlScraper');
-const { getCached, setCache } = require('../utils/cache');
+const { getById, saveReport } = require('../utils/storage');
 const { extractClaims }    = require('../agents/claimExtractor');
 const { retrieveEvidence } = require('../agents/evidenceRetriever');
 const { verifyClaim } = require('../agents/verificationEngine');
@@ -10,9 +10,6 @@ const { generateAccuracyReport, generateInsightSummary } = require('../agents/re
 const { detectAiText } = require('../services/aiTextDetector');
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-function normalizeKey(text) {
-  return text.toLowerCase().trim();
-}
 
 function send(res, data) {
   res.write(`data: ${JSON.stringify(data)}\n\n`);
@@ -29,33 +26,9 @@ router.post('/factcheck', async (req, res) => {
   try {
     // ── INIT ──
     send(res, { type: 'PIPELINE', step: 'INIT', status: 'Initializing pipeline...', progress: 0 });
-    const cacheKey = normalizeKey(content);
 
-// ⚡ CACHE CHECK
-const cached = getCached(cacheKey);
-if (cached) {
-  console.log('[Factcheck] ⚡ Cache hit');
-
-  send(res, {
-    type: 'PIPELINE',
-    step: 'CACHE',
-    status: 'Using cached result...',
-    progress: 100
-  });
-
-  // Send the report data from the cache entry
-  send(res, {
-    type: 'REPORT',
-    report: cached.report
-  });
-  
-  // Also send the shareId if available
-  if (cached.id) {
-    send(res, { type: 'SHARE_ID', shareId: cached.id });
-  }
-
-  return res.end();
-}
+    // NO CACHE CHECK - We ensure fresh results to avoid hallucinations.
+    
     let textToProcess = content;
     let scrapedImages = [];
     let scrapedMeta   = null;
@@ -194,7 +167,6 @@ if (cached) {
       unverifiable: reportData.not_verifiable,
       accuracyScore: reportData.confidence,
       riskLevel: (() => {
-        // Map the literal "LOW", "MEDIUM", "HIGH" into the emoji-based frontend standards existing before
         if (reportData.risk_level === 'LOW') return '🟢 Low Risk';
         if (reportData.risk_level === 'MEDIUM') return '🟡 Medium Risk';
         return '🔴 High Risk';
@@ -205,13 +177,16 @@ if (cached) {
 
     console.log(`[Factcheck] Report: ${report.accuracyScore}% accuracy, ${report.riskLevel}`);
     send(res, { type: 'REPORT', report });
+    
+    // Save for History & Sharing
     try {
-      const shareId = setCache(content, report);
-      console.log(`[Factcheck] 💾 Cached result with ID: ${shareId}`);
+      const shareId = saveReport(content, report);
+      console.log(`[Factcheck] 💾 Saved result for sharing with ID: ${shareId}`);
       send(res, { type: 'SHARE_ID', shareId });
-    } catch (cacheErr) {
-      console.warn('[Factcheck] Cache save failed:', cacheErr.message);
+    } catch (storeErr) {
+      console.warn('[Factcheck] Storage failed:', storeErr.message);
     }
+    
     send(res, { type: 'PIPELINE', step: 'REPORTING', status: 'Pipeline finished successfully.', progress: 100 });
 
   } catch (err) {
@@ -236,14 +211,14 @@ router.get('/share/:id', (req, res) => {
   res.json(entry);
 });
 
-// Register a report for sharing (if not already there)
+// Register a report for sharing
 router.post('/share', (req, res) => {
   const { query, report, id } = req.body;
   if (!query || !report) {
     return res.status(400).json({ error: 'Missing report data.' });
   }
   
-  const shareId = setCache(query, report, id);
+  const shareId = saveReport(query, report, id);
   res.json({ shareId });
 });
 

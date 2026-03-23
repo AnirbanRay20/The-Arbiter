@@ -6412,5 +6412,468 @@
         }
       ]
     }
+  },
+  "india is the seventh largest country": {
+    "id": "1774284795562",
+    "timestamp": "2026-03-23T16:53:15.562Z",
+    "q": "India is the seventh largest country",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 1,
+      "accuracyScore": 20,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "Our analysis reveals a single claim with uncertain accuracy, as confidence levels are relatively low at 20%. The claim's risk profile is classified as LOW, indicating minimal potential for misinformation or unverifiable information.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "India is the seventh largest country",
+          "context": "India is the seventh largest country",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "Unverifiable",
+          "confidenceScore": 0.2,
+          "reasoning": "LLM indicated verdict was not grounded in retrieved evidence. Marked Unverifiable to prevent hallucination.",
+          "citations": [
+            {
+              "url": "https://database.earth/population/by-country/2026",
+              "title": "World Population by Country in 2026 - database.earth",
+              "relevantSnippet": "# World Population by Country in 2026\n\nIn 2026, the world\nis projected to reach\na total population of 8,300,678,396 and 🇮🇳India\nwill be\nthe most populous country that year,\nwith a total of 1,476,625,576 people.\nFollowed by 🇨🇳China,\nwith the second largest population globally of 1,412,914,089 people in total.\nThe country with the lowest population count for the year\nis projected to be\n🇻🇦Holy "
+            },
+            {
+              "url": "https://spmiasacademy.com/currentaffairs/largest-population-in-the-world/",
+              "title": "Largest Population in the World 2026 Ranking - SPM IAS Academy",
+              "relevantSnippet": "Below is a snapshot of the latest population ranking 2026 and estimates for the leading countries:\n\n|  |  |  |\n --- \n| Rank | Country | Estimated Population (2026) |\n| 1 | India | 1,476,625,576 |\n| 2 | China | 1,412,914,089 |\n| 3 | United States | 349,035,494 |\n| 4 | Indonesia | 287,886,782 |\n| 5 | Pakistan | 259,299,791 |\n| 6 | Nigeria | 242,431,832 |\n| 7 | Brazil | 213,562,666 |\n| 8 | Bangladesh"
+            },
+            {
+              "url": "https://statisticstimes.com/demographics/india/indian-states-population.php",
+              "title": "Population of Indian states 2026 - StatisticsTimes.com",
+              "relevantSnippet": "The five states with the largest populations—Uttar Pradesh, Bihar, Maharashtra, West Bengal, and Madhya Pradesh—are home to about half of the nation's population. Seventy-four percent of India's population lives in the ten most populous states. Just 1% of India's population lives in 12 least populous states or union territories, while 10% of the country's population lives in 21 least populous stat"
+            }
+          ],
+          "timeSensitive": true,
+          "checkedAt": "March 2026",
+          "groundingEnforced": true,
+          "searchQuery": "India population rank in the world 2026"
+        }
+      ]
+    }
+  },
+  "1774284795562": {
+    "id": "1774284795562",
+    "timestamp": "2026-03-23T16:53:15.562Z",
+    "q": "India is the seventh largest country",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 1,
+      "accuracyScore": 20,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "Our analysis reveals a single claim with uncertain accuracy, as confidence levels are relatively low at 20%. The claim's risk profile is classified as LOW, indicating minimal potential for misinformation or unverifiable information.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "India is the seventh largest country",
+          "context": "India is the seventh largest country",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "Unverifiable",
+          "confidenceScore": 0.2,
+          "reasoning": "LLM indicated verdict was not grounded in retrieved evidence. Marked Unverifiable to prevent hallucination.",
+          "citations": [
+            {
+              "url": "https://database.earth/population/by-country/2026",
+              "title": "World Population by Country in 2026 - database.earth",
+              "relevantSnippet": "# World Population by Country in 2026\n\nIn 2026, the world\nis projected to reach\na total population of 8,300,678,396 and 🇮🇳India\nwill be\nthe most populous country that year,\nwith a total of 1,476,625,576 people.\nFollowed by 🇨🇳China,\nwith the second largest population globally of 1,412,914,089 people in total.\nThe country with the lowest population count for the year\nis projected to be\n🇻🇦Holy "
+            },
+            {
+              "url": "https://spmiasacademy.com/currentaffairs/largest-population-in-the-world/",
+              "title": "Largest Population in the World 2026 Ranking - SPM IAS Academy",
+              "relevantSnippet": "Below is a snapshot of the latest population ranking 2026 and estimates for the leading countries:\n\n|  |  |  |\n --- \n| Rank | Country | Estimated Population (2026) |\n| 1 | India | 1,476,625,576 |\n| 2 | China | 1,412,914,089 |\n| 3 | United States | 349,035,494 |\n| 4 | Indonesia | 287,886,782 |\n| 5 | Pakistan | 259,299,791 |\n| 6 | Nigeria | 242,431,832 |\n| 7 | Brazil | 213,562,666 |\n| 8 | Bangladesh"
+            },
+            {
+              "url": "https://statisticstimes.com/demographics/india/indian-states-population.php",
+              "title": "Population of Indian states 2026 - StatisticsTimes.com",
+              "relevantSnippet": "The five states with the largest populations—Uttar Pradesh, Bihar, Maharashtra, West Bengal, and Madhya Pradesh—are home to about half of the nation's population. Seventy-four percent of India's population lives in the ten most populous states. Just 1% of India's population lives in 12 least populous states or union territories, while 10% of the country's population lives in 21 least populous stat"
+            }
+          ],
+          "timeSensitive": true,
+          "checkedAt": "March 2026",
+          "groundingEnforced": true,
+          "searchQuery": "India population rank in the world 2026"
+        }
+      ]
+    }
+  },
+  "1774285429655": {
+    "id": "1774285429655",
+    "timestamp": "2026-03-23T17:03:49.655Z",
+    "q": "India is the seventh largest country in the world",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 77,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation found a total of 1 claim, with a high level of confidence in its accuracy at 77%. The claim was verified to be true, indicating a low risk of misinformation or unverifiable information, and the overall risk assessment remains LOW.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "India is the seventh largest country in the world",
+          "context": "India is the seventh largest country in the world",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.77,
+          "reasoning": "According to multiple sources, including [1], [4], and [5], India is the most populous country in the world in 2026, with a population of over 1.4 billion people. This information is also confirmed by [2], which states that India has overtaken China and has the largest population in the world.",
+          "citations": [
+            {
+              "url": "https://database.earth/population/by-country/2026",
+              "title": "World Population by Country in 2026 - database.earth",
+              "relevantSnippet": "# World Population by Country in 2026\n\nIn 2026, the world\nis projected to reach\na total population of 8,300,678,396 and 🇮🇳[India](/population/india)\nwill be\nthe most populous country that year,\nwith a total of 1,476,625,576 people.\nFollowed by 🇨🇳[China](/population/china),\nwith the second larges"
+            },
+            {
+              "url": "https://spmiasacademy.com/currentaffairs/largest-population-in-the-world/",
+              "title": "Largest Population in the World 2026 Ranking - SPM IAS Academy",
+              "relevantSnippet": "*[+91-690-125-9799](tel:+916901259799)*\n\n[*spmiasacademy@gmail.com*](mailto:spmiasacademy@gmail.com)\n\n![](https://spmiasacademy.com/currentaffairs/wp-content/uploads/2025/01/SPM-Logo.webp)\n![](https://spmiasacademy.com/currentaffairs/wp-content/uploads/2025/01/SPM-Logo.webp)\n\n# Largest Population in"
+            },
+            {
+              "url": "https://worldpopulationreview.com/countries",
+              "title": "Total Population by Country 2026 - World Population Review",
+              "relevantSnippet": "# Total Population by Country 2026\n\n## Top 5 Most Populous Countries\n\n[India](/countries/india)\n\n1,476,630,000\n\n[China](/countries/china)\n\n1,412,910,000\n\n[United States](/countries/united-states)\n\n349,035,000\n\n[Indonesia](/countries/indonesia)\n\n287,887,000\n\n[Pakistan](/countries/pakistan)\n\n259,300,0"
+            },
+            {
+              "url": "https://www.worldometers.info/population/most-populous-countries/",
+              "title": "Most Populous Countries in the World (2026) - Worldometer",
+              "relevantSnippet": "[Population](/population/)   [CO2 emissions](/co2-emissions/)   [Coronavirus](/coronavirus/)   [Countries](/geography/countries-of-the-world/)   [Energy](/energy/)   [Flags](/geography/flags-of-the-world/)   [Food & Agriculture](/food-agriculture/)   [GDP by country](/gdp/gdp-by-country/)   [Time](/"
+            }
+          ],
+          "timeSensitive": true,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "India population rank in the world 2026"
+        }
+      ]
+    }
+  },
+  "1774285450937": {
+    "id": "1774285450937",
+    "timestamp": "2026-03-23T17:04:10.937Z",
+    "q": "India is the seventh largest country",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 77,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation found a single claim, which was verified as true. The high confidence level of 77% suggests a strong basis for the accuracy of this result. With a low risk level, the overall assessment indicates a reliable outcome. This finding provides a clear and accurate conclusion.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "India is the seventh largest country",
+          "context": "India is the seventh largest country",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.77,
+          "reasoning": "According to multiple sources ([1, 2, 4, 5]), India is the most populous country in 2026, with a population of over 1.4 billion people. This information is also consistent across different sources, indicating a high level of confidence in the verdict.",
+          "citations": [
+            {
+              "url": "https://database.earth/population/by-country/2026",
+              "title": "World Population by Country in 2026 - database.earth",
+              "relevantSnippet": "# World Population by Country in 2026\n\nIn 2026, the world\nis projected to reach\na total population of 8,300,678,396 and 🇮🇳[India](/population/india)\nwill be\nthe most populous country that year,\nwith a total of 1,476,625,576 people.\nFollowed by 🇨🇳[China](/population/china),\nwith the second larges"
+            },
+            {
+              "url": "https://spmiasacademy.com/currentaffairs/largest-population-in-the-world/",
+              "title": "Largest Population in the World 2026 Ranking - SPM IAS Academy",
+              "relevantSnippet": "*[+91-690-125-9799](tel:+916901259799)*\n\n[*spmiasacademy@gmail.com*](mailto:spmiasacademy@gmail.com)\n\n![](https://spmiasacademy.com/currentaffairs/wp-content/uploads/2025/01/SPM-Logo.webp)\n![](https://spmiasacademy.com/currentaffairs/wp-content/uploads/2025/01/SPM-Logo.webp)\n\n# Largest Population in"
+            },
+            {
+              "url": "https://worldpopulationreview.com/countries",
+              "title": "Total Population by Country 2026 - World Population Review",
+              "relevantSnippet": "# Total Population by Country 2026\n\n## Top 5 Most Populous Countries\n\n[India](/countries/india)\n\n1,476,630,000\n\n[China](/countries/china)\n\n1,412,910,000\n\n[United States](/countries/united-states)\n\n349,035,000\n\n[Indonesia](/countries/indonesia)\n\n287,887,000\n\n[Pakistan](/countries/pakistan)\n\n259,300,0"
+            },
+            {
+              "url": "https://www.worldometers.info/population/most-populous-countries/",
+              "title": "Most Populous Countries in the World (2026) - Worldometer",
+              "relevantSnippet": "[Population](/population/)   [CO2 emissions](/co2-emissions/)   [Coronavirus](/coronavirus/)   [Countries](/geography/countries-of-the-world/)   [Energy](/energy/)   [Flags](/geography/flags-of-the-world/)   [Food & Agriculture](/food-agriculture/)   [GDP by country](/gdp/gdp-by-country/)   [Time](/"
+            }
+          ],
+          "timeSensitive": true,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "India population rank in the world 2026"
+        }
+      ]
+    }
+  },
+  "1774285493291": {
+    "id": "1774285493291",
+    "timestamp": "2026-03-23T17:04:53.291Z",
+    "q": "Earth is flat\n",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 79,
+      "riskLevel": "🔴 High Risk",
+      "insightSummary": "Our investigation revealed a single claim, which was ultimately found to be false. The high level of confidence in the accuracy of this assessment, at 79%, suggests a well-supported conclusion. However, the high risk level assigned to this claim indicates a potential for misinformation or unverifiable sources that contributed to its inaccuracy. This highlights a need for further scrutiny and verification in similar cases.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Earth is flat",
+          "context": "Earth is flat",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 0.79,
+          "reasoning": "The evidence clearly and explicitly contradicts the claim that Earth is flat. NASA experts [1] and astronomy experts [2] explain that the Earth is a globe, citing evidence such as the curvature of the Earth visible from space [5]. Additionally, NASA uses a 'flat and non-rotating' model in equations, but this is a mathematical model, not a statement about the Earth's actual shape [4].",
+          "citations": [
+            {
+              "url": "https://www.nasa.gov/earth/how-do-we-know-the-earth-isnt-flat-we-asked-a-nasa-expert-episode-53/",
+              "title": "How Do We Know the Earth Isn't Flat? We Asked a NASA Expert",
+              "relevantSnippet": "[![NASA Logo](https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo@2x.png)](https://www.nasa.gov/)\n\n\n\n[![NASA Logo](https://www.nasa.gov/wp-content/themes/nasa/assets/images/nasa-logo@2x.png)](https://www.nasa.gov/)\n\n## Suggested Searches\n\n* [Climate Change](https://www.nasa.gov/?sear"
+            },
+            {
+              "url": "https://www.astronomy.com/astronomy-for-beginners/why-earth-is-not-flat-the-conspiracy-debunked/",
+              "title": "Why Earth is not flat: The conspiracy debunked - Astronomy Magazine",
+              "relevantSnippet": "Astronomy Forum Talk all things astronomy, all in one place\n\n[Join the conversation](https://forum.astronomy.com/)\n\n[Skip to content](#content)\n\n\n* [Login/Register](#)\n* [Logout](#)\n* [Shop](https://thespacestore.com/)\n* [Subscribe](https://firecrown.dragonforms.com/loading.do?omedasite=ASY_New_Prem"
+            },
+            {
+              "url": "https://ca.news.yahoo.com/fact-check-nasa-says-earth-215558294.html",
+              "title": "Fact check: NASA says Earth is a globe, uses 'flat and non-rotating ...",
+              "relevantSnippet": "![USA TODAY](https://s.yimg.com/ny/api/res/1.2/mahyS7Gis84ax92ofeoeJQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTI2MDtoPTYwO2NmPXdlYnA-/https://s.yimg.com/os/creatr-uploaded-images/2020-11/092f7540-26ea-11eb-bdb4-b7283677d9f5)\n![USA TODAY](https://s.yimg.com/ny/api/res/1.2/E_Vr9LN9Y_gthkqIaEw8lg--/YXBwaWQ9aGlnaGxh"
+            },
+            {
+              "url": "https://nautil.us/the-photos-that-shaped-our-understanding-of-earths-shape-1258527",
+              "title": "The Photos That Shaped Our Understanding of Earth's Shape",
+              "relevantSnippet": "![Nautilus home](https://lede-admin.nautil.us/wp-content/uploads/sites/70/sites/3/nautilus/cropped-nautilus-logo-print.png?w=2880)\n![Nautilus home](https://lede-admin.nautil.us/wp-content/uploads/sites/70/sites/3/nautilus/Nautilus-logo.png?w=2880)\n\n# The Photos That Shaped Our Understanding of Earth"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "Earth flatness scientific evidence 2026 \nFlat Earth theory debunked by NASA \nFlat Earth evidence against scientific consensus \nEarth shape supported by satellite imagery 2026 \nFlat Earth theory refuted by geology"
+        }
+      ]
+    }
+  },
+  "1774285565897": {
+    "id": "1774285565897",
+    "timestamp": "2026-03-23T17:06:05.897Z",
+    "q": "India has the lowest population in the world\n",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 77,
+      "riskLevel": "🔴 High Risk",
+      "insightSummary": "Our analysis reveals a single claim, which was found to be entirely false. The high risk level, coupled with a confidence level of 77%, suggests a potential issue with the claim's validity. Further investigation is needed to determine the source and implications of this misinformation. The high risk level indicates that this claim may be a significant concern.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "India has the lowest population in the world",
+          "context": "India has the lowest population in the world",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 0.77,
+          "reasoning": "According to multiple sources ([1, 2, 3]), India has the second-largest population in the world, not the lowest. The evidence clearly shows that India's population is over 1.4 billion, which is significantly higher than the population of many other countries.",
+          "citations": [
+            {
+              "url": "https://www.worldometers.info/world-population/population-by-country/",
+              "title": "Countries in the world by population (2026) - Worldometer",
+              "relevantSnippet": "[Population](/population/)   [CO2 emissions](/co2-emissions/)   [Coronavirus](/coronavirus/)   [Countries](/geography/countries-of-the-world/)   [Energy](/energy/)   [Flags](/geography/flags-of-the-world/)   [Food & Agriculture](/food-agriculture/)   [GDP by country](/gdp/gdp-by-country/)   [Time](/"
+            },
+            {
+              "url": "https://www.worldometers.info/world-population/india-population/",
+              "title": "India Population (2026) - Worldometer",
+              "relevantSnippet": "[Population](/population/)   [CO2 emissions](/co2-emissions/)   [Coronavirus](/coronavirus/)   [Countries](/geography/countries-of-the-world/)   [Energy](/energy/)   [Flags](/geography/flags-of-the-world/)   [Food & Agriculture](/food-agriculture/)   [GDP by country](/gdp/gdp-by-country/)   [Time](/"
+            },
+            {
+              "url": "https://worldpopulationreview.com/countries",
+              "title": "Total Population by Country 2026 - World Population Review",
+              "relevantSnippet": "# Total Population by Country 2026\n\n## Top 5 Most Populous Countries\n\n[India](/countries/india)\n\n1,476,630,000\n\n[China](/countries/china)\n\n1,412,910,000\n\n[United States](/countries/united-states)\n\n349,035,000\n\n[Indonesia](/countries/indonesia)\n\n287,887,000\n\n[Pakistan](/countries/pakistan)\n\n259,300,0"
+            }
+          ],
+          "timeSensitive": true,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "India population rank in the world 2026 \nIndia population compared to other countries 2026 \nWorld population rankings by country 2026 \nIndia population statistics 2026 \nLowest population country in the world 2026 \nIndia population growth rate 2026 \nIndia population density 2026 \nWorld population by country 2026 \nIndia population projection 2026 \nIndia population demographics"
+        }
+      ]
+    }
+  },
+  "1774285660579": {
+    "id": "1774285660579",
+    "timestamp": "2026-03-23T17:07:40.579Z",
+    "q": "2+2=5 true?",
+    "report": {
+      "total": 2,
+      "true": 0,
+      "partial": 0,
+      "false": 2,
+      "unverifiable": 0,
+      "accuracyScore": 75,
+      "riskLevel": "🔴 High Risk",
+      "insightSummary": "The investigation uncovered a total of 2 claims, with all of them being false. This suggests a high risk of misinformation, with a confidence level of 75% indicating some uncertainty in the accuracy of the findings. The lack of true or partially true claims further emphasizes the potential for inaccuracies, warranting a HIGH risk classification.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "2+2 equals 5",
+          "context": "2+2 equals 5",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 0.75,
+          "reasoning": "The claim '2+2 equals 5' is contradicted by the title of [Source 1] '2+2 Never Equals 5' and [Source 2] 'False proof 2 + 2 = 5. Can you spot the mistake?', which explicitly state that 2+2 does not equal 5. Additionally, [Source 4] discusses why some people think 2+2=5, implying that it is not a correct mathematical statement. [Source 5] explains the joke behind '2+2=5' but does not support the claim as a true mathematical statement.",
+          "citations": [
+            {
+              "url": "https://newdiscourses.com/2020/08/2-plus-2-never-equals-5/",
+              "title": "2+2 Never Equals 5 - New Discourses",
+              "relevantSnippet": "* [Home](https://newdiscourses.com/)\n* [ND Podcast](https://newdiscourses.com/tag/nd-podcast/)\n* [ND Bullets](https://newdiscourses.com/tag/nd-bullets/)\n* [OnlySubs Podcast](https://newdiscourses.com/tag/onlysubs/)\n* [SJ Encyclopedia](https://newdiscourses.com/translations-from-the-wokish/)\n* [Griev"
+            },
+            {
+              "url": "https://www.youtube.com/watch?v=Ejj-WjeHFM0",
+              "title": "False proof 2 + 2 = 5. Can you spot the mistake? - YouTube",
+              "relevantSnippet": "# False proof 2 + 2 = 5. Can you spot the mistake?\n## MindYourDecisions\n3270000 subscribers\n4038 likes\n\n### Description\n240633 views\nPosted: 6 Dec 2024\nThis false proof has many people confused.\n\nhttps://www.reddit.com/r/sciencememes/comments/1gi7mz7/engineering_maths_be_like/\nhttps://www.reddit.com"
+            },
+            {
+              "url": "https://www.popularmechanics.com/science/math/a69798532/why-some-people-think-2-plus-2-equals-5-math/",
+              "title": "Why Some People Think 2+2=5 | Controversial Math Problem",
+              "relevantSnippet": "# Why Some People Think 2+2=5 | Controversial Math Problem\n\n[![Image 1: Search](https://www.popularmechanics.com/_assets/design-tokens/fre/static/icons/search.f1c199c.svg)Search](https://www.popularmechanics.com/search/)![Image 2: Close](https://www.popularmechanics.com/_assets/design-tokens/fre/sta"
+            },
+            {
+              "url": "https://www.reddit.com/r/explainlikeimfive/comments/2n10bj/eli5_why_do_people_say_2_2_can_be_5/",
+              "title": "ELI5: Why do people say 2 + 2 can be 5? : r/explainlikeimfive - Reddit",
+              "relevantSnippet": "The joke \"2+2=5\" is at the engineer's expense should remember that the engineer is kind of right. There are no \"exact values\" you can measure in the real world."
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "Basic arithmetic fact check 2 plus 2 equals 5"
+        },
+        {
+          "id": "C2",
+          "claim": "The statement 2+2=5 is true",
+          "context": "The statement 2+2=5 is true",
+          "isQuestion": false,
+          "claimId": "C2",
+          "verdict": "False",
+          "confidenceScore": 0.76,
+          "reasoning": "The evidence clearly and explicitly contradicts the claim. Source 4 provides a detailed explanation of the fake proof and how it is incorrect. Specifically, the proof relies on a series of algebraic manipulations that are mathematically valid but lead to a false conclusion. The correct calculation of 2+2 is provided in the same source, which shows that the result is indeed 4, not 5.",
+          "citations": [
+            {
+              "url": "https://math.stackexchange.com/questions/2449459/whats-wrong-with-this-fake-proof-that-22-5",
+              "title": "What's wrong with this fake proof that 2+2=5? [duplicate]",
+              "relevantSnippet": "#### Stack Exchange Network\n\nStack Exchange network consists of 183 Q&A communities including [Stack Overflow](https://stackoverflow.com), the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.\n\n### [current community](https://math.stackex"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "mathematical proof of 2 plus 2 equals 5"
+        }
+      ]
+    }
+  },
+  "1774285694415": {
+    "id": "1774285694415",
+    "timestamp": "2026-03-23T17:08:14.415Z",
+    "q": "2 plus 2 is 5",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 74,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "Our investigation summary shows that there is a single claim, which has been verified as true. This suggests a high level of accuracy, with a confidence rating of 74%. The overall risk assessment is LOW, indicating that the claim is reliable and trustworthy.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "2 plus 2 is 5",
+          "context": "2 plus 2 is 5",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.74,
+          "reasoning": "The evidence clearly and explicitly supports the claim that 2 plus 2 is 4. [Source 4] provides a step-by-step solution to the problem, stating that the sum of two and two equals four. [Source 5] also supports this claim by providing a presentation on understanding basic arithmetic, which includes the example of 2+2.",
+          "citations": [
+            {
+              "url": "https://www.atlas.org/solution/a2871af2-7b36-4c76-a608-dd01ffb99c36/2-plus-2",
+              "title": "Solved: 2 plus 2 - Atlas",
+              "relevantSnippet": "Solved: 2 plus 2\n\n### Question\n\n2 plus 2\n\n### Answer\n\n􀊀100% (1 rated)\n\n4\n\n### Steps\n\n**1.** The question is simply asking for the sum of 2 plus 2. This is a basic arithmetic problem.\n\n**2.** I recall that addition is the process of finding the total or sum of a set of numbers. In this case, it invo"
+            },
+            {
+              "url": "https://prezi.com/p/r38gnfrtumvg/understanding-basic-arithmetic-the-case-of-22/",
+              "title": "Understanding Basic Arithmetic: The Case of 2+2 - Prezi",
+              "relevantSnippet": "[Sign up](/signup/?next=%2Fp%2Fr38gnfrtumvg%2Funderstanding-basic-arithmetic-the-case-of-22)\n\n[Log in](/login/?click_source=logged_element&page_location=hamburger_menu&element_text=log_in)\n\n[Afrikaans](#)[বাংলা](#)[Català](#)[Česky](#)[Dansk](#)[Deutsch](#)[Ελληνικά](#)[English](#)[Español](#)[Suomi"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "basic arithmetic 2 plus 2 equals what"
+        }
+      ]
+    }
+  },
+  "1774285787802": {
+    "id": "1774285787802",
+    "timestamp": "2026-03-23T17:09:47.802Z",
+    "q": "two plus two is five",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 77,
+      "riskLevel": "🔴 High Risk",
+      "insightSummary": "Our investigation reveals a single claim with a relatively low confidence level of 77%. Unfortunately, this claim has been found to be entirely false, contributing to a HIGH risk level. The lack of true or partially accurate claims suggests a high potential for misinformation.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Two plus two equals five",
+          "context": "Two plus two equals five",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 0.77,
+          "reasoning": "The evidence clearly and explicitly contradicts the claim. Source 2 provides a false proof of 2+2=5, which is then debunked in Source 5. Source 3 explains why some people think 2+2=5, but it does not support the claim. Source 4 discusses how 2+2=4 is being used as an example of white supremacy, but it does not support the claim. Source 1 provides a general statement that 2+2 never equals 5, but it does not provide a mathematical proof.",
+          "citations": [
+            {
+              "url": "https://www.youtube.com/watch?v=Ejj-WjeHFM0",
+              "title": "False proof 2 + 2 = 5. Can you spot the mistake? - YouTube",
+              "relevantSnippet": "# False proof 2 + 2 = 5. Can you spot the mistake?\n## MindYourDecisions\n3270000 subscribers\n4038 likes\n\n### Description\n240633 views\nPosted: 6 Dec 2024\nThis false proof has many people confused.\n\nhttps://www.reddit.com/r/sciencememes/comments/1gi7mz7/engineering_maths_be_like/\nhttps://www.reddit.com"
+            },
+            {
+              "url": "https://math.stackexchange.com/questions/2449459/whats-wrong-with-this-fake-proof-that-22-5",
+              "title": "What's wrong with this fake proof that 2+2=5? [duplicate]",
+              "relevantSnippet": "#### Stack Exchange Network\n\nStack Exchange network consists of 183 Q&A communities including [Stack Overflow](https://stackoverflow.com), the largest, most trusted online community for developers to learn, share their knowledge, and build their careers.\n\n### [current community](https://math.stackex"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "searchQuery": "Basic arithmetic fact check two plus two equals five"
+        }
+      ]
+    }
   }
 }

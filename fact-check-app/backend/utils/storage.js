@@ -9,7 +9,7 @@ if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
 }
 
-function loadCache() {
+function loadStorage() {
   try {
     if (!fs.existsSync(filePath)) return {};
     return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -18,23 +18,23 @@ function loadCache() {
   }
 }
 
-function saveCache(data) {
+function saveStorage(data) {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 }
 
-function getCached(claim) {
-  const cache = loadCache();
-  // Try to find by claim text
-  return cache[claim.toLowerCase().trim()] || null;
-}
-
+/**
+ * Get report by unique ID
+ */
 function getById(id) {
-  const cache = loadCache();
-  return cache[id] || null;
+  const storage = loadStorage();
+  return storage[id] || null;
 }
 
-function setCache(claim, result, id = null) {
-  const cache = loadCache();
+/**
+ * Save report to storage for sharing/history
+ */
+function saveReport(claim, result, id = null) {
+  const storage = loadStorage();
   const entryId = id || Date.now().toString();
   
   const entry = {
@@ -44,12 +44,12 @@ function setCache(claim, result, id = null) {
     report: result
   };
 
-  // Store by both claim (normalized) and ID
-  cache[claim.toLowerCase().trim()] = entry;
-  cache[entryId] = entry;
+  // We only store by ID to support sharing/link-retrieval.
+  // We NO LONGER store by claim text to avoid "hallucinations" of old results.
+  storage[entryId] = entry;
   
-  saveCache(cache);
+  saveStorage(storage);
   return entryId;
 }
 
-module.exports = { getCached, getById, setCache };
+module.exports = { getById, saveReport };
