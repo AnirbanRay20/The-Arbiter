@@ -1815,5 +1815,64 @@
         }
       ]
     }
+  },
+  "1774295742422": {
+    "id": "1774295742422",
+    "timestamp": "2026-03-23T19:55:42.422Z",
+    "q": "India have 28 states and 9 UTs",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 1,
+      "unverifiable": 0,
+      "accuracyScore": 77,
+      "riskLevel": "🔴 High Risk",
+      "insightSummary": "The investigation found a total of 1 claim, with a high risk level due to a low accuracy rate. Unfortunately, all claims were found to be false, indicating a potential misinformation issue. With a confidence level of 77%, there's a significant margin for error, which warrants further scrutiny.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "India have 28 states and 9 UTs",
+          "context": "India have 28 states and 9 UTs",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "False",
+          "confidenceScore": 0.77,
+          "reasoning": "All sources ([1, 2, 3, 4, 5]) state that India has 28 states and 8 union territories, not 9.",
+          "citations": [
+            {
+              "url": "https://store.pw.live/blogs/ssc-exams/states-and-capitals-of-india-list?srsltid=AfmBOorlJ4oWEHgZhN0dH_Np-QoKizmjaX7_7Q7Es8xhwQGT3o0puC2Q",
+              "title": "States and Capitals of India –List of Indian States & UTs (2026)",
+              "relevantSnippet": "[States and Capitals of India –List of Indian States & UTs (2...](/blogs/ssc-exams/states-and-capitals-of-india-list)\n\n# States and Capitals of India –List of Indian States & UTs (2026)\n\nAuthor at PW\nDecember 03, 2025\n\n## States and Capitals of India\n\nIndia is a huge country in South Asia, ranking 7"
+            },
+            {
+              "url": "https://store.pw.live/blogs/ssc-exams/states-and-capitals-of-india-list?srsltid=AfmBOorWOlecHIMOwzviDUq3BWzUvY0zMgrz0L2uBXiFXDDWtH0f5Ii1",
+              "title": "States and Capitals of India –List of Indian States & UTs (2026)",
+              "relevantSnippet": "[States and Capitals of India –List of Indian States & UTs (2...](/blogs/ssc-exams/states-and-capitals-of-india-list)\n\n# States and Capitals of India –List of Indian States & UTs (2026)\n\nAuthor at PW\nDecember 03, 2025\n\n## States and Capitals of India\n\nIndia is a huge country in South Asia, ranking 7"
+            },
+            {
+              "url": "https://store.pw.live/blogs/ssc-exams/states-and-capitals-of-india-list?srsltid=AfmBOork_T_D3VLKtJ7iSPPHc5YygIpD1nm25gDmCeptsJfmBvbUtYqI",
+              "title": "States and Capitals of India –List of Indian States & UTs (2026)",
+              "relevantSnippet": "[States and Capitals of India –List of Indian States & UTs (2...](/blogs/ssc-exams/states-and-capitals-of-india-list)\n\n# States and Capitals of India –List of Indian States & UTs (2026)\n\nAuthor at PW\nDecember 03, 2025\n\n## States and Capitals of India\n\nIndia is a huge country in South Asia, ranking 7"
+            },
+            {
+              "url": "https://www.careerpower.in/states-and-capitals-of-india.html",
+              "title": "States and Capitals of India, 28 States and 8 UTs in India",
+              "relevantSnippet": "![](images/ibps.png)\n\n# States and Capitals of India, 28 States and 8 UTs in India\n\nTable of Contents\n\nIndia is a vast and diverse country, and knowing the names of its states and their capitals is a fundamental part of General Knowledge that every Indian should be aware of. **At present, India has "
+            },
+            {
+              "url": "https://pwonlyias.com/states-and-capitals-of-india/",
+              "title": "How Many States In India 2026? List Of 28 States And 8 UTs ...",
+              "relevantSnippet": "![#](https://pwonlyias.com/wp-content/uploads/2025/09/logo__5_-removebg-preview.png)\n![icon](https://pwonlyias.com/wp-content/uploads/2025/01/0255f37f-fdd3-4435-9cf8-9e5607e8d496.webp)\n![icon](https://pwonlyias.com/wp-content/uploads/2025/01/35e317f7-4fdd-45dd-a2cc-87554336c489.webp)\n![icon](https:/"
+            }
+          ],
+          "timeSensitive": true,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "normalizedClaim": null,
+          "searchQuery": "India number of states and union territories 2026"
+        }
+      ]
+    }
   }
 }
