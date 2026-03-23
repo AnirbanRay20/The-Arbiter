@@ -1766,5 +1766,54 @@
         }
       ]
     }
+  },
+  "1774295454561": {
+    "id": "1774295454561",
+    "timestamp": "2026-03-23T19:50:54.561Z",
+    "q": "Iron man is Avenger",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 0,
+      "accuracyScore": 79,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation revealed a total of 1 claim, with all of them being verified as true. This suggests a high level of accuracy and reliability. The confidence in the findings is 79%, indicating a strong basis for the conclusion. With a LOW risk level, the results are considered trustworthy and reliable.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "Iron man is an Avenger",
+          "context": "Iron man is an Avenger",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "True",
+          "confidenceScore": 0.79,
+          "reasoning": "Tony Stark, aka Iron Man, is part of the Avengers team as seen in multiple MCU movies and TVTropes page [3].",
+          "citations": [
+            {
+              "url": "https://en.wikipedia.org/wiki/Tony_Stark_(Marvel_Cinematic_Universe)",
+              "title": "Tony Stark (Marvel Cinematic Universe) - Wikipedia",
+              "relevantSnippet": "[Jump to content](#bodyContent)\n\n[Search](/wiki/Special:Search \"Search Wikipedia [f]\")\n\n## Contents\n\n* [1 Fictional character biography](#Fictional_character_biography)\n  + [1.1 Early life](#Early_life)\n  + [1.2 Becoming Iron Man](#Becoming_Iron_Man)\n  + [1.3 Battling Vanko](#Battling_Vanko)\n  + [1."
+            },
+            {
+              "url": "https://tvtropes.org/pmwiki/pmwiki.php/Characters/MCUTonyStark",
+              "title": "Characters in MCU: Tony Stark - TV Tropes",
+              "relevantSnippet": "![TVTropes Logo](/images/tvtropes_logo_180x180.png)\n\nTVTropes Now available in the app store!\n\n[Open](#)\n\n[Join](#) [Login](#)\n\n[Tropes](/pmwiki/pmwiki.php/Main/Tropes) [Media](/pmwiki/pmwiki.php/Main/Media) [Reviews](/pmwiki/review_activity.php) [Popular](/pmwiki/popular-pages.php) [Indexes](/pmwik"
+            },
+            {
+              "url": "https://lovethynerd.com/iron-man-the-tony-stark-mcu-watch-order/",
+              "title": "Iron Man: The Tony Stark MCU Watch Order - LoveThyNerd.com",
+              "relevantSnippet": "[Love Thy Nerd\n\nLove Nerds + Engage Culture + Build Community](https://lovethynerd.com/)\n\n# Iron Man: The Tony Stark MCU Watch Order\n\n[Radio Matt](https://lovethynerd.com/author/ltnradiomatt/ \"Posts by Radio Matt\")\n\nOct 28, 2023\n\n[AD](https://lovethynerd.com/?ltn_ad_click=default)\n\nThe Marvel Cinema"
+            }
+          ],
+          "timeSensitive": false,
+          "checkedAt": "March 2026",
+          "groundingEnforced": false,
+          "normalizedClaim": null,
+          "searchQuery": "Tony Stark character affiliation Avengers movies and TV shows"
+        }
+      ]
+    }
   }
 }
