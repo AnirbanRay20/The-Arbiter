@@ -197,14 +197,36 @@ export default function AccuracyReport({ report, onNewCheck, onShare }) {
 
           {/* Share */}
           {onShare && (
-            <button onClick={onShare} style={{
-              display: 'flex', alignItems: 'center', gap: 5,
-              padding: '0.45rem 1rem',
-              backgroundColor: 'rgba(0,229,255,0.06)', border: '1px solid rgba(0,229,255,0.2)',
-              color: '#00E5FF', borderRadius: 6, cursor: 'pointer',
-              fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 10,
-              textTransform: 'uppercase', letterSpacing: '0.08em', transition: 'all 0.15s',
-            }}
+            <button 
+              onClick={async () => {
+                const url = await onShare();
+                if (url) {
+                  const originalText = 'Share Link';
+                  const btn = document.activeElement;
+                  if (btn) {
+                    const icon = btn.querySelector('.material-symbols-outlined');
+                    const textNode = Array.from(btn.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim() === 'Share Link' || n.textContent.trim() === 'Copied!');
+                    if (textNode) {
+                      textNode.textContent = 'Copied!';
+                      btn.style.borderColor = '#00E5FF';
+                      btn.style.backgroundColor = 'rgba(0,229,255,0.15)';
+                      setTimeout(() => {
+                        textNode.textContent = 'Share Link';
+                        btn.style.borderColor = 'rgba(0,229,255,0.2)';
+                        btn.style.backgroundColor = 'rgba(0,229,255,0.06)';
+                      }, 2000);
+                    }
+                  }
+                }
+              }} 
+              style={{
+                display: 'flex', alignItems: 'center', gap: 5,
+                padding: '0.45rem 1rem',
+                backgroundColor: 'rgba(0,229,255,0.06)', border: '1px solid rgba(0,229,255,0.2)',
+                color: '#00E5FF', borderRadius: 6, cursor: 'pointer',
+                fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 10,
+                textTransform: 'uppercase', letterSpacing: '0.08em', transition: 'all 0.15s',
+              }}
               onMouseEnter={e => e.currentTarget.style.backgroundColor = 'rgba(0,229,255,0.12)'}
               onMouseLeave={e => e.currentTarget.style.backgroundColor = 'rgba(0,229,255,0.06)'}
             >

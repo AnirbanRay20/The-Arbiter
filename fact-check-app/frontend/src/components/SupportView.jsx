@@ -21,7 +21,7 @@ const TEAM = [
     avatar: 'ARC',
     avatarColor: '#FFAB00',
     // Place your photo at: frontend/public/images/anusmita.jpg
-    photo: '/images/anusmita.jpg',
+    photo: '/images/anusmita.jpeg',
     github: 'https://github.com/anus05',
     githubHandle: '@anus05',
     bio: 'Designed the Forensic Intelligence dashboard, component system, and user experience.',

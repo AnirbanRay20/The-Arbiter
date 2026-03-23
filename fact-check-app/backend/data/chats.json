@@ -2328,5 +2328,97 @@
       }
     ],
     "aiDetection": null
+  },
+  "the earth is flat": {
+    "id": "1774278562972",
+    "timestamp": "2026-03-23T15:09:22.972Z",
+    "q": "The Earth is flat",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 1,
+      "accuracyScore": 10,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation summary reveals a single claim, with no verified true or false information found. The confidence level is very high at 10, and the overall risk level is classified as LOW, indicating a low likelihood of misinformation or unverifiable claims.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "The Earth is flat",
+          "context": "The Earth is flat",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "Unverifiable",
+          "confidenceScore": 0.1,
+          "reasoning": "Verification engine encountered a persistent error. Please retry.",
+          "citations": [
+            {
+              "url": "https://www.nasa.gov/earth/how-do-we-know-the-earth-isnt-flat-we-asked-a-nasa-expert-episode-53/",
+              "title": "How Do We Know the Earth Isn't Flat? We Asked a NASA Expert",
+              "relevantSnippet": "So as we get ready to go back to the Moon with women and men and explore other worlds, the roundness of our solar system and our universe is a special thing. And we should embrace that as we understand why our planet isn’t flat.\n\n[END VIDEO TRANSCRIPT]\n\nFull Episode List\n\nFull YouTube Playlist\n\n## Share\n\n## Details\n\nLast Updated\n\nMar 11, 2025\n\n## Related Terms\n\n Earth\n Science Mission Directorate\n"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Modern_flat_Earth_beliefs",
+              "title": "Modern flat Earth beliefs - Wikipedia",
+              "relevantSnippet": "Filmmakers of Behind the Curve attended another flat Earth conference at which a substantial number of people believed that Earth was an infinite plane, potentially with more continents beyond the purported circular ice wall of Antarctica. Members of the Flat Earth Society and other flat-Earthers claim that NASA and other government agencies conspire to fabricate evidence that Earth is spherical. "
+            },
+            {
+              "url": "https://www.nasa.gov/history/90-years-of-our-changing-views-of-earth/",
+              "title": "90 Years of Our Changing Views of Earth - NASA",
+              "relevantSnippet": "and also included the first image of the Earth taken by an astronaut on the Moon. Astronauts on the final Apollo lunar landing mission, Apollo 17, took the famous _Blue Marble_ image of the Earth from 72,000 miles away on their way to the Moon. [...] \\_Left: The original photo, top, of Earth taken from lunar orbit by the Lunar Orbiter 1 spacecraft in 1966, and a 2008 digitized version by the Lunar"
+            }
+          ],
+          "groundingEnforced": false,
+          "searchQuery": "Earth flatness scientific evidence 2026 \nFlat Earth theory debunked by NASA \nEarth shape supported by scientific consensus \nFlat Earth evidence against satellite imagery \nEarth curvature observed by astronauts 2026 \nFlat Earth theory vs scientific evidence"
+        }
+      ]
+    }
+  },
+  "1774278562972": {
+    "id": "1774278562972",
+    "timestamp": "2026-03-23T15:09:22.972Z",
+    "q": "The Earth is flat",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "partial": 0,
+      "false": 0,
+      "unverifiable": 1,
+      "accuracyScore": 10,
+      "riskLevel": "🟢 Low Risk",
+      "insightSummary": "The investigation summary reveals a single claim, with no verified true or false information found. The confidence level is very high at 10, and the overall risk level is classified as LOW, indicating a low likelihood of misinformation or unverifiable claims.",
+      "results": [
+        {
+          "id": "C1",
+          "claim": "The Earth is flat",
+          "context": "The Earth is flat",
+          "isQuestion": false,
+          "claimId": "C1",
+          "verdict": "Unverifiable",
+          "confidenceScore": 0.1,
+          "reasoning": "Verification engine encountered a persistent error. Please retry.",
+          "citations": [
+            {
+              "url": "https://www.nasa.gov/earth/how-do-we-know-the-earth-isnt-flat-we-asked-a-nasa-expert-episode-53/",
+              "title": "How Do We Know the Earth Isn't Flat? We Asked a NASA Expert",
+              "relevantSnippet": "So as we get ready to go back to the Moon with women and men and explore other worlds, the roundness of our solar system and our universe is a special thing. And we should embrace that as we understand why our planet isn’t flat.\n\n[END VIDEO TRANSCRIPT]\n\nFull Episode List\n\nFull YouTube Playlist\n\n## Share\n\n## Details\n\nLast Updated\n\nMar 11, 2025\n\n## Related Terms\n\n Earth\n Science Mission Directorate\n"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Modern_flat_Earth_beliefs",
+              "title": "Modern flat Earth beliefs - Wikipedia",
+              "relevantSnippet": "Filmmakers of Behind the Curve attended another flat Earth conference at which a substantial number of people believed that Earth was an infinite plane, potentially with more continents beyond the purported circular ice wall of Antarctica. Members of the Flat Earth Society and other flat-Earthers claim that NASA and other government agencies conspire to fabricate evidence that Earth is spherical. "
+            },
+            {
+              "url": "https://www.nasa.gov/history/90-years-of-our-changing-views-of-earth/",
+              "title": "90 Years of Our Changing Views of Earth - NASA",
+              "relevantSnippet": "and also included the first image of the Earth taken by an astronaut on the Moon. Astronauts on the final Apollo lunar landing mission, Apollo 17, took the famous _Blue Marble_ image of the Earth from 72,000 miles away on their way to the Moon. [...] \\_Left: The original photo, top, of Earth taken from lunar orbit by the Lunar Orbiter 1 spacecraft in 1966, and a 2008 digitized version by the Lunar"
+            }
+          ],
+          "groundingEnforced": false,
+          "searchQuery": "Earth flatness scientific evidence 2026 \nFlat Earth theory debunked by NASA \nEarth shape supported by scientific consensus \nFlat Earth evidence against satellite imagery \nEarth curvature observed by astronauts 2026 \nFlat Earth theory vs scientific evidence"
+        }
+      ]
+    }
   }
 }

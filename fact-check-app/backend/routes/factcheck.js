@@ -2,6 +2,7 @@ require('dotenv').config();
 const express              = require('express');
 const router               = express.Router();
 const { scrapeUrl }        = require('../services/urlScraper');
+const { getCached, setCache } = require('../utils/cache');
 const { extractClaims }    = require('../agents/claimExtractor');
 const { retrieveEvidence } = require('../agents/evidenceRetriever');
 const { verifyClaim } = require('../agents/verificationEngine');
@@ -9,6 +10,9 @@ const { generateAccuracyReport, generateInsightSummary } = require('../agents/re
 const { detectAiText } = require('../services/aiTextDetector');
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
+function normalizeKey(text) {
+  return text.toLowerCase().trim();
+}
 
 function send(res, data) {
   res.write(`data: ${JSON.stringify(data)}\n\n`);
@@ -25,7 +29,33 @@ router.post('/factcheck', async (req, res) => {
   try {
     // ── INIT ──
     send(res, { type: 'PIPELINE', step: 'INIT', status: 'Initializing pipeline...', progress: 0 });
+    const cacheKey = normalizeKey(content);
 
+// ⚡ CACHE CHECK
+const cached = getCached(cacheKey);
+if (cached) {
+  console.log('[Factcheck] ⚡ Cache hit');
+
+  send(res, {
+    type: 'PIPELINE',
+    step: 'CACHE',
+    status: 'Using cached result...',
+    progress: 100
+  });
+
+  // Send the report data from the cache entry
+  send(res, {
+    type: 'REPORT',
+    report: cached.report
+  });
+  
+  // Also send the shareId if available
+  if (cached.id) {
+    send(res, { type: 'SHARE_ID', shareId: cached.id });
+  }
+
+  return res.end();
+}
     let textToProcess = content;
     let scrapedImages = [];
     let scrapedMeta   = null;
@@ -175,6 +205,13 @@ router.post('/factcheck', async (req, res) => {
 
     console.log(`[Factcheck] Report: ${report.accuracyScore}% accuracy, ${report.riskLevel}`);
     send(res, { type: 'REPORT', report });
+    try {
+      const shareId = setCache(content, report);
+      console.log(`[Factcheck] 💾 Cached result with ID: ${shareId}`);
+      send(res, { type: 'SHARE_ID', shareId });
+    } catch (cacheErr) {
+      console.warn('[Factcheck] Cache save failed:', cacheErr.message);
+    }
     send(res, { type: 'PIPELINE', step: 'REPORTING', status: 'Pipeline finished successfully.', progress: 100 });
 
   } catch (err) {
@@ -183,6 +220,31 @@ router.post('/factcheck', async (req, res) => {
   } finally {
     res.end();
   }
+});
+
+// ── SHARE ROUTES ──
+
+// Get shared report by ID
+router.get('/share/:id', (req, res) => {
+  const { id } = req.params;
+  const entry = getById(id);
+  
+  if (!entry) {
+    return res.status(404).json({ error: 'Report not found or link expired.' });
+  }
+  
+  res.json(entry);
+});
+
+// Register a report for sharing (if not already there)
+router.post('/share', (req, res) => {
+  const { query, report, id } = req.body;
+  if (!query || !report) {
+    return res.status(400).json({ error: 'Missing report data.' });
+  }
+  
+  const shareId = setCache(query, report, id);
+  res.json({ shareId });
 });
 
 module.exports = router;

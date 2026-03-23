@@ -67,11 +67,15 @@ export default function HistoryView({ onSelect, onGoToDashboard }) {
 
     // If full report data is stored, build a real share link
     if (item.report && item.claims && onShare) {
-      const url = onShare(item.q, item.report, item.claims);
-      if (url) {
-        showToast('Share link copied! Anyone with this link can view the report.');
-        return;
-      }
+      onShare(item.q, item.report, item.claims, item.id)
+        .then(url => {
+          if (url) showToast('Share link copied! Anyone with this link can view the report.');
+          else {
+            navigator.clipboard.writeText(item.q);
+            showToast('Query copied to clipboard');
+          }
+        });
+      return;
     }
 
     // Fallback: copy just the query text

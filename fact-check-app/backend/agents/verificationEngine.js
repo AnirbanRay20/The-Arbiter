@@ -1,167 +1,278 @@
 require('dotenv').config();
 const Groq = require('groq-sdk');
-const { VERIFICATION_SYSTEM_PROMPT } = require('../utils/prompts');
 
-const groq  = new Groq({ apiKey: process.env.GROQ_API_KEY });
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-async function verifyClaim(claim, sources) {
-  sources = sources || [];
+// ─────────────────────────────────────────────────────────────
+// 📏 Evidence Quality Scorer
+// Rates the retrieved sources — used to modulate confidence,
+// NOT to override verdicts.
+// ─────────────────────────────────────────────────────────────
+function getEvidenceQualityScore(sources) {
+  if (!sources || sources.length === 0) return 0;
 
-  const claimId    = claim.id    || 'C1';
-  const claimText  = claim.claim || '';
+  let score = 0;
+  for (const s of sources) {
+    const text = (s.snippet || s.content || s.title || '').toLowerCase();
+    const url  = (s.url || '').toLowerCase();
+
+    // Content depth check
+    if (text.length > 200) score += 0.4;
+    else if (text.length > 80) score += 0.2;
+
+    // Domain credibility bonus
+    if (url.includes('.gov') || url.includes('.edu')) score += 0.3;
+    else if (url.includes('reuters') || url.includes('bbc') || url.includes('apnews')) score += 0.25;
+    else if (url.includes('wikipedia')) score += 0.15;
+
+    // Noise penalty
+    if (
+      text.includes('subscribe to') ||
+      text.includes('click here') ||
+      text.includes('advertisement') ||
+      text.includes('cookie policy')
+    ) score -= 0.3;
+  }
+
+  // Normalize to 0–1 range
+  return Math.max(0, Math.min(1, score / Math.min(sources.length, 5)));
+}
+
+// ─────────────────────────────────────────────────────────────
+// 🎯 Verdict Normalizer
+// Maps raw LLM string to canonical label.
+// ─────────────────────────────────────────────────────────────
+function normalizeVerdict(raw) {
+  if (!raw) return 'Unverifiable';
+
+  const v = String(raw).trim().toLowerCase();
+
+  if (v.includes('partially true') || v.includes('partial')) return 'Partially True';
+  if (v.includes('true'))           return 'True';
+  if (v.includes('false'))          return 'False';
+  if (
+    v.includes('unverifiable') ||
+    v.includes('insufficient') ||
+    v.includes('not verifiable') ||
+    v.includes('cannot verify')
+  )                                 return 'Unverifiable';
+
+  return 'Unverifiable';
+}
+
+// ─────────────────────────────────────────────────────────────
+// 🔒 Evidence Grounding Guard
+// If the LLM signals it didn't use the evidence, force Unverifiable.
+// This is the core anti-hallucination safeguard.
+// ─────────────────────────────────────────────────────────────
+function enforceGrounding(parsed, sources) {
+  // If LLM explicitly flagged it wasn't grounded in evidence → override
+  if (parsed.grounded_in_evidence === false) {
+    return {
+      verdict: 'Unverifiable',
+      forcedReason: 'LLM indicated verdict was not grounded in retrieved evidence. Marked Unverifiable to prevent hallucination.'
+    };
+  }
+
+  // If verdict is True/False but zero citations were provided → suspicious
+  const citationCount = (parsed.citations || []).length;
+  if (
+    (parsed.verdict === 'True' || parsed.verdict === 'False') &&
+    citationCount === 0 &&
+    sources.length > 0
+  ) {
+    return {
+      verdict: 'Unverifiable',
+      forcedReason: 'Verdict was True/False but no evidence citations were provided. Marked Unverifiable to prevent parametric recall.'
+    };
+  }
+
+  return null; // No override needed
+}
+
+// ─────────────────────────────────────────────────────────────
+// 🔢 Confidence Calibration
+// Calibrates final confidence based on verdict + evidence quality.
+// ─────────────────────────────────────────────────────────────
+function calibrateConfidence(verdict, rawConfidence, qualityScore, wasForced) {
+  if (wasForced)                   return 0.2;  // Low confidence when we had to override
+  if (verdict === 'Unverifiable')  return Math.max(0.15, Math.min(0.35, rawConfidence));
+  if (verdict === 'Partially True') return Math.max(0.45, Math.min(0.70, 0.45 + qualityScore * 0.25));
+
+  // True / False — scale with evidence quality
+  const base = 0.65;
+  const ceiling = 0.95;
+  return parseFloat(Math.max(base, Math.min(ceiling, base + qualityScore * 0.30)).toFixed(2));
+}
+
+// ─────────────────────────────────────────────────────────────
+// 🧠 MAIN FUNCTION: Evidence-Grounded Fact-Checking Engine
+// ─────────────────────────────────────────────────────────────
+async function verifyClaim(claim, sources = []) {
+  const claimId   = claim.id   || 'C1';
+  const claimText = claim.claim || '';
   const isQuestion = claim.isQuestion || false;
 
-  // Build evidence string
-  const evidenceStr = sources.length > 0
-    ? sources.map((s, i) =>
-        `[${i + 1}] ${s.title || 'Unknown'} (${s.url || ''})\n${s.snippet || s.content || 'No content'}`
-      ).join('\n\n')
-    : 'No web evidence was retrieved for this claim.';
+  // ── Guard: No sources at all → immediate Unverifiable ────────
+  if (!sources || sources.length === 0) {
+    return {
+      claimId,
+      verdict: 'Unverifiable',
+      confidenceScore: 0.15,
+      reasoning: 'No evidence was retrieved for this claim. Cannot verify without sources.',
+      citations: [],
+      isQuestion,
+      groundingEnforced: false
+    };
+  }
 
-  const userPrompt = `CLAIM ID: ${claimId}
+  // ── Format evidence block (top 5, prefer richer content) ─────
+  const topSources = sources
+    .slice(0, 5);
+
+  const evidenceBlock = topSources.map((s, i) => {
+    // Use raw_content if available (deeper Tavily fetch), fall back to snippet
+    const body = s.raw_content?.slice(0, 1500) || s.content || s.snippet || 'No content available.';
+    return `[Source ${i + 1}]
+Title   : ${s.title || 'Unknown'}
+URL     : ${s.url   || 'N/A'}
+Content : ${body}`;
+  }).join('\n\n---\n\n');
+
+  // ── Prompts ───────────────────────────────────────────────────
+  const systemPrompt = `You are a forensic fact-checking AI. Your ONLY source of truth is the EVIDENCE block below.
+
+ABSOLUTE RULE: Do NOT use your training knowledge or internal memory.
+If the evidence does not support a verdict → return "Unverifiable".
+Every True/False verdict MUST cite at least one source by its [Source N] index.
+Set "grounded_in_evidence": false if you could not find relevant info in the evidence.`;
+
+  const userPrompt = `
 CLAIM: "${claimText}"
-IS_QUESTION: ${isQuestion}
 
 EVIDENCE:
-${evidenceStr}
+${evidenceBlock}
 
-Reason step-by-step and evaluate the claim against this evidence only.
-Before finalising, ask yourself: am I using internal knowledge? If yes, mark Unverifiable.
-Output ONLY valid JSON — no markdown, no extra text.`;
+INSTRUCTIONS:
+- Evaluate the claim using ONLY the evidence above.
+- "True"           → evidence clearly and explicitly supports it
+- "False"          → evidence clearly and explicitly contradicts it
+- "Partially True" → evidence partially supports it or is mixed
+- "Unverifiable"   → evidence is absent, irrelevant, vague, or contradictory
 
+Provide citations as 1-based source indices (e.g., [1, 3]).
+Set "grounded_in_evidence": true if you used at least one source above.
+Set "grounded_in_evidence": false if you had to rely on general knowledge.
+
+OUTPUT (strict JSON only):
+{
+  "verdict": "True | False | Partially True | Unverifiable",
+  "confidence": <number 0.0–1.0>,
+  "grounded_in_evidence": <true | false>,
+  "time_sensitive": <true | false>,
+  "checked_at": "March 2026",
+  "reasoning": "<explanation with specific source references>",
+  "citations": [<1-based source indices>]
+}`;
+
+  // ── LLM Call with retry ───────────────────────────────────────
   let retries = 0;
   while (retries < 3) {
     try {
-      const response = await groq.chat.completions.create({
-        model:       'llama-3.3-70b-versatile', // ← upgraded from 8b to 70b
-        temperature: 0,
-        max_tokens:  1000,
+      const completion = await groq.chat.completions.create({
+        model: 'llama-3.3-70b-versatile',
+        temperature: 0.1,          // near-deterministic for fact tasks
+        max_tokens: 1024,
+        top_p: 0.9,
         messages: [
-          { role: 'system', content: VERIFICATION_SYSTEM_PROMPT },
-          { role: 'user',   content: userPrompt }
-        ]
+          { role: 'system', content: systemPrompt },
+          { role: 'user',   content: userPrompt   }
+        ],
+        response_format: { type: 'json_object' }  // enforce structured output
       });
 
-      const content = response.choices[0]?.message?.content || '';
-      console.log(`[VerificationEngine] ${claimId} FULL RESPONSE:`, content);
+      const raw = completion.choices[0]?.message?.content || '';
+      let parsed;
 
-      // ── Parse JSON ── strip markdown fences first
-      let parsed = null;
-
-      // Strip ```json ... ``` or ``` ... ``` wrappers
-      let cleaned = content.trim()
-        .replace(/^```json\s*/i, '')
-        .replace(/^```\s*/i, '')
-        .replace(/\s*```$/i, '')
-        .trim();
-
-      // Try direct parse first
-      try { parsed = JSON.parse(cleaned); } catch {}
-
-      // Extract JSON block if direct parse failed
-      if (!parsed) {
-        const start = cleaned.indexOf('{');
-        const end   = cleaned.lastIndexOf('}');
-        if (start !== -1 && end !== -1) {
-          try { parsed = JSON.parse(cleaned.slice(start, end + 1)); } catch {}
+      try {
+        parsed = JSON.parse(raw);
+      } catch {
+        const match = raw.match(/\{[\s\S]*\}/);
+        if (match) {
+          parsed = JSON.parse(match[0]);
+        } else {
+          throw new Error('No valid JSON in LLM response');
         }
       }
 
-      // Last resort — try original content
-      if (!parsed) {
-        const start = content.indexOf('{');
-        const end   = content.lastIndexOf('}');
-        if (start !== -1 && end !== -1) {
-          try { parsed = JSON.parse(content.slice(start, end + 1)); } catch {}
-        }
+      // ── Normalize verdict ───────────────────────────────────
+      parsed.verdict = normalizeVerdict(parsed.verdict);
+
+      // ── Grounding enforcement (anti-hallucination guard) ────
+      const override = enforceGrounding(parsed, topSources);
+      const wasForced = !!override;
+      if (wasForced) {
+        parsed.verdict  = override.verdict;
+        parsed.reasoning = override.forcedReason;
+        parsed.citations = [];
       }
 
-      if (parsed && parsed.verdict) {
-        // Normalize verdict spelling variations
-        const v = (parsed.verdict || '').toLowerCase().trim();
-        let verdict = 'Unverifiable';
-        if (v.includes('partially') || v.includes('partial')) verdict = 'Partially True';
-        else if (v === 'true' || v.includes('confirmed')) verdict = 'True';
-        else if (v === 'false' || v.includes('incorrect') || v.includes('contradicted')) verdict = 'False';
-        else if (v.includes('unverif') || v.includes('insufficient') || v.includes('not verif')) verdict = 'Unverifiable';
+      // ── Confidence calibration ──────────────────────────────
+      const qualityScore    = getEvidenceQualityScore(topSources);
+      const rawConfidence   = parseFloat(parsed.confidence) || 0.5;
+      const finalConfidence = calibrateConfidence(parsed.verdict, rawConfidence, qualityScore, wasForced);
 
-        // Normalize confidence score — handle all formats
-        let conf = parsed.confidenceScore ?? parsed.confidence ?? parsed.confidence_score ?? 0;
-        if (typeof conf === 'string') conf = parseFloat(conf.replace('%', '').trim());
-        if (isNaN(conf) || conf === null || conf === undefined) conf = 0;
-        if (conf > 1) conf = conf / 100; // convert percentage (e.g. 85 → 0.85)
-        // If verdict is True/False but confidence is 0, assign a reasonable default
-        if (conf === 0 && (verdict === 'True' || verdict === 'False')) conf = 0.75;
-        if (conf === 0 && verdict === 'Partially True') conf = 0.55;
-        conf = Math.min(Math.max(conf, 0), 1); // clamp between 0 and 1
+      // ── Build citation objects ──────────────────────────────
+      const citationObjects = (parsed.citations || [])
+        .map(index => {
+          const s = topSources[index - 1];
+          if (!s) return null;
+          return {
+            url:             s.url   || '',
+            title:           s.title || 'Source',
+            relevantSnippet: s.raw_content?.slice(0, 300) || s.content || s.snippet || ''
+          };
+        })
+        .filter(Boolean);
 
-        // Extract direct answer for questions
-        let directAnswer = parsed.directAnswer || null;
-        if (!directAnswer && isQuestion && parsed.reasoning) {
-          const firstSentence = parsed.reasoning.split('.')[0];
-          if (firstSentence.length > 10 && firstSentence.length < 200) {
-            directAnswer = firstSentence.trim() + '.';
-          }
-        }
+      const result = {
+        claimId,
+        verdict:          parsed.verdict,
+        confidenceScore:  finalConfidence,
+        reasoning:        parsed.reasoning || 'Verified against retrieved evidence.',
+        citations:        citationObjects,
+        isQuestion,
+        timeSensitive:    !!parsed.time_sensitive,
+        checkedAt:        parsed.checked_at || 'March 2026',
+        groundingEnforced: wasForced        // flag for UI transparency
+      };
 
-        const result = {
-          claimId,
-          verdict,
-          confidenceScore:     conf,
-          reasoning:           parsed.reasoning || parsed.explanation || 'No reasoning provided.',
-          conflictingEvidence: parsed.conflictingEvidence || false,
-          conflictNote:        parsed.conflictNote || null,
-          temporallySensitive: parsed.temporallySensitive || false,
-          isQuestion,
-          directAnswer,
-          citations: Array.isArray(parsed.citations) && parsed.citations.length > 0
-            ? parsed.citations
-            : sources.slice(0, 3).map(s => ({
-                url:             s.url   || '',
-                title:           s.title || 'Unknown Source',
-                relevantSnippet: s.snippet || ''
-              })),
-        };
+      console.log(
+        `[VerificationEngine] "${claimId}" → ${result.verdict} ` +
+        `(${Math.round(finalConfidence * 100)}%) ` +
+        `[grounding_forced=${wasForced}]`
+      );
 
-        console.log(`[VerificationEngine] ${claimId} → ${verdict} (${Math.round(conf * 100)}%)`);
-        await sleep(800);
-        return result;
-      }
-
-      console.warn(`[VerificationEngine] ${claimId} — JSON parse failed, retrying (${retries + 1}/3)...`);
-      retries++;
-      await sleep(1200);
+      return result;
 
     } catch (err) {
-      console.error(`[VerificationEngine] ${claimId} error:`, err.message);
-
-      if (err.message?.includes('429') || err.message?.includes('rate_limit')) {
-        console.log(`[VerificationEngine] Rate limited — waiting 4s...`);
-        await sleep(4000);
-        retries++;
-        continue;
-      }
-      break;
+      console.error(`[VerificationEngine] Attempt ${retries + 1} failed:`, err.message);
+      retries++;
+      if (retries < 3) await sleep(1000 * retries);
     }
   }
 
-  // Final fallback
-  console.warn(`[VerificationEngine] ${claimId} — all retries failed, returning Unverifiable`);
-  await sleep(500);
+  // ── Hard fallback after 3 failed retries ──────────────────────
   return {
     claimId,
-    verdict:             'Unverifiable',
-    confidenceScore:     0.0,
-    reasoning:           'Verification failed after multiple retries. The evidence was retrieved but could not be analyzed.',
-    conflictingEvidence: false,
-    conflictNote:        null,
-    temporallySensitive: false,
+    verdict: 'Unverifiable',
+    confidenceScore: 0.1,
+    reasoning: 'Verification engine encountered a persistent error. Please retry.',
+    citations: [],
     isQuestion,
-    directAnswer:        null,
-    citations:           sources.slice(0, 3).map(s => ({
-      url: s.url || '', title: s.title || '', relevantSnippet: s.snippet || ''
-    })),
+    groundingEnforced: false
   };
 }
 

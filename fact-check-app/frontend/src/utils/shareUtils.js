@@ -41,10 +41,55 @@ export function buildShareUrl(query, report, claims) {
   return `${base}#share=${encoded}`;
 }
 
+export function buildIdShareUrl(id) {
+  const base = window.location.origin + window.location.pathname;
+  return `${base}#s=${id}`;
+}
+
+export async function registerShare(query, report, claims, id = null) {
+  try {
+    const payload = {
+      query,
+      report,
+      id,
+      claims: (claims || []).map(c => ({
+        id:                  c.id,
+        claim:               c.claim,
+        verdict:             c.verdict,
+        confidenceScore:     c.confidenceScore,
+        reasoning:           c.reasoning,
+        citations:           (c.citations || []).slice(0, 3),
+      })),
+    };
+
+    const res = await fetch('http://localhost:8000/api/share', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json();
+    return data.shareId;
+  } catch (e) {
+    console.error('Failed to register share:', e);
+    return null;
+  }
+}
+
 export function copyShareLink(url) {
   navigator.clipboard.writeText(url);
 }
 
 export function isShareLink() {
-  return window.location.hash.startsWith('#share=');
+  const hash = window.location.hash;
+  return hash.startsWith('#share=') || hash.startsWith('#s=');
+}
+
+export function isIdShareLink() {
+  return window.location.hash.startsWith('#s=');
+}
+
+export function getShareId() {
+  const hash = window.location.hash;
+  if (hash.startsWith('#s=')) return hash.slice(3);
+  return null;
 }

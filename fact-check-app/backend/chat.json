@@ -1,0 +1,466 @@
+{
+  "the earth is flat": {
+    "total": 3,
+    "true": 0,
+    "partial": 0,
+    "false": 0,
+    "unverifiable": 3,
+    "accuracyScore": 30,
+    "riskLevel": "🟢 Low Risk",
+    "insightSummary": "**Insight Summary:**\nOut of 3 total claims, none were found to be entirely true or false, indicating a lack of conclusive evidence. The average confidence level was 30%, suggesting a moderate level of uncertainty. With a LOW risk of misinformation, the data suggests a cautious but stable environment.",
+    "results": [
+      {
+        "id": "C1",
+        "claim": "The Earth is a planet.",
+        "context": "The Earth is a planet.",
+        "isQuestion": false,
+        "claimId": "C1",
+        "verdict": "Unverifiable",
+        "confidenceScore": 0.3,
+        "reasoning": "The provided evidence from NASA and the International Astronomical Union (IAU) consistently defines a planet as a celestial body that orbits a star, has sufficient mass to assume a hydrostatic equilibrium shape, and has cleared the neighborhood around its orbit. According to the IAU definition, Earth meets these criteria, as it orbits the Sun, is massive enough to be rounded by its own gravity, and has cleared its orbital zone. Although some evidence suggests that the definition of a planet is still debated, the IAU definition is widely accepted, and Earth is classified as a planet under this definition.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "directAnswer": null,
+        "citations": [
+          {
+            "url": "https://science.nasa.gov/earth/facts/",
+            "title": "Facts About Earth - NASA Science",
+            "relevantSnippet": "article  2 months ago\n\n# Earth\n\nEarth – our home planet – is the third planet from the Sun, and the fifth largest planet. It's the only place we know of inhabited by living things.\n\n## Quick Facts\n\n### Length of Day\n\n23.9 hours\n\n### Length of Year\n\n365.25 days\n\n### Distance from Sun\n\n93,327,712 miles / 150,196,428 kilometers\n\n### One Way Light Time to Sun\n\n8.350022 minutes\n\nWhile Earth is only the fifth largest planet in the solar system, it is the only planet in our solar system with liquid water on the surface. Just slightly larger than nearby Venus, Earth is the biggest of the four planets closest to the Sun, all of which are made of rock and metal. [...] ## Moons\n\nEarth is the only planet in our solar system with only one moon. Our Moon is the brightest and most familiar object in the night sky. In many ways, the Moon is responsible for making Earth such a great home. It stabilizes our planet's wobble, which has made the climate less variable over thousands of years.\n\nEarth sometimes temporarily hosts orbiting asteroids or large rocks. They are typically trapped by Earth's gravity for a few months or years before returning to an orbit around the Sun. Some asteroids will be in a long “dance” with Earth as both orbit the Sun. [...] ## Potential for Life\n\nEarth has a very hospitable temperature and mix of chemicals that have made life abundant here. Most notably, Earth is unique in that most of our planet is covered in liquid water, since the temperature allows liquid water to exist for extended periods of time. Earth's vast oceans provided a convenient place for life to begin about 3.8 billion years ago.\n\nSome of the features of our planet that make it great for sustaining life are changing due to the ongoing effects of climate change.\n\n## Size and Distance\n\nWith an equatorial diameter of 7,926 miles (12,756 kilometers), Earth is the biggest of the terrestrial planets and the fifth largest planet in our solar system."
+          },
+          {
+            "url": "https://science.nasa.gov/universe/exoplanets/professor-proposes-a-new-definition-for-planets/",
+            "title": "Professor Proposes a new Definition for 'Planets' - NASA Science",
+            "relevantSnippet": "The IAU’s definition is based primarily on the ability of a planet to “clear its orbit,” meaning whether it can evacuate, accumulate or dominate small bodies in its orbital neighborhood. Margot’s test can be used to determine whether a body can clear a specific region around its orbit within a specific time frame, such as the lifetime of its host star. The test is easy to implement and it could immediately classify 99 percent of all known exoplanets. (Scientists do not currently have enough data to apply the test to the other 1 percent.)\n\nWhen applied to our own solar system, the test clearly places the eight planets into one distinct category and the dwarf planets — Ceres, Pluto and Eris — into another. [...] Today at an American Astronomical Society meeting, UCLA professor Jean-Luc Margot described a simple test that can be used to clearly separate planets from other bodies like dwarf planets and minor planets.\n\nThe current official definition of a planet, which was issued by the International Astronomical Union in 2006, applies only to bodies in our solar system, which Margot said has created a “definitional limbo” for the newly discovered bodies. A paper by Margot that has been accepted for publication in the Astronomical Journal proposes to extend the planet definition to all planetary systems. [...] The new approach would require only estimates of the star’s mass and the planet’s mass and orbital period — all of which can be easily obtained with Earth- or space-based telescopes. According to Margot’s criteria, all eight planets in our solar system and all classifiable exoplanets — the large bodies that orbit stars other than our sun — would be confirmed as planets.\n\nMargot, a professor of planetary astronomy, wanted to ensure that the new system would be easy to follow. “One should not need a teleportation device to decide whether a newly discovered object is a planet.”"
+          },
+          {
+            "url": "https://science.nasa.gov/solar-system/planets/what-is-a-planet/",
+            "title": "What is a Planet? - NASA Science",
+            "relevantSnippet": "\"Contemporary observations are changing our understanding of planetary systems, and it is important that our nomenclature for objects reflect our current understanding. This applies, in particular, to the designation 'planets.' The word 'planet' originally described 'wanderers' that were known only as moving lights in the sky. Recent discoveries lead us to create a new definition, which we can make using currently available scientific information.\n\nThe IAU therefore resolves that planets and other bodies, except satellites, in our Solar System be defined into three distinct categories in the following way: [...] 1. It must orbit a star (in our cosmic neighborhood, the Sun).\n2. It must be big enough to have enough gravity to force it into a spherical shape.\n3. It must be big enough that its gravity has cleared away any other objects of a similar size near its orbit around the Sun.\n\n## An Evolving Definition\n\nWhen the ancient Greeks came up with their definition of planets, they counted Earth's Moon, and Sun as planets along with Mercury, Venus, Mars, Jupiter, and Saturn. Interestingly, Earth was not considered a planet, but rather was thought to be the central object around which all the other celestial objects orbited. [...] ## The Definition of a Planet\n\nThe word goes back to the ancient Greek word planēt, and it means \"wanderer.\"\n\nA more modern definition can be found in the Merriam-Webster dictionary which defines a planet as \"any of the large bodies that revolve around the Sun in the solar system.\"\n\nIn 2006, the International Astronomical Union (IAU) - a group of astronomers that names objects in our solar system - agreed on their own definition of the word \"planet.\" This new definition changed caused Pluto's famous \"demotion\" to a dwarf planet.\n\nThe definition of a planet adopted by the IAU says a planet must do three things:"
+          }
+        ],
+        "searchQuery": "Fact check Earth classification as a planet in our solar system evidence proof from NASA or International Astronomical Union."
+      },
+      {
+        "id": "C2",
+        "claim": "The Earth is a celestial body.",
+        "context": "The Earth is a celestial body.",
+        "isQuestion": false,
+        "claimId": "C2",
+        "verdict": "Unverifiable",
+        "confidenceScore": 0.3,
+        "reasoning": "The claim 'The Earth is a celestial body' is supported by the provided evidence. According to [1], the declination of any celestial body is the angular distance of the body above or below the celestial equator, and Earth is used as a reference point. Additionally, [2] from NASA Science describes Earth as a planet with its own characteristics, and [4] from Astronomy Magazine discusses the shape of Earth as a sphere, which is a type of celestial body. Other sources, such as [5] from Britannica and [6] from Star Walk, also refer to Earth as a planet or a spherical body, which is a type of celestial body. Therefore, based on the provided evidence, the claim is true.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "directAnswer": null,
+        "citations": [
+          {
+            "url": "https://gml.noaa.gov/ozwv/dobson/papers/report6/apph.html",
+            "title": "Introduction to Principles of Astronomy",
+            "relevantSnippet": "Declination\nof any celestial body is the angular distance, delta, of the body above or\nbelow the celestial equator. It is comparable with the latitude of the station\non earth. If the body is above the equator its declination is said to be north\nand is considered as positive; if it is below the equator its declination\nis said to be south and is considered negative. Declinations are expressed\nin degrees and cannot exceed 90 in magnitude.\n\nPolar distance\nof any celestial body is = 90 - delta with due regard to the sign of the\ndeclination. [...] Declination\nof any celestial body is the angular distance, delta, of the body above or\nbelow the celestial equator. It is comparable with the latitude of the station\non earth. If the body is above the equator its declination is said to be north\nand is considered as positive; if it is below the equator its declination\nis said to be south and is considered negative. Declinations are expressed\nin degrees and cannot exceed 90 in magnitude.\n\nPolar distance\nof any celestial body is = 90 - delta with due regard to the sign of the\ndeclination. [...] Declination\nof any celestial body is the angular distance, delta, of the body above or\nbelow the celestial equator. It is comparable with the latitude of the station\non earth. If the body is above the equator its declination is said to be north\nand is considered as positive; if it is below the equator its declination\nis said to be south and is considered negative. Declinations are expressed\nin degrees and cannot exceed 90 in magnitude.\n\nPolar distance\nof any celestial body is = 90 - delta with due regard to the sign of the\ndeclination."
+          },
+          {
+            "url": "https://science.nasa.gov/earth/facts/",
+            "title": "Facts About Earth - NASA Science",
+            "relevantSnippet": "From an average distance of 93 million miles (150 million kilometers), Earth is exactly one astronomical unit away from the Sun because one astronomical unit (abbreviated as AU), is the distance from the Sun to Earth. This unit provides an easy way to quickly compare planets' distances from the Sun.\n\nIt takes about eight minutes for light from the Sun to reach our planet.\n\n## Orbit and Rotation [...] 1. Measuring Up If the Sun were as tall as a typical front door, Earth would be the size of a nickel.\n2. We're On It Earth is a rocky planet with a solid and dynamic surface of mountains, canyons, plains and more. Most of our planet is covered in water.\n3. Breathe Easy Earth's atmosphere is 78% nitrogen, 21% oxygen and 1% other ingredients. It's the perfect balance for us to breathe and live.\n4. Our Cosmic Companion Earth has one moon.\n5. Ringless Earth has no rings.\n6. Orbital Science Many orbiting spacecraft study the Earth from above as a whole system — observing the atmosphere, ocean, glaciers, and the solid earth.\n7. Home, Sweet Home Earth is the perfect place for life as we know it. [...] 8. Protective Shield Our atmosphere protects us from incoming meteoroids, most of which break up in our atmosphere before they can strike the surface."
+          },
+          {
+            "url": "https://www.usatoday.com/story/news/factcheck/2022/12/07/fact-check-roundup-what-scientists-say-flat-earth-evidence/10802218002/",
+            "title": "Fact check roundup: Debunking the flawed science behind flat Earth ...",
+            "relevantSnippet": "Our rating: False\n\nThe Earth is not flat, it's spherical, as proven by photos from space and an array of observations and calculations that can be done from Earth. Planetary scientists say the visibility of the moon and sun during the daytime, doesn't prove a flat Earth – it is in fact proof of the motion of the sun, moon and Earth in space, along with the Earth's rotation. Read more.\n\nFeatured Weekly Ad [...] Find us on Google 📌 Eating like it is 1776 Start the day smarter ☀️ Get the USA TODAY app\n\nFACT CHECK\n\nNASA\n\n# Fact check roundup: Debunking the flawed science behind flat Earth claims\n\nEleanor McCrary\n\nUSA TODAY\n\nDec. 7, 2022Updated May 8, 2023, 8:41 p.m. ET\n\nHumans first theorized the Earth may be spherical in ancient Greece thousands of years ago, according to the American Physical Society. Since then, scientists have discovered an abundance of evidence to confirm this is the case – including seeing Earth itself from space.\n\nClaims the Earth is flat continue to circulate, though.\n\n## Why people think the Earth is flat\n\nExperts say flat Earth claims endure in large part because of the repetition enabled by social media. [...] Our rating: False\n\nThe Earth is curved and does rotate, and there are several ways scientists have proved this, experts say. The curvature of the Earth can be seen from an elevated vantage point, and the rotation of the Earth impacts daily functions like the routes planes fly. This rotation just can't be felt because humans feel acceleration, not speed. Read more.\n\nClaim: Earth isn't curved or moving; air pressure couldn't exist 'without a container'\n\nOur rating: False\n\nAmple evidence, including photos, atmospheric processes, lunar eclipses and the movement of stars, demonstrates Earth's curve and motion. Gas pressure in Earth's atmosphere is caused by gravity pulling matter toward the planet's core, so there's no need for a \"container.\" Read more."
+          }
+        ],
+        "searchQuery": "Fact check definition celestial body Earth evidence proof astronomy"
+      },
+      {
+        "id": "C3",
+        "claim": "The Earth is a sphere.",
+        "context": "The Earth is a sphere.",
+        "isQuestion": false,
+        "claimId": "C3",
+        "verdict": "Unverifiable",
+        "confidenceScore": 0.3,
+        "reasoning": "The provided evidence from multiple sources, including historical measurements by Eratosthenes, observations of ships on the horizon, lunar eclipses, and satellite imagery, all support the claim that the Earth is a sphere. The evidence consistently shows that the Earth's shape is curved, with many examples and experiments demonstrating this fact.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "directAnswer": null,
+        "citations": [
+          {
+            "url": "https://www.reuters.com/article/fact-check/alexander-gleasons-map-of-the-world-does-not-prove-the-earth-is-flat-idUSL1N31S27S/",
+            "title": "Fact Check: Alexander Gleason's map of the world does not prove ...",
+            "relevantSnippet": "EARTH IS NOT FLAT\n\nThere is ample publicly available evidence that the earth is not flat. NASA has published images of the earth from space, noting the “ancient Greeks believed the Earth was round and calculated its circumference with remarkable accuracy” (here).\n\nBefore photographic proof was possible, Eratosthenes measured the earth’s shadow cast by a stick during the summer solstice to calculate the circumference of the earth (here.).\n\n“The shadow [earth] casts on the moon during an eclipse is round, regardless of where the moon is in the sky,” Steffen said.\n\nSteffen also said that individuals can perform a similar experiment using geometry and Polaris, or the north star, as a function of latitude. [...] “If you measure the angle from the horizon to Polaris at the border with Mexico, and then again at the border with Canada, it will rise in the sky,” Steffen said. “It will rise in the sky higher than what is possible on a flat earth.”\n\nSatellites have captured countless images of the Earth from space. The Global Positioning System (GPS) technology they power also demonstrates that the world is round. (here).\n\nGoldhaber-Gordon said GPS is “based on not only an (approximately) spherical earth but also the special and general theories of relativity” that “would make no sense in any flat earth picture,” which is why anyone using GPS is relying on the roundness of the earth. [...] Goldhaber-Gordon added that this experiment would show that “locations close to the south pole appear far apart on the map,” although that is not the reality.\n\nCharles Bennett, a Bloomberg Distinguished Professor at Johns Hopkins University, said that representing a 3D object such as the earth in 2D is impossible “on the flat pages of an atlas,” which is why projections are used, but they are not accurate depictions of the earth’s shape.\n\n“A projection of a person on a page is also flat (see Jeff Brown’s ‘Flat Stanley’ character), but people aren’t flat,” Bennett said. “One cannot conclude that the earth is flat on the basis of a projection – any projection.”\n\nEARTH IS NOT FLAT"
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Empirical_evidence_for_the_spherical_shape_of_Earth",
+            "title": "Empirical evidence for the spherical shape of Earth - Wikipedia",
+            "relevantSnippet": "a geometry where the Sun is very far away and is being seen from the daylight half of a spherical Earth. These two phenomena are related: A low-altitude spotlight Sun would spend most of the day near the horizon for most locations on Earth, which is not observed, but rise and set fairly close to the horizon. A high-altitude Sun would spend more of the day away from the horizon, but rise and set fairly far from the horizon, which is also not observed. [...] On a perfectly spherical Earth, not considering obstructions and atmospheric refraction, its surface blocks almost half the sky for an observer close against the surface (see horizon). Moving away from the surface of Earth means that the ground blocks less and less of the sky. For example, when viewed from the Moon, Earth blocks only a small portion of the sky because it is so distant. This effect of geometry means that, when viewed from a high mountain, flat ground or ocean blocks less than a hemisphere of the sky. With the presumption of a spherical Earth, an expedition commissioned by caliph al-Ma'mun used this fact to calculate Earth's circumference to within 7,920 kilometres (4,920 mi) of the correct value of around 40,000 kilometres (25,000 mi), and possibly as accurately as 180 [...] A star has an altitude above the horizon for an observer if the star is visible. Observing the same star at the same time from two different latitudes gives two different altitudes. Using geometry, the two altitudes along with the distance between the two locations allows for a calculation of Earth's size. Using observations of the star Canopus at Rhodes (in Greece) and Alexandria (in Egypt) and the distance between them, the Ancient Greek philosopher Posidonius used this technique to calculate the circumference of the planet to within perhaps 4% of the correct value. Modern equivalents of his units of measure are not precisely known, so it is not clear how accurate his measurement was."
+          },
+          {
+            "url": "https://www.themathdoctors.org/proving-the-earth-is-round-or-not/",
+            "title": "Proving the Earth is Round … or Not - The Math Doctors",
+            "relevantSnippet": "If the Earth is flat, the equator, which is a circle around the pole, would be 62,832km, and if the Earth is a sphere, this distance is now a quarter of a circumference, so it would be 40,000km  \n(It measures 40,075km)\n\nHere’s a diagram to better explain it: \n\nAlso, here’s something I made in blender to better explain the crepuscular rays.  \nIt’s two different views of the same object: \n\nIf we define a set {a,b} where ‘a’ is the azimuth of Polaris and ‘b’ is the observer’s latitude, and the only solutions to the function f(a) = b are trigonometric, would that be considered “proof” that Earth is spherical?\n\nHi, Patrick.\n\nThe answer is no, for several reasons. [...] Mathematics studies abstract systems such as geometry, involving idealized points, lines, etc. (which have no width, are perfectly straight, and so on). It answers questions about the real world only after we model some aspect of the world in mathematical terms. We can, for instance, assume that the world is (approximately) a sphere, and do some calculations based on real-world data; but the calculations can’t prove the assumptions. (We’ll be seeing later how data can support the claim that the earth is round, and can contradict the claim that the earth is flat, but proof is a stronger claim than that, and mathematicians are concerned to preserve the proper meaning of “proof”! [...] This punch line is more significant than you might initially think. What he is saying is that the earth is not exactly flat, nor exactly spherical, because neither model would have places where you can walk uphill. The flat earth and spherical earth hypotheses are not exact, mathematical claims, but general descriptions of the nature of the earth at a large scale. (Of course, “round” doesn’t actually mean spherical, just “not flat”, or at least “more or less spherical”.) To prove something true, you have to first define the claim clearly!\n\nThis answer was not fully satisfying, because there’s a lot more to be said.\n\n## Eratosthenes didn’t prove it!\n\nWe got a similar question, from the opposite direction, in 1999:"
+          }
+        ],
+        "searchQuery": "Fact check evidence proof Earth's shape spherical geometry"
+      }
+    ]
+  },
+  "earth is a planet": {
+    "total": 1,
+    "true": 1,
+    "partial": 0,
+    "false": 0,
+    "unverifiable": 0,
+    "accuracyScore": 95,
+    "riskLevel": "🟢 Low Risk",
+    "insightSummary": "Based on the provided data, here's a short INSIGHT SUMMARY:\n\n**Accuracy Report Summary**\n\n1 claim was submitted, with 100% accuracy. The claim was entirely true, indicating a low risk of misinformation. With a confidence level of 95%, this report suggests a high degree of reliability.",
+    "results": [
+      {
+        "id": "C1",
+        "claim": "Earth is a planet",
+        "context": "Earth is a planet",
+        "isQuestion": false,
+        "claimId": "C1",
+        "verdict": "True",
+        "confidenceScore": 0.95,
+        "reasoning": "The claim 'Earth is a planet' is supported by multiple sources of evidence, including NASA's definition of terrestrial planets, which includes Earth, and various academic articles and websites that classify Earth as a planet. The International Astronomical Union (IAU) definition of a planet, which was adopted in 2006, also classifies Earth as a planet. There is no evidence to contradict this claim, and it is a widely accepted fact in the scientific community.",
+        "conflictingEvidence": false,
+        "conflictNote": null,
+        "temporallySensitive": false,
+        "directAnswer": null,
+        "citations": [
+          {
+            "url": "https://science.nasa.gov/exoplanets/terrestrial/",
+            "title": "Terrestrial - NASA Science",
+            "relevantSnippet": "Line-up of terrestrial planets\n\nTerrestrial planets (Earth sized and smaller) are rocky worlds, composed of rock, silicate, water and/or carbon. To determine if some of these worlds have atmospheres, oceans or other signs of habitability, it takes more investigation. Larger terrestrial exoplanets (those at least twice as massive as Earth) are classified as super-Earths.\n\nIn general, terrestrial planets have a bulk composition that is dominated by rock or iron, and a solid or liquid surface. These faraway worlds may have gaseous atmospheres, but that’s not a defining feature."
+          },
+          {
+            "url": "https://www.stsci.edu/files/live/sites/www/files/home/communications-and-outreach/public-outreach/public-lecture-series/pls-assets/_documents/2010/2010-public-lecture-series-slides-stern-05-11-10.pdf",
+            "title": "[PDF] Planet Definitions and Categorization in the 21st Century",
+            "relevantSnippet": "Host stellar, orbital, and compositional, atmospheric types, as well as planetary sizes range over wide parameter space.\nAnd our own Earth has been further displaced as an archetype or centerpiece.\nWhat Is The Message Here?\nSomewhere, I Think, Copernicus is Smiling Nicolaus Copernicus 1473-1543 Result: Planet Classification Is a Challenge Now Upon Us How shall the milieu be organized? What properties determine planethood?\nWhat subtypes make most sense?\nAnd who should decide? [...] Objects do not reclassify based on orbital location.\nInstead, objects are classified purely on the basis of their nature, as are stars, stellar remnants, etc.\nWHAT’S SO ATTRACTIVE ABOUT THE GPD DEFINITION?\nAND WITH THE GPD DEFINITION, AN EARTH IS ALWAYS A PLANET Stern/March 09 A Census Gives 20 Solar Orbiting Planets, 2/3 of Which Are Dwarfs The Terrestrials: Mercury, Venus, Earth, and Mars.\nThe Giants: Jupiter, Saturn, Uranus, and Neptune.\nThe Rocky & Icy Dwarfs: Ceres, Pallas, Juno, Vesta, Pluto, Charon, Quaoar, Ixion, EL61, Eris, Makemake, and Sedna.  Science Is About Discovering New Paradigms Stern/March 09 And Some Planet Orbiting Planets Too The Terrestrials: Mercury, Venus, Earth, and Mars.\nThe Giants: Jupiter, Saturn, Uranus, and Neptune. [...] Stern/March 09 Planet Categorization & Planetary Planet Categorization & Planetary Science: Coming of Age in the 21 Science: Coming of Age in the 21st st Century Century Alan Stern Stern/March 09 Planet Classification Stern/March 09 Planet Classification Some Planets Are Small, Some Are Freakishly Large Stern/March 09 Just As Some Stars Are Small and Some Are Very Large Nicolaus Copernicus 1473-1543 Stern/March 09 AAS Meeting, 1930 There are just two types of planets: terrestrials and gas giants.\nAll planets travel in essentially the same plane. All planets are in nearly circular orbits.\nPlanets are believed to orbit where they were born."
+          },
+          {
+            "url": "https://www.pas.rochester.edu/~blackman/ast104/classification4.html",
+            "title": "Classification of the Planets",
+            "relevantSnippet": "1. The Earth is missing, because it was not understood that the points of\n   light wandering on the celestial sphere and the Earth on which we stood had\n   anything in common.\n\n   - Uranus, Neptune, and Pluto are missing because they would only be\n     discovered when the telescope made them easily visible.\n\n      Uranus is barely visible to the naked eye; it was discovered in 1781.\n\n        Neptune and Pluto are too faint to see at all without a telescope; they\n         were discovered in 1846 and 1930, respectively.\n\n     - The Sun and the Moon were classified as planets because they wandered on\n       the celestial sphere, just like Mars and Jupiter and the other planets. [...] - The Sun and the Moon were classified as planets because they wandered on\n    the celestial sphere, just like Mars and Jupiter and the other planets.\n\n Uranus is barely visible to the naked eye; it was discovered in 1781.\n\n   Neptune and Pluto are too faint to see at all without a telescope; they\n    were discovered in 1846 and 1930, respectively.\n\n- The Sun and the Moon were classified as planets because they wandered on\n  the celestial sphere, just like Mars and Jupiter and the other planets.\n\n- Neptune and Pluto are too faint to see at all without a telescope; they\n  were discovered in 1846 and 1930, respectively.\n\n- The Sun and the Moon were classified as planets because they wandered on\n  the celestial sphere, just like Mars and Jupiter and the other planets. [...] - The planets outside the asteroid belt are termed the Outer\n         Planets: Jupiter, Saturn, Uranus, Neptune, and Pluto.\n\n         - The planets sharing the gaseous structure of Jupiter are termed the Gas\n           Giant (or Jovian) Planets: Jupiter, Saturn, Uranus, and Neptune.\n\n## The 7 Planets of the Ancients"
+          }
+        ],
+        "searchQuery": "Fact check evidence supporting Earth's planetary classification"
+      }
+    ]
+  },
+  "earth is round": {
+    "total": 1,
+    "true": 1,
+    "partial": 0,
+    "false": 0,
+    "unverifiable": 0,
+    "accuracyScore": 95,
+    "riskLevel": "🟢 Low Risk",
+    "insightSummary": "**Insight Summary:** \nThe accuracy report shows a total of 1 claim, with 100% of claims being true. This suggests a very high level of confidence at 95%, with a low risk of misinformation or partial truths.",
+    "results": [
+      {
+        "id": "C1",
+        "claim": "Earth is round",
+        "context": "Earth is round",
+        "isQuestion": false,
+        "claimId": "C1",
+        "verdict": "True",
+        "confidenceScore": 0.95,
+        "reasoning": "The claim that the Earth is round is supported by multiple lines of evidence from various sources, including scientific observations, experiments, and historical records. The evidence from lunar eclipses, ship observations, and satellite imagery all confirm that the Earth is approximately spherical in shape. While some sources note that the Earth is not a perfect sphere due to its slightly oblate shape, this does not contradict the overall claim that the Earth is round.",
+        "citations": [
+          {
+            "url": "https://askanexpert.asu.edu/earthspace/top-question/flat-earth",
+            "title": "How Do We Know the Earth Is Round? - Ask an Expert (ASU)",
+            "relevantSnippet": "Like the other planets, the Earth is a sphere. It rotates around its own axis slowly but continuously, and completes this rotation about once every 24 hours. As the Earth rotates, part of the Earth is facing the sun, and part of it faces away. This is why some parts of the world have day and night at different times.   \n \n\nThere are a number of reasons why scientists know that the Earth is round, and not flat. It turns out that we can test many of these reasons out for ourselves, too.\n\n If the Earth was flat, we would be able to look out and see very far, assuming that there were no buildings in the way. We could see another city that’s hundreds of miles away. Or a ship sailing out to sea. The boat would stay in view no matter how far out to sea it went. [...] A follow-up question might be whether the Earth could be flat and round, like a pancake. This would cause the shadow on the moon to be round, but the shape of the Earth to be flat. If the Earth were flat but rotating, its shape would be different for eclipses at different times of the day or night. Sometimes it would appear only as a line. The rest of the time it would appear like an oval or circle as it’s spinning. However, we know that the shadow the Earth casts on the moon during an eclipse has always been circular, regardless of time of day. This supports the idea that the Earth is a sphere. \n\nThese are just a few testable ways we know that the Earth is round. Can you think of other ways that show the Earth is round and not flat? [...] You have probably seen that when the sun is out, it causes a shadow to form if it hits something. It turns out that we can use shadows as another piece of evidence that the Earth is round.\n\nImage of the Earth from the NASA DSCOVR satellite\n\nThe fact that the sun sets at different times in different locations lets us know that the Earth is a sphere. Image by NASA."
+          },
+          {
+            "url": "https://www.youtube.com/watch?v=JHQWPqKPrW8",
+            "title": "Ancient Scholars Proved the Earth is Round - YouTube",
+            "relevantSnippet": "Earth's roundness pointing out that the shadow on the moon is caused by the Earth moving between it and the Sun G and further positing that the curved shape of the Shadow demonstrates that the Earth is a globe another popular argument of the age involved ships and the Horizon when a Ship Sails toward you from Beyond the Horizon it sails and M are visible before its Hull while the opposite happens when one sails away from you this would not happen if the Earth were flat or disc shaped but it was another Greek polymath named ostanes who in the 3rd Century BC C finally offered definitive proof that the Earth is spherical in shape osines was the chief librarian at the famous repository of ancient knowledge in Alexandria Egypt there he learned of a travel account pertaining to the town of Cen [...] [Laughter] hi everybody it's Ranger John at Charlestown Landing State historic site and one of the topics that we interpret here at the park is navigation during the age of sale but contrary to a popular myth the medieval Scholars who helped usher in this period of exploration were not flat earthers in fact they actually understood that the Earth is round how did they know this well ancient Greek thinkers had proven it centuries before the Advent of the Common Era as early as the 4th Century BC the idea that the planet is a sphere was circulating among the intelligencia of ancient Greece among the famous philosophers who subscrib to the round earth theory was Aristotle Aristotle cited lunar eclipses as empirical evidence for the Earth's roundness pointing out that the shadow on the moon [...] learned of a travel account pertaining to the town of Cen modern-day azwan Egypt which lies near the Tropic of Cancer several hundred miles up the Nile from Alexandria this traveler noticed that at noon on the summer solstice The Columns in the Town Center did not cash shadows and that the reflection of the sun could be seen in the center of the town's well aanes reasoned that if the Earth were flat a column in Alexandria would also fail to cast a shadow at noon on the summer solstice if it did cast one as he expected it would allow him to calculate the circumference of the spherical Earth on the next summer solstice ostanes conducted his experiment and found that his column did indeed cast a shadow proving that the Earth is round its angle measured 7.2 degrees or 1 15th of a circle which"
+          },
+          {
+            "url": "https://www.poynter.org/fact-checking/2024/earth-is-round-not-flat-proof/",
+            "title": "Earth is round and high-altitude footage doesn't prove Earth is flat",
+            "relevantSnippet": "“Even though our planet is a sphere, it is not a perfect sphere,” according to NASA. “Because of the force caused when Earth rotates, the North and South Poles are slightly flat. Earth’s rotation, wobbly motion and other forces are making the planet change shape very slowly, but it is still round.”\n\nAdditionally, other planets are also round. “Through the use of high-powered telescopes, we’ve been able to examine planets both in our solar system and beyond, and all of them are spherical in shape,” researchers at the University of Nevada, Las Vegas, said.\n\nPolitiFact previously debunked similar claims about the flat-Earth theory.\n\nWe rate the claim that this footage shows the Earth is flat Pants on Fire! [...] The video showed clips of clouds, oceans and rivers and what appears to be a flat line where Earth meets sky.\n\nThe Facebook video was flagged as part of Meta’s efforts to combat false news and misinformation on its News Feed. (Read more about our partnership with Meta, which owns Facebook, Threads, and Instagram.)\n\nThe Earth is not flat. Humans have known this for more than 2,000 years, and since then, scientists have improved our understanding of the Earth’s shape, including by collecting pictorial evidence from space that shows the planet is round. [...] This fact check was originally published by PolitiFact, which is part of the Poynter Institute. See the sources for this fact check here.\n\n##### Poynter is a nonprofit dedicated to keeping journalism strong, relevant, and grounded in sound values.\n\nJoin our donor community, the First Amendment Society, to help us continue this critical work.\n\n### More News\n\n##### CBS News cuts radio division amid layoffs\n\nThe radio network had been operating since 1927 and counts Edward R. Murrow and Walter Cronkite among its alumni\n\n##### A year after Trump administration cuts, Voice of America and its sister outlets are mostly shadows of their former selves\n\nLayoffs, lawsuits and lost trust have left US-funded global news outlets diminished, creating openings for authoritarian leaders abroad"
+          },
+          {
+            "url": "https://www.scientificamerican.com/article/earth-is-not-round/",
+            "title": "Strange but True: Earth Is Not Round | Scientific American",
+            "relevantSnippet": "To keep track of Earth's shape, scientists now position thousands of Global Positioning System receivers on the ground that can detect changes in their elevation of a few millimeters, Gross says. Another method, dubbed satellite laser ranging, fires visible-wavelength lasers from a few dozen ground stations at satellites. Any changes detected in their orbits correspond to gravitational anomalies and thus mass distributions inside the planet. Still another technique, very long baseline interferometry, has radio telescopes on the ground listen to extragalactic radio waves to detect changes in the positions of the ground stations. It may not take much technology to understand that Earth is not perfectly round, but it takes quite a bit of effort and equipment to determine its true shape. [...] This is not to say Earth is flat. Well before Columbus sailed the ocean blue, Aristotle and other ancient Greek scholars proposed that Earth was round. This was based on a number of observations, such as the fact that departing ships not only appeared smaller as they sailed away but also seemed to sink into the horizon, as one might expect if sailing across a ball says geographer Bill Carstensen of Virginia Tech in Blacksburg.\n\nIsaac Newton first proposed that Earth was not perfectly round. Instead, he suggested it was an oblate spheroid—a sphere that is squashed at its poles and swollen at the equator. He was correct and, because of this bulge, the distance from Earth's center to sea level is roughly 21 kilometers (13 miles) greater at the equator than at the poles. [...] April 12, 2007\n\n3 min read\n\nGoogle Logo\n\n# Strange but True: Earth Is Not Round\n\nStrange but True: Earth Is Not Round\n\nIt may seem round when viewed from space, but our planet is actually a bumpy spheroid\n\nBy Charles Q. Choi\n\nGary S. Chapman Getty Images\n\nJoin Our Community of Science Lovers!\n\nAs countless photos from space can attest, Earth is round—the \"Blue Marble,\" as astronauts have affectionately dubbed it. Appearances, however, can be deceiving. Planet Earth is not, in fact, perfectly round."
+          },
+          {
+            "url": "https://www.popsci.com/10-ways-you-can-prove-earth-is-round/",
+            "title": "10 ways you can tell the Earth is round - Popular Science",
+            "relevantSnippet": "Since the earth is rotating (see the “Foucault Pendulum” experiment for a definite proof, if you are doubtful), the consistent oval-shadow it produces in each and every lunar eclipse proves that the earth is not only round but spherical—absolutely, utterly, beyond a shadow of a doubt not flat.\n\n## 2. Follow ships on the horizon\n\nIf you’ve been next to a port lately, or just strolled down a beach and stared off vacantly into the horizon, you might have noticed a very interesting phenomenon: Approaching ships do not just “appear” out of the horizon like they should have if the world was flat, but rather seem to emerge from beneath the sea. [...] In other words: If so many planets that were created in different locations and under different circumstances show the same property, it’s likely that our own planet has the same property as well. All of our observations show that other planets are spherical (and since we know how they’re created, it’s also obvious why they take this shape). Unless we have a very good reason to think otherwise (which we don’t), our planet is very likely the same. [...] Consider a sphere. Since a sphere has a consistent shape, no matter where on it you stand, you have exactly the same amount of sphere under you. (Imagine an ant walking around on a crystal ball. From the insect’s point of view, the only indication of movement would be the fact the ant is moving its feet—the shape of the surface would not change at all.) A sphere’s center of mass is in the center of the sphere, which means gravity will pull anything on the surface of the sphere straight down toward the center of the sphere. This will occur no matter where on the surface the object is located."
+          }
+        ],
+        "searchQuery": "Fact check evidence for Earth's roundness"
+      }
+    ]
+  },
+  "tesla was founded in 2005": {
+    "total": 2,
+    "true": 0,
+    "partial": 0,
+    "false": 1,
+    "unverifiable": 1,
+    "accuracyScore": 50,
+    "riskLevel": "🔴 High Risk",
+    "insightSummary": "**INSIGHT SUMMARY**\n\nTotal claims analyzed: 2. The majority (50%) of claims were deemed partially true or false. Notably, 1 claim was found to be entirely false, indicating a high risk (HIGH) of misinformation.",
+    "results": [
+      {
+        "id": "C1",
+        "claim": "Tesla was founded in 2003 is incorrect, Tesla was founded in 2003 is incorrect, Tesla was founded in 2005",
+        "context": "Tesla was founded in 2003 is incorrect, Tesla was founded in 2003 is incorrect, Tesla was founded in 2005",
+        "isQuestion": false,
+        "claimId": "C1",
+        "verdict": "False",
+        "confidenceScore": 0.9,
+        "reasoning": "The evidence consistently indicates that Tesla was founded in 2003 by Martin Eberhard and Marc Tarpenning, not in 2005. Multiple sources, including Wikipedia, TheStreet, and Wisconsin Watch, confirm the founding date as July 1, 2003.",
+        "citations": [
+          {
+            "url": "https://en.wikipedia.org/wiki/Tesla,_Inc.",
+            "title": "Tesla, Inc. - Wikipedia",
+            "relevantSnippet": "### Founding (2003–2004)\n\nThe company was incorporated as Tesla Motors, Inc., on July 1, 2003, by Martin Eberhard and Marc Tarpenning. They served as chief executive officer and chief financial officer, respectively. Eberhard said that he wanted to build \"a car manufacturer that is also a technology company\", with its core technologies as \"the battery, the computer software, and the proprietary motor\". [...] Tesla was incorporated in July 2003 by Martin Eberhard and Marc Tarpenning as Tesla Motors. Its name is a tribute to the inventor and electrical engineer Nikola Tesla. In February 2004, Elon Musk led Tesla's first funding round and became the company's chairman, subsequently claiming to be a co-founder; in 2008, he was named chief executive officer. The company began production of its first car model, the Roadster \"Tesla Roadster (first generation)\") sports car, in 2008; the Model S sedan in 2012; the Model X SUV in 2015; the Model 3 sedan in 2017; the Model Y crossover in 2020; the Tesla Semi truck in 2022; and the Cybertruck pickup truck in 2023. [...] | Gigafactory Texas, Tesla's headquarters, just outside of Austin, Texas |\n| Formerly | Tesla Motors, Inc. (2003–2017) |\n| Company type | Public |\n| Traded as |  Nasdaq: TSLA  Nasdaq-100 component  S&P 100 component  S&P 500 component |\n| ISIN | US88160R1014 |\n| Industry |  Automotive  Renewable energy |\n| Founded | July 1, 2003; 22 years ago (2003-07-01) in San Carlos, California, US |\n| Founders |  Martin Eberhard  Marc Tarpenning  (See § Founding)) |\n| Headquarters | Austin, Texas , US |\n| Number of locations |  1,359 sales, service, and delivery centers  7,791 Supercharger stations |\n| Area served |  East Asia  Europe  Middle East  North America  Oceania  Southeast Asia  Indian Subcontinent |\n| Key people |  Elon Musk (CEO)  Robyn Denholm (chair \"Chair (officer)\")) |"
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/History_of_Tesla,_Inc.",
+            "title": "History of Tesla, Inc. - Wikipedia",
+            "relevantSnippet": "9. ^ Musk, Elon (May 31, 2016). \"Elon Musk recounts Tesla's history at 2016 shareholders meeting (2016.5.31)\". youtube.com. Retrieved July 31, 2019.\n10. ^ \"Tesla: A Carmaker With Silicon Valley Spark\". Bloomberg.com. July 30, 2007. Retrieved August 31, 2020.\n11. ^ Burns, Matt (October 8, 2014). \"A Brief History of Tesla\". TechCrunch. Archived from the original on July 17, 2015. Retrieved June 11, 2015. Tesla was founded not by Elon Musk, but rather by Martin Eberhard and Marc Tarpenning in July 2003. The two bootstrapped the fledgling auto company until Elon Musk led the company's US$7.5 million Series A financing round in February 2004.\n12. ^ Third Row Tesla Podcast – Elon's Story – Part 1, January 20, 2020, retrieved April 17, 2020 [...] 3. ^ a b c d e Vance, Ashlee (May 19, 2015). Elon Musk : Tesla, SpaceX, and the quest for a fantastic future (First ed.). New York, NY. pp. 151–155. ISBN \"ISBN (identifier)\") 978-0-06-230123-9. OCLC \"OCLC (identifier)\") 881436803. On July 1, 2003, Eberhard and Tarpenning incorporated their new company. \" \"The third desk was occupied a few months later by Ian Wright...\" \"...the three men went hunting for some venture capital funding in January' 2004.\" \"With an investment of $6.5 million, Musk had become the largest shareholder of Tesla and the chairman of the company.\" \"Straubel stopped by the office for a meeting, and was hired right away in May 2004...`{{cite book}}`: CS1 maint: location missing publisher (link) [...] In February 2005, Musk led Tesla's Series B US$13 million investment round which added Valor Equity Partners to the funding team. Musk co-led the third, US$40 million round in May 2006 along with Technology Partners. This round included investment from prominent entrepreneurs including Google co-founders Sergey Brin & Larry Page, former eBay President Jeff Skoll, Hyatt heir Nick Pritzker and added the VC firms Draper Fisher Jurvetson, Capricorn Management, and The Bay Area Equity Fund managed by JPMorgan Chase. Musk led the fourth round in May 2008 which added another US$40,167,530 in debt financing, and brought the total investments to over US$100 million through private financing."
+          },
+          {
+            "url": "https://www.thestreet.com/technology/history-of-tesla-15088992",
+            "title": "History of Tesla & its stock: Timeline, facts & milestones - TheStreet",
+            "relevantSnippet": "Here’s everything you need to know about the company and its more than two-decade history, including a year-by-year timeline of important events (the second-to-last section in this article).\n\n## The founding of Tesla\n\nTesla was founded in 2003 by engineers Martin Eberhard and Marc Tarpenning in San Carlos, California. It was originally called Tesla Motors, a name the company would truncate in 2017.\n\nThe company was named after the 19th-century inventor Nikola Tesla, best known for discovering the properties of rotating electromagnetic fields. His work led to what is known as “alternating current,” a form of electrical transmission used in most households today. (This was as opposed to the far less efficient system called “direct current” favored by Thomas Edison). [...] Graphic showing Tesla's stock price from IPO in June 2010 to September 2025.\n\nTesla’s stock rose to a record toward the end of 2025, translating to a more than 300-fold gain from its first day of trading in 2010. Its share price took off in 2020 after posting a string of quarterly profits that turned into its first full year of net income. It has posted an annual profit since then.\n\nGoogle Finance via Google Sheets\n\n## A comprehensive timeline of Tesla: 2003–present\n\n2003: Tesla Motors is founded by Martin Eberhard and Marc Tarpenning in San Carlos, California. They serve as its CEO and CFO, respectively.\n\n2004: Elon Musk invests $30 million and joins Tesla as the Chairman of its Board of Directors.\n\n2006: Tesla showcases the prototype for its first car, the all-electric Roadster. [...] When Tesla was founded in 2003, Eberhard served as its CEO, and Tarpenning served as CFO. They launched their company to develop and produce an entirely electric car after observing the favorable reaction test markets had to General Motors’ previous electric car experiment, the EV1.\n\nAlthough GM only ran this program from 1996 to 1999, producing a limited run of cars that it never released for public purchase, it was generally considered successful from an engineering standpoint. Eberhard and Tarpenning wanted to build upon that success.\n\nAlthough Musk has long been the face of Tesla, he did not join the company until 2004. He invested $30 million into the startup and became the chairman of its board of directors.\n\n## Tesla’s early years and the Roadster"
+          },
+          {
+            "url": "https://electrek.co/2025/01/22/elon-musk-is-a-tesla-founder-but-he-isnt-behind-its-main-innovation/",
+            "title": "Elon Musk is a 'Tesla founder', but he isn't behind its main innovation",
+            "relevantSnippet": "While there’s some truth to it, it’s not the whole truth. I felt like it would be essential to set the record straight.\n\nAdvertisement - scroll for more content\n\n## The early story of Tesla\n\nTesla was officially incorporated on July 1, 2003, by Martin Eberhard and Marc Tarpenning with the goal of building an electric vehicle manufacturer that is also a technology company – an idea that is still core to Tesla today.\n\nIn investment materials, Eberhard and Tarpenning’s early Tesla stated a goal to develop core technologies related to “the battery, the computer software, and the proprietary motor.” These are still Tesla’s core technologies today. [...] They test-drove the tZero with lithium-ion batteries, and Musk was sold. Like Eberhard, he tried to convince AC Propulsion to commercialize the product. Tom Gage, AC Propulsion’s CEO, again refused, but since they were thinking the same way, he connected Musk to Eberhard, who had just launched Tesla with Tarpenning, along with Ian Wright, who had joined the two engineers.\n\nA few months later, in February 2004, Musk led Tesla’s series A investment round, with $6.5 million of the $7.5 million coming from his pockets.\n\nEberhard became CEO, and JB Straubel, who, despite his young age, had the most experience building electric cars, joined as Chief Technology Officer.\n\nMusk was busy with SpaceX, but he was more active within Tesla than simply being an investor and board member. [...] But Tesla’s most important innovation was the use and packaging of cylindrical li-ion battery cells, previously mainly used in consumer electronic products, like laptops, in large battery packs for electric vehicles.\n\nThat was really a game changer and it’s an idea that precede Elon Musk’s involvement with Tesla.\n\nWhile incorporated in 2003, Eberhard and Tarpenning had been working on the idea for a while. They had previously founded NuvoMedia where the two founders built of an early handheld device, the Rocketbook, an ebook reader, back in 1996.\n\nThey sold the company in 2000, but before that, they were working on the next-generation of their ebook and in sourcing the batteries, they noted some impressive improvements in the capacity and cost of li-ion battery cells."
+          },
+          {
+            "url": "https://wisconsinwatch.org/2023/09/fact-brief-elon-musk-tesla-founder/",
+            "title": "Is Elon Musk the founder of Tesla? - Wisconsin Watch",
+            "relevantSnippet": "Wisconsin Watch\n\nWisconsin Watch\n\nNonprofit, nonpartisan news about Wisconsin\n\n# Is Elon Musk the founder of Tesla?\n\nAvatar photo\n\n### Share this:\n\n## Our newsletters:\n\nA great way to stay informed without feeling overwhelmed. 👍\n\nWisconsin Watch partners with Gigafact to produce fact briefs — bite-sized fact checks of trending claims. Read our methodology to learn how we check claims.\n\n## No.\n\nTesla Inc. was founded in 2003 by entrepreneurs Martin Eberhard and Marc Tarpenning, according to several sources, including Britannica, TheStreet.com, CNN and Benzinga financial news service.\n\nA Sept. 18, 2023, post on Facebook’s Politics Wisconsin page shared an image that said Elon Musk was not a founder. [...] The Austin, Texas-based company, best known for manufacturing Tesla electric vehicles, calls Musk a co-founder. Beginning in 2004, he was a major investor and served as the company chair. He has been CEO since 2008.\n\nBank of America said in June that Tesla’s share of the electric vehicle market was 62% in 2022, but predicted it would drop to 18% by 2026.  \n  \nThis Fact Brief is responsive to conversations such as this one.\n\nSources\n\nEncyclopædia Britannica: Tesla, Inc. | History, Cars, Elon Musk, & Facts\n\nTheStreet: History of Tesla: Timeline and Facts\n\nCNN: The History of Tesla and Elon Musk: A Radical Vision for the Future of Autos\n\nYahoo Finance: Benzinga: Elon Musk Wasn’t The Original Founder of Tesla — The Forgotten Founders Behind The Iconic Brand [...] Avatar photo\nWisconsin Senate OKs $133 million package to combat ‘forever chemicals,’ sends bills to governor\n\n### Wisconsin Senate OKs $133 million package to combat ‘forever chemicals,’ sends bills to governor\n\nAvatar photo\n\n## Tom Kertscher / Wisconsin WatchState fact brief reporter\n\nTom Kertscher joined Wisconsin Watch as a full-time reporter in October 2024. He started as a fact checker in January 2023 and contributes to our collaboration with the The Gigafact Project to fight misinformation online. Kertscher is a former longtime newspaper reporter, including at the Milwaukee Journal Sentinel. He is a contributing writer for Milwaukee Magazine and sports freelancer for The Associated Press.\n\nWisconsin Watch\n\n## About\n\n## Our People\n\n## Media Partners\n\n## What we cover\n\n## Our impact"
+          }
+        ],
+        "searchQuery": "Fact check Tesla founding year, evidence for 2003, 2005, or correct founding year"
+      },
+      {
+        "id": "C2",
+        "claim": "Tesla was founded in 2005",
+        "context": "Tesla was founded in 2005",
+        "isQuestion": false,
+        "claimId": "C2",
+        "verdict": "Unverifiable",
+        "confidenceScore": 0.1,
+        "reasoning": "System encountered an error during verification after multiple retries.",
+        "citations": [
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1318605/000156459017003118/tsla-ex31_1396.htm",
+            "title": "tsla-ex31_1396.htm - SEC.gov",
+            "relevantSnippet": "IN WITNESS WHEREOF, Tesla Motors, Inc. has caused this Amended and Restated Certificate of Incorporation to be signed by a duly authorized officer of the Corporation on this 2nd day of July, 2010.\n\n|  |  |  |\n --- \n|  |  | /s/ Elon Musk |\n|  |  | Elon Musk |\n|  |  | Chief Executive Officer | [...] EX-3.1 2 tsla-ex31\\_1396.htm EX-3.1   tsla-ex31\\_1396.htm \n\nExhibit 3.1\n\nAMENDED AND RESTATED CERTIFICATE OF INCORPORATION\n\nTESLA MOTORS, INC.\n\na Delaware corporation\n\nTesla Motors, Inc., a corporation organized and existing under the laws of the State of Delaware (the “Corporation”), hereby certifies as follows:\n\nA. The name of the Corporation is Tesla Motors, Inc. The Corporation’s original Certificate of Incorporation was filed with the Secretary of State of the State of Delaware on July 1, 2003. [...] of Incorporation (including, without limitation, by any certificate of designations relating to any series of Preferred Stock) or pursuant to the DGCL."
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Tesla,_Inc.",
+            "title": "Tesla, Inc. - Wikipedia",
+            "relevantSnippet": "### Founding (2003–2004)\n\nThe company was incorporated as Tesla Motors, Inc., on July 1, 2003, by Martin Eberhard and Marc Tarpenning. They served as chief executive officer and chief financial officer, respectively. Eberhard said that he wanted to build \"a car manufacturer that is also a technology company\", with its core technologies as \"the battery, the computer software, and the proprietary motor\". [...] | Gigafactory Texas, Tesla's headquarters, just outside of Austin, Texas |\n| Formerly | Tesla Motors, Inc. (2003–2017) |\n| Company type | Public |\n| Traded as |  Nasdaq: TSLA  Nasdaq-100 component  S&P 100 component  S&P 500 component |\n| ISIN | US88160R1014 |\n| Industry |  Automotive  Renewable energy |\n| Founded | July 1, 2003; 22 years ago (2003-07-01) in San Carlos, California, US |\n| Founders |  Martin Eberhard  Marc Tarpenning  (See § Founding)) |\n| Headquarters | Austin, Texas , US |\n| Number of locations |  1,359 sales, service, and delivery centers  7,791 Supercharger stations |\n| Area served |  East Asia  Europe  Middle East  North America  Oceania  Southeast Asia  Indian Subcontinent |\n| Key people |  Elon Musk (CEO)  Robyn Denholm (chair \"Chair (officer)\")) | [...] Tesla was incorporated in July 2003 by Martin Eberhard and Marc Tarpenning as Tesla Motors. Its name is a tribute to the inventor and electrical engineer Nikola Tesla. In February 2004, Elon Musk led Tesla's first funding round and became the company's chairman, subsequently claiming to be a co-founder; in 2008, he was named chief executive officer. The company began production of its first car model, the Roadster \"Tesla Roadster (first generation)\") sports car, in 2008; the Model S sedan in 2012; the Model X SUV in 2015; the Model 3 sedan in 2017; the Model Y crossover in 2020; the Tesla Semi truck in 2022; and the Cybertruck pickup truck in 2023."
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/History_of_Tesla,_Inc.",
+            "title": "History of Tesla, Inc. - Wikipedia",
+            "relevantSnippet": "13. ^ \"Tesla Motors History Timeline\". March 22, 2014. Retrieved April 17, 2020.\n14. ^ LaMonica, Martin. \"Tesla Motors founders: Now there are five\". CNET. Retrieved April 17, 2020.\n15. ^ Musk, Elon. \"CEO Elon Musk\". Tesla Motors. Retrieved October 20, 2010.\n16. ^ Eberhard, Martin (July 25, 2006). \"Lotus Position | Blog\". Tesla Motors. Retrieved October 20, 2010.[self-published source]\n17. ^ \"Tesla Motors Receives 'Environmental Leadership' Award from Global Green USA\". Tesla Motors. Retrieved April 12, 2015.\n18. ^ \"Tesla Roadster\". Index. 2007. Archived from the original on January 18, 2012. Retrieved April 12, 2015. [...] 24. ^ Fehrenbacher, Katie (June 11, 2009). \"Tesla Founder Eberhard Files Lawsuit Against Tesla's Elon Musk\". gigaom.com. Archived from the original on February 1, 2017. Retrieved April 18, 2014.\n25. ^ a b c d Baer, Drake (November 11, 2014). \"The Making Of Tesla: Invention, Betrayal, And The Birth Of The Roadster\". Business Insider. Retrieved April 29, 2016.\n26. ^ Lambert, Fred (May 16, 2015). \"Tesla's original team, where are they now?\". Electrek. Retrieved April 29, 2016.\n27. ^ Lienert, Anita (January 11, 2008). \"\"Stealth Bloodbath\" Roils Tesla Motors\". Edmund's Inside Line. Retrieved February 8, 2008.\n28. ^ a b Ohnsman, Alan (January 19, 2009). \"Detroit Auto No-Shows Put Startups Fisker, Tesla in Spotlight\". Bloomberg L.P. Retrieved February 10, 2009. [...] On February 1, 2017, the company changed its name from Tesla Motors to Tesla. In late March 2017, Tesla Inc. announced that Tencent Holdings Ltd., at the time China's \"most valuable company,\" had purchased a 5% stake in Tesla for US$1.8 billion. In 2017, Tesla surpassed Ford Motor Company and General Motors in market capitalization for a couple of months, making it the most valuable American automaker. In June 2017, Tesla appeared for the first time in the Fortune 500 list."
+          }
+        ],
+        "searchQuery": "Fact check Tesla founding date evidence proof"
+      }
+    ]
+  },
+  "ceo of google is?": {
+    "total": 1,
+    "true": 0,
+    "partial": 0,
+    "false": 0,
+    "unverifiable": 1,
+    "accuracyScore": 10,
+    "riskLevel": "🟢 Low Risk",
+    "insightSummary": "**Insight Summary:**\nWith only 1 total claim, our analysis indicates a low risk of misinformation. However, the lack of true, false, or partial claims suggests a potentially incomplete dataset. Confidence remains high at 10, but further investigation is needed to verify the accuracy of this single claim.",
+    "results": [
+      {
+        "id": "C1",
+        "claim": "The CEO of Google is unknown.",
+        "context": "The CEO of Google is unknown.",
+        "isQuestion": false,
+        "claimId": "C1",
+        "verdict": "Unverifiable",
+        "confidenceScore": 0.1,
+        "reasoning": "Verification failed after retries.",
+        "citations": [
+          {
+            "url": "https://www.bbc.com/news/articles/c8drzv37z4jo",
+            "title": "Don't blindly trust what AI tells you, says Google's Sundar Pichai - BBC",
+            "relevantSnippet": "\"This is why people also use Google search, and we have other products that are more grounded in providing accurate information.\"\n\nHowever, some experts say big tech firms such as Google should not be inviting users to fact-check their tools' output, but should focus instead on making their systems more reliable.\n\nWhile AI tools were helpful \"if you want to creatively write something\", Mr Pichai said people \"have to learn to use these tools for what they're good at, and not blindly trust everything they say\".\n\nHe told the BBC: \"We take pride in the amount of work we put in to give us as accurate information as possible, but the current state-of-the-art AI technology is prone to some errors.\"\n\nThe company displays disclaimers on its AI tools to let users know they can make mistakes. [...] # Don't blindly trust what AI tells you, says Google's Sundar Pichai\n\nGetty Images A young female student seen from above interacts with an AI chatbot on a smartphone while studying at a desk with a laptop, notes and stationery. The scene highlights modern learning and technology integration.\n\nPeople should not \"blindly trust\" everything AI tools tell them, the boss of Google's parent company Alphabet has told the BBC.\n\nIn an exclusive interview, chief executive Sundar Pichai said that AI models are \"prone to errors\" and urged people to use them alongside other tools.\n\nMr Pichai said it highlighted the importance of having a rich information ecosystem, rather than solely relying on AI technology. [...] In May this year, Google began introducing a new \"AI Mode\" into its search, integrating its Gemini chatbot which is aimed at giving users the experience of talking to an expert.\n\nAt the time, Mr Pichai said the integration of Gemini with search signalled a \"new phase of the AI platform shift\".\n\nThe move is also part of the tech giant's bid to remain competitive against AI services such as ChatGPT, which have threatened Google's online search dominance.\n\nHis comments back up BBC research from earlier this year, which found that AI chatbots inaccurately summarised news stories."
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Sundar_Pichai",
+            "title": "Sundar Pichai",
+            "relevantSnippet": "Pichai Sundararajan (born June 10, 1972), better known as Sundar Pichai (pronounced: /ˈsʊndɜːr pɪˈtʃeɪ/), is an American business executive who has been the CEO of Google since 2015 and the CEO of its parent company Alphabet Inc. since 2019.\n\nPichai began his career as a materials engineer. Following a short stint at the management consulting firm McKinsey & Co., Pichai joined Google in 2004, where he led the product management and innovation efforts for a suite of Google's client software products, including Google Chrome and ChromeOS, as well as being largely responsible for Google Drive. In addition, he went on to oversee the development of other applications such as Gmail and Google Maps.\n\nAs of February 2026, his net worth is estimated at US$1.6 billion.\n\n## Early life and education [...] ## Further reading\n\n Mok, Aaron (September 30, 2023). \"Inside the career rise of Sundar Pichai, the Google CEO being paid hundreds of millions to pave the way towards an 'AI-first' company\". Business Insider. Archived from the original on September 30, 2023. Retrieved October 16, 2023.\n\n## External links\n\nlogo\n\nWikimedia Commons has media related to Sundar Pichai.\n\n Sundar Pichai on Twitter Edit this at Wikidata\n \"Sundar Pichai's rise to fame in 90 seconds\", Tech Gurus, The Daily Telegraph\n\n| Business positions |\n\n| Preceded by Larry Page | CEO of Google  2015–present | Incumbent |\n| Preceded by Larry Page | CEO of Alphabet Inc.  2019–present | Incumbent |\n\n|  v  t  e  Padma Bhushan award recipients (2020–2029 \"List of Padma Bhushan award recipients (2020–2029)\")) | [...] CEO of Alphabet Inc. and Google\n\n| Sundar Pichai |\n\n| Pichai in 2023 |\n| Born | Pichai Sundararajan   (1972-06-10) June 10, 1972 (age 53)  Madurai, Tamil Nadu, India |\n| Citizenship | United States |\n| Education | IIT Kharagpur (BTech) Stanford University (MS) University of Pennsylvania (MBA) |\n| Occupation | Businessman |\n| Title | CEO of Alphabet and Google |\n| Board member of |  Alphabet Inc.  Magic Leap (2014–2018) |\n| Spouse | Anjali Pichai |\n| Children | 2 |\n| Awards | Padma Bhushan (2022) |\n| Sundar Pichai's voice    Pichai on being chief executive officer of Google Recorded December 11, 2018 |\n| Signature |"
+          },
+          {
+            "url": "https://www.instagram.com/reel/DR1Fymck3So/",
+            "title": "Google CEO Sundar Pichai has openly accepted that ... - Instagram",
+            "relevantSnippet": "Google CEO Sundar Pichai has openly accepted that Google Search is still more accurate than Gemini, and users should be careful when using AI"
+          }
+        ],
+        "searchQuery": "Fact check: current CEO of Google"
+      }
+    ]
+  },
+  "earth is a round planet": {
+    "total": 1,
+    "true": 0,
+    "partial": 1,
+    "false": 0,
+    "unverifiable": 0,
+    "accuracyScore": 60,
+    "riskLevel": "🟢 Low Risk",
+    "insightSummary": "The accuracy report indicates a total of 1 claim, with 0 verified as true or false, suggesting a lack of conclusive evidence. One claim is partially true, indicating some level of accuracy but also potential misinformation. With a confidence level of 60%, there is a moderate degree of uncertainty surrounding the claim's validity. Overall, the LOW risk level suggests that the claim is relatively harmless.",
+    "results": [
+      {
+        "id": "C1",
+        "claim": "Earth is a round planet",
+        "context": "Earth is a round planet",
+        "isQuestion": false,
+        "claimId": "C1",
+        "verdict": "Partially True",
+        "confidenceScore": 0.595,
+        "reasoning": "The claim that 'Earth is a round planet' is partially supported by the evidence. According to [Source 1], the Earth is actually an 'irregularly shaped ellipsoid', which means it is not a perfect sphere but roughly round in shape. This source provides a detailed explanation of the Earth's shape, citing NASA images and data. While [Source 2], [Source 3], [Source 4], and [Source 5] do not directly address the shape of the Earth, they do provide information on NASA's views and research on the Earth, which indirectly supports the idea that the Earth is not flat. However, none of these sources explicitly state that the Earth is round, hence the verdict of 'Partially True'.",
+        "citations": [
+          {
+            "url": "https://oceanservice.noaa.gov/facts/earth-round.html",
+            "title": "Is the Earth round? - NOAA's National Ocean Service",
+            "relevantSnippet": "![U.S. flag](/bs4/img/flag.png) An official website of the United States government.\n  \n[Here's how you know we're official.](#collapse-usa)\n\n![U.S. flag](/bs4/img/flag.png)\n\n##### dot gov icon **Official websites use .gov**\n\nA **.gov** website belongs to an official government organization in the U"
+          }
+        ],
+        "timeSensitive": false,
+        "checkedAt": "March 2026",
+        "groundingEnforced": false,
+        "searchQuery": "NASA evidence for Earth's round shape \nUS government Earth shape confirmation \nRound Earth scientific consensus \nEarth shape NASA satellite images \nRound Earth evidence from space agencies \nEarth shape confirmed by astronauts \nRound Earth scientific evidence \nEarth shape confirmed by NASA \nRound Earth proof from space exploration \nEarth shape confirmed by satellite imagery"
+      }
+    ]
+  },
+  "ai will replace all jobs": {
+    "total": 2,
+    "true": 0,
+    "partial": 0,
+    "false": 0,
+    "unverifiable": 2,
+    "accuracyScore": 10,
+    "riskLevel": "🟢 Low Risk",
+    "insightSummary": "The investigation summary reveals a relatively low-risk situation with only 2 claims analyzed. Notably, none of the claims were verified as true or false, indicating a lack of conclusive evidence. With a confidence level of 10, the results suggest a high degree of certainty in the analysis, but further investigation is still warranted to confirm the accuracy of these claims.",
+    "results": [
+      {
+        "id": "C1",
+        "claim": "AI will replace all jobs",
+        "context": "AI will replace all jobs",
+        "isQuestion": false,
+        "claimId": "C1",
+        "verdict": "Unverifiable",
+        "confidenceScore": 0.1,
+        "reasoning": "Verification engine encountered a persistent error. Please retry.",
+        "citations": [
+          {
+            "url": "https://www.cnbc.com/2025/11/14/ai-to-impact-89percent-of-jobs-next-year-cnbc-survey-finds.html",
+            "title": "AI will impact jobs in 2026, say 89% of HR leaders: CNBC survey",
+            "relevantSnippet": "About 50% of the 21 senior HR leaders who responded said AI impacted fewer than half of the jobs at their organizations. Meanwhile, 17%  said nearly half or more than half of the jobs were affected, and 11% reported being unsure. And, 22% said it has \"no impact\" on jobs at all.\n\n\"It is still too early to tell,\" said one HR leader in comments about the survey. \"Most organizations have not completel"
+          },
+          {
+            "url": "https://www.forbes.com/sites/charlestowersclark/2025/12/10/ai-in-2026-10-predictions-on-automation-and-the-future-of-work/",
+            "title": "AI In 2026: 10 Predictions On Automation And The Future Of Work",
+            "relevantSnippet": "In September 2025, Saleforce’s CEO announced the reduction of 4000 jobs in customer support due to a greater reliance on AI agents. Arguably, LLMs improve quality, but do not directly replace work. However, as AI agents become better at completing tasks autonomously, more companies will implement them to reduce labor costs in 2026.\n\nThe Prompt: Get the week’s biggest AI news on the buzziest compan"
+          },
+          {
+            "url": "https://aimultiple.com/ai-job-loss",
+            "title": "Top 20 Predictions from Experts on AI Job Loss - AIMultiple",
+            "relevantSnippet": "### HBR / Davenport & Srinivasan, 2026\n\nA Harvard Business Review analysis speculated that companies are laying off workers based on AI’s potential rather than its demonstrated performance since overall U.S. unemployment remains relatively low.18\n\n### Yale The Budget Lab, 2025\n\nTheir analysis did not find a material impact of LLMs on jobs based on the rate of job losses, hiring and transitions in "
+          }
+        ],
+        "groundingEnforced": false,
+        "searchQuery": "AI job replacement predictions 2026"
+      },
+      {
+        "id": "C2",
+        "claim": "All jobs will be replaced by AI",
+        "context": "All jobs will be replaced by AI",
+        "isQuestion": false,
+        "claimId": "C2",
+        "verdict": "Unverifiable",
+        "confidenceScore": 0.1,
+        "reasoning": "Verification engine encountered a persistent error. Please retry.",
+        "citations": [
+          {
+            "url": "https://www.cnbc.com/2025/11/14/ai-to-impact-89percent-of-jobs-next-year-cnbc-survey-finds.html",
+            "title": "AI will impact jobs in 2026, say 89% of HR leaders: CNBC survey",
+            "relevantSnippet": "About 50% of the 21 senior HR leaders who responded said AI impacted fewer than half of the jobs at their organizations. Meanwhile, 17%  said nearly half or more than half of the jobs were affected, and 11% reported being unsure. And, 22% said it has \"no impact\" on jobs at all.\n\n\"It is still too early to tell,\" said one HR leader in comments about the survey. \"Most organizations have not completel"
+          },
+          {
+            "url": "https://www.forbes.com/sites/charlestowersclark/2025/12/10/ai-in-2026-10-predictions-on-automation-and-the-future-of-work/",
+            "title": "AI In 2026: 10 Predictions On Automation And The Future Of Work",
+            "relevantSnippet": "In September 2025, Saleforce’s CEO announced the reduction of 4000 jobs in customer support due to a greater reliance on AI agents. Arguably, LLMs improve quality, but do not directly replace work. However, as AI agents become better at completing tasks autonomously, more companies will implement them to reduce labor costs in 2026.\n\nThe Prompt: Get the week’s biggest AI news on the buzziest compan"
+          },
+          {
+            "url": "https://aimultiple.com/ai-job-loss",
+            "title": "Top 20 Predictions from Experts on AI Job Loss - AIMultiple",
+            "relevantSnippet": "### HBR / Davenport & Srinivasan, 2026\n\nA Harvard Business Review analysis speculated that companies are laying off workers based on AI’s potential rather than its demonstrated performance since overall U.S. unemployment remains relatively low.18\n\n### Yale The Budget Lab, 2025\n\nTheir analysis did not find a material impact of LLMs on jobs based on the rate of job losses, hiring and transitions in "
+          }
+        ],
+        "groundingEnforced": false,
+        "searchQuery": "AI job replacement predictions 2026"
+      }
+    ]
+  },
+  "earth was considered flat planet": {
+    "total": 1,
+    "true": 0,
+    "partial": 0,
+    "false": 0,
+    "unverifiable": 1,
+    "accuracyScore": 10,
+    "riskLevel": "🟢 Low Risk",
+    "insightSummary": "Our analysis of the provided data reveals a very low level of risk, with only one claim made. However, the claim's confidence level is relatively high at 10, and its accuracy status is currently unknown as neither true nor false information was detected. Further investigation is needed to determine the claim's validity.",
+    "results": [
+      {
+        "id": "C1",
+        "claim": "Earth was considered a flat planet",
+        "context": "Earth was considered a flat planet",
+        "isQuestion": false,
+        "claimId": "C1",
+        "verdict": "Unverifiable",
+        "confidenceScore": 0.1,
+        "reasoning": "Verification engine encountered a persistent error. Please retry.",
+        "citations": [
+          {
+            "url": "https://blogs.loc.gov/maps/2025/03/unconventional-theories-about-the-earths-shape-both-ancient-and-modern/",
+            "title": "Unconventional Theories about the Earth's Shape: Both Ancient and ...",
+            "relevantSnippet": "It’s now 2026. Grown adults believing that the earth is flat would be funny if it weren’t so sad.\n\nIf the Earth was truly a Flat disk how was it that Magellan was able to circumnavigate the the ocean and return to the point of departure on a Westwardly bearing. Wouldn’t he eventually have had to change coarse to a Eastwardly bearing using a reverse asmyth. Circumnavigation is imposible on a flat s"
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Myth_of_the_flat_Earth",
+            "title": "Myth of the flat Earth - Wikipedia",
+            "relevantSnippet": "Thus, there is evidence that accusations of Flat Earthism, though somewhat whimsical (Burton ends his digression with a legitimate quotation of Augustine: \"Better doubt of things concealed, than to contend about uncertainties, where Abraham's bosom is, and hell fire\"), were used to discredit opposing authorities several centuries before the 19th. Another early mention in literature is Ludvig Holbe"
+          },
+          {
+            "url": "https://en.wikipedia.org/wiki/Flat_Earth",
+            "title": "Flat Earth",
+            "relevantSnippet": "Subsequent studies of medieval science have shown that most scholars in the Middle Ages, including those read by Christopher Columbus, maintained that the Earth was spherical.\n\n## Modern flat Earth beliefs\n\nIn the modern era, the pseudoscientific belief in a flat Earth originated with the English writer Samuel Rowbotham with the 1849 pamphlet Zetetic Astronomy. Lady Elizabeth Blount established th"
+          }
+        ],
+        "groundingEnforced": false,
+        "searchQuery": "Historical evidence of ancient flat Earth beliefs 2026"
+      }
+    ]
+  }
+}

@@ -10,6 +10,7 @@ const initialState = {
   imageAnalysis:  null,   // ← NEW: images found in scraped URL
   scrapedMeta:    null,   // ← NEW: title + domain from scraped URL
   error:          null,
+  shareId:        null,
 };
 
 export function useFactCheck() {
@@ -96,6 +97,10 @@ export function useFactCheck() {
 
         case 'ERROR':
           setState(prev => ({ ...prev, error: event.message, isProcessing: false }));
+          break;
+
+        case 'SHARE_ID':
+          setState(prev => ({ ...prev, shareId: event.shareId }));
           break;
 
         default:

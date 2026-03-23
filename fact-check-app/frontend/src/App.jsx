@@ -31,7 +31,7 @@ export default function App() {
   const {
     isProcessing, pipelineState, claims,
     processedClaims, report, error,
-    imageAnalysis, scrapedMeta,
+    imageAnalysis, scrapedMeta, shareId,
     startFactCheck, reset
   } = useFactCheck();
 
@@ -54,14 +54,31 @@ export default function App() {
   };
 
   // Build and copy share link
-  const handleShare = React.useCallback((query, report, claims) => {
+  const handleShare = React.useCallback(async (query, report, claims, id = null) => {
+    // If we have a shareId from the current session, use it
+    const sId = (id && id > 100000) ? id : shareId; // history ids are timestamps, backend ids might be different or same
+    
+    let finalShareId = sId;
+    if (!finalShareId) {
+      // Register with backend to get a unique ID
+      const registered = await registerShare(query, report, claims, id);
+      if (registered) finalShareId = registered;
+    }
+
+    if (finalShareId) {
+      const url = buildIdShareUrl(finalShareId);
+      copyShareLink(url);
+      return url;
+    }
+
+    // Fallback to legacy base64 if backend fails
     const url = buildShareUrl(query, report, claims);
     if (url) {
       copyShareLink(url);
       return url;
     }
     return null;
-  }, []);
+  }, [shareId]);
 
   // Save to history on report complete
   React.useEffect(() => {

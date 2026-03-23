@@ -26,6 +26,27 @@ export default function ShareResultView({ onGoToDashboard }) {
       const decoded = decodeShareData(hash);
       if (decoded) setData(decoded);
       else setError(true);
+    } else if (hash && hash.startsWith('#s=')) {
+      const id = hash.slice(3);
+      fetch(`http://localhost:8000/api/share/${id}`)
+        .then(res => {
+          if (!res.ok) throw new Error('Not found');
+          return res.json();
+        })
+        .then(resData => {
+          // The backend returns { id, q, report, ... }
+          // ShareResultView expects { query, report, claims, ... }
+          setData({
+            query: resData.q || resData.query,
+            report: resData.report,
+            claims: resData.report?.results || [],
+            sharedAt: resData.timestamp
+          });
+        })
+        .catch(err => {
+          console.error('Fetch shared report error:', err);
+          setError(true);
+        });
     }
   }, []);
 
