@@ -112,13 +112,15 @@ function calibrateConfidence(verdict, rawConfidence, qualityScore, wasForced) {
 // ─────────────────────────────────────────────────────────────
 async function verifyClaim(claim, sources = []) {
   const claimId   = claim.id   || 'C1';
-  let claimText = claim.claim || '';
+  const originalClaim = claim.claim || '';
+  let claimText = originalClaim;
   const isQuestion = claim.isQuestion || false;
 
-  // ── Input Type Detection & Normalization ──────────────────────
+  // ── 1. Preserve Original Claim (CRITICAL) & Safe Normalization ──
   let inputType = "text";
   if (/[0-9+\-*/=]/.test(claimText)) {
     inputType = "math";
+    // Formatting changes only, no semantic shifts allowed
     claimText = claimText
       .replace(/\+/g, " plus ")
       .replace(/=/g, " equals ")
@@ -168,11 +170,11 @@ ${evidenceBlock}
 
 INSTRUCTIONS:
 - Evaluate the claim EXACTLY as written.
-- Do NOT correct or reinterpret the claim.
-- If evidence contradicts the stated claim → return "False"
-- If evidence clearly supports it → return "True"
-- If evidence is mixed → return "Partially True"
-- If evidence is absent, irrelevant, or vague → return "Unverifiable"
+- Do NOT correct, rewrite, or reinterpret the claim.
+- If evidence contradicts the stated claim → return "False".
+- If evidence clearly supports it → return "True".
+- If evidence is mixed → return "Partially True".
+- If evidence is absent, irrelevant, or vague → return "Unverifiable".
 
 Provide citations as 1-based source indices (e.g., [1, 3]).
 Set "grounded_in_evidence": true if you used at least one source above.
@@ -180,6 +182,7 @@ Set "grounded_in_evidence": false if you had to rely on general knowledge.
 
 OUTPUT (strict JSON only):
 {
+  "evaluated_claim": "<echo the exact claim you evaluated>",
   "verdict": "True | False | Partially True | Unverifiable",
   "confidence": <number 0.0–1.0>,
   "grounded_in_evidence": <true | false>,
@@ -219,6 +222,15 @@ OUTPUT (strict JSON only):
         } else {
           throw new Error('No valid JSON in LLM response');
         }
+      }
+
+      // ── Claim Integrity Validation ──────────────────────────
+      const evaluatedClaim = parsed.evaluated_claim || '';
+      if (evaluatedClaim && evaluatedClaim.toLowerCase() !== claimText.toLowerCase()) {
+         console.warn(`[IntegrityWarning] LLM rewrote claim. Original: "${claimText}", Evaluated: "${evaluatedClaim}"`);
+         // We do NOT stop execution but flag it mentally if strict throwing is requested.
+         // Actually, per rules: throw an error so it fails cleanly.
+         throw new Error("Claim was modified — invalid verification");
       }
 
       // ── Normalize verdict ───────────────────────────────────
@@ -277,7 +289,7 @@ OUTPUT (strict JSON only):
         timeSensitive:    !!parsed.time_sensitive,
         checkedAt:        parsed.checked_at || 'March 2026',
         groundingEnforced: wasForced,        // flag for UI transparency
-        normalizedClaim:  inputType === 'math' ? claimText : null
+        normalizedClaim:  claimText !== originalClaim ? claimText : null
       };
 
       console.log(

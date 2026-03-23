@@ -28,7 +28,7 @@ function sanitizeClaims(raw) {
   return raw
     .map(c => (typeof c === 'string' ? c.trim() : String(c || '').trim()))
     .filter(c => {
-      if (!c || c.length < 10) return false;           // too short to be meaningful
+      if (!c || c.length < 3) return false;           // allow short equations like "2+2=5"
       if (c.length > 500)      return false;           // runaway extraction
       // Reject pure opinions without factual content
       if (/^(i think|i believe|i feel|in my opinion|personally)/i.test(c)) return false;
@@ -39,13 +39,25 @@ function sanitizeClaims(raw) {
 }
 
 // ─────────────────────────────────────────────────────────────
+// 🔗 Pre-Process Symbolic Inputs
+// ─────────────────────────────────────────────────────────────
+function preprocess(input) {
+  if (/[0-9+\-*/=]/.test(input) && input.length < 50) {
+    return `The statement "${input}" is claimed to be true.`;
+  }
+  return input;
+}
+
+// ─────────────────────────────────────────────────────────────
 // 📦 MAIN FUNCTION: Extract Claims from Text
 // ─────────────────────────────────────────────────────────────
 async function extractClaims(text) {
-  if (!text || typeof text !== 'string' || text.trim().length < 5) {
+  if (!text || typeof text !== 'string' || text.trim().length < 2) {
     console.warn('[ClaimExtractor] Input too short or invalid');
     return [];
   }
+
+  const processedText = preprocess(text.trim());
 
   try {
     const response = await groq.chat.completions.create({
@@ -58,10 +70,12 @@ async function extractClaims(text) {
           role: 'user',
           content:
             `Extract every individual atomic factual claim from this text.\n` +
-            `CRITICAL: Preserve ALL numbers, dates, names, and qualifiers EXACTLY as written.\n` +
+            `CRITICAL: Preserve ALL numbers, dates, names, equations, and qualifiers EXACTLY as written.\n` +
+            `ABSOLUTE RULE: Do NOT correct or rewrite false or mathematically incorrect statements. Extract them EXACTLY as they are. (e.g. "2+2=7" must be extracted as "2+2=7", NOT corrected).\n` +
+            `Also treat mathematical expressions and symbolic statements as valid factual claims.\n` +
             `Each claim must be ONE sentence about ONE fact. Do NOT merge multiple facts.\n` +
-            `Convert any questions into declarative factual statements.\n\n` +
-            `Text:\n${text.slice(0, 4000)}`  // cap at 4000 chars to avoid token overflow
+            `Convert any questions into declarative factual statements without changing their core meaning.\n\n` +
+            `Text:\n${processedText.slice(0, 4000)}`  // cap at 4000 chars to avoid token overflow
         }
       ],
       response_format: { type: 'json_object' }   // enforce structured output
@@ -87,7 +101,13 @@ async function extractClaims(text) {
     }
 
     const rawClaims = parsed.claims || parsed.extracted_claims || parsed.results || [];
-    const cleanClaims = sanitizeClaims(rawClaims);
+    let cleanClaims = sanitizeClaims(rawClaims);
+
+    // ── Fallback Mechanism ────────────────────────────────────
+    if (!cleanClaims.length && text.trim().length > 0) {
+      console.warn('[ClaimExtractor] No claims extracted. Using fallback.');
+      cleanClaims = [text.trim()];
+    }
 
     console.log(`[ClaimExtractor] Extracted ${cleanClaims.length} clean claims from ${rawClaims.length} raw`);
 
