@@ -19,7 +19,9 @@ export default function URLImageAnalysisPanel({ images, domain }) {
       transition={{ delay: 0.1 }}
       style={{
         backgroundColor: '#161820',
-        border: `1px solid ${riskColor}20`,
+        borderBottom: `1px solid ${riskColor}20`,
+        borderLeft: `1px solid ${riskColor}20`,
+        borderRight: `1px solid ${riskColor}20`,
         borderTop: `2px solid ${riskColor}`,
         borderRadius: 12, overflow: 'hidden',
       }}
@@ -108,7 +110,9 @@ export default function URLImageAnalysisPanel({ images, domain }) {
                       gridTemplateColumns: '120px 1fr',
                       gap: '1rem',
                       backgroundColor: 'rgba(0,0,0,0.2)',
-                      border: `1px solid ${color}20`,
+                      borderTop: `1px solid ${color}20`,
+                      borderBottom: `1px solid ${color}20`,
+                      borderRight: `1px solid ${color}20`,
                       borderLeft: `3px solid ${color}`,
                       borderRadius: 8, overflow: 'hidden',
                     }}

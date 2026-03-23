@@ -301,7 +301,7 @@ export default function EmptyState({ onSubmit, disabled, initialContent = '' }) 
               >
                 {disabled ? (
                   <>
-                    <span style={{ width: 12, height: 12, border: '2px solid #00363d', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
+                    <span style={{ width: 12, height: 12, borderBottom: '2px solid #00363d', borderLeft: '2px solid #00363d', borderRight: '2px solid #00363d', borderTop: '2px solid transparent', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
                     Analyzing
                   </>
                 ) : (

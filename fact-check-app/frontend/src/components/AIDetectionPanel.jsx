@@ -18,8 +18,9 @@ export const AIDetectionPanel = ({ detectionResult }) => {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       style={{
-        backgroundColor: '#161820',
-        border: '1px solid rgba(255,255,255,0.06)',
+        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        borderLeft: '1px solid rgba(255,255,255,0.06)',
+        borderRight: '1px solid rgba(255,255,255,0.06)',
         borderTop: `3px solid ${color}`,
         borderRadius: 12,
         overflow: 'hidden',

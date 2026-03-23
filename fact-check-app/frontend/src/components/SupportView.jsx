@@ -154,7 +154,7 @@ export default function SupportView() {
         <AnimatePresence mode="wait">
           {API_GUIDES.filter(g => g.id === activeGuide).map(guide => (
             <motion.div key={guide.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-              style={{ backgroundColor: '#161820', border: `1px solid ${guide.color}20`, borderLeft: `3px solid ${guide.color}`, borderRadius: 10, padding: '1.5rem' }}>
+              style={{ backgroundColor: '#161820', borderTop: `1px solid ${guide.color}20`, borderRight: `1px solid ${guide.color}20`, borderBottom: `1px solid ${guide.color}20`, borderLeft: `3px solid ${guide.color}`, borderRadius: 10, padding: '1.5rem' }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '1.25rem', flexWrap: 'wrap', gap: 8 }}>
                 <div>
                   <p style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 16, color: '#e3e2e8', margin: '0 0 4px' }}>{guide.title}</p>

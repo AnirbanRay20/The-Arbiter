@@ -165,7 +165,7 @@ export default function ImageAnalysisPanel({ onAnalyze, isAnalyzing, result }) {
       >
         {isAnalyzing ? (
           <>
-            <span style={{ width: 14, height: 14, border: '2px solid #00363d', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
+            <span style={{ width: 14, height: 14, borderBottom: '2px solid #00363d', borderLeft: '2px solid #00363d', borderRight: '2px solid #00363d', borderTop: '2px solid transparent', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
             Analyzing Image...
           </>
         ) : (
@@ -202,7 +202,9 @@ function ImageResult({ result, preview, imageUrl }) {
       exit={{ opacity: 0 }}
       style={{
         backgroundColor: '#161820',
-        border: `1px solid ${color}25`,
+        borderBottom: `1px solid ${color}25`,
+        borderLeft: `1px solid ${color}25`,
+        borderRight: `1px solid ${color}25`,
         borderTop: `3px solid ${color}`,
         borderRadius: 10, overflow: 'hidden',
       }}
