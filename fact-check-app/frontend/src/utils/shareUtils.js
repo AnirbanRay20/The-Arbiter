@@ -46,6 +46,10 @@ export function buildIdShareUrl(id) {
   return `${base}#s=${id}`;
 }
 
+export const generateShareUrl = (id) => {
+  return `${window.location.origin}/share/${id}`;
+};
+
 export async function registerShare(query, report, claims, id = null) {
   try {
     const payload = {

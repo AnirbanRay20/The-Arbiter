@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import AccuracyReport from './AccuracyReport';
 import ClaimCard from './ClaimCard';
@@ -16,26 +17,43 @@ function decodeShareData(hash) {
 }
 
 export default function ShareResultView({ onGoToDashboard }) {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const handleDashboardReturn = () => {
+    if (onGoToDashboard) onGoToDashboard();
+    else navigate('/');
+  };
+
   const [data, setData]     = useState(null);
   const [error, setError]   = useState(false);
   const [activeSources, setActiveSources] = useState([]);
 
   useEffect(() => {
-    const hash = window.location.hash;
-    if (hash && hash.startsWith('#share=')) {
-      const decoded = decodeShareData(hash);
-      if (decoded) setData(decoded);
-      else setError(true);
-    } else if (hash && hash.startsWith('#s=')) {
-      const id = hash.slice(3);
+    console.log("Share ID:", id);
+    
+    // 5. Fix Data Access 
+    const chats = JSON.parse(localStorage.getItem('arbiter_history') || '[]');
+    const session = chats.find(c => String(c.id) === String(id));
+    console.log("Session:", session);
+
+    // 6. Add Safe Rendering / Fallback Check
+    if (session) {
+      const results = session?.result?.results || session?.claims || [];
+      setData({
+        query: session.q || session.text,
+        report: session.report || session.result,
+        claims: results,
+        sharedAt: session.date || new Date().toISOString()
+      });
+    } else {
+      // API fallback just in case
       fetch(`http://localhost:8000/api/share/${id}`)
         .then(res => {
           if (!res.ok) throw new Error('Not found');
           return res.json();
         })
         .then(resData => {
-          // The backend returns { id, q, report, ... }
-          // ShareResultView expects { query, report, claims, ... }
           setData({
             query: resData.q || resData.query,
             report: resData.report,
@@ -48,20 +66,20 @@ export default function ShareResultView({ onGoToDashboard }) {
           setError(true);
         });
     }
-  }, []);
+  }, [id]);
 
   if (error) return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '60vh', gap: 16 }}>
       <span className="material-symbols-outlined" style={{ fontSize: 48, color: '#FF3D57' }}>link_off</span>
-      <p style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 18, color: '#e3e2e8' }}>Invalid or Expired Link</p>
+      <p style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 18, color: '#e3e2e8' }}>No shared data found</p>
       <p style={{ fontFamily: 'IBM Plex Mono', fontSize: 11, color: '#556070' }}>This share link could not be decoded.</p>
-      <button onClick={onGoToDashboard} style={{ padding: '0.6rem 1.5rem', backgroundColor: '#00E5FF', color: '#00363d', border: 'none', borderRadius: 999, cursor: 'pointer', fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+      <button onClick={handleDashboardReturn} style={{ padding: '0.6rem 1.5rem', backgroundColor: '#00E5FF', color: '#00363d', border: 'none', borderRadius: 999, cursor: 'pointer', fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
         Go to Dashboard
       </button>
     </div>
   );
 
-  if (!data) return null;
+  if (!data) return <div style={{ minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#556070', fontFamily: 'IBM Plex Mono' }}>Loading Analysis Report...</div>;
 
   return (
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
@@ -84,7 +102,7 @@ export default function ShareResultView({ onGoToDashboard }) {
             </span>
           )}
         </div>
-        <button onClick={onGoToDashboard} style={{
+        <button onClick={handleDashboardReturn} style={{
           display: 'flex', alignItems: 'center', gap: 5,
           padding: '0.4rem 1rem', backgroundColor: '#00E5FF', color: '#00363d',
           border: 'none', borderRadius: 999, cursor: 'pointer',
@@ -118,7 +136,7 @@ export default function ShareResultView({ onGoToDashboard }) {
       {/* Accuracy Report */}
       {data.report && (
         <div style={{ backgroundColor: '#161820', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 12, overflow: 'hidden' }}>
-          <AccuracyReport report={data.report} onNewCheck={onGoToDashboard} />
+          <AccuracyReport report={data.report} onNewCheck={handleDashboardReturn} />
         </div>
       )}
 

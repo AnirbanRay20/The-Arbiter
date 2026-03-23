@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { generateShareUrl } from '../utils/shareUtils';
 
 const SCROLLBAR_STYLES = `
   .history-scroll::-webkit-scrollbar {
@@ -60,31 +61,11 @@ export default function HistoryView({ onSelect, onGoToDashboard }) {
     }
   };
 
-  const shareItem = (e, id) => {
+  const handleShare = (e, id) => {
     e.stopPropagation();
-    const item = history.find(h => h.id === id);
-    if (!item) return;
-
-    const query = item.q || item.text;
-    const reportData = item.report || item.result;
-    const claimsData = item.claims || item.result?.results || [];
-
-    // If full report data is stored, build a real share link
-    if (reportData && claimsData && onShare) {
-      onShare(query, reportData, claimsData, item.id)
-        .then(url => {
-          if (url) showToast('Share link copied! Anyone with this link can view the report.');
-          else {
-            if (query) navigator.clipboard.writeText(query);
-            showToast('Query copied to clipboard');
-          }
-        });
-      return;
-    }
-
-    // Fallback: copy just the query text
-    if (query) navigator.clipboard.writeText(query);
-    showToast('Query copied to clipboard');
+    const url = generateShareUrl(id);
+    navigator.clipboard.writeText(url);
+    showToast('Link copied!');
   };
 
   const toggleStar = (e, id) => {
@@ -350,7 +331,7 @@ export default function HistoryView({ onSelect, onGoToDashboard }) {
                   <HistoryItem
                     key={item.id} item={item} index={i} searchQuery={search}
                     onSelect={onSelect} onDelete={deleteItem}
-                    onShare={shareItem} onStar={toggleStar}
+                    onShare={handleShare} onStar={toggleStar}
                   />
                 ))}
               </AnimatePresence>
