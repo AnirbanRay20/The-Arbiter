@@ -140,9 +140,9 @@ export default function EmptyState({ onSubmit, disabled, initialContent = '' }) 
         <p style={{
           fontFamily: 'Manrope', fontSize: 14, color: '#bac9cc',
           textAlign: 'center', maxWidth: 520, lineHeight: 1.55,
-          marginBottom: '1.5rem',
+          marginBottom: '1.3rem',
         }}>
-          Paste any article, speech, claim — or upload an image to check if it's AI generated.
+          Paste any article, speech, claim, URL or upload an image to check if it's AI generated.
         </p>
 
         {/* ── Input box ── */}
