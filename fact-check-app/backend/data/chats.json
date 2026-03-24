@@ -1,0 +1,156 @@
+{
+  "1774347957775": {
+    "id": "1774347957775",
+    "timestamp": "2026-03-24T10:25:57.775Z",
+    "q": "https://en.wikipedia.org/wiki/Sundar_Pichai",
+    "report": {
+      "total": 14,
+      "true": 14,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "Low Risk"
+    }
+  },
+  "1774348020013": {
+    "id": "1774348020013",
+    "timestamp": "2026-03-24T10:27:00.013Z",
+    "q": "https://www.cdc.gov/covid/treatment/index.html",
+    "report": {
+      "total": 5,
+      "true": 4,
+      "false": 0,
+      "partial": 1,
+      "unverifiable": 0,
+      "accuracyScore": 90,
+      "riskLevel": "Low Risk"
+    }
+  },
+  "1774348261204": {
+    "id": "1774348261204",
+    "timestamp": "2026-03-24T10:31:01.204Z",
+    "q": "https://timesofindia.indiatimes.com/world/middle-east/us-israel-iran-war-news-live-udates-latest-news-middle-east-crisis-conflict-drone-ballistic-missile-attack-gulf-countries-dubai-qatar-news-donald-trump-netanyahu-strait-of-hormuz-crude-oil/liveblog/129765407.cms",
+    "report": {
+      "total": 1,
+      "true": 1,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "Low Risk"
+    }
+  },
+  "1774348636314": {
+    "id": "1774348636314",
+    "timestamp": "2026-03-24T10:37:16.314Z",
+    "q": "https://www.sciencefocus.com/science/fun-facts",
+    "report": {
+      "total": 21,
+      "true": 19,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 1,
+      "accuracyScore": 90,
+      "riskLevel": "Low Risk"
+    }
+  },
+  "1774348874105": {
+    "id": "1774348874105",
+    "timestamp": "2026-03-24T10:41:14.106Z",
+    "q": "https://www.britannica.com/technology/artificial-intelligence",
+    "report": {
+      "total": 6,
+      "true": 6,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "Low Risk"
+    }
+  },
+  "1774348910149": {
+    "id": "1774348910149",
+    "timestamp": "2026-03-24T10:41:50.149Z",
+    "q": "https://www.space.com/",
+    "report": {
+      "total": 21,
+      "true": 10,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 7,
+      "accuracyScore": 48,
+      "riskLevel": "Medium Risk"
+    }
+  },
+  "1774348929264": {
+    "id": "1774348929264",
+    "timestamp": "2026-03-24T10:42:09.265Z",
+    "q": "https://www.space.com/",
+    "report": {
+      "total": 3,
+      "true": 3,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "Low Risk"
+    }
+  },
+  "1774349006481": {
+    "id": "1774349006481",
+    "timestamp": "2026-03-24T10:43:26.481Z",
+    "q": "https://theonion.com/dirt-covered-trump-boys-attempt-to-siphon-gas-from-ground/",
+    "report": {
+      "total": 3,
+      "true": 3,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "Low Risk"
+    }
+  },
+  "1774349092888": {
+    "id": "1774349092888",
+    "timestamp": "2026-03-24T10:44:52.888Z",
+    "q": "https://www.who.int/news-room/fact-sheets/detail/coronavirus-disease-(covid-19)",
+    "report": {
+      "total": 33,
+      "true": 33,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 0,
+      "accuracyScore": 0,
+      "riskLevel": "High Risk"
+    }
+  },
+  "1774349283093": {
+    "id": "1774349283093",
+    "timestamp": "2026-03-24T10:48:03.093Z",
+    "q": "https://www.who.int/news-room/fact-sheets/detail/coronavirus-disease-(covid-19)",
+    "report": {
+      "total": 21,
+      "true": 21,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "Low Risk"
+    }
+  },
+  "1774349400587": {
+    "id": "1774349400587",
+    "timestamp": "2026-03-24T10:50:00.587Z",
+    "q": "1. The Earth revolves around the Sun.\n\n2. The Sun revolves around the Earth.\n\n3. Sundar Pichai is the CEO of Google.\n\n4. The current Prime Minister of India is Narendra Modi.\n\n5. Python is the best programming language.\n\n6. Artificial Intelligence will replace all human jobs by 2030.\n\n7. The population of India is over 1.4 billion.\n\n8. Water boils at 90°C at sea level.\n\n9. Some fish species can change their sex.\n\n10. Aliens are secretly living under the ocean.\n\n11. HTTPS websites are always completely secure.\n\n12. The speed of light is approximately 3 × 10^8 meters per second.\n\n13. Eating sugar directly causes diabetes.\n\n14. The capital of India is New Delhi.\n\n15. COVID-19 is caused by a virus.\n\n16. This statement is not verifiable.\n\n17. Apple is better.\n\n18. India is located in South Asia.\n\n19. Humans can survive without oxygen for hours.\n\n20. The Great Wall of China is visible from space with the naked eye.",
+    "report": {
+      "total": 20,
+      "true": 10,
+      "false": 3,
+      "partial": 2,
+      "unverifiable": 5,
+      "accuracyScore": 55,
+      "riskLevel": "Medium Risk"
+    }
+  }
+}

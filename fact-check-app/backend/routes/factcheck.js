@@ -2,11 +2,11 @@ require('dotenv').config();
 const express              = require('express');
 const router               = express.Router();
 const { scrapeUrl }        = require('../services/urlScraper');
-const { extractClaims }    = require('../agents/claimExtractor');
-const { retrieveEvidence } = require('../agents/evidenceRetriever');
-const { verifyClaim }      = require('../agents/verificationEngine');
-const { detectAiText }     = require('../services/aiTextDetector');
+const { UNIFIED_FACT_CHECK_PROMPT } = require('../utils/prompts');
+const Groq                 = require('groq-sdk');
+const { getById, saveReport } = require('../utils/storage');
 
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 function send(res, data) {
@@ -49,65 +49,6 @@ router.post('/factcheck', async (req, res) => {
       }
     }
 
-    // ── MATH / CODE DETECTOR — handle before LLM ──
-    const mathRegex = /^[\d\s\+\-\*\/\^\(\)\=\%\.]+$/;
-    const isMathOnly = mathRegex.test(textToProcess.trim()) && textToProcess.trim().length < 50;
-    if (isMathOnly) {
-      try {
-        // Safely evaluate math expression
-        const expr    = textToProcess.trim().replace(/\^/g, '**');
-        // Check if it's an equation (has =)
-        if (expr.includes('=')) {
-          const parts  = expr.split('=');
-          const left   = Function('"use strict"; return (' + parts[0] + ')')();
-          const right  = Function('"use strict"; return (' + parts[1] + ')')();
-          const isTrue = Math.abs(left - right) < 0.0001;
-          const claim  = { id: 'C1', claim: textToProcess.trim(), isQuestion: false };
-          const result = {
-            ...claim,
-            verdict:         isTrue ? 'True' : 'False',
-            confidenceScore: 1.0,
-            reasoning:       `Mathematical evaluation: ${parts[0].trim()} = ${left}, right side = ${right}. This is mathematically ${isTrue ? 'correct' : 'incorrect'}.`,
-            conflictingEvidence: false, conflictNote: null,
-            temporallySensitive: false, citations: [],
-          };
-          send(res, { type: 'CLAIMS',        claims: [claim] });
-          send(res, { type: 'VERIFIED_CLAIM', claim: result  });
-          const report = {
-            total: 1,
-            true:  isTrue ? 1 : 0, false: isTrue ? 0 : 1,
-            partial: 0, unverifiable: 0,
-            accuracyScore: isTrue ? 100 : 0,
-            riskLevel:     isTrue ? 'Low Risk' : 'High Risk',
-          };
-          send(res, { type: 'REPORT',    report });
-          send(res, { type: 'PIPELINE',  step: 'REPORTING', status: 'Pipeline finished successfully.', progress: 100 });
-          return res.end();
-        }
-      } catch (mathErr) {
-        console.log('[Factcheck] Math eval failed, proceeding normally');
-      }
-    }
-
-    // ── EXTRACTING ──
-    send(res, { type: 'PIPELINE', step: 'EXTRACTING', status: 'Extracting atomic claims...', progress: 20 });
-    let claims = [];
-    try {
-      claims = await extractClaims(textToProcess);
-    } catch (extractErr) {
-      console.error('[Factcheck] Extract error:', extractErr.message);
-      send(res, { type: 'ERROR', message: 'Failed to extract claims: ' + extractErr.message });
-      return res.end();
-    }
-
-    if (!claims || claims.length === 0) {
-      send(res, { type: 'ERROR', message: 'No factual claims could be extracted from this content.' });
-      return res.end();
-    }
-
-    send(res, { type: 'CLAIMS', claims });
-    console.log(`[Factcheck] Extracted ${claims.length} claims`);
-
     // ── KICK OFF IMAGE ANALYSIS IN BACKGROUND ──
     let imageAnalysisPromise = null;
     if (scrapedImages.length > 0) {
@@ -123,53 +64,70 @@ router.post('/factcheck', async (req, res) => {
       }
     }
 
-    // ── SEARCHING + VERIFYING ──
+    // ── UNIFIED FACT CHECK (LLM PASS) ──
+    send(res, { type: 'PIPELINE', step: 'VERIFYING', status: 'Running Unified Fact-Checking Engine...', progress: 40 });
+    
+    const completion = await groq.chat.completions.create({
+      model: 'llama-3.1-8b-instant', // or any available fast model
+      temperature: 0.1,
+      messages: [
+        { role: 'system', content: UNIFIED_FACT_CHECK_PROMPT },
+        { role: 'user', content: `INPUT:\n${textToProcess.slice(0, 6000)}` } // trim to avoid token overflow
+      ],
+      response_format: { type: 'json_object' } // Always return valid JSON per new prompt rules
+    });
+
+    const rawResponse = completion.choices[0]?.message?.content || '';
+
+    // Error handling & fallback checking
+    let parsed;
+    try {
+      const start = rawResponse.indexOf('{');
+      const end = rawResponse.lastIndexOf('}');
+      if (start !== -1 && end !== -1) {
+        parsed = JSON.parse(rawResponse.slice(start, end + 1));
+      } else {
+        parsed = JSON.parse(rawResponse);
+      }
+    } catch (e) {
+      console.error("[Factcheck] LLM did not return valid JSON.", rawResponse.slice(0, 200));
+      send(res, { type: 'ERROR', message: 'Engine returned invalid structure or no verifiable claims found.' });
+      return res.end();
+    }
+
+    const claims = parsed.claims || [];
+    if (claims.length === 0 || (parsed.summary && parsed.summary.message && parsed.summary.message.includes("No verifiable claims"))) {
+      send(res, { type: 'ERROR', message: 'No verifiable claims found in the provided input.' });
+      return res.end();
+    }
+
+    // Send original claims up
+    send(res, { type: 'PIPELINE', step: 'VERIFYING', status: `Mapped ${claims.length} claims. Formatting feed...`, progress: 80 });
+    send(res, { type: 'CLAIMS', claims: claims.map((c, i) => ({ id: `C${i+1}`, claim: c.claim })) });
+
     const verifiedClaims = [];
-
     for (let i = 0; i < claims.length; i++) {
-      const claim = claims[i];
-      const progressSearch = Math.min(25 + Math.round(((i + 1) / claims.length) * 25), 50);
-      const progressVerify = Math.min(50 + Math.round(((i + 1) / claims.length) * 35), 85);
+       const mapped = claims[i];
+       
+       // Strict frontend mapping for Verdict UI compatibility
+       let mappedVerdict = "Unverifiable";
+       if (mapped.status === "Verified") mappedVerdict = "True";
+       else if (mapped.status === "False") mappedVerdict = "False";
+       else if (mapped.status === "Partially True") mappedVerdict = "Partially True";
 
-      // Search
-      send(res, { type: 'PIPELINE', step: 'SEARCHING', status: `Searching evidence for claim ${i + 1} of ${claims.length}...`, progress: progressSearch });
-      let evidence = { sources: [], searchQuery: claim.claim };
-      try {
-        evidence = await retrieveEvidence(claim);
-      } catch (searchErr) {
-        console.warn(`[Factcheck] Search error for ${claim.id}:`, searchErr.message);
-      }
-      await sleep(300);
-
-      // Verify
-      send(res, { type: 'PIPELINE', step: 'VERIFYING', status: `Verifying claim ${i + 1} of ${claims.length}...`, progress: progressVerify });
-      let result = {
-        verdict: 'Unverifiable', confidenceScore: 0,
-        reasoning: 'Error during verification process.',
-        conflictingEvidence: false, conflictNote: null,
-        temporallySensitive: false, citations: [],
-      };
-      try {
-        result = await verifyClaim(claim, evidence.sources || []);
-      } catch (verifyErr) {
-        console.warn(`[Factcheck] Verify error for ${claim.id}:`, verifyErr.message);
-      }
-      await sleep(200);
-
-      const verified = {
-        ...claim,
-        ...result,
-        searchQuery: evidence.searchQuery,
-        citations: result.citations?.length
-          ? result.citations
-          : (evidence.sources || []).slice(0, 3).map(s => ({
-              url: s.url, title: s.title, relevantSnippet: s.snippet
-            })),
-      };
-
-      verifiedClaims.push(verified);
-      send(res, { type: 'VERIFIED_CLAIM', claim: verified });
-      console.log(`[Factcheck] ${claim.id} → ${result.verdict} (${Math.round((result.confidenceScore || 0) * 100)}%)`);
+       const formattedClaim = {
+         id: `C${i+1}`,
+         claim: mapped.claim,
+         verdict: mappedVerdict,
+         confidenceScore: (mapped.confidence || 0) / 100, // Dashboard expects 0.0 - 1.0 interval
+         reasoning: mapped.explanation,
+         temporallySensitive: mapped.type === "Time-sensitive" || (mapped.explanation && mapped.explanation.includes("Checked as of")),
+         citations: [] // Unified prompt lacks multi-agent citation mechanism
+       };
+       verifiedClaims.push(formattedClaim);
+       
+       send(res, { type: 'VERIFIED_CLAIM', claim: formattedClaim });
+       await sleep(150); // Simulate stream entry for animation
     }
 
     // ── WAIT FOR IMAGE ANALYSIS ──
@@ -192,30 +150,38 @@ router.post('/factcheck', async (req, res) => {
     // ── REPORT ──
     send(res, { type: 'PIPELINE', step: 'REPORTING', status: 'Generating accuracy report...', progress: 92 });
 
-    const trueCount    = verifiedClaims.filter(c => c.verdict === 'True').length;
-    const falseCount   = verifiedClaims.filter(c => c.verdict === 'False').length;
-    const partialCount = verifiedClaims.filter(c => c.verdict === 'Partially True').length;
-    const unknownCount = verifiedClaims.filter(c => c.verdict === 'Unverifiable').length;
-    const total        = verifiedClaims.length;
-    const accuracyScore = total > 0
-      ? Math.round(((trueCount + partialCount * 0.5) / total) * 100)
-      : 0;
-    const riskLevel = accuracyScore >= 70 ? 'Low Risk'
-                    : accuracyScore >= 40 ? 'Medium Risk'
-                    : 'High Risk';
+    const totalValue = Number(parsed.summary?.total_claims ?? verifiedClaims.length) || 0;
+    const trueValue = Number(parsed.summary?.verified ?? verifiedClaims.filter(c => c.verdict === 'True').length) || 0;
+    const falseValue = Number(parsed.summary?.false ?? verifiedClaims.filter(c => c.verdict === 'False').length) || 0;
+    const partialValue = Number(parsed.summary?.partial ?? verifiedClaims.filter(c => c.verdict === 'Partially True').length) || 0;
+    const unverifiableValue = verifiedClaims.filter(c => c.verdict === 'Unverifiable').length;
 
     const report = {
-      total,
-      true:         trueCount,
-      false:        falseCount,
-      partial:      partialCount,
-      unverifiable: unknownCount,
-      accuracyScore,
-      riskLevel,
+      total: totalValue,
+      true: trueValue,
+      false: falseValue,
+      partial: partialValue,
+      unverifiable: unverifiableValue,
+      accuracyScore: totalValue > 0 ? Math.round(((trueValue + (partialValue * 0.5)) / totalValue) * 100) : 0,
+      riskLevel: 'Medium Risk'
     };
+    
+    // Compute Risk Level dynamically
+    if (report.accuracyScore >= 70) report.riskLevel = 'Low Risk';
+    else if (report.accuracyScore < 40) report.riskLevel = 'High Risk';
 
-    console.log(`[Factcheck] Report: ${accuracyScore}% accuracy, ${riskLevel}`);
+    console.log(`[Factcheck] Unified Report: ${report.accuracyScore}% accuracy, ${report.riskLevel}`);
     send(res, { type: 'REPORT', report });
+    
+    // Save for History & Sharing
+    try {
+      const shareId = saveReport(content, report);
+      console.log(`[Factcheck] 💾 Saved result for sharing with ID: ${shareId}`);
+      send(res, { type: 'SHARE_ID', shareId });
+    } catch (storeErr) {
+      console.warn('[Factcheck] Storage failed:', storeErr.message);
+    }
+
     send(res, { type: 'PIPELINE', step: 'REPORTING', status: 'Pipeline finished successfully.', progress: 100 });
 
   } catch (err) {
@@ -224,6 +190,31 @@ router.post('/factcheck', async (req, res) => {
   } finally {
     res.end();
   }
+});
+
+// ── SHARE ROUTES ──
+
+// Get shared report by ID
+router.get('/share/:id', (req, res) => {
+  const { id } = req.params;
+  const entry = getById(id);
+  
+  if (!entry) {
+    return res.status(404).json({ error: 'Report not found or link expired.' });
+  }
+  
+  res.json(entry);
+});
+
+// Register a report for sharing
+router.post('/share', (req, res) => {
+  const { query, report, id } = req.body;
+  if (!query || !report) {
+    return res.status(400).json({ error: 'Missing report data.' });
+  }
+  
+  const shareId = saveReport(query, report, id);
+  res.json({ shareId });
 });
 
 module.exports = router;
