@@ -194,5 +194,257 @@
       "accuracyScore": 72,
       "riskLevel": "Low Risk"
     }
+  },
+  "1774349975697": {
+    "id": "1774349975697",
+    "timestamp": "2026-03-24T10:59:35.697Z",
+    "q": "https://timesofindia.indiatimes.com/",
+    "report": {
+      "total": 9,
+      "true": 9,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "Low Risk"
+    }
+  },
+  "1774350010198": {
+    "id": "1774350010198",
+    "timestamp": "2026-03-24T11:00:10.198Z",
+    "q": "google will discontinue firbase",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 1,
+      "accuracyScore": 0,
+      "riskLevel": "High Risk"
+    }
+  },
+  "1774350077958": {
+    "id": "1774350077958",
+    "timestamp": "2026-03-24T11:01:17.958Z",
+    "q": "https://timesofindia.indiatimes.com/",
+    "report": {
+      "total": 3,
+      "true": 3,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "Low Risk"
+    }
+  },
+  "1774350214551": {
+    "id": "1774350214551",
+    "timestamp": "2026-03-24T11:03:34.551Z",
+    "q": "https://www.marvel.com/",
+    "report": {
+      "total": 10,
+      "true": 10,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "Low Risk"
+    }
+  },
+  "1774350376636": {
+    "id": "1774350376636",
+    "timestamp": "2026-03-24T11:06:16.636Z",
+    "q": "https://www.linkedin.com/feed/",
+    "report": {
+      "total": 5,
+      "true": 5,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "Low Risk"
+    }
+  },
+  "1774350450322": {
+    "id": "1774350450322",
+    "timestamp": "2026-03-24T11:07:30.322Z",
+    "q": "https://onionsearchengine.com/",
+    "report": {
+      "total": 3,
+      "true": 3,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 0,
+      "accuracyScore": 100,
+      "riskLevel": "Low Risk"
+    }
+  },
+  "1774350528181": {
+    "id": "1774350528181",
+    "timestamp": "2026-03-24T11:08:48.181Z",
+    "q": "I am good girl",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 1,
+      "accuracyScore": 0,
+      "riskLevel": "High Risk"
+    }
+  },
+  "1774351490349": {
+    "id": "1774351490349",
+    "timestamp": "2026-03-24T11:24:50.349Z",
+    "q": "Elon Musk is currenlty the ceo of Twitter. india recently surpassed China to become the world most populous country. Scientists have discovered a cure for Alzheimer's disease . The 2022 FIFA World Cup was held in Qatar and won by Argentina",
+    "report": {
+      "total": 4,
+      "true": 0,
+      "false": 2,
+      "partial": 0,
+      "unverifiable": 2,
+      "accuracyScore": 0,
+      "riskLevel": "High Risk"
+    }
+  },
+  "1774351515939": {
+    "id": "1774351515939",
+    "timestamp": "2026-03-24T11:25:15.939Z",
+    "q": "Elon Musk is currenlty the ceo of Twitter. india recently surpassed China to become the world most populous country. Scientists have discovered a cure for Alzheimer's disease . The 2022 FIFA World Cup was held in Qatar and won by Argentina",
+    "report": {
+      "total": 4,
+      "true": 1,
+      "false": 2,
+      "partial": 1,
+      "unverifiable": 1,
+      "accuracyScore": 38,
+      "riskLevel": "High Risk"
+    }
+  },
+  "1774351530990": {
+    "id": "1774351530990",
+    "timestamp": "2026-03-24T11:25:30.990Z",
+    "q": "Elon Musk is currenlty the ceo of Twitter. india recently surpassed China to become the world most populous country. Scientists have discovered a cure for Alzheimer's disease . The 2022 FIFA World Cup was held in Qatar and won by Argentina",
+    "report": {
+      "total": 4,
+      "true": 0,
+      "false": 2,
+      "partial": 0,
+      "unverifiable": 2,
+      "accuracyScore": 0,
+      "riskLevel": "High Risk"
+    }
+  },
+  "1774351538484": {
+    "id": "1774351538484",
+    "timestamp": "2026-03-24T11:25:38.484Z",
+    "q": "Elon Musk is currenlty the ceo of Twitter. india recently surpassed China to become the world most populous country. Scientists have discovered a cure for Alzheimer's disease . The 2022 FIFA World Cup was held in Qatar and won by Argentina",
+    "report": {
+      "total": 4,
+      "true": 1,
+      "false": 2,
+      "partial": 0,
+      "unverifiable": 1,
+      "accuracyScore": 25,
+      "riskLevel": "High Risk"
+    }
+  },
+  "1774351629637": {
+    "id": "1774351629637",
+    "timestamp": "2026-03-24T11:27:09.637Z",
+    "q": "Elon Musk is currenlty the ceo of Twitter. india recently surpassed China to become the world most populous country. Scientists have discovered a cure for Alzheimer's disease . The 2022 FIFA World Cup was held in Qatar and won by Argentina",
+    "report": {
+      "total": 4,
+      "true": 1,
+      "false": 2,
+      "partial": 1,
+      "unverifiable": 1,
+      "accuracyScore": 38,
+      "riskLevel": "High Risk"
+    }
+  },
+  "1774351766676": {
+    "id": "1774351766676",
+    "timestamp": "2026-03-24T11:29:26.676Z",
+    "q": "Elon Musk is currenlty the ceo of Twitter. india recently surpassed China to become the world most populous country. Scientists have discovered a cure for Alzheimer's disease . The 2022 FIFA World Cup was held in Qatar and won by Argentina",
+    "report": {
+      "total": 4,
+      "true": 1,
+      "false": 2,
+      "partial": 1,
+      "unverifiable": 1,
+      "accuracyScore": 38,
+      "riskLevel": "High Risk"
+    }
+  },
+  "1774351788008": {
+    "id": "1774351788008",
+    "timestamp": "2026-03-24T11:29:48.008Z",
+    "q": "\"The 2022 FIFA World Cup was held in Qatar and won by Argentina\"",
+    "report": {
+      "total": 2,
+      "true": 1,
+      "false": 1,
+      "partial": 0,
+      "unverifiable": 0,
+      "accuracyScore": 50,
+      "riskLevel": "Medium Risk"
+    }
+  },
+  "1774351867941": {
+    "id": "1774351867941",
+    "timestamp": "2026-03-24T11:31:07.941Z",
+    "q": "India surpassed China in 2023 per UN data test whether live retrieval correctly surface authority population statistics.",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 1,
+      "accuracyScore": 0,
+      "riskLevel": "High Risk"
+    }
+  },
+  "1774351899278": {
+    "id": "1774351899278",
+    "timestamp": "2026-03-24T11:31:39.278Z",
+    "q": "\"India surpassed China in 2023 per UN data test whether live retrieval correctly surface authority population statistics",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 1,
+      "accuracyScore": 0,
+      "riskLevel": "High Risk"
+    }
+  },
+  "1774352017492": {
+    "id": "1774352017492",
+    "timestamp": "2026-03-24T11:33:37.492Z",
+    "q": "\"The 2022 FIFA World Cup was held in Qatar and won by Argentina\"",
+    "report": {
+      "total": 2,
+      "true": 1,
+      "false": 1,
+      "partial": 0,
+      "unverifiable": 0,
+      "accuracyScore": 50,
+      "riskLevel": "Medium Risk"
+    }
+  },
+  "1774352044679": {
+    "id": "1774352044679",
+    "timestamp": "2026-03-24T11:34:04.679Z",
+    "q": "Caffeine significantly reduces the risk of Alzheimer's",
+    "report": {
+      "total": 1,
+      "true": 0,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 1,
+      "accuracyScore": 0,
+      "riskLevel": "High Risk"
+    }
   }
 }
