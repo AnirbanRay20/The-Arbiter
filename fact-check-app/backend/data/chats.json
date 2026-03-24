@@ -152,5 +152,47 @@
       "accuracyScore": 55,
       "riskLevel": "Medium Risk"
     }
+  },
+  "1774349784738": {
+    "id": "1774349784738",
+    "timestamp": "2026-03-24T10:56:24.739Z",
+    "q": "elon musk is the ceo of tesla and spacex and google",
+    "report": {
+      "total": 3,
+      "true": 2,
+      "false": 1,
+      "partial": 0,
+      "unverifiable": 0,
+      "accuracyScore": 67,
+      "riskLevel": "Medium Risk"
+    }
+  },
+  "1774349832680": {
+    "id": "1774349832680",
+    "timestamp": "2026-03-24T10:57:12.680Z",
+    "q": "https://www.forbes.com/profile/elon-musk/",
+    "report": {
+      "total": 21,
+      "true": 9,
+      "false": 0,
+      "partial": 0,
+      "unverifiable": 6,
+      "accuracyScore": 43,
+      "riskLevel": "Medium Risk"
+    }
+  },
+  "1774349879422": {
+    "id": "1774349879422",
+    "timestamp": "2026-03-24T10:57:59.422Z",
+    "q": "https://en.wikipedia.org/wiki/Epstein_files",
+    "report": {
+      "total": 9,
+      "true": 6,
+      "false": 0,
+      "partial": 1,
+      "unverifiable": 0,
+      "accuracyScore": 72,
+      "riskLevel": "Low Risk"
+    }
   }
 }
