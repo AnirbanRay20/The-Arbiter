@@ -105,7 +105,7 @@ export default function AccuracyReport({ report, onNewCheck, onShare }) {
               />
             </svg>
             <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 28, color: '#e3e2e8', lineHeight: 1 }}>
+              <span style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 28, color: ringColor, lineHeight: 1 }}>
                 {accuracyScore}%
               </span>
               <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 9, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#556070', marginTop: 4 }}>
@@ -128,7 +128,7 @@ export default function AccuracyReport({ report, onNewCheck, onShare }) {
                 <span style={{ fontFamily: 'IBM Plex Mono', fontSize: 9, textTransform: 'uppercase', color: s.color, display: 'block', marginBottom: 6, letterSpacing: '0.1em' }}>
                   {s.label}
                 </span>
-                <p style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 24, color: '#e3e2e8', lineHeight: 1 }}>
+                <p style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 24, color: s.value > 0 ? s.color : '#e3e2e8', lineHeight: 1 }}>
                   {String(s.value).padStart(2, '0')}
                   <span style={{ fontSize: 11, color: '#556070', fontWeight: 400, marginLeft: 3 }}>/ {total}</span>
                 </p>
