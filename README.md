@@ -25,11 +25,11 @@ Designed with a custom **Terminal Intelligence** aesthetic inspired by Bloomberg
 
 - **Temporal Awareness** — Time-sensitive claims are flagged with `🕐 Time-sensitive` and all verdicts are stamped `Verified as of [Month Year]`.
 
-- **Session Intelligence Report** — Aggregate accuracy gauge, risk level (Low / Medium / High), and breakdown of True / Partial / False / Unknown claims with JSON + PNG export.
+- **Session Intelligence Report** — Aggregate accuracy gauge with **dynamic forensic coloring**, risk level assessment (Low / Medium / High), and categorized breakdown of True / Partial / False / Unknown claims with JSON + PNG export.
 
 - **Explainability Flow** — Animated `Input → Extract → Search → Verify → Report` pipeline diagram showing exactly which stage is active in real time.
 
-- **Bespoke UI Design** — Data-rich frontend built with React, Framer Motion animations, and pure inline CSS (zero Tailwind dependencies), featuring animated gauges, Chain-of-Thought evidence drawers, and an orange/cyan glowing scrollbar system.
+- **Bespoke UI Design** — Data-rich frontend featuring **Dynamic Forensic Scoring** (colors shift based on veracity), React + Framer Motion animations, pure inline CSS (zero Tailwind), and an orange/cyan glowing scrollbar system.
 
 ---
 
@@ -186,38 +186,51 @@ fact-check-app/
 │   ├── agents/
 │   │   ├── claimExtractor.js       # Atomic claim extraction
 │   │   ├── evidenceRetriever.js    # Tavily search + query formulation
-│   │   └── verificationEngine.js  # CoT verdict engine
+│   │   ├── verificationEngine.js   # CoT verdict engine
+│   │   └── reportGenerator.js      # Aggregate results into intelligence report
+│   ├── data/
+│   │   └── chats.json              # Local session persistence
 │   ├── routes/
 │   │   ├── factcheck.js            # POST /api/factcheck (SSE)
 │   │   ├── aidetect.js             # POST /api/detect-ai
-│   │   └── imagecheck.js          # POST /api/analyze-image
+│   │   ├── imagecheck.js           # POST /api/analyze-image
+│   │   └── chats.js                # GET/POST /api/chats (History)
 │   ├── services/
 │   │   ├── aiTextDetector.js       # LLM text forensics
 │   │   ├── imageAnalyzer.js        # Vision model image forensics
 │   │   └── urlScraper.js           # Cheerio article scraper
 │   ├── utils/
-│   │   └── prompts.js              # All LLM system prompts
-│   └── server.js
+│   │   ├── prompts.js              # All LLM system prompts
+│   │   └── storage.js              # JSON-based storage engine
+│   └── server.js                   # Express entry point & SSE setup
 ├── frontend/
-│   └── src/
-│       ├── components/
-│       │   ├── AccuracyReport.jsx
-│       │   ├── AIDetectionPanel.jsx
-│       │   ├── ClaimCard.jsx
-│       │   ├── CorrectAnswerPanel.jsx
-│       │   ├── EvidenceDrawer.jsx
-│       │   ├── ExplainabilityFlow.jsx
-│       │   ├── HistoryView.jsx
-│       │   ├── ImageAnalysisPanel.jsx
-│       │   ├── PipelineProgress.jsx
-│       │   ├── Sidebar.jsx
-│       │   ├── SuggestionsView.jsx
-│       │   ├── SupportView.jsx
-│       │   └── TopBar.jsx
-│       ├── hooks/
-│       │   └── useFactCheck.js     # SSE pipeline state manager
-│       └── services/
-│           └── api.js
+│   ├── src/
+│   │   ├── components/             # Forensic UI Components
+│   │   │   ├── AccuracyReport.jsx  # Dynamic forensic scoring
+│   │   │   ├── AIDetectionPanel.jsx
+│   │   │   ├── ChatView.jsx        # Conversational claim analysis
+│   │   │   ├── ClaimCard.jsx       # Verdict & CoT accordion
+│   │   │   ├── EmptyState.jsx      # Animated landing dashboard
+│   │   │   ├── EvidenceDrawer.jsx  # Source citation & CoT
+│   │   │   ├── ExplainabilityFlow.jsx
+│   │   │   ├── HistoryView.jsx     # Persistent session archives
+│   │   │   ├── ImageAnalysisPanel.jsx
+│   │   │   ├── Layout.jsx          # App shell (Sidebar/TopBar)
+│   │   │   ├── PipelineProgress.jsx # Real-time SSE status
+│   │   │   ├── ResultDashboard.jsx # Intelligence report view
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── ShareResultView.jsx
+│   │   │   ├── SuggestionsView.jsx
+│   │   │   ├── TopBar.jsx
+│   │   │   └── URLImageAnalysisPanel.jsx
+│   │   ├── hooks/
+│   │   │   └── useFactCheck.js     # SSE pipeline state manager
+│   │   ├── services/
+│   │   │   └── api.js              # Axios interface
+│   │   ├── utils/
+│   │   │   └── shareUtils.js       # Report sharing logic
+│   │   └── App.jsx                 # Core router & logic
+│   └── index.css                   # Terminal Intelligence theme
 ```
 
 ---
