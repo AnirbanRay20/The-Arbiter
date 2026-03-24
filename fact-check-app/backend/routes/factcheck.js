@@ -2,12 +2,10 @@ require('dotenv').config();
 const express              = require('express');
 const router               = express.Router();
 const { scrapeUrl }        = require('../services/urlScraper');
-const { getById, saveReport } = require('../utils/storage');
 const { extractClaims }    = require('../agents/claimExtractor');
 const { retrieveEvidence } = require('../agents/evidenceRetriever');
-const { verifyClaim } = require('../agents/verificationEngine');
-const { generateAccuracyReport, generateInsightSummary } = require('../agents/reportGenerator');
-const { detectAiText } = require('../services/aiTextDetector');
+const { verifyClaim }      = require('../agents/verificationEngine');
+const { detectAiText }     = require('../services/aiTextDetector');
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
@@ -27,8 +25,6 @@ router.post('/factcheck', async (req, res) => {
     // ── INIT ──
     send(res, { type: 'PIPELINE', step: 'INIT', status: 'Initializing pipeline...', progress: 0 });
 
-    // NO CACHE CHECK - We ensure fresh results to avoid hallucinations.
-    
     let textToProcess = content;
     let scrapedImages = [];
     let scrapedMeta   = null;
@@ -50,6 +46,46 @@ router.post('/factcheck', async (req, res) => {
         console.error('[Factcheck] Scrape error:', scrapeErr.message);
         send(res, { type: 'ERROR', message: 'Failed to scrape URL: ' + scrapeErr.message });
         return res.end();
+      }
+    }
+
+    // ── MATH / CODE DETECTOR — handle before LLM ──
+    const mathRegex = /^[\d\s\+\-\*\/\^\(\)\=\%\.]+$/;
+    const isMathOnly = mathRegex.test(textToProcess.trim()) && textToProcess.trim().length < 50;
+    if (isMathOnly) {
+      try {
+        // Safely evaluate math expression
+        const expr    = textToProcess.trim().replace(/\^/g, '**');
+        // Check if it's an equation (has =)
+        if (expr.includes('=')) {
+          const parts  = expr.split('=');
+          const left   = Function('"use strict"; return (' + parts[0] + ')')();
+          const right  = Function('"use strict"; return (' + parts[1] + ')')();
+          const isTrue = Math.abs(left - right) < 0.0001;
+          const claim  = { id: 'C1', claim: textToProcess.trim(), isQuestion: false };
+          const result = {
+            ...claim,
+            verdict:         isTrue ? 'True' : 'False',
+            confidenceScore: 1.0,
+            reasoning:       `Mathematical evaluation: ${parts[0].trim()} = ${left}, right side = ${right}. This is mathematically ${isTrue ? 'correct' : 'incorrect'}.`,
+            conflictingEvidence: false, conflictNote: null,
+            temporallySensitive: false, citations: [],
+          };
+          send(res, { type: 'CLAIMS',        claims: [claim] });
+          send(res, { type: 'VERIFIED_CLAIM', claim: result  });
+          const report = {
+            total: 1,
+            true:  isTrue ? 1 : 0, false: isTrue ? 0 : 1,
+            partial: 0, unverifiable: 0,
+            accuracyScore: isTrue ? 100 : 0,
+            riskLevel:     isTrue ? 'Low Risk' : 'High Risk',
+          };
+          send(res, { type: 'REPORT',    report });
+          send(res, { type: 'PIPELINE',  step: 'REPORTING', status: 'Pipeline finished successfully.', progress: 100 });
+          return res.end();
+        }
+      } catch (mathErr) {
+        console.log('[Factcheck] Math eval failed, proceeding normally');
       }
     }
 
@@ -156,37 +192,30 @@ router.post('/factcheck', async (req, res) => {
     // ── REPORT ──
     send(res, { type: 'PIPELINE', step: 'REPORTING', status: 'Generating accuracy report...', progress: 92 });
 
-    const reportData = await generateAccuracyReport(verifiedClaims);
-    const insightSummary = await generateInsightSummary(reportData);
+    const trueCount    = verifiedClaims.filter(c => c.verdict === 'True').length;
+    const falseCount   = verifiedClaims.filter(c => c.verdict === 'False').length;
+    const partialCount = verifiedClaims.filter(c => c.verdict === 'Partially True').length;
+    const unknownCount = verifiedClaims.filter(c => c.verdict === 'Unverifiable').length;
+    const total        = verifiedClaims.length;
+    const accuracyScore = total > 0
+      ? Math.round(((trueCount + partialCount * 0.5) / total) * 100)
+      : 0;
+    const riskLevel = accuracyScore >= 70 ? 'Low Risk'
+                    : accuracyScore >= 40 ? 'Medium Risk'
+                    : 'High Risk';
 
     const report = {
-      total: reportData.total_claims,
-      true: reportData.true,
-      partial: reportData.partial,
-      false: reportData.false,
-      unverifiable: reportData.not_verifiable,
-      accuracyScore: reportData.confidence,
-      riskLevel: (() => {
-        if (reportData.risk_level === 'LOW') return '🟢 Low Risk';
-        if (reportData.risk_level === 'MEDIUM') return '🟡 Medium Risk';
-        return '🔴 High Risk';
-      })(),
-      insightSummary: insightSummary,
-      results: verifiedClaims
+      total,
+      true:         trueCount,
+      false:        falseCount,
+      partial:      partialCount,
+      unverifiable: unknownCount,
+      accuracyScore,
+      riskLevel,
     };
 
-    console.log(`[Factcheck] Report: ${report.accuracyScore}% accuracy, ${report.riskLevel}`);
+    console.log(`[Factcheck] Report: ${accuracyScore}% accuracy, ${riskLevel}`);
     send(res, { type: 'REPORT', report });
-    
-    // Save for History & Sharing
-    try {
-      const shareId = saveReport(content, report);
-      console.log(`[Factcheck] 💾 Saved result for sharing with ID: ${shareId}`);
-      send(res, { type: 'SHARE_ID', shareId });
-    } catch (storeErr) {
-      console.warn('[Factcheck] Storage failed:', storeErr.message);
-    }
-    
     send(res, { type: 'PIPELINE', step: 'REPORTING', status: 'Pipeline finished successfully.', progress: 100 });
 
   } catch (err) {
@@ -195,31 +224,6 @@ router.post('/factcheck', async (req, res) => {
   } finally {
     res.end();
   }
-});
-
-// ── SHARE ROUTES ──
-
-// Get shared report by ID
-router.get('/share/:id', (req, res) => {
-  const { id } = req.params;
-  const entry = getById(id);
-  
-  if (!entry) {
-    return res.status(404).json({ error: 'Report not found or link expired.' });
-  }
-  
-  res.json(entry);
-});
-
-// Register a report for sharing
-router.post('/share', (req, res) => {
-  const { query, report, id } = req.body;
-  if (!query || !report) {
-    return res.status(400).json({ error: 'Missing report data.' });
-  }
-  
-  const shareId = saveReport(query, report, id);
-  res.json({ shareId });
 });
 
 module.exports = router;
