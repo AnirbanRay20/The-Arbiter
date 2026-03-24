@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 
-export default function AccuracyReport({ report, onNewCheck, onShare }) {
+export default function AccuracyReport({ report, onNewCheck, onShare, onPDF }) {
   if (!report) return null;
   const { total, true: t, partial, false: f, unverifiable, accuracyScore, riskLevel } = report;
   const reportRef = useRef(null);
@@ -94,15 +94,23 @@ export default function AccuracyReport({ report, onNewCheck, onShare }) {
           <div style={{ position: 'relative', width: 130, height: 130, flexShrink: 0 }}>
             <svg style={{ width: '100%', height: '100%', transform: 'rotate(-90deg)' }} viewBox="0 0 100 100">
               <circle cx="50" cy="50" r="44" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="8" />
-              <motion.circle
-                cx="50" cy="50" r="44" fill="none"
-                stroke={ringColor} strokeWidth="8" strokeLinecap="round"
-                strokeDasharray={circumference}
-                initial={{ strokeDashoffset: circumference }}
-                animate={{ strokeDashoffset: circumference - (circumference * accuracyScore / 100) }}
-                transition={{ duration: 1.5, ease: 'easeOut' }}
-                style={{ filter: `drop-shadow(0 0 6px ${ringColor})` }}
-              />
+              {stats.filter(s => s.value > 0).map((s, idx, arr) => {
+                const prevSum = arr.slice(0, idx).reduce((sum, curr) => sum + curr.value, 0);
+                const startPos = (prevSum / total) * circumference;
+                const segmentLen = (s.value / total) * circumference;
+                return (
+                  <motion.circle
+                    key={s.label}
+                    cx="50" cy="50" r="44" fill="none"
+                    stroke={s.color} strokeWidth="8"
+                    strokeDasharray={`${segmentLen} ${circumference}`}
+                    initial={{ strokeDashoffset: segmentLen }}
+                    animate={{ strokeDashoffset: -startPos }}
+                    transition={{ duration: 1.5, ease: 'easeOut' }}
+                    style={{ filter: `drop-shadow(0 0 4px ${s.color}60)` }}
+                  />
+                );
+              })}
             </svg>
             <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
               <span style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 28, color: ringColor, lineHeight: 1 }}>
@@ -193,7 +201,7 @@ export default function AccuracyReport({ report, onNewCheck, onShare }) {
           </button>
 
           {/* Download dropdown */}
-          <DownloadDropdown onJSON={downloadJSON} onImage={downloadImage} />
+          <DownloadDropdown onJSON={downloadJSON} onImage={downloadImage} onPDF={onPDF} />
 
           {/* Share */}
           {onShare && (
@@ -258,7 +266,7 @@ export default function AccuracyReport({ report, onNewCheck, onShare }) {
 }
 
 /* ── Download dropdown component ── */
-function DownloadDropdown({ onJSON, onImage }) {
+function DownloadDropdown({ onJSON, onImage, onPDF }) {
   const [open, setOpen] = React.useState(false);
   const ref = React.useRef(null);
 
@@ -351,6 +359,34 @@ function DownloadDropdown({ onJSON, onImage }) {
               <p style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#556070', margin: '2px 0 0', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Screenshot of report</p>
             </div>
           </button>
+
+          {onPDF && (
+            <>
+              <div style={{ height: 1, backgroundColor: 'rgba(255,255,255,0.06)', margin: '0 0.75rem' }} />
+
+              {/* PDF option */}
+              <button
+                onClick={() => { onPDF(); setOpen(false); }}
+                style={{
+                  display: 'flex', alignItems: 'center', gap: 10,
+                  width: '100%', padding: '0.75rem 1rem',
+                  backgroundColor: 'transparent', border: 'none',
+                  cursor: 'pointer', transition: 'background 0.15s',
+                  textAlign: 'left',
+                }}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.06)'}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = 'transparent'}
+              >
+                <div style={{ width: 30, height: 30, borderRadius: 6, backgroundColor: 'rgba(255,61,87,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <span className="material-symbols-outlined" style={{ fontSize: 16, color: '#FF3D57' }}>picture_as_pdf</span>
+                </div>
+                <div>
+                  <p style={{ fontFamily: 'Space Grotesk', fontWeight: 700, fontSize: 12, color: '#e3e2e8', margin: 0 }}>Forensic PDF</p>
+                  <p style={{ fontFamily: 'IBM Plex Mono', fontSize: 10, color: '#556070', margin: '2px 0 0', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Full detailed report</p>
+                </div>
+              </button>
+            </>
+          )}
         </motion.div>
       )}
     </div>
